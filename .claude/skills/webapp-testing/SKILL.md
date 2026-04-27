@@ -4,16 +4,16 @@ description: 使用 Playwright 与本地 Web 应用程序交互和测试的工�
 license: Complete terms in LICENSE.txt
 ---
 
-# Web Application Testing
+# Web Application Testing（Web 应用测试）
 
-To test local web applications, write native Python Playwright scripts.
+用于测试本地 Web 应用，直接编写原生 Python Playwright 脚本。
 
-**Helper Scripts Available**:
-- `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)
+**可用的 helper 脚本**：
+- `scripts/with_server.py` — 管理 server 生命周期（支持多个 server）
 
-**Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as black-box scripts rather than ingested into your context window.
+**始终先用 `--help` 运行脚本** 查看用法。在确认必须做定制化之前，**不要**先去读脚本源码。这些脚本可能很长，会污染你的 context window。它们被设计成黑盒直接调用，而不是读进上下文里。
 
-## Decision Tree: Choosing Your Approach
+## 决策树：选择合适的方式
 
 ```
 User task → Is it static HTML?
@@ -32,16 +32,16 @@ User task → Is it static HTML?
             4. Execute actions with discovered selectors
 ```
 
-## Example: Using with_server.py
+## 示例：使用 with_server.py
 
-To start a server, run `--help` first, then use the helper:
+要启动 server，先跑 `--help`，再用 helper：
 
-**Single server:**
+**单 server：**
 ```bash
 python scripts/with_server.py --server "npm run dev" --port 5173 -- python your_automation.py
 ```
 
-**Multiple servers (e.g., backend + frontend):**
+**多 server（如 backend + frontend）：**
 ```bash
 python scripts/with_server.py \
   --server "cd backend && python server.py" --port 3000 \
@@ -49,7 +49,7 @@ python scripts/with_server.py \
   -- python your_automation.py
 ```
 
-To create an automation script, include only Playwright logic (servers are managed automatically):
+编写自动化脚本时，只包含 Playwright 逻辑即可（server 生命周期由 helper 自动管理）：
 ```python
 from playwright.sync_api import sync_playwright
 
@@ -62,35 +62,35 @@ with sync_playwright() as p:
     browser.close()
 ```
 
-## Reconnaissance-Then-Action Pattern
+## 先侦察、再行动（Reconnaissance-Then-Action）模式
 
-1. **Inspect rendered DOM**:
+1. **检查已渲染的 DOM**：
    ```python
    page.screenshot(path='/tmp/inspect.png', full_page=True)
    content = page.content()
    page.locator('button').all()
    ```
 
-2. **Identify selectors** from inspection results
+2. **识别 selector** — 从检查结果里找
 
-3. **Execute actions** using discovered selectors
+3. **执行操作** — 用找到的 selector 执行动作
 
-## Common Pitfall
+## 常见坑
 
-❌ **Don't** inspect the DOM before waiting for `networkidle` on dynamic apps
-✅ **Do** wait for `page.wait_for_load_state('networkidle')` before inspection
+❌ **不要**在动态应用里没等到 `networkidle` 就去检查 DOM
+✅ **要**先 `page.wait_for_load_state('networkidle')` 再做检查
 
-## Best Practices
+## 最佳实践
 
-- **Use bundled scripts as black boxes** - To accomplish a task, consider whether one of the scripts available in `scripts/` can help. These scripts handle common, complex workflows reliably without cluttering the context window. Use `--help` to see usage, then invoke directly. 
-- Use `sync_playwright()` for synchronous scripts
-- Always close the browser when done
-- Use descriptive selectors: `text=`, `role=`, CSS selectors, or IDs
-- Add appropriate waits: `page.wait_for_selector()` or `page.wait_for_timeout()`
+- **把打包脚本当黑盒用** — 要完成任务前，先看看 `scripts/` 里有没有现成的脚本能帮上忙。这些脚本已经可靠地处理了常见的复杂 workflow，而且不会污染你的 context window。用 `--help` 看用法，然后直接调用。
+- 同步脚本用 `sync_playwright()`
+- 结束时一定要关闭 browser
+- 使用有描述性的 selector：`text=`、`role=`、CSS selector 或 ID
+- 加合适的等待：`page.wait_for_selector()` 或 `page.wait_for_timeout()`
 
-## Reference Files
+## 参考文件
 
-- **examples/** - Examples showing common patterns:
-  - `element_discovery.py` - Discovering buttons, links, and inputs on a page
-  - `static_html_automation.py` - Using file:// URLs for local HTML
-  - `console_logging.py` - Capturing console logs during automation
+- **examples/** — 展示常见模式的示例：
+  - `element_discovery.py` — 发现页面上的按钮、链接和输入框
+  - `static_html_automation.py` — 对本地 HTML 使用 file:// URL
+  - `console_logging.py` — 在自动化过程中捕获 console log

@@ -4,53 +4,53 @@ argument-hint: <process-description> [--mode full|quick|guided] [--output curren
 allowed-tools: Task, Read, Write, Glob, Grep, Skill
 ---
 
-# Value Stream Command
+# Value Stream 命令
 
-Analyze a value stream to identify waste, bottlenecks, and improvement opportunities using Lean principles.
+使用 Lean（精益）原则分析 value stream，识别浪费、瓶颈和改进机会。
 
-## Arguments
+## 参数
 
-- `<process-description>`: Description of the value stream or process to analyze
-- `--mode`: Analysis mode (default: `guided`)
-  - `full`: Comprehensive analysis with current/future state maps (~12K tokens)
-  - `quick`: Rapid waste identification (~4K tokens)
-  - `guided`: Interactive value stream mapping (variable)
-- `--output`: Output format (default: `both`)
-  - `current`: Current state map only
-  - `future`: Future state map only
-  - `both`: Both current and future state
+- `<process-description>`：要分析的 value stream 或流程的描述
+- `--mode`：分析模式（默认：`guided`）
+  - `full`：包含当前/未来状态图的综合分析（约 12K tokens）
+  - `quick`：快速浪费识别（约 4K tokens）
+  - `guided`：交互式 value stream mapping（耗时不固定）
+- `--output`：输出格式（默认：`both`）
+  - `current`：仅当前状态图
+  - `future`：仅未来状态图
+  - `both`：当前与未来状态都输出
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行流程
 
-### Step 1: Parse Arguments
+### 步骤 1：解析参数
 
-Extract process description, mode, and output format from arguments.
+从参数中提取流程描述、mode 与输出格式。
 
-If no description provided, ask the user:
-"What value stream or process would you like to analyze? Please describe:
+如果未提供描述，则询问用户：
+"你想分析哪条 value stream 或流程？请描述：
 
-- What value is delivered to the customer?
-- What triggers the start of this process?
-- What marks successful completion?"
+- 交付给客户的价值是什么？
+- 什么触发这个流程的开始？
+- 什么标志着成功完成？"
 
-Default mode is `guided`. Default output is `both`.
+默认 mode 为 `guided`。默认输出为 `both`。
 
-### Step 2: Load Value Stream Mapping Skill
+### 步骤 2：加载 Value Stream Mapping skill
 
-Invoke the `value-stream-mapping` skill to access:
+调用 `value-stream-mapping` skill 以获得：
 
-- VSM methodology and notation
-- TIMWOODS waste categories
-- Flow metrics definitions
-- Improvement pattern library
+- VSM 方法论与符号
+- TIMWOODS 浪费分类
+- 流动指标的定义
+- 改进模式库
 
-### Step 3: Execute Based on Mode
+### 步骤 3：按 mode 执行
 
-#### Full Mode (Comprehensive Analysis)
+#### Full 模式（综合分析）
 
-Spawn the `value-stream-analyst` agent for thorough analysis:
+派生 `value-stream-analyst` agent 做深入分析：
 
 ```text
 Analyze this value stream end-to-end:
@@ -67,43 +67,43 @@ Requirements:
 7. Propose Kaizen events for top improvements
 ```
 
-The agent will:
+该 agent 将：
 
-- Map complete current state with metrics
-- Analyze waste systematically
-- Design realistic future state
-- Produce actionable roadmap
+- 带指标地完整映射当前状态
+- 系统性分析浪费
+- 设计切实可行的未来状态
+- 产出可落地的改进路线图
 
-#### Quick Mode (Rapid Assessment)
+#### Quick 模式（快速评估）
 
-Perform fast waste identification:
+快速识别浪费：
 
-1. Identify major process steps
-2. Estimate rough lead times
-3. Identify obvious waste (waiting, handoffs, rework)
-4. Calculate approximate flow efficiency
-5. Flag the most obvious bottleneck
-6. Suggest 3-5 quick wins
+1. 识别主要流程步骤
+2. 粗估 lead time
+3. 识别显而易见的浪费（等待、交接、返工）
+4. 粗算 flow efficiency
+5. 标记最明显的瓶颈
+6. 提出 3-5 个 quick wins
 
-#### Guided Mode (Interactive)
+#### Guided 模式（交互式）
 
-Work interactively through value stream mapping:
+以交互方式完成 value stream mapping：
 
-1. **Define Scope**: Clarify customer, trigger, and end state
-2. **Map Steps**: Walk through each process step
-   - What happens in this step?
-   - How long does the active work take (Process Time)?
-   - How long until it moves to next step (Lead Time)?
-   - What % are done right first time (%C&A)?
-   - Who performs this step?
-3. **Calculate Metrics**: Compute flow efficiency
-4. **Identify Waste**: For each step, check TIMWOODS categories
-5. **Find Bottleneck**: Identify the constraint
-6. **Design Future**: Propose improvements and targets
+1. **定义范围**：明确客户、触发器与结束状态
+2. **梳理步骤**：逐一走查每个流程步骤
+   - 这一步发生了什么？
+   - 实际动手工作耗时多久（Process Time）？
+   - 多久才流转到下一步（Lead Time）？
+   - 一次性做对的比例是多少（%C&A）？
+   - 谁来执行这一步？
+3. **计算指标**：计算 flow efficiency
+4. **识别浪费**：对每一步逐项检查 TIMWOODS 分类
+5. **找出瓶颈**：识别约束
+6. **设计未来**：提出改进与目标
 
-### Step 4: Generate Output Artifacts
+### 步骤 4：生成输出产物
 
-#### Current State Map
+#### 当前状态图
 
 ```markdown
 ## Current State Value Stream Map
@@ -141,7 +141,7 @@ Work interactively through value stream mapping:
 | **T**ransportation | Handoffs | 3 handoffs | Siloed teams |
 ```
 
-#### Flow Diagram
+#### 流动图
 
 ```mermaid
 flowchart LR
@@ -164,7 +164,7 @@ flowchart LR
     A --> B --> C --> D --> E --> F --> G
 ```
 
-#### Future State Map
+#### 未来状态图
 
 ```markdown
 ## Future State Value Stream Map
@@ -196,7 +196,7 @@ flowchart LR
     D --> E[Value]
 ```
 
-#### Improvement Roadmap
+#### 改进路线图
 
 ```markdown
 ### Improvement Roadmap
@@ -225,15 +225,15 @@ flowchart LR
 | Quality Workshop | QA rework | 2 days | Clear acceptance criteria |
 ```
 
-### Step 5: Save Results
+### 步骤 5：保存结果
 
-Save outputs to:
+将输出保存到：
 
 - `docs/analysis/value-stream-[name].md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 可指定自定义输出目录。
 
-### Step 6: Suggest Follow-Up Actions
+### 步骤 6：建议后续行动
 
 ```markdown
 ## Suggested Next Steps

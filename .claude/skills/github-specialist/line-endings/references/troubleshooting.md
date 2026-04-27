@@ -1,38 +1,38 @@
-# Troubleshooting
+# 常见问题排查
 
-Common Git line ending issues and solutions.
+常见的 Git 换行符问题与解决方案。
 
-## Issue: "warning: CRLF will be replaced by LF"
+## 问题：`"warning: CRLF will be replaced by LF"`
 
-**What It Means:** Git is normalizing correctly (informational, not error).
+**含义：** Git 正在正确执行规范化（仅为提示信息，不是错误）。
 
-**Fix:** This is expected behavior. To suppress warnings (not recommended):
+**解决方案：** 这是预期行为。如需抑制该警告（不推荐）：
 
 ```bash
 git config --global core.safecrlf false
 ```
 
-## Issue: Files Show Wrong Line Endings
+## 问题：文件显示错误的换行符
 
-**Symptom:**
+**症状：**
 
 ```bash
 git ls-files --eol README.md
 # Shows: i/lf w/crlf attr/text eol=lf
 ```
 
-**Fix:**
+**解决方案：**
 
 ```bash
 git add --renormalize .
 git commit -m "Normalize line endings"
 ```
 
-## Issue: Shell Scripts Won't Execute
+## 问题：Shell 脚本无法执行
 
-**Error:** `bash: /bin/bash^M: bad interpreter`
+**错误信息：** `bash: /bin/bash^M: bad interpreter`
 
-**Fix:**
+**解决方案：**
 
 ```bash
 # Immediate
@@ -44,20 +44,20 @@ git add --renormalize script.sh
 git commit -m "Fix shell script line endings"
 ```
 
-## Issue: Git Shows Every Line Changed
+## 问题：Git 显示每一行都被修改
 
-**Cause:** Line endings changed (CRLF ↔ LF).
+**原因：** 换行符发生了变化（CRLF ↔ LF）。
 
-**Fix:**
+**解决方案：**
 
 ```bash
 git add --renormalize file.txt
 git commit -m "Normalize line endings"
 ```
 
-## Issue: Binary Files Corrupted
+## 问题：二进制文件损坏
 
-**Fix:**
+**解决方案：**
 
 ```bash
 # Restore

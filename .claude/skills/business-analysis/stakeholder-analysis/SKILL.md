@@ -4,43 +4,43 @@ description: Stakeholder identification, analysis, and management using BABOK te
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Stakeholder Analysis
+# Stakeholder Analysis（干系人分析）
 
-Identify, analyze, and plan engagement strategies for project and initiative stakeholders. Based on BABOK v3 Elicitation & Collaboration knowledge area.
+识别、分析项目和 initiative 中的干系人，并规划相应的参与策略。基于 BABOK v3 的 Elicitation & Collaboration 知识域。
 
-## What is Stakeholder Analysis?
+## 什么是 Stakeholder Analysis？
 
-Stakeholder analysis systematically identifies all parties affected by or able to affect an initiative, assesses their interests and influence, and develops engagement strategies.
+干系人分析系统性地识别所有受到某个 initiative 影响、或能够影响该 initiative 的各方，评估他们的利益和影响力，并制定相应的参与策略。
 
-## Core Deliverables
+## 核心交付物
 
-| Deliverable | Purpose | When to Create |
+| 交付物 | 用途 | 何时产出 |
 |-------------|---------|----------------|
-| **Stakeholder Register** | Comprehensive list of all stakeholders | Project initiation |
-| **Power/Interest Matrix** | Prioritize engagement approach | Analysis phase |
-| **RACI Matrix** | Clarify roles and responsibilities | Planning phase |
-| **Communication Plan** | Structured engagement strategy | Planning phase |
+| **Stakeholder Register（干系人登记表）** | 全量干系人清单 | 项目启动 |
+| **Power/Interest Matrix（权力/利益矩阵）** | 为参与方式排序 | 分析阶段 |
+| **RACI Matrix** | 厘清角色与职责 | 规划阶段 |
+| **Communication Plan（沟通计划）** | 结构化的参与策略 | 规划阶段 |
 
-## Workflow
+## 工作流
 
-### Phase 1: Stakeholder Identification
+### Phase 1：识别干系人
 
-#### Step 1: Brainstorm Categories
+#### Step 1：按类别头脑风暴
 
-Systematically identify stakeholders by category:
+按类别系统性地识别干系人：
 
-| Category | Examples | Questions to Ask |
+| 类别 | 示例 | 要问的问题 |
 |----------|----------|------------------|
-| **Sponsors** | Executive sponsor, budget owner | Who funds this? Who can cancel it? |
-| **Users** | End users, power users, administrators | Who uses the solution daily? |
-| **Operators** | IT ops, support teams, maintenance | Who keeps it running? |
-| **Regulators** | Compliance, legal, audit | Who ensures we follow rules? |
-| **Affected Parties** | Other departments, displaced roles | Who is impacted by changes? |
-| **Subject Matter Experts** | Domain experts, technical leads | Who has critical knowledge? |
-| **Decision Makers** | Steering committee, architects | Who approves decisions? |
-| **Influencers** | Opinion leaders, union reps | Who shapes perceptions? |
+| **Sponsors（发起人）** | 高层 sponsor、预算 owner | 谁出钱？谁能取消？ |
+| **Users（用户）** | 最终用户、高阶用户、管理员 | 谁每天使用这个方案？ |
+| **Operators（运维方）** | IT ops、支持团队、维护 | 谁保障它运行？ |
+| **Regulators（监管方）** | 合规、法务、审计 | 谁确保我们守规？ |
+| **Affected Parties（受影响方）** | 其他部门、被替换的岗位 | 谁会被这次变动影响？ |
+| **Subject Matter Experts（SME）** | 领域专家、技术负责人 | 谁掌握关键知识？ |
+| **Decision Makers（决策人）** | 指导委员会、架构师 | 谁拍板？ |
+| **Influencers（影响者）** | 意见领袖、工会代表 | 谁在塑造认知？ |
 
-#### Step 2: Create Stakeholder Register
+#### Step 2：创建 Stakeholder Register
 
 ```markdown
 ## Stakeholder Register
@@ -53,20 +53,20 @@ Systematically identify stakeholders by category:
 | S04 | Compliance Officer | Regulator | Legal | ... | GDPR requirements |
 ```
 
-### Phase 2: Stakeholder Analysis
+### Phase 2：分析干系人
 
-#### Step 1: Assess Each Stakeholder
+#### Step 1：评估每位干系人
 
-For each stakeholder, evaluate:
+对每位干系人，从以下维度评估：
 
-| Dimension | Question | Scale |
+| 维度 | 问题 | 量级 |
 |-----------|----------|-------|
-| **Power** | Can they stop or significantly impact the initiative? | Low/Medium/High |
-| **Interest** | How much do they care about the outcome? | Low/Medium/High |
-| **Attitude** | Are they supportive, neutral, or resistant? | Supporter/Neutral/Resistor |
-| **Influence** | Can they sway other stakeholders? | Low/Medium/High |
+| **Power（权力）** | 他们能否中止或显著影响该 initiative？ | Low/Medium/High |
+| **Interest（关注度）** | 他们对结果有多在意？ | Low/Medium/High |
+| **Attitude（态度）** | 支持、中立，还是反对？ | Supporter/Neutral/Resistor |
+| **Influence（影响力）** | 能否左右其他干系人？ | Low/Medium/High |
 
-#### Step 2: Create Power/Interest Matrix
+#### Step 2：绘制 Power/Interest Matrix
 
 ```text
                     HIGH INTEREST
@@ -88,7 +88,7 @@ POWER                    │                    │
                     LOW INTEREST
 ```
 
-#### Step 3: Plot Stakeholders
+#### Step 3：把干系人标到矩阵上
 
 ```markdown
 ## Power/Interest Analysis
@@ -117,16 +117,16 @@ POWER                    │                    │
 | Other Departments | Low | Low | General announcements only |
 ```
 
-### Phase 3: Responsibility Assignment (RACI)
+### Phase 3：职责分配（RACI）
 
-Create RACI matrix for key decisions and deliverables:
+针对关键决策和交付物，构建 RACI 矩阵：
 
-| Legend | Meaning | Rule |
+| 标记 | 含义 | 规则 |
 |--------|---------|------|
-| **R** - Responsible | Does the work | Can have multiple |
-| **A** - Accountable | Final authority | Must be exactly one |
-| **C** - Consulted | Provides input | Before decision |
-| **I** - Informed | Notified of outcome | After decision |
+| **R** - Responsible | 干活的人 | 可以有多人 |
+| **A** - Accountable | 最终负责人 | 有且只能有一位 |
+| **C** - Consulted | 提供输入 | 决策前咨询 |
+| **I** - Informed | 知会结果 | 决策后通知 |
 
 ```markdown
 ## RACI Matrix
@@ -140,21 +140,21 @@ Create RACI matrix for key decisions and deliverables:
 | Production Support | I | I | C | - | A |
 ```
 
-### Phase 4: Communication Planning
+### Phase 4：沟通计划
 
-#### Step 1: Define Communication Needs
+#### Step 1：定义沟通需求
 
-For each stakeholder group:
+对每个干系人群体：
 
-| Question | Purpose |
+| 问题 | 用途 |
 |----------|---------|
-| What do they need to know? | Content |
-| When do they need it? | Timing |
-| How should we communicate? | Channel |
-| Who should communicate? | Sender |
-| What response do we expect? | Feedback mechanism |
+| 他们需要知道什么？ | 内容 |
+| 什么时候需要？ | 时机 |
+| 用什么方式沟通？ | 渠道 |
+| 谁来沟通？ | 发送者 |
+| 期望怎样的反馈？ | 反馈机制 |
 
-#### Step 2: Create Communication Plan
+#### Step 2：制定 Communication Plan
 
 ```markdown
 ## Communication Plan
@@ -168,11 +168,11 @@ For each stakeholder group:
 | All Stakeholders | Major milestones | As needed | Email blast | PM | None |
 ```
 
-### Phase 5: Engagement Strategy
+### Phase 5：参与策略
 
-For challenging stakeholders (resistors, skeptics), develop targeted strategies:
+针对难缠的干系人（反对者、怀疑者），制定有针对性的策略：
 
-#### Resistance Analysis
+#### 阻力分析
 
 ```markdown
 ## Resistance Analysis
@@ -184,9 +184,9 @@ For challenging stakeholders (resistors, skeptics), develop targeted strategies:
 | Union Rep | Neutral | Supporter | Needs assurance | Early engagement, transparency |
 ```
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Stakeholder Analysis Summary
@@ -213,7 +213,7 @@ For challenging stakeholders (resistors, skeptics), develop targeted strategies:
 2. [...]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 stakeholder_analysis:
@@ -274,9 +274,9 @@ stakeholder_analysis:
       owner: "Project Manager"
 ```
 
-### Mermaid Diagrams
+### Mermaid 图表
 
-**Power/Interest Quadrant:**
+**Power/Interest 象限图：**
 
 ```mermaid
 quadrantChart
@@ -295,61 +295,61 @@ quadrantChart
     Other Depts: [0.2, 0.2]
 ```
 
-## Multi-Persona Workshop Mode
+## 多 Persona 工作坊模式
 
-For comprehensive stakeholder analysis, run a multi-persona workshop (similar to event storming):
+做全面的干系人分析时，可以召开一个多 persona 的 workshop（类似 event storming）：
 
-**Personas to Invoke:**
+**要调用的 Persona：**
 
-| Persona | Perspective | Contribution |
+| Persona | 视角 | 贡献点 |
 |---------|-------------|--------------|
-| `executive-sponsor-persona` | Strategic | Budget, timeline, success criteria |
-| `end-user-persona` | Operational | Daily usage, pain points, adoption |
-| `operations-persona` | Support | Maintenance, reliability, training |
-| `compliance-persona` | Regulatory | Rules, audit, risk |
-| `devils-advocate` | Critical | Risks, overlooked stakeholders, conflicts |
+| `executive-sponsor-persona` | 战略 | 预算、时间线、成功标准 |
+| `end-user-persona` | 运营 | 日常使用、痛点、采纳度 |
+| `operations-persona` | 支持 | 维护、可靠性、培训 |
+| `compliance-persona` | 合规 | 规则、审计、风险 |
+| `devils-advocate` | 批判 | 风险、被忽视的干系人、冲突 |
 
-**Orchestration:**
+**编排方式：**
 
-1. Launch all personas in parallel
-2. Each persona identifies stakeholders from their perspective
-3. Synthesize findings with provenance tracking
-4. Resolve conflicts and gaps
+1. 并行启动所有 persona
+2. 每个 persona 从自己的视角识别干系人
+3. 合并发现，并追踪每条 finding 的来源（provenance）
+4. 处理冲突与遗漏
 
-## When to Use
+## 何时使用
 
-| Scenario | Use Stakeholder Analysis? |
+| 场景 | 是否使用干系人分析？ |
 |----------|--------------------------|
-| New project initiation | Yes - identify all affected parties |
-| Change management | Yes - plan adoption strategy |
-| Requirements gathering | Yes - ensure right people involved |
-| Conflict resolution | Yes - understand interests |
-| Routine operations | No - not needed for BAU |
+| 新项目启动 | 是 — 识别所有受影响方 |
+| 变更管理 | 是 — 规划采纳策略 |
+| 需求采集 | 是 — 确保对的人被拉进来 |
+| 冲突处理 | 是 — 理解各方利益 |
+| 日常运营 | 否 — BAU 场景无需 |
 
-## Common Mistakes
+## 常见错误
 
-| Mistake | Impact | Prevention |
+| 错误 | 影响 | 预防 |
 |---------|--------|------------|
-| Missing hidden stakeholders | Late surprises, resistance | Use systematic categories |
-| Ignoring resistors | Project failure | Develop engagement strategy |
-| Static analysis | Outdated understanding | Revisit quarterly |
-| Over-communicating to all | Information overload | Tailor by quadrant |
+| 漏掉隐性干系人 | 后期意外、阻力 | 使用系统化分类 |
+| 忽略反对者 | 项目失败 | 制定参与策略 |
+| 一次分析永不更新 | 认知过时 | 每季度复盘 |
+| 对所有人过度沟通 | 信息过载 | 按象限差异化 |
 
-## References
+## 参考资料
 
-- Load `references/power-interest-matrix.md` for matrix variations
-- Load `references/raci-matrix.md` for RACI guidance
-- See BABOK v3 Chapter 3 (Elicitation & Collaboration)
+- 查看 `references/power-interest-matrix.md` 了解矩阵的各类变体
+- 查看 `references/raci-matrix.md` 了解 RACI 指南
+- 参见 BABOK v3 第 3 章（Elicitation & Collaboration）
 
-## Related Skills
+## 相关 skill
 
-- `capability-mapping` - Identify capability owners as stakeholders
-- `journey-mapping` - Understand user stakeholder needs
-- `risk-analysis` - Assess stakeholder-related risks
-- `prioritization` - Prioritize stakeholder engagement
-- `decision-analysis` - Stakeholder decision matrices
-- `process-modeling` - Identify domain stakeholders through process analysis
+- `capability-mapping` — 把能力 owner 识别为干系人
+- `journey-mapping` — 理解用户干系人的需求
+- `risk-analysis` — 评估干系人相关的风险
+- `prioritization` — 为干系人参与排优先级
+- `decision-analysis` — 干系人决策矩阵
+- `process-modeling` — 通过流程分析识别领域干系人
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

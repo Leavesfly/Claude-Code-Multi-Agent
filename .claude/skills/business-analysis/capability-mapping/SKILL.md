@@ -4,58 +4,58 @@ description: Business capability modeling using BABOK Business Capability Analys
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Business Capability Mapping
+# Business Capability Mapping（业务能力地图）
 
-Create hierarchical business capability models that bridge strategy and architecture. Based on BABOK v3 Business Capability Analysis (10.6).
+构建能连接战略与架构的分层业务能力模型。基于 BABOK v3 的 Business Capability Analysis（10.6）。
 
-## What is a Business Capability?
+## 什么是业务能力？
 
-A **business capability** defines "what" a business does at its core, independent of:
+**业务能力（business capability）** 定义的是企业本质上"做什么"，与以下维度无关：
 
-- **How** it's done (processes)
-- **Who** does it (organizational structure)
-- **Where** it's done (locations)
+- **How（怎么做）**：流程
+- **Who（谁做）**：组织结构
+- **Where（在哪做）**：地点
 
-Capabilities are stable over time, even as processes, technology, and org structure change.
+即便流程、技术与组织结构发生变化，能力本身仍会长期保持稳定。
 
-## Capability Hierarchy
+## 能力层级
 
-| Level | Scope | Example | Description |
+| 层级 | 范围 | 示例 | 描述 |
 |-------|-------|---------|-------------|
-| **L1** | Domain | Customer Management | Strategic capability areas (typically 8-15) |
-| **L2** | Sub-Domain | Customer Onboarding | Decomposition of L1 (3-7 per L1) |
-| **L3** | Activity | Identity Verification | Detailed activities (3-10 per L2) |
-| **L4+** | Optional | KYC Document Processing | Granular (map to SOA services) |
+| **L1** | Domain | Customer Management | 战略性能力领域（通常 8-15 个） |
+| **L2** | Sub-Domain | Customer Onboarding | L1 的下拆（每个 L1 拆出 3-7 个） |
+| **L3** | Activity | Identity Verification | 具体活动（每个 L2 拆 3-10 个） |
+| **L4+** | Optional | KYC Document Processing | 更细粒度（映射到 SOA service） |
 
-## Capability Types
+## 能力类型
 
-| Type | Description | Investment Priority |
+| 类型 | 描述 | 投入优先级 |
 |------|-------------|---------------------|
-| **Strategic** | Drive competitive advantage | High - differentiate |
-| **Core** | Essential to value delivery | Medium - optimize |
-| **Supporting** | Enable other capabilities | Low - commoditize/outsource |
+| **Strategic（战略型）** | 驱动竞争优势 | 高 — 用来做差异化 |
+| **Core（核心型）** | 价值交付所必需 | 中 — 做优化 |
+| **Supporting（支撑型）** | 使能其他能力 | 低 — 做商品化或外包 |
 
-## Workflow
+## 工作流
 
-### Phase 1: Discovery
+### Phase 1：Discovery（发现）
 
-Before creating a capability map, understand the business domain:
+绘制能力地图之前，先理解业务领域：
 
-1. **Analyze existing documentation**
-   - Review business processes, org charts, strategy docs
-   - Identify actors, work objects, activities
+1. **分析已有文档**
+   - 复盘业务流程、组织结构图、战略文档
+   - 识别出 actor、工作对象、活动
 
-2. **Conduct stakeholder interviews**
-   - Invoke `stakeholder-analysis` skill to identify key stakeholders
-   - Interview domain experts for capability insights
+2. **做 stakeholder 访谈**
+   - 调用 `stakeholder-analysis` skill 识别关键 stakeholder
+   - 访谈领域专家，获取能力洞察
 
-3. Use discovered patterns as L1 capability candidates
+3. 将发现的模式作为 L1 能力的候选
 
-### Phase 2: Capability Identification
+### Phase 2：能力识别
 
-#### Step 1: Define L1 Capabilities
+#### 步骤 1：定义 L1 能力
 
-Start with industry frameworks, then customize:
+从行业框架起步，然后做本地化：
 
 ```markdown
 ## L1 Capabilities (Example: Retail)
@@ -72,9 +72,9 @@ Start with industry frameworks, then customize:
 | 8 | Marketing | Strategic | Brand and customer acquisition |
 ```
 
-#### Step 2: Decompose to L2
+#### 步骤 2：向 L2 拆解
 
-For each L1, identify sub-capabilities:
+对每个 L1，识别其子能力：
 
 ```markdown
 ## L2 Decomposition: Customer Management
@@ -87,9 +87,9 @@ For each L1, identify sub-capabilities:
 | Customer Analytics | Data Team | 2 | BI Platform |
 ```
 
-#### Step 3: Decompose to L3 (as needed)
+#### 步骤 3：按需向 L3 拆解
 
-Only decompose where detail is needed for planning:
+仅在规划需要更细颗粒度时才继续拆解：
 
 ```markdown
 ## L3 Decomposition: Customer Onboarding
@@ -102,32 +102,32 @@ Only decompose where detail is needed for planning:
 | Welcome Communication | Onboarding emails/guides | Automated |
 ```
 
-### Phase 3: Cross-Mapping
+### Phase 3：交叉映射
 
-Map capabilities to other domains for strategic analysis:
+把能力映射到其他领域，做战略分析：
 
-| Cross-Map Domain | Purpose | Example Questions |
+| 交叉领域 | 目的 | 典型问题 |
 |------------------|---------|-------------------|
-| **People** | Ownership | Who owns this capability? |
-| **Process** | Execution | What processes implement this? |
-| **Technology** | Enablement | What systems support this? |
-| **Strategy** | Alignment | How does this support strategy? |
-| **Investment** | Prioritization | Where should we invest? |
-| **Risk** | Exposure | What are the risks? |
+| **People（人）** | Ownership | 这项能力由谁 own？ |
+| **Process（流程）** | 执行 | 由哪些流程实现？ |
+| **Technology（技术）** | 使能 | 有哪些系统在支撑？ |
+| **Strategy（战略）** | 对齐 | 它如何支持战略？ |
+| **Investment（投入）** | 优先级 | 应该在哪里投入？ |
+| **Risk（风险）** | 风险敞口 | 存在哪些风险？ |
 
-### Phase 4: Assessment
+### Phase 4：评估
 
-Score each capability on maturity and strategic importance:
+对每项能力在成熟度与战略重要性上打分：
 
-**Maturity Scale (1-5):**
+**成熟度量表（1-5）：**
 
-1. Initial - Ad hoc, reactive
-2. Developing - Some structure
-3. Defined - Standardized processes
-4. Managed - Measured and controlled
-5. Optimizing - Continuous improvement
+1. Initial — 临时、被动响应
+2. Developing — 有一定结构
+3. Defined — 标准化流程
+4. Managed — 度量并可控
+5. Optimizing — 持续改进
 
-**Heat Map Visualization:**
+**热力图可视化：**
 
 ```markdown
 ## Capability Heat Map
@@ -140,11 +140,11 @@ Score each capability on maturity and strategic importance:
 | HR Admin | 3 | Low | Low | Outsource? |
 ```
 
-## Output Format
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
-Provide human-readable analysis:
+给出人类可读的分析：
 
 ```markdown
 ## Capability Map Summary
@@ -165,7 +165,7 @@ Provide human-readable analysis:
 2. [...]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 capability_model:
@@ -203,7 +203,7 @@ capability_model:
               automation: high
 ```
 
-### Mermaid Diagram
+### Mermaid 图
 
 ```mermaid
 mindmap
@@ -227,45 +227,45 @@ mindmap
       Returns
 ```
 
-## Integration Points
+## 集成点
 
-### Upstream (Discovery)
+### 上游（Discovery）
 
-- **stakeholder-analysis** - Identify capability owners and domain experts
-- **process-modeling** - Understand AS-IS processes
-- **value-stream-mapping** - Understand value flow
+- **stakeholder-analysis** — 识别能力 owner 和领域专家
+- **process-modeling** — 了解 AS-IS（现状）流程
+- **value-stream-mapping** — 了解价值流动
 
-### Downstream (Consumers)
+### 下游（消费者）
 
-- **Requirements** - Capability → Requirements traceability
-- **Systems design** - Capability → System mapping
-- **Investment planning** - Capability → Budget allocation
+- **Requirements** — Capability → Requirements 的可追溯
+- **Systems design** — Capability → System 的映射
+- **Investment planning** — Capability → 预算分配
 
-## When to Use
+## 何时使用
 
-| Scenario | Use Capability Mapping? |
+| 场景 | 用不用能力地图？ |
 |----------|------------------------|
-| Strategic planning | Yes - align investments |
-| M&A integration | Yes - identify overlaps |
-| Digital transformation | Yes - prioritize initiatives |
-| Application rationalization | Yes - map apps to capabilities |
-| Process improvement | Partial - use with process modeling |
-| Specific feature design | No - too high-level |
+| 战略规划 | 用 — 对齐投入 |
+| M&A（并购）集成 | 用 — 识别重叠 |
+| 数字化转型 | 用 — 给 initiative 排优先级 |
+| 应用资产梳理 | 用 — 把应用映射到能力 |
+| 流程改进 | 部分 — 与 process modeling 结合使用 |
+| 具体功能设计 | 不用 — 粒度太粗 |
 
-## References
+## 参考资料
 
-- Load `references/capability-hierarchy.md` for detailed hierarchy guidance
-- See BABOK v3 Section 10.6 for formal technique definition
+- 加载 `references/capability-hierarchy.md` 获取更详细的层级指南
+- 正式的技法定义见 BABOK v3 第 10.6 节
 
-## Related Skills
+## 相关 skill
 
-- `stakeholder-analysis` - Identify capability owners
-- `value-stream-mapping` - Map value flow across capabilities
-- `benchmarking` - Compare capability maturity against industry standards
-- `prioritization` - Prioritize capability investments
-- `swot-pestle-analysis` - Strategic context for capabilities
-- `decision-analysis` - Evaluate capability investment options
+- `stakeholder-analysis` — 识别能力 owner
+- `value-stream-mapping` — 映射跨能力的价值流
+- `benchmarking` — 把能力成熟度与行业标准对标
+- `prioritization` — 给能力投入排优先级
+- `swot-pestle-analysis` — 能力所处的战略情境
+- `decision-analysis` — 评估能力投入的方案
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

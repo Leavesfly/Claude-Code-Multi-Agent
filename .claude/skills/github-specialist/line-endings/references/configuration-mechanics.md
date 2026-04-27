@@ -1,28 +1,28 @@
-# Configuration Mechanics
+# 配置机制
 
-Detailed explanation of Git line ending configuration mechanics.
+Git 行结束配置机制的详细解释。
 
-## Table of Contents
+## 目录
 
 - [core.autocrlf](#coreautocrlf)
 - [core.eol](#coreeol)
 - [core.safecrlf](#coresafecrlf)
-- [Precedence Hierarchy](#precedence-hierarchy)
-- [Configuration Levels](#configuration-levels)
+- [优先级层次结构](#precedence-hierarchy)
+- [配置级别](#configuration-levels)
 
-## core.autocrlf
+## 核心.autocrlf
 
 Controls automatic line ending conversion.
 
 **Values:**
 
-| Value | Behavior on Checkout | Behavior on Commit | Use Case |
+|价值|结账时的行为|Commit 上的行为|使用案例|
 | --- | --- | --- | --- |
-| `true` | LF → CRLF | CRLF → LF | Windows developers (Git for Windows default) |
-| `input` | No conversion | CRLF → LF | Mac/Linux developers |
-| `false` | No conversion | No conversion | Manual control via .gitattributes |
+|`真实`|换行 → 换行|回车换行→换行|Windows 开发人员（Git 代表 Windows 默认值）|
+|`输入`|无转换|回车换行→换行|Mac/Linux 开发者|
+|`假`|无转换|无转换|通过 .gitattributes 手动控制|
 
-**How `autocrlf=true` Works (Windows):**
+**“autocrlf=true”如何工作（Windows）：**
 
 ```text
 Repository (LF)
@@ -36,7 +36,7 @@ Working Directory (CRLF)
 Repository (LF)
 ```
 
-**How `autocrlf=input` Works (Mac/Linux):**
+** `autocrlf=input` 的工作原理 (Mac/Linux)：**
 
 ```text
 Repository (LF)
@@ -50,53 +50,53 @@ Working Directory (LF)
 Repository (LF)
 ```
 
-## core.eol
+## 核心文件
 
-Fallback line ending style for working directory when `.gitattributes` doesn't specify and `autocrlf` doesn't apply.
+当“.gitattributes”未指定并且“autocrlf”不适用时，工作目录的后备行结束样式。
 
-**Values:**
+**数值：**
 
-- `native` - Use platform default (CRLF on Windows, LF on Unix) **[Recommended with autocrlf=false]**
-- `lf` - Always use LF
-- `crlf` - Always use CRLF
+- `native` - 使用平台默认值（Windows 上的 CRLF，Unix 上的 LF）**[推荐使用 autocrlf=false]**
+- `lf` - 始终使用 LF
+- `crlf` - 始终使用 CRLF
 
-**When It Applies:**
+**适用时：**
 
-- Only used when `core.autocrlf=false`
-- Only applies to files with `text` attribute but no explicit `eol` attribute
-- Overridden by `.gitattributes` `eol` attribute
+- 仅当 core.autocrlf=false 时使用
+- 仅适用于具有“text”属性但没有显式“eol”属性的文件
+- 被 `.gitattributes` `eol` 属性覆盖
 
-## core.safecrlf
+## 核心.safecrlf
 
-Safety check to prevent irreversible line ending conversions.
+安全检查以防止不可逆的行结束转换。
 
-**Values:**
+**数值：**
 
-- `true` - Reject commits that would lose data (strict)
-- `warn` - Warn about potential data loss but allow commit **[Recommended]**
-- `false` - No safety checks (dangerous)
+- `true` - 拒绝会丢失数据的提交（严格）
+- `warn` - 警告潜在的数据丢失，但允许 commit **[推荐]**
+- `false` - 没有安全检查（危险）
 
-**Example Warning:**
+**警告示例：**
 
 ```bash
 $ git add file.txt
 warning: in the working copy of 'file.txt', CRLF will be replaced by LF the next time Git touches it
 ```
 
-This is informational - Git is normalizing the file per your configuration.
+这是信息性的 - Git 正在根据您的配置规范化文件。
 
-## Precedence Hierarchy
+## 优先级层次结构
 
-**Order of priority (highest to lowest):**
+**优先级顺序（从最高到最低）：**
 
-1. **`.gitattributes` `eol` attribute** - Explicit per-file rule (highest priority)
-2. **`.gitattributes` `text` attribute** - Enables normalization
-3. **`core.autocrlf`** - Automatic conversion (only if `eol` not specified)
-4. **`core.eol`** - Fallback default (only if `autocrlf=false` and no attributes)
+1. **`.gitattributes` `eol` 属性** - 显式每个文件规则（最高优先级）
+2. **`.gitattributes` `text` 属性** - 启用规范化
+3. **`core.autocrlf`** - 自动转换（仅当未指定`eol`时）
+4. **`core.eol`** - 后备默认值（仅当 `autocrlf=false` 并且没有属性时）
 
-**Critical Finding:** `.gitattributes` `eol` attribute **ALWAYS overrides** `core.autocrlf`.
+**关键发现：** `.gitattributes` `eol` 属性 **始终覆盖** `core.autocrlf`。
 
-**Example:**
+**例子：**
 
 ```bash
 # Config: core.autocrlf=true
@@ -106,9 +106,9 @@ This is informational - Git is normalizing the file per your configuration.
 # The .gitattributes eol=lf takes precedence over autocrlf=true
 ```
 
-## Configuration Levels
+## 配置级别
 
-Git config can be set at three levels:
+Git 配置可以设置为三个级别：
 
 ```bash
 # System-wide (all users, all repos)
@@ -125,6 +125,6 @@ git config --local core.autocrlf true
 # File: .git/config (in repository root)
 ```
 
-**Priority:** Local > Global > System (local settings override global/system)
+**优先级：**本地 > 全局 > 系统（本地设置覆盖全局/系统）
 
-**Best Practice:** Set line ending config at **global level** for consistency across your repos, use **local level** only for exceptions.
+**最佳实践：** 在 **全局级别** 设置行结束配置，以确保存储库之间的一致性，仅在例外情况下使用 **本地级别**。

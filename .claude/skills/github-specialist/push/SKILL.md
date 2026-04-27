@@ -1,45 +1,45 @@
 ---
 name: push
-description: Comprehensive Git push operations including basic push, force push safety protocols, tag pushing, remote management, and troubleshooting. Use when pushing commits, managing remotes, pushing tags, resolving push conflicts, handling rejected pushes, or dealing with force push scenarios. Covers push strategies, branch protection, upstream configuration, and push --force-with-lease best practices.
+description: 完整的 Git push 操作，包括基础 push、force push 安全协议、tag push、remote 管理和故障排查。在 push commit、管理 remote、push tag、解决 push 冲突、处理被拒 push 或面对 force push 场景时使用。覆盖 push 策略、branch protection、upstream 配置，以及 push --force-with-lease 最佳实践。
 allowed-tools: Read, Bash, Glob, Grep
 ---
 
 # Git Push
 
-Comprehensive guidance for Git push operations, from basic pushes to force push safety protocols and remote management.
+Git push 操作的完整指南，从基础 push 到 force push 安全协议和 remote 管理。
 
-## Overview
+## 概述
 
-This skill provides complete guidance for Git push operations, emphasizing safety protocols (especially for force pushes), remote management, and troubleshooting common push scenarios. It complements the git-commit skill (which handles commit creation) by focusing exclusively on push operations and remote synchronization.
+本 skill 提供 Git push 操作的完整指导，重点是安全协议（尤其是 force push）、remote 管理，以及常见 push 场景的排查。它与 git-commit skill（负责创建 commit）互补，专注于 push 操作与 remote 同步。
 
-## When to Use This Skill
+## 何时使用本 skill
 
-This skill should be used when:
+在以下场景使用本 skill：
 
-- **Pushing commits** - Basic push operations to remote repositories
-- **Force pushing** - Rewriting history with safety protocols (force-with-lease)
-- **Pushing tags** - Annotated tags, lightweight tags, tag workflows
-- **Managing remotes** - Adding, removing, renaming, configuring remote repositories
-- **Troubleshooting pushes** - Rejected pushes, conflicts, authentication issues
-- **Upstream configuration** - Setting up tracking branches, push.autoSetupRemote
-- **Branch protection** - Understanding protected branches and push restrictions
+- **Push commit** —— 基础 push 操作到 remote repo
+- **Force push** —— 使用安全协议（force-with-lease）重写历史
+- **Push tag** —— annotated tag、lightweight tag、tag workflow
+- **管理 remote** —— 添加、移除、重命名、配置 remote repo
+- **排查 push 问题** —— 被拒 push、冲突、认证问题
+- **Upstream 配置** —— 设置 tracking branch、push.autoSetupRemote
+- **Branch protection** —— 理解受保护 branch 与 push 限制
 
-**Trigger keywords:** push, force push, force-with-lease, remote, upstream, tracking branch, rejected push, push --force, git push origin, push tags, remote add
+**触发关键词：** push、force push、force-with-lease、remote、upstream、tracking branch、rejected push、push --force、git push origin、push tags、remote add
 
-## Prerequisites
+## 前置条件
 
-This skill assumes:
+本 skill 假设：
 
-- **Git is installed** (verify with `git --version`)
-- **Repository initialized** (local repo with `.git/` directory)
-- **Remote configured** (typically `origin` for GitHub/GitLab/Bitbucket)
-- **Basic Git knowledge** (commits, branches, remotes)
+- **Git 已安装**（用 `git --version` 验证）
+- **仓库已初始化**（本地 repo 带 `.git/` 目录）
+- **Remote 已配置**（GitHub/GitLab/Bitbucket 下通常是 `origin`）
+- **基本 Git 知识**（commit、branch、remote）
 
-For Git installation help, see the **setup** skill.
+Git 安装相关请见 **setup** skill。
 
-## Quick Start
+## 快速开始
 
-### Basic Push
+### 基础 push
 
 ```bash
 # Push current branch to remote (if upstream is configured)
@@ -52,7 +52,7 @@ git push -u origin feature-branch
 git push origin main
 ```
 
-### Safe Force Push
+### 安全的 force push
 
 ```bash
 # Safe force push (recommended - only overwrites if no one else pushed)
@@ -65,7 +65,7 @@ git push --force-with-lease --force-if-includes
 git push --force-with-lease origin feature-branch
 ```
 
-### Push Tags
+### Push tag
 
 ```bash
 # Push specific tag
@@ -78,13 +78,13 @@ git push --tags
 git push --follow-tags
 ```
 
-## Core Capabilities
+## 核心能力
 
-### 1. Basic Push Operations
+### 1. 基础 push 操作
 
-Push local commits to remote repositories for collaboration and backup.
+将本地 commit 推送到 remote repo，用于协作和备份。
 
-**Essential commands:**
+**核心命令：**
 
 ```bash
 # Push current branch (upstream must be configured)
@@ -100,22 +100,22 @@ git push origin main
 git push --dry-run
 ```
 
-**📖 For detailed configuration:** See [references/push-configuration.md](references/push-configuration.md) for upstream setup, push strategies, and advanced options.
+**📖 详细配置：** 参见 [references/push-configuration.md](references/push-configuration.md)，包含 upstream 设置、push 策略和进阶选项。
 
 ---
 
-### 2. Force Push Safety Protocols
+### 2. Force push 安全协议
 
-Rewrite remote history safely when necessary (after rebasing, amending, or squashing commits).
+在必要时（rebase、amend、squash 之后）安全地重写 remote 历史。
 
-**CRITICAL SAFETY RULES:**
+**关键安全规则：**
 
-- ✅ **ONLY force push on feature branches** (your personal work)
-- ✅ **ALWAYS use `--force-with-lease`** (not `--force`)
-- ❌ **NEVER force push to main/master/develop** (shared branches)
-- ❌ **NEVER force push if others are working on the same branch**
+- ✅ **只在 feature branch 上 force push**（你个人的工作分支）
+- ✅ **始终使用 `--force-with-lease`**（而非 `--force`）
+- ❌ **绝不 force push 到 main/master/develop**（共享 branch）
+- ❌ **绝不在他人也在同一 branch 工作时 force push**
 
-**Safe force push commands:**
+**安全的 force push 命令：**
 
 ```bash
 # ✅ SAFE: Only overwrites if no one else pushed since your last fetch
@@ -125,15 +125,15 @@ git push --force-with-lease
 git push --force-with-lease --force-if-includes
 ```
 
-**📖 For comprehensive safety guidance:** See [references/force-push-safety.md](references/force-push-safety.md) for detailed safety protocols, pre-push checklist, recovery procedures, and branch protection.
+**📖 完整安全指南：** 参见 [references/force-push-safety.md](references/force-push-safety.md)，包含详细的安全协议、push 前清单、恢复流程以及 branch protection。
 
 ---
 
-### 3. Tag Pushing
+### 3. Tag push
 
-Push version tags to remote for releases and milestones.
+把版本 tag 推送到 remote，用于 release 和里程碑。
 
-**Quick commands:**
+**快捷命令：**
 
 ```bash
 # Create and push annotated tag (recommended for releases)
@@ -147,15 +147,15 @@ git push --tags
 git push --follow-tags
 ```
 
-**📖 For complete tag workflows:** See [references/tag-pushing.md](references/tag-pushing.md) for tag types, strategies, aliases, and best practices.
+**📖 完整 tag workflow：** 参见 [references/tag-pushing.md](references/tag-pushing.md)，包含 tag 类型、策略、alias 与最佳实践。
 
 ---
 
-### 4. Remote Management
+### 4. Remote 管理
 
-Configure and manage remote repositories for push/fetch operations.
+配置和管理 remote repo，用于 push/fetch 操作。
 
-**Quick commands:**
+**快捷命令：**
 
 ```bash
 git remote -v                    # List remotes
@@ -164,15 +164,15 @@ git remote set-url origin <url>  # Change URL
 git remote rename origin upstream # Rename remote
 ```
 
-**📖 For detailed remote management:** See [references/remote-management.md](references/remote-management.md) for configuration, fork workflows, and credential management.
+**📖 详细 remote 管理：** 参见 [references/remote-management.md](references/remote-management.md)，包含配置、fork workflow 与凭据管理。
 
 ---
 
-### 5. Troubleshooting Push Issues
+### 5. 排查 push 问题
 
-Diagnose and resolve common push failures and conflicts.
+诊断并解决常见 push 失败与冲突。
 
-**Common issues - quick fixes:**
+**常见问题速查：**
 
 ```bash
 # Rejected push (non-fast-forward)
@@ -187,13 +187,13 @@ git switch -c feature-branch
 git push -u origin feature-branch
 ```
 
-**📖 For comprehensive troubleshooting:** See [references/troubleshooting.md](references/troubleshooting.md) for detailed diagnosis and solutions.
+**📖 完整排查：** 参见 [references/troubleshooting.md](references/troubleshooting.md)，包含详细诊断与解决方案。
 
 ---
 
-## Common Workflows
+## 常见 workflow
 
-### Feature Branch Development
+### Feature branch 开发
 
 ```bash
 git switch -c feature/user-auth
@@ -202,7 +202,7 @@ git push -u origin feature/user-auth  # First push sets upstream
 git push  # Subsequent pushes
 ```
 
-### Rebase and Force Push
+### Rebase 后 force push
 
 ```bash
 git fetch origin
@@ -210,7 +210,7 @@ git rebase origin/main
 git push --force-with-lease  # Safe force push
 ```
 
-### Hotfix to Production
+### 生产环境 hotfix
 
 ```bash
 git switch main && git pull
@@ -220,127 +220,127 @@ git push -u origin hotfix/critical-bug
 gh pr create --title "HOTFIX: ..."
 ```
 
-**📖 For additional workflows:** See [references/workflows.md](references/workflows.md) for fork contribution, release tagging, and complex multi-remote scenarios.
+**📖 更多 workflow：** 参见 [references/workflows.md](references/workflows.md)，包含 fork 贡献、release tag、以及复杂的多 remote 场景。
 
 ---
 
-## Best Practices
+## 最佳实践
 
-**Critical Safety Rules:**
+**关键安全规则：**
 
-- ✅ Always use `--force-with-lease` (not `--force`)
-- ✅ Never force push to main/master/develop
-- ✅ Verify no sensitive data before pushing
-- ✅ Run tests before pushing (don't push broken code)
+- ✅ 始终使用 `--force-with-lease`（而非 `--force`）
+- ✅ 绝不 force push 到 main/master/develop
+- ✅ push 前确认没有敏感数据
+- ✅ push 前跑测试（不要推坏代码）
 
-**Push Frequency:**
+**Push 频率：**
 
-- ✅ Push daily for backup and collaboration
-- ✅ Push after completing logical units of work
-- ❌ Don't push broken code or sensitive data
+- ✅ 每日 push 以备份和协作
+- ✅ 完成一个逻辑工作单元后 push
+- ❌ 不要 push 坏代码或敏感数据
 
-**📖 For comprehensive best practices:** See [references/best-practices.md](references/best-practices.md) for safety protocols, security, collaboration guidelines, and advanced scenarios.
-
----
-
-## References
-
-**Detailed Guides:**
-
-- [references/push-configuration.md](references/push-configuration.md) - Upstream setup, push strategies, advanced options
-- [references/force-push-safety.md](references/force-push-safety.md) - Force push safety protocols and recovery
-- [references/tag-pushing.md](references/tag-pushing.md) - Tag types, strategies, and workflows
-- [references/remote-management.md](references/remote-management.md) - Remote configuration and fork workflows
-- [references/troubleshooting.md](references/troubleshooting.md) - Push issue diagnosis and solutions
-- [references/workflows.md](references/workflows.md) - Common workflow patterns
-- [references/best-practices.md](references/best-practices.md) - Safety, security, and collaboration
-
-**Related Skills:**
-
-- **git-commit** - Commit creation, commit messages, PR workflows
-- **config** - Git configuration, aliases, credential management
-- **line-endings** - .gitattributes, Git LFS setup
+**📖 完整最佳实践：** 参见 [references/best-practices.md](references/best-practices.md)，包含安全协议、安全性、协作指南与进阶场景。
 
 ---
 
-## Test Scenarios
+## 参考
 
-### Scenario 1: Basic feature branch push
+**详细指南：**
+
+- [references/push-configuration.md](references/push-configuration.md) —— upstream 设置、push 策略、进阶选项
+- [references/force-push-safety.md](references/force-push-safety.md) —— force push 安全协议与恢复
+- [references/tag-pushing.md](references/tag-pushing.md) —— tag 类型、策略与 workflow
+- [references/remote-management.md](references/remote-management.md) —— remote 配置与 fork workflow
+- [references/troubleshooting.md](references/troubleshooting.md) —— push 问题诊断与解决方案
+- [references/workflows.md](references/workflows.md) —— 常见 workflow 模式
+- [references/best-practices.md](references/best-practices.md) —— 安全、安全性与协作
+
+**相关 skill：**
+
+- **git-commit** —— commit 创建、commit message、PR workflow
+- **config** —— Git 配置、alias、凭据管理
+- **line-endings** —— .gitattributes、Git LFS 设置
+
+---
+
+## 测试场景
+
+### 场景 1：基础 feature branch push
 
 **Query**: "I made some commits on my feature branch. How do I push them to the remote?"
 
-**Expected Behavior**:
+**期望行为**：
 
-- Skill activates on "push", "feature branch", "commits", "remote"
-- Provides basic push command with upstream setup
-- Explains -u flag for first-time push
+- skill 在 "push"、"feature branch"、"commits"、"remote" 上激活
+- 给出基础 push 命令并带 upstream 设置
+- 解释首次 push 的 -u 标志
 
-### Scenario 2: Force push after rebase
+### 场景 2：rebase 后 force push
 
 **Query**: "I rebased my feature branch onto main. Now push is rejected. What do I do?"
 
-**Expected Behavior**:
+**期望行为**：
 
-- Skill activates on "rebase", "push", "rejected"
-- Explains why push is rejected (history rewritten)
-- Recommends `git push --force-with-lease` with safety explanation
-- Provides pre-force-push checklist
+- skill 在 "rebase"、"push"、"rejected" 上激活
+- 解释为什么被拒（历史被重写）
+- 推荐 `git push --force-with-lease` 并说明安全性
+- 给出 force push 前的清单
 
-### Scenario 3: Push tags for release
+### 场景 3：为 release push tag
 
 **Query**: "How do I push my v1.0.0 tag to GitHub?"
 
-**Expected Behavior**:
+**期望行为**：
 
-- Skill activates on "push", "tag", "v1.0.0", "release"
-- Provides specific tag push command
-- Explains difference between pushing single tag vs all tags
+- skill 在 "push"、"tag"、"v1.0.0"、"release" 上激活
+- 给出具体的 tag push 命令
+- 解释 push 单个 tag 与 push 所有 tag 的区别
 
-### Scenario 4: Rejected push due to remote changes
+### 场景 4：remote 有新改动导致 push 被拒
 
 **Query**: "My push was rejected with a message about non-fast-forward. What does that mean?"
 
-**Expected Behavior**:
+**期望行为**：
 
-- Skill activates on "push", "rejected", "non-fast-forward"
-- Explains cause (someone else pushed first)
-- Provides solution options (fetch+merge, fetch+rebase, pull --rebase)
+- skill 在 "push"、"rejected"、"non-fast-forward" 上激活
+- 解释原因（别人先 push 了）
+- 给出解决选项（fetch+merge、fetch+rebase、pull --rebase）
 
-### Scenario 5: Managing multiple remotes
+### 场景 5：管理多个 remote
 
 **Query**: "I forked a repository. How do I push to my fork but pull from the original?"
 
-**Expected Behavior**:
+**期望行为**：
 
-- Skill activates on "fork", "push", "pull", "remote"
-- Explains fork workflow with upstream remote
-- Provides commands to add upstream remote
-
----
-
-## Multi-Model Testing Notes
-
-**Tested with**:
-
-- **Claude Sonnet 4.5**: ✅ **VERIFIED** - Skill activates correctly on all trigger keywords, provides comprehensive push guidance, handles force push safety protocols effectively. Progressive disclosure works well with references loaded on-demand.
-
-- **Claude Haiku 3.7**: 🔄 **PENDING TESTING** - Need to verify: (1) Skill activation reliability, (2) Force push safety guidance clarity, (3) Progressive disclosure effectiveness.
-
-- **Claude Opus 3.7**: 🔄 **PENDING TESTING** - Need to verify: (1) Skill activation, (2) Depth of troubleshooting guidance, (3) Reference file loading behavior.
-
-**Observations**:
-
-- Strong trigger keywords ("push", "force push", "remote", "tag", "rejected", "upstream") work well across models
-- Force push safety protocols clearly articulated with visual warnings
-- Progressive disclosure implemented: Main file reduced to ~400 lines, detailed content in references/
-
-**Last Updated**: 2025-11-28
-
-## Version History
-
-- **v1.0.0** (2025-12-26): Initial release
+- skill 在 "fork"、"push"、"pull"、"remote" 上激活
+- 解释带 upstream remote 的 fork workflow
+- 给出添加 upstream remote 的命令
 
 ---
 
-**Audit Status:** ✅ PASS (Type A Standard Skill)
-**Content Validation:** All technical claims verified against git-scm.com, Perplexity, Microsoft Learn via MCP servers
+## 多模型测试说明
+
+**测试结果**：
+
+- **Claude Sonnet 4.5**：✅ **VERIFIED** —— skill 能在所有触发关键词上正确激活，提供完整的 push 指导，有效处理 force push 安全协议。Progressive disclosure 效果好，reference 按需加载。
+
+- **Claude Haiku 3.7**：🔄 **PENDING TESTING** —— 需验证：(1) skill 激活可靠性，(2) force push 安全指导清晰度，(3) progressive disclosure 有效性。
+
+- **Claude Opus 3.7**：🔄 **PENDING TESTING** —— 需验证：(1) skill 激活，(2) 排查指导的深度，(3) reference 文件加载行为。
+
+**观察**：
+
+- 强触发关键词（"push"、"force push"、"remote"、"tag"、"rejected"、"upstream"）在各模型上都好使
+- force push 安全协议清晰表达，配有视觉警告
+- 已实现 progressive disclosure：主文件精简至约 400 行，详细内容放在 references/
+
+**最后更新**：2025-11-28
+
+## 版本历史
+
+- **v1.0.0**（2025-12-26）：首次发布
+
+---
+
+**审计状态：** ✅ PASS（Type A 标准 skill）
+**内容验证：** 所有技术陈述已通过 MCP server 对照 git-scm.com、Perplexity、Microsoft Learn 进行验证

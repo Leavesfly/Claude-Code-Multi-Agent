@@ -4,36 +4,36 @@ description: Strategic environmental analysis using SWOT, PESTLE, and Porter's F
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Strategic Environmental Analysis
+# Strategic Environmental Analysis（战略环境分析）
 
-Perform strategic environmental analysis using SWOT, PESTLE, and Porter's Five Forces frameworks. Creates structured assessments for competitive positioning and strategic planning.
+使用 SWOT、PESTLE 与 Porter's Five Forces 框架进行战略环境分析。产出结构化的评估，支撑竞争定位与战略规划。
 
-## What is Strategic Environmental Analysis?
+## 什么是战略环境分析？
 
-Strategic environmental analysis examines internal and external factors that impact an organization's ability to achieve its objectives. Three complementary frameworks provide different perspectives:
+战略环境分析考察影响组织达成目标的内外部因素。三种互补框架提供不同视角：
 
-| Framework | Focus | Perspective | Best For |
+| 框架 | 关注点 | 视角 | 适用场景 |
 |-----------|-------|-------------|----------|
-| **SWOT** | Internal + External | Organization-centric | Quick strategic assessment |
-| **PESTLE** | External macro-environment | Environment-centric | Market entry, regulatory planning |
-| **Porter's Five Forces** | Industry dynamics | Competition-centric | Industry attractiveness, positioning |
+| **SWOT** | 内部 + 外部 | 以组织为中心 | 快速战略评估 |
+| **PESTLE** | 外部宏观环境 | 以环境为中心 | 市场进入、监管规划 |
+| **Porter's Five Forces** | 行业动态 | 以竞争为中心 | 行业吸引力、定位 |
 
-## Framework 1: SWOT Analysis
+## 框架 1：SWOT Analysis
 
-### What is SWOT?
+### 什么是 SWOT？
 
-SWOT analyzes four dimensions affecting strategic success:
+SWOT 分析影响战略成败的四个维度：
 
-| Dimension | Type | Question | Focus |
+| 维度 | 类型 | 核心问题 | 关注点 |
 |-----------|------|----------|-------|
-| **S**trengths | Internal | What do we do well? | Leverage |
-| **W**eaknesses | Internal | What do we do poorly? | Improve or mitigate |
-| **O**pportunities | External | What trends favor us? | Pursue |
-| **T**hreats | External | What could harm us? | Defend against |
+| **S**trengths（优势） | 内部 | 我们做得好的是什么？ | 发挥 |
+| **W**eaknesses（劣势） | 内部 | 我们做得差的是什么？ | 改进或缓解 |
+| **O**pportunities（机会） | 外部 | 什么趋势对我们有利？ | 追求 |
+| **T**hreats（威胁） | 外部 | 什么会伤害我们？ | 防御 |
 
-### SWOT Workflow
+### SWOT 工作流
 
-#### Step 1: Define Scope
+#### Step 1：定义范围
 
 ```markdown
 ## SWOT Scope Definition
@@ -45,62 +45,62 @@ SWOT analyzes four dimensions affecting strategic success:
 **Date:** [ISO date]
 ```
 
-#### Step 2: Identify Strengths
+#### Step 2：识别 Strengths
 
-Internal capabilities that provide competitive advantage:
+提供竞争优势的内部能力：
 
-| Category | Example Questions |
+| 类别 | 示例问题 |
 |----------|-------------------|
-| **Resources** | Unique assets? Strong financials? Key partnerships? |
-| **Capabilities** | Core competencies? Skilled workforce? Technology? |
-| **Market Position** | Brand recognition? Customer loyalty? Market share? |
-| **Culture** | Innovation culture? Agility? Employee engagement? |
+| **Resources** | 有独特资产？财务稳健？关键合作？ |
+| **Capabilities** | 核心竞争力？人才到位？技术优势？ |
+| **Market Position** | 品牌认知？客户忠诚？市场份额？ |
+| **Culture** | 创新文化？敏捷度？员工投入度？ |
 
-#### Step 3: Identify Weaknesses
+#### Step 3：识别 Weaknesses
 
-Internal limitations that hinder performance:
+拖累表现的内部局限：
 
-| Category | Example Questions |
+| 类别 | 示例问题 |
 |----------|-------------------|
-| **Resources** | Funding gaps? Aging infrastructure? Missing skills? |
-| **Capabilities** | Inefficient processes? Technical debt? Skill gaps? |
-| **Market Position** | Weak brand? High churn? Limited reach? |
-| **Culture** | Resistance to change? Silos? Leadership gaps? |
+| **Resources** | 资金不足？基础设施老化？技能缺失？ |
+| **Capabilities** | 流程低效？technical debt？能力缺口？ |
+| **Market Position** | 品牌弱？流失率高？覆盖有限？ |
+| **Culture** | 抗拒变革？部门割裂？领导力不足？ |
 
-#### Step 4: Identify Opportunities
+#### Step 4：识别 Opportunities
 
-External conditions that could benefit the organization:
+可能对组织有利的外部条件：
 
-| Category | Example Questions |
+| 类别 | 示例问题 |
 |----------|-------------------|
-| **Market** | Growing segments? Unmet needs? Geographic expansion? |
-| **Technology** | Emerging tech? Automation potential? Digital channels? |
-| **Regulatory** | Favorable regulation? Deregulation? Incentives? |
-| **Competitive** | Competitor weaknesses? Market consolidation? |
+| **Market** | 增长中的 segment？未满足的需求？地域扩张？ |
+| **Technology** | 新兴技术？自动化潜力？数字化 channel？ |
+| **Regulatory** | 有利的监管？放开管制？政策激励？ |
+| **Competitive** | 对手弱点？行业整合？ |
 
-#### Step 5: Identify Threats
+#### Step 5：识别 Threats
 
-External conditions that could harm the organization:
+可能损害组织的外部条件：
 
-| Category | Example Questions |
+| 类别 | 示例问题 |
 |----------|-------------------|
-| **Market** | Declining demand? Commoditization? Price pressure? |
-| **Technology** | Disruption? Obsolescence? Cyber risks? |
-| **Regulatory** | New compliance? Trade barriers? Legal risks? |
-| **Competitive** | New entrants? Substitutes? Aggressive competitors? |
+| **Market** | 需求下滑？同质化？价格压力？ |
+| **Technology** | 被颠覆？被淘汰？网络安全风险？ |
+| **Regulatory** | 新合规要求？贸易壁垒？法律风险？ |
+| **Competitive** | 新进入者？替代品？进攻性的对手？ |
 
-#### Step 6: Strategic Implications
+#### Step 6：战略含义
 
-Cross-reference quadrants to identify strategic options:
+交叉参照四个象限，识别战略选项：
 
-| Combination | Strategy Type | Approach |
+| 组合 | 战略类型 | 做法 |
 |-------------|---------------|----------|
-| **S-O** | Offensive | Use strengths to capture opportunities |
-| **W-O** | Developmental | Address weaknesses to pursue opportunities |
-| **S-T** | Defensive | Use strengths to counter threats |
-| **W-T** | Survival | Minimize weaknesses and avoid threats |
+| **S-O** | 进攻型 | 用优势抓住机会 |
+| **W-O** | 发展型 | 解决劣势以抓住机会 |
+| **S-T** | 防御型 | 用优势对抗威胁 |
+| **W-T** | 生存型 | 最小化劣势并规避威胁 |
 
-### SWOT Output Format
+### SWOT 输出格式
 
 ```markdown
 ## SWOT Analysis: [Subject]
@@ -138,7 +138,7 @@ Cross-reference quadrants to identify strategic options:
 | W-T: Survival | W2 | T2 | [Action] |
 ```
 
-### SWOT Mermaid Diagram
+### SWOT Mermaid 图
 
 ```mermaid
 quadrantChart
@@ -159,24 +159,24 @@ quadrantChart
     "Regulation change": [0.7, 0.15]
 ```
 
-## Framework 2: PESTLE Analysis
+## 框架 2：PESTLE Analysis
 
-### What is PESTLE?
+### 什么是 PESTLE？
 
-PESTLE examines six macro-environmental factors:
+PESTLE 考察六项宏观环境因素：
 
-| Factor | Focus | Example Considerations |
+| 因素 | 关注点 | 示例考量 |
 |--------|-------|------------------------|
-| **P**olitical | Government, policy | Elections, trade policy, stability, taxation |
-| **E**conomic | Economy, markets | GDP, inflation, interest rates, unemployment |
-| **S**ocial | Society, demographics | Population, culture, lifestyle, attitudes |
-| **T**echnological | Technology, innovation | R&D, automation, digital transformation |
-| **L**egal | Laws, regulations | Employment law, consumer protection, IP |
-| **E**nvironmental | Ecology, sustainability | Climate, resources, sustainability mandates |
+| **P**olitical（政治） | 政府、政策 | 选举、贸易政策、稳定性、税收 |
+| **E**conomic（经济） | 经济、市场 | GDP、通胀、利率、失业率 |
+| **S**ocial（社会） | 社会、人口 | 人口、文化、生活方式、观念 |
+| **T**echnological（技术） | 技术、创新 | R&D、自动化、数字化转型 |
+| **L**egal（法律） | 法律法规 | 劳动法、消费者保护、IP |
+| **E**nvironmental（环境） | 生态、可持续性 | 气候、资源、可持续性强制要求 |
 
-### PESTLE Workflow
+### PESTLE 工作流
 
-#### Step 1: Define Context
+#### Step 1：定义上下文
 
 ```markdown
 ## PESTLE Context
@@ -187,25 +187,25 @@ PESTLE examines six macro-environmental factors:
 **Purpose:** [Market entry / Strategy / Risk assessment]
 ```
 
-#### Step 2: Analyze Each Factor
+#### Step 2：逐项分析
 
-For each PESTLE factor:
+对每个 PESTLE 因素：
 
-1. **Identify relevant trends** in that category
-2. **Assess impact** on your organization (positive/negative)
-3. **Rate importance** (High/Medium/Low)
-4. **Determine timing** (immediate/near-term/long-term)
-5. **Identify strategic implications**
+1. **识别相关趋势** — 该类别下的趋势
+2. **评估影响** — 对组织是正向还是负向
+3. **评定重要性** — High/Medium/Low
+4. **确定时机** — 立即/近期/远期
+5. **识别战略含义**
 
-#### Step 3: Rate and Prioritize
+#### Step 3：评级与优先级排序
 
-| Impact Rating | Description |
+| 影响等级 | 描述 |
 |---------------|-------------|
-| **High** | Fundamental to strategy, requires response |
-| **Medium** | Moderate effect, should monitor |
-| **Low** | Minimal impact, awareness only |
+| **High** | 对战略至关重要，必须应对 |
+| **Medium** | 影响中等，需要监控 |
+| **Low** | 影响很小，保持知晓即可 |
 
-### PESTLE Output Format
+### PESTLE 输出格式
 
 ```markdown
 ## PESTLE Analysis: [Subject]
@@ -246,7 +246,7 @@ For each PESTLE factor:
 | 2 | [...] | [...] | [...] |
 ```
 
-### PESTLE Mermaid Diagram
+### PESTLE Mermaid 图
 
 ```mermaid
 mindmap
@@ -277,23 +277,23 @@ mindmap
       Resource scarcity
 ```
 
-## Framework 3: Porter's Five Forces
+## 框架 3：Porter's Five Forces
 
-### What are the Five Forces?
+### 什么是 Five Forces？
 
-Porter's Five Forces analyze industry structure and profitability:
+Porter's Five Forces 分析行业结构与盈利性：
 
-| Force | Question | High = |
+| 作用力 | 核心问题 | 越高意味着 |
 |-------|----------|--------|
-| **Competitive Rivalry** | How intense is competition? | Lower profits |
-| **Threat of New Entrants** | How easy to enter market? | More competition |
-| **Threat of Substitutes** | Are alternatives available? | Price pressure |
-| **Bargaining Power of Suppliers** | Can suppliers dictate terms? | Higher costs |
-| **Bargaining Power of Buyers** | Can buyers dictate terms? | Lower prices |
+| **Competitive Rivalry** | 竞争有多激烈？ | 利润降低 |
+| **Threat of New Entrants** | 进入市场有多容易？ | 竞争加剧 |
+| **Threat of Substitutes** | 是否存在替代品？ | 价格受压 |
+| **Bargaining Power of Suppliers** | 供应商能否决定条款？ | 成本升高 |
+| **Bargaining Power of Buyers** | 买方能否决定条款？ | 价格降低 |
 
-### Five Forces Workflow
+### Five Forces 工作流
 
-#### Step 1: Define Industry
+#### Step 1：界定行业
 
 ```markdown
 ## Five Forces Context
@@ -304,67 +304,67 @@ Porter's Five Forces analyze industry structure and profitability:
 **Date:** [ISO date]
 ```
 
-#### Step 2: Analyze Each Force
+#### Step 2：逐项分析
 
-**Competitive Rivalry:**
+**Competitive Rivalry：**
 
-| Factor | Assessment |
+| 因素 | 评估 |
 |--------|------------|
-| Number of competitors | Few / Many |
-| Industry growth | High / Low |
-| Product differentiation | High / Low |
-| Exit barriers | High / Low |
-| Fixed costs | High / Low |
+| 竞争者数量 | 少 / 多 |
+| 行业增长 | 高 / 低 |
+| 产品差异化 | 高 / 低 |
+| 退出壁垒 | 高 / 低 |
+| 固定成本 | 高 / 低 |
 
-**Threat of New Entrants:**
+**Threat of New Entrants：**
 
-| Barrier | Height |
+| 壁垒 | 高度 |
 |---------|--------|
-| Capital requirements | High / Low |
-| Economies of scale | Strong / Weak |
-| Brand loyalty | Strong / Weak |
-| Regulatory barriers | High / Low |
-| Access to distribution | Easy / Hard |
+| 资本需求 | 高 / 低 |
+| 规模经济 | 强 / 弱 |
+| 品牌忠诚 | 强 / 弱 |
+| 监管壁垒 | 高 / 低 |
+| 渠道获取 | 易 / 难 |
 
-**Threat of Substitutes:**
+**Threat of Substitutes：**
 
-| Factor | Assessment |
+| 因素 | 评估 |
 |--------|------------|
-| Substitute availability | Many / Few |
-| Switching costs | High / Low |
-| Price-performance ratio | Better / Worse |
-| Buyer propensity to switch | High / Low |
+| 替代品可得性 | 多 / 少 |
+| 切换成本 | 高 / 低 |
+| 性价比 | 更好 / 更差 |
+| 买方切换倾向 | 高 / 低 |
 
-**Bargaining Power of Suppliers:**
+**Bargaining Power of Suppliers：**
 
-| Factor | Assessment |
+| 因素 | 评估 |
 |--------|------------|
-| Supplier concentration | High / Low |
-| Differentiation of inputs | High / Low |
-| Switching costs | High / Low |
-| Forward integration threat | High / Low |
+| 供应商集中度 | 高 / 低 |
+| 输入差异化 | 高 / 低 |
+| 切换成本 | 高 / 低 |
+| 前向整合威胁 | 高 / 低 |
 
-**Bargaining Power of Buyers:**
+**Bargaining Power of Buyers：**
 
-| Factor | Assessment |
+| 因素 | 评估 |
 |--------|------------|
-| Buyer concentration | High / Low |
-| Volume of purchases | Large / Small |
-| Product differentiation | High / Low |
-| Switching costs | High / Low |
-| Price sensitivity | High / Low |
+| 买方集中度 | 高 / 低 |
+| 采购量 | 大 / 小 |
+| 产品差异化 | 高 / 低 |
+| 切换成本 | 高 / 低 |
+| 价格敏感度 | 高 / 低 |
 
-#### Step 3: Rate Forces
+#### Step 3：对各作用力打分
 
-| Rating | Industry Attractiveness |
+| 评级 | 行业吸引力 |
 |--------|------------------------|
-| 1 (Very Strong Force) | Very Unattractive |
-| 2 (Strong Force) | Unattractive |
-| 3 (Moderate Force) | Neutral |
-| 4 (Weak Force) | Attractive |
-| 5 (Very Weak Force) | Very Attractive |
+| 1（Very Strong Force） | 非常不具吸引力 |
+| 2（Strong Force） | 不具吸引力 |
+| 3（Moderate Force） | 中性 |
+| 4（Weak Force） | 具吸引力 |
+| 5（Very Weak Force） | 非常具吸引力 |
 
-### Five Forces Output Format
+### Five Forces 输出格式
 
 ```markdown
 ## Porter's Five Forces: [Industry]
@@ -395,7 +395,7 @@ Porter's Five Forces analyze industry structure and profitability:
 3. **[Priority 3]:** [Action to improve positioning]
 ```
 
-### Five Forces Mermaid Diagram
+### Five Forces Mermaid 图
 
 ```mermaid
 flowchart TD
@@ -415,29 +415,29 @@ flowchart TD
     style BUY fill:#bfb,stroke:#333
 ```
 
-## Combined Analysis
+## 组合分析
 
-### When to Use Each Framework
+### 各框架适用场景
 
-| Scenario | SWOT | PESTLE | Five Forces |
+| 场景 | SWOT | PESTLE | Five Forces |
 |----------|------|--------|-------------|
-| Quick strategic assessment | ✅ Primary | Supporting | - |
-| Market entry decision | Supporting | ✅ Primary | ✅ Primary |
-| Competitive positioning | ✅ Primary | Supporting | ✅ Primary |
-| Regulatory planning | Supporting | ✅ Primary | - |
-| Investment decision | ✅ Primary | ✅ Primary | ✅ Primary |
-| Annual strategic review | ✅ Primary | ✅ Primary | Supporting |
+| 快速战略评估 | ✅ 主框架 | 辅助 | - |
+| 市场进入决策 | 辅助 | ✅ 主框架 | ✅ 主框架 |
+| 竞争定位 | ✅ 主框架 | 辅助 | ✅ 主框架 |
+| 监管规划 | 辅助 | ✅ 主框架 | - |
+| 投资决策 | ✅ 主框架 | ✅ 主框架 | ✅ 主框架 |
+| 年度战略复盘 | ✅ 主框架 | ✅ 主框架 | 辅助 |
 
-### Integrated Analysis Workflow
+### 综合分析工作流
 
-For comprehensive strategic analysis:
+进行综合战略分析的步骤：
 
-1. **Start with PESTLE** - Understand macro-environment
-2. **Apply Five Forces** - Analyze industry dynamics
-3. **Conduct SWOT** - Position organization within context
-4. **Synthesize** - Create unified strategic recommendations
+1. **从 PESTLE 开始** — 理解宏观环境
+2. **应用 Five Forces** — 分析行业动态
+3. **做 SWOT** — 把组织放在上下文中定位
+4. **综合** — 形成统一的战略建议
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 strategic_analysis:
@@ -507,39 +507,39 @@ strategic_analysis:
       - "Build strategic supplier partnerships (counter S-T)"
 ```
 
-## When to Use Strategic Analysis
+## 何时使用战略分析
 
-| Scenario | Recommended Approach |
+| 场景 | 推荐方法 |
 |----------|---------------------|
-| Annual planning | SWOT + PESTLE |
-| New market entry | PESTLE + Five Forces |
-| Competitive response | SWOT + Five Forces |
-| M&A due diligence | All three frameworks |
-| Product launch | SWOT (focused) |
-| Risk assessment | PESTLE (focused) |
+| 年度规划 | SWOT + PESTLE |
+| 新市场进入 | PESTLE + Five Forces |
+| 竞争回应 | SWOT + Five Forces |
+| M&A 尽调 | 三个框架都用 |
+| 产品发布 | SWOT（聚焦版） |
+| 风险评估 | PESTLE（聚焦版） |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **stakeholder-analysis** - Identify who provides input
-- **capability-mapping** - Link strengths to capabilities
-- **Domain research** - Gather market data
+- **stakeholder-analysis** — 识别输入提供者
+- **capability-mapping** — 把优势与能力关联
+- **Domain research** — 收集市场数据
 
-### Downstream
+### 下游
 
-- **Requirements** - Strategic requirements
-- **Business cases** - Investment justification
-- **Roadmaps** - Strategic initiatives
+- **Requirements** — 战略型需求
+- **Business cases** — 投资论证
+- **Roadmaps** — 战略 initiative
 
-## Related Skills
+## 相关 skill
 
-- `capability-mapping` - Internal capability assessment
-- `stakeholder-analysis` - Stakeholder perspectives
-- `value-stream-mapping` - Operational efficiency
-- `benchmarking` - Competitive comparison
-- `risk-analysis` - Risk identification and mitigation
+- `capability-mapping` — 内部能力评估
+- `stakeholder-analysis` — stakeholder 视角
+- `value-stream-mapping` — 运营效率
+- `benchmarking` — 竞品对标
+- `risk-analysis` — 风险识别与缓解
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

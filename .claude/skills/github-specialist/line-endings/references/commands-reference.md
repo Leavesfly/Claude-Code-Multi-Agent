@@ -1,8 +1,8 @@
-# Commands Reference
+# 命令参考
 
-Complete command reference for Git line ending management.
+Git 换行符管理的完整命令参考。
 
-## Configuration
+## 配置
 
 ```bash
 # View configuration
@@ -14,7 +14,7 @@ git config --global core.eol native         # Or: lf, crlf
 git config --global core.safecrlf warn      # Or: true, false
 ```
 
-## Inspection
+## 检查
 
 ```bash
 # Check file attributes
@@ -30,7 +30,7 @@ git ls-files --eol | grep "w/crlf" | grep "eol=lf"
 git ls-files --eol | grep "w/mixed"
 ```
 
-## Normalization
+## 规范化
 
 ```bash
 # Normalize all files
@@ -44,7 +44,7 @@ git status
 git diff --cached --stat
 ```
 
-## Testing
+## 测试
 
 ```bash
 # Create test file with CRLF

@@ -2,15 +2,15 @@
 description: Definitive guidelines for using Guzzle HTTP client in PHP, focusing on robust client configuration, effective middleware, PSR-18 interoperability, and testability.
 ---
 
-# Guzzle Best Practices
+# Guzzle 最佳实践
 
-Guzzle is the de-facto PHP HTTP client. Use these rules to build robust, testable, and maintainable HTTP integrations.
+Guzzle 是事实上的 PHP HTTP 客户端。使用这些规则构建健壮、可测试且可维护的 HTTP 集成。
 
-## 1. Client Instantiation & Configuration
+## 1. 客户端实例化和配置
 
-Always inject an immutable Guzzle client as a service. Configure it once with global defaults, especially timeouts.
+始终将不可变的 Guzzle 客户端作为服务注入。使用全局默认值（尤其是超时）配置一次。
 
-### ✅ GOOD: Service-Oriented Client with Essential Defaults
+### ✅ 好：具有基本默认值的面向服务的客户端
 
 ```php
 <?php
@@ -85,7 +85,7 @@ final class MyApiClientFactory
 // $response = $client->get('users');
 ```
 
-### ❌ BAD: Global Singletons & Missing Timeouts
+### ❌ 坏处：全局单例和超时缺失
 
 ```php
 <?php
@@ -105,13 +105,13 @@ class LegacyService
 }
 ```
 
-## 2. Middleware for Cross-Cutting Concerns
+## 2. Middleware 用于跨领域关注点
 
-Leverage `HandlerStack` and `GuzzleHttp\Middleware` for reusable logic like retries, logging, and authentication. This keeps your request code DRY.
+利用“HandlerStack”和“GuzzleHttp\Middleware”实现可重用逻辑，例如重试、日志记录和 authentication。这可以让您的请求代码保持干燥。
 
-### ✅ GOOD: Centralized Middleware for Auth & Retries
+### ✅ 好：集中 Middleware 用于身份验证和重试
 
-(See `MyApiClientFactory::create` example above for comprehensive middleware usage.)
+（有关 middleware 的全面用法，请参阅上面的 `MyApiClientFactory::create` 示例。）
 
 ```php
 <?php
@@ -126,7 +126,7 @@ $stack->push(Middleware::mapRequest(function (RequestInterface $request) {
 }));
 ```
 
-### ❌ BAD: Duplicating Logic Per Request
+### ❌ 不好：每个请求重复逻辑
 
 ```php
 <?php
@@ -155,11 +155,11 @@ class UserService
 }
 ```
 
-## 3. "Bring Your Own Client" (BYOC) for Libraries/SDKs
+## 3. 库/SDK 的“自带客户端”(BYOC)
 
-When building reusable libraries or SDKs, **never hard-depend on Guzzle**. Instead, type-hint `Psr\Http\Client\ClientInterface` (PSR-18) and `Psr\Http\Message\RequestFactoryInterface` (PSR-17). Let the consumer inject their preferred HTTP client.
+构建可重用库或 SDK 时，**永远不要硬依赖 Guzzle**。相反，键入提示 `Psr\Http\Client\ClientInterface` (PSR-18) 和 `Psr\Http\Message\RequestFactoryInterface` (PSR-17)。让消费者注入他们首选的 HTTP 客户端。
 
-### ✅ GOOD: PSR-18/17 Compliant SDK
+### ✅ 良好：符合 PSR-18/17 SDK
 
 ```php
 <?php
@@ -198,7 +198,7 @@ final class MySdkClient
 // $sdk = new MySdkClient($guzzleClient, $httpFactory, $httpFactory);
 ```
 
-### ❌ BAD: Hard-Dependence on Guzzle in SDKs
+### ❌ 不好：对 SDK 中的 Guzzle 的硬依赖
 
 ```php
 <?php
@@ -222,11 +222,11 @@ final class MyBadSdkClient
 }
 ```
 
-## 4. Error Handling
+## 4. 错误处理
 
-Always catch specific Guzzle exceptions, especially `RequestException` (for HTTP errors) and `ConnectException` (for network issues).
+始终捕获特定的 Guzzle 异常，尤其是“RequestException”（针对 HTTP 错误）和“ConnectException”（针对网络问题）。
 
-### ✅ GOOD: Specific Exception Handling
+### ✅ 好：具体的异常处理
 
 ```php
 <?php
@@ -269,7 +269,7 @@ final class DataFetcher
 }
 ```
 
-### ❌ BAD: Catching Generic Exceptions
+### ❌ 不好：捕获通用异常
 
 ```php
 <?php
@@ -288,11 +288,11 @@ final class DataFetcher
     }
 ```
 
-## 5. Testing Guzzle Clients
+## 5. 测试 Guzzle 客户端
 
-Use `GuzzleHttp\Handler\MockHandler` for deterministic and fast unit tests. This avoids hitting real APIs and ensures consistent test results.
+使用“GuzzleHttp\Handler\MockHandler”进行确定性和快速的单元测试。这可以避免影响真实的 API 并确保一致的 test 结果。
 
-### ✅ GOOD: Mocking Responses with `MockHandler`
+### ✅ 好：使用 `MockHandler` 进行模拟响应
 
 ```php
 <?php
@@ -358,7 +358,7 @@ class MyService
 }
 ```
 
-### ❌ BAD: Hitting Real APIs in Tests
+### ❌ 不好：在测试中使用真实的 API
 
 ```php
 <?php
@@ -381,11 +381,11 @@ final class MyServiceIntegrationTest extends TestCase
 }
 ```
 
-## 6. Laravel HTTP Client
+## 6. Laravel HTTP 客户端
 
-If you are in a Laravel project, use Laravel's built-in HTTP client wrapper. It's powered by Guzzle but provides a more fluent API, built-in faking, and concurrent request helpers.
+如果您在 Laravel 项目中，请使用 Laravel 的内置 HTTP 客户端包装器。它由 Guzzle 提供支持，但提供更流畅的 API、内置伪造和并发请求帮助程序。
 
-### ✅ GOOD: Laravel HTTP Client
+### ✅ 好：Laravel HTTP 客户端
 
 ```php
 <?php

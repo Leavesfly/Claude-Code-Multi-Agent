@@ -1,158 +1,158 @@
 ---
-description: Create a comprehensive user research plan for a product or feature. Use for planning interviews, surveys, and usability studies.
+description: 为产品或功能创建全面的用户研究计划。用于规划访谈、调查和可用性测试。
 allowed-tools: Read, Glob, Grep, Write, Skill, Task
 argument-hint: <topic> [--type generative|evaluative|both]
 ---
 
-# Create User Research Plan
+# 创建用户研究计划
 
-Design a comprehensive user research study for the specified topic.
+为指定主题设计全面的用户研究方案。
 
-## Workflow
+## 工作流程
 
-### Step 1: Load Required Skills
+### 步骤 1：加载所需技能
 
-Load these skills:
+加载以下技能：
 
-- `user-research-planning` - Research methodology and planning
+- `user-research-planning` - 研究方法论和规划
 
-### Step 2: Understand Research Context
+### 步骤 2：理解研究上下文
 
-Gather context about: {{ topic }}
+收集关于 {{ topic }} 的上下文信息：
 
-Research type: {{ type | default: "both" }}
+研究类型：{{ type | default: "both" }}
 
-Ask clarifying questions if needed:
+如有需要，提出澄清问题：
 
-- What decisions will this research inform?
-- What do you already know about users?
-- What's your timeline and budget?
-- Do you have access to users?
+- 这项研究将告知哪些决策？
+- 你对用户已经了解什么？
+- 你的时间线和预算是多少？
+- 你能接触到用户吗？
 
-### Step 3: Spawn UX Researcher Agent
+### 步骤 3：生成 UX 研究员 Agent
 
-Spawn the `ux-researcher` agent with the following prompt:
+使用以下提示词生成 `ux-researcher` agent：
 
 ```text
-Create a comprehensive user research plan for: {{ topic }}
+为以下主题创建全面的用户研究计划：{{ topic }}
 
-Research focus: {{ type | default: "both generative and evaluative" }}
+研究重点：{{ type | default: "生成式和评估式" }}
 
-Provide:
+提供：
 
-1. Research Objectives
-   - Primary research questions (3-5)
-   - What decisions this will inform
-   - Success criteria for the research
+1. 研究目标
+   - 主要研究问题（3-5 个）
+   - 这将告知哪些决策
+   - 研究的成功标准
 
-2. Methodology Selection
-   - Recommended research methods
-   - Justification for each method
-   - Method sequence and rationale
+2. 方法论选择
+   - 推荐的研究方法
+   - 每种方法的理由
+   - 方法顺序和理由
 
-3. Participant Profile
-   - Target user segments
-   - Inclusion criteria (must have)
-   - Exclusion criteria
-   - Sample size per method with justification
+3. 参与者画像
+   - 目标用户细分
+   - 纳入标准（必须具备）
+   - 排除标准
+   - 每种方法的样本量及理由
 
-4. Study Design
-   - Research timeline
-   - Session structure for each method
-   - Key topics to explore
+4. 研究设计
+   - 研究时间线
+   - 每种方法的会话结构
+   - 要探索的关键主题
 
-5. Materials Needed
-   - Screener questions
-   - Discussion guide outline
-   - Consent and logistics templates
+5. 所需材料
+   - 筛选问卷
+   - 讨论指南大纲
+   - 同意书和后勤模板
 
-6. Deliverables
-   - What outputs stakeholders will receive
-   - Format and timeline for delivery
-   - How findings will be shared
+6. 交付物
+   - 利益相关者将收到的输出
+   - 交付格式和时间线
+   - 如何分享发现
 
-7. Risks and Mitigation
-   - Recruitment challenges
-   - Bias considerations
-   - Timeline risks
+7. 风险和缓解
+   - 招募挑战
+   - 偏见考虑
+   - 时间线风险
 
-Use the user-research-planning skill for methodology guidance.
-Output a complete research plan document.
+使用 user-research-planning 技能获取方法论指导。
+输出完整的研究计划文档。
 ```
 
-### Step 4: Generate Research Materials
+### 步骤 4：生成研究材料
 
-Based on the plan, offer to generate:
+根据计划，提供生成以下内容：
 
-- Detailed screener questionnaire
-- Full interview/discussion guide
-- Consent form template
-- Note-taking template
+- 详细筛选问卷
+- 完整访谈/讨论指南
+- 同意书模板
+- 笔记模板
 
-## Example Usage
+## 示例用法
 
 ```bash
-# Plan research for a new product
-/ux-research:plan-research "mobile banking app for elderly users"
+# 为新产品规划研究
+/ux-research:plan-research "老年人移动银行应用"
 
-# Plan generative research
-/ux-research:plan-research "developer workflow pain points" --type generative
+# 规划生成式研究
+/ux-research:plan-research "开发者工作流痛点" --type generative
 
-# Plan evaluative research
-/ux-research:plan-research "checkout flow optimization" --type evaluative
+# 规划评估式研究
+/ux-research:plan-research "结账流程优化" --type evaluative
 ```
 
-## Output Format
+## 输出格式
 
 ```markdown
-# Research Plan: [Topic]
+# 研究计划：[主题]
 
-## Executive Summary
-[1-2 paragraph overview]
+## 执行摘要
+[1-2 段概述]
 
-## Research Objectives
-### Primary Questions
-1. [Question]
-2. [Question]
-3. [Question]
+## 研究目标
+### 主要问题
+1. [问题]
+2. [问题]
+3. [问题]
 
-### Decisions to Inform
-- [Decision 1]
-- [Decision 2]
+### 要告知的决策
+- [决策 1]
+- [决策 2]
 
-## Methodology
+## 方法论
 
-### Method 1: [Name]
-- **Purpose:** [Why this method]
-- **Participants:** [Number and type]
-- **Duration:** [Session length]
-- **Timing:** [When in timeline]
+### 方法 1：[名称]
+- **目的：** [为什么使用此方法]
+- **参与者：** [数量和类型]
+- **持续时间：** [会话长度]
+- **时间安排：** [时间线中的位置]
 
-[Continue for each method...]
+[继续每种方法...]
 
-## Participant Profile
+## 参与者画像
 
-### Segments
-| Segment | Criteria | Sample Size |
+### 细分
+| 细分 | 标准 | 样本量 |
 |---------|----------|-------------|
-| [Name] | [Criteria] | [N] |
+| [名称] | [标准] | [N] |
 
-### Screener Highlights
-- [Key screening question]
-- [Key screening question]
+### 筛选要点
+- [关键筛选问题]
+- [关键筛选问题]
 
-## Timeline
+## 时间线
 
-| Week | Activity | Deliverable |
+| 周 | 活动 | 交付物 |
 |------|----------|-------------|
-| 1 | [Activity] | [Output] |
-| 2 | [Activity] | [Output] |
+| 1 | [活动] | [输出] |
+| 2 | [活动] | [输出] |
 
-## Deliverables
-- [Deliverable 1]
-- [Deliverable 2]
+## 交付物
+- [交付物 1]
+- [交付物 2]
 
-## Next Steps
-1. [Immediate action]
-2. [Immediate action]
+## 下一步
+1. [立即行动]
+2. [立即行动]
 ```

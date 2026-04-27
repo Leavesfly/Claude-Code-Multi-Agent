@@ -1,257 +1,257 @@
 ---
-description: Create a hierarchical business capability model (L1-L3). Modes - full (multi-persona discovery), quick (single pass), guided (interactive). Outputs capability tree with Mermaid visualization.
-argument-hint: <business-description> [--mode full|quick|guided] [--output yaml|mermaid|both] [--dir <path>]
+description: 创建分层业务能力模型（L1-L3）。模式 - full（多角色发现）、quick（单次通过）、guided（交互式）。输出带 Mermaid 可视化的能力树。
+argument-hint: <业务描述> [--mode full|quick|guided] [--output yaml|mermaid|both] [--dir <路径>]
 allowed-tools: Task, Read, Write, Glob, Grep, Skill, AskUserQuestion
 ---
 
-# Capability Map Command
+# 能力图谱命令
 
-Create a hierarchical business capability model to understand what an organization does, independent of how it's implemented or who performs the work.
+创建分层业务能力模型，以理解组织做什么，独立于如何实现或由谁执行工作。
 
-## Arguments
+## 参数
 
-- `<business-description>`: Description of the business, organization, or domain to analyze
-- `--mode`: Analysis mode (default: `guided`)
-  - `full`: Multi-persona discovery with strategic alignment (~12K tokens)
-  - `quick`: Single analysis pass (~4K tokens)
-  - `guided`: Interactive capability discovery (variable)
-- `--output`: Output format (default: `both`)
-  - `yaml`: Structured YAML for downstream processing
-  - `mermaid`: Mermaid diagram visualization
-  - `both`: Both formats
+- `<业务描述>`：要分析的业务、组织或领域的描述
+- `--mode`：分析模式（默认：`guided`）
+  - `full`：多角色发现与战略对齐（约12K tokens）
+  - `quick`：单次分析通过（约4K tokens）
+  - `guided`：交互式能力发现（可变）
+- `--output`：输出格式（默认：`both`）
+  - `yaml`：结构化 YAML，用于下游处理
+  - `mermaid`：Mermaid 图表可视化
+  - `both`：两种格式
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行
 
-### Step 1: Parse Arguments
+### 步骤1：解析参数
 
-Extract business description, mode, and output format from arguments.
+从参数中提取业务描述、模式和输出格式。
 
-If no description provided, ask the user:
-"What business, organization, or domain would you like to create a capability map for?"
+如果未提供描述，询问用户：
+"您想为哪个业务、组织或领域创建能力图谱？"
 
-Default mode is `guided`. Default output is `both`.
+默认模式为 `guided`。默认输出为 `both`。
 
-### Step 2: Load Capability Mapping Skill
+### 步骤2：加载能力映射 Skill
 
-Invoke the `capability-mapping` skill to access:
+调用 `capability-mapping` skill 以访问：
 
-- Capability hierarchy frameworks
-- Industry-specific templates
-- Maturity assessment rubric
-- Cross-mapping guidance
+- 能力层级框架
+- 行业特定模板
+- 成熟度评估标准
+- 交叉映射指导
 
-### Step 3: Execute Based on Mode
+### 步骤3：根据模式执行
 
-#### Full Mode (Multi-Persona Discovery)
+#### Full 模式（多角色发现）
 
-Spawn the `capability-analyst` agent for comprehensive analysis:
+启动 `capability-analyst` Agent 进行全面分析：
 
 ```text
-Analyze this business and create a complete capability model:
+分析此业务并创建完整的能力模型：
 
-[Business description]
+[业务描述]
 
-Requirements:
-1. Analyze business context using stakeholder interviews and documentation review
-2. Create L1-L3 capability hierarchy
-3. Classify each capability (Strategic, Core, Supporting, Generic)
-4. Assess current maturity (1-5 scale)
-5. Identify capability gaps and opportunities
-6. Generate both YAML and Mermaid outputs
+要求：
+1. 使用干系人访谈和文档审查分析业务背景
+2. 创建 L1-L3 能力层级
+3. 分类每个能力（战略型、核心型、支持型、通用型）
+4. 评估当前成熟度（1-5级）
+5. 识别能力差距和机会
+6. 生成 YAML 和 Mermaid 输出
 ```
 
-The agent will:
+Agent 将：
 
-- Leverage EA discovery patterns
-- Build hierarchical model with cross-mapping
-- Assess maturity and identify gaps
-- Produce comprehensive documentation
+- 利用 EA 发现模式
+- 构建带交叉映射的层级模型
+- 评估成熟度并识别差距
+- 生成综合文档
 
-#### Quick Mode (Single Pass)
+#### Quick 模式（单次通过）
 
-Perform rapid capability identification:
+执行快速能力识别：
 
-1. Identify obvious L1 capabilities from business description
-2. Decompose L1s into L2 capabilities
-3. Apply industry template overlays if applicable
-4. Skip detailed maturity assessment
-5. Generate minimal hierarchy
+1. 从业务描述中识别明显的 L1 能力
+2. 将 L1 分解为 L2 能力
+3. 如适用，应用行业模板覆盖
+4. 跳过详细的成熟度评估
+5. 生成最小层级
 
-#### Guided Mode (Interactive)
+#### Guided 模式（交互式）
 
-Work interactively through capability discovery using structured questions.
+使用结构化问题交互式地进行能力发现。
 
-##### Step G1: Scope and Depth Selection
+##### 步骤 G1：范围和深度选择
 
-Use AskUserQuestion to determine scope upfront:
+使用 AskUserQuestion 预先确定范围：
 
 ```yaml
-# Question 1: Scope Selection (MCP: CLI best practices - MVP vs Full)
-question: "How comprehensive should the capability model be?"
-header: "Scope"
+# 问题1：范围选择（MCP：CLI 最佳实践 - MVP vs 完整）
+question: "能力模型应该有多全面？"
+header: "范围"
 options:
-  - label: "MVP (Recommended)"
-    description: "L1-L2 capabilities only, fast execution (~15 min)"
-  - label: "Standard"
-    description: "L1-L3 capabilities with classification (~30 min)"
-  - label: "Comprehensive"
-    description: "Full hierarchy with maturity assessment (~60 min)"
+  - label: "MVP（推荐）"
+    description: "仅 L1-L2 能力，快速执行（约15分钟）"
+  - label: "标准"
+    description: "带分类的 L1-L3 能力（约30分钟）"
+  - label: "全面"
+    description: "带成熟度评估的完整层级（约60分钟）"
 
-# Question 2: Output Format (MCP: CLI best practices - format selection)
-question: "What output formats do you need?"
-header: "Format"
+# 问题2：输出格式（MCP：CLI 最佳实践 - 格式选择）
+question: "您需要什么输出格式？"
+header: "格式"
 multiSelect: true
 options:
-  - label: "Mermaid Diagram"
-    description: "Visual mindmap of capability hierarchy"
-  - label: "YAML Structure"
-    description: "Structured data for downstream tools"
-  - label: "Summary Report"
-    description: "Markdown narrative with analysis"
+  - label: "Mermaid 图表"
+    description: "能力层级的可视化思维导图"
+  - label: "YAML 结构"
+    description: "用于下游工具的结构化数据"
+  - label: "摘要报告"
+    description: "带分析的 Markdown 叙述"
 ```
 
-##### Step G2: L1 Discovery
+##### 步骤 G2：L1 发现
 
-Ask "What are the main capabilities this organization needs?"
+询问"这个组织需要哪些主要能力？"
 
-Based on scope from G1:
+根据 G1 的范围：
 
-- MVP: Stop at L1-L2
-- Standard: Continue to L3
-- Comprehensive: Full depth with maturity
+- MVP：停在 L1-L2
+- 标准：继续到 L3
+- 全面：带成熟度的完整深度
 
-##### Step G3: L2 Decomposition
+##### 步骤 G3：L2 分解
 
-For each L1, ask "What component capabilities make this up?"
+对于每个 L1，询问"哪些组件能力构成这个？"
 
-**Step G4: Classification** (Standard/Comprehensive only)
+**步骤 G4：分类**（仅标准/全面）
 
-For each capability, confirm classification:
+对于每个能力，确认分类：
 
-- Strategic (differentiating)
-- Core (essential operations)
-- Supporting (enables core)
-- Generic (commodity)
+- 战略型（差异化）
+- 核心型（基本运营）
+- 支持型（使能核心）
+- 通用型（商品化）
 
-**Step G5: Maturity Assessment** (Comprehensive only)
+**步骤 G5：成熟度评估**（仅全面）
 
-Assess current state vs. target state (1-5 scale).
+评估当前状态与目标状态（1-5级）。
 
-##### Step G6: Gap Identification and Prioritization
+##### 步骤 G6：差距识别和优先级排序
 
-Identify missing or weak capabilities and rank by strategic importance.
+识别缺失或薄弱的能力并按战略重要性排名。
 
-### Step 4: Generate Output Artifacts
+### 步骤4：生成输出产物
 
-#### YAML Output
+#### YAML 输出
 
 ```yaml
 capability_model:
   version: "1.0"
-  domain: "[Business Name]"
-  generated: "[ISO Date]"
+  domain: "[业务名称]"
+  generated: "[ISO日期]"
   mode: "[full|quick|guided]"
 
   capabilities:
-    - name: "[L1 Capability]"
+    - name: "[L1 能力]"
       level: 1
       type: core  # strategic, core, supporting, generic
       maturity: 3
       target_maturity: 4
       children:
-        - name: "[L2 Capability]"
+        - name: "[L2 能力]"
           level: 2
           type: core
           maturity: 2
           target_maturity: 4
           children:
-            - name: "[L3 Capability]"
+            - name: "[L3 能力]"
               level: 3
               type: supporting
               maturity: 3
               target_maturity: 3
 ```
 
-#### Mermaid Output
+#### Mermaid 输出
 
 ```mermaid
 mindmap
-  root((Business))
-    L1_Capability1
-      L2_Capability1a
-        L3_Capability1a1
-        L3_Capability1a2
-      L2_Capability1b
-    L1_Capability2
-      L2_Capability2a
-      L2_Capability2b
+  root((业务))
+    L1_能力1
+      L2_能力1a
+        L3_能力1a1
+        L3_能力1a2
+      L2_能力1b
+    L1_能力2
+      L2_能力2a
+      L2_能力2b
 ```
 
-#### Summary Report
+#### 摘要报告
 
 ```markdown
-## Capability Model: [Business Name]
+## 能力模型：[业务名称]
 
-**Date:** [ISO Date]
-**Mode:** [full|quick|guided]
-**Total Capabilities:** N (L1: X, L2: Y, L3: Z)
+**日期：** [ISO日期]
+**模式：** [full|quick|guided]
+**能力总数：** N（L1: X, L2: Y, L3: Z）
 
-### Capability Distribution
+### 能力分布
 
-| Type | Count | Examples |
+| 类型 | 数量 | 示例 |
 |------|-------|----------|
-| Strategic | X | [List] |
-| Core | Y | [List] |
-| Supporting | Z | [List] |
-| Generic | W | [List] |
+| 战略型 | X | [列表] |
+| 核心型 | Y | [列表] |
+| 支持型 | Z | [列表] |
+| 通用型 | W | [列表] |
 
-### Maturity Overview
+### 成熟度概览
 
-| Rating | Count | % |
+| 评级 | 数量 | % |
 |--------|-------|---|
-| 1 - Ad Hoc | X | Y% |
-| 2 - Developing | X | Y% |
-| 3 - Defined | X | Y% |
-| 4 - Managed | X | Y% |
-| 5 - Optimized | X | Y% |
+| 1 - 临时 | X | Y% |
+| 2 - 发展中 | X | Y% |
+| 3 - 已定义 | X | Y% |
+| 4 - 已管理 | X | Y% |
+| 5 - 优化 | X | Y% |
 
-### Strategic Gaps
+### 战略差距
 
-1. **[Capability]**: Current maturity X, target Y - [Gap analysis]
-2. **[Capability]**: Missing capability needed for [strategic goal]
+1. **[能力]**：当前成熟度 X，目标 Y - [差距分析]
+2. **[能力]**：[战略目标]所需的缺失能力
 
-### Recommendations
+### 建议
 
-1. Prioritize investment in [Strategic capability with gap]
-2. Consider outsourcing [Generic capability with low maturity]
-3. Consolidate [Similar capabilities that overlap]
+1. 优先投资 [有差距的战略能力]
+2. 考虑外包 [低成熟度的通用能力]
+3. 整合 [重叠的相似能力]
 ```
 
-### Step 5: Save Results
+### 步骤5：保存结果
 
-Save outputs based on format flag:
+根据格式标志保存输出：
 
-**YAML file:**
+**YAML 文件：**
 
 - `docs/analysis/capability-model.yaml`
 
-**Mermaid diagram:**
+**Mermaid 图表：**
 
 - `docs/analysis/capability-model.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 指定自定义输出目录。
 
-### Step 6: Suggest Follow-Up Actions
+### 步骤6：建议后续行动
 
-After generating the capability map:
+生成能力图谱后：
 
 ```markdown
-## Suggested Next Steps
+## 建议的下一步
 
-1. **Stakeholder Alignment**: Use `/ba:stakeholder-analyze` to identify capability owners
-2. **Value Stream Mapping**: Use `/ba:value-stream` to understand how capabilities deliver value
-3. **Gap Analysis**: Use `decision-analysis` skill to evaluate capability investment priorities
-4. **Investment Planning**: Use capability gaps to inform budget decisions
+1. **干系人对齐**：使用 `/ba:stakeholder-analyze` 识别能力所有者
+2. **价值流映射**：使用 `/ba:value-stream` 了解能力如何交付价值
+3. **差距分析**：使用 `decision-analysis` skill 评估能力投资优先级
+4. **投资规划**：使用能力差距为预算决策提供信息
 ```

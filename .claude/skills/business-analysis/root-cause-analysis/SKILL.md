@@ -4,25 +4,25 @@ description: Problem solving using Fishbone (Ishikawa) diagrams and 5 Whys techn
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Root Cause Analysis
+# Root Cause Analysis（根本原因分析）
 
-Systematic problem solving using Fishbone (Ishikawa) diagrams and 5 Whys technique. Identifies true root causes and recommends effective corrective actions.
+使用 Fishbone（Ishikawa，鱼骨图）与 5 Whys 技术进行系统化问题解决。识别真正的根本原因，并给出有效的纠正措施建议。
 
-## What is Root Cause Analysis?
+## 什么是 Root Cause Analysis？
 
-**Root Cause Analysis (RCA)** is a structured approach to identify the fundamental cause(s) of problems, rather than addressing symptoms. Effective RCA prevents problem recurrence.
+**Root Cause Analysis（根本原因分析，RCA）** 是一种结构化方法，用于识别问题的根本原因，而不是处理表面症状。有效的 RCA 能够防止问题再次发生。
 
-| Approach | Focus | Best For |
+| 方法 | 关注点 | 适用场景 |
 |----------|-------|----------|
-| **Fishbone (Ishikawa)** | Brainstorming all potential causes by category | Complex problems with multiple potential causes |
-| **5 Whys** | Drilling down through cause chains | Problems with linear cause-effect relationships |
-| **Combined** | Fishbone to identify, 5 Whys to drill down | Comprehensive root cause identification |
+| **Fishbone（Ishikawa）** | 按类别 brainstorm 所有潜在原因 | 有多种潜在原因的复杂问题 |
+| **5 Whys** | 沿因果链逐级下钻 | 有线性因果关系的问题 |
+| **组合使用** | Fishbone 找出原因，5 Whys 深入钻取 | 全面识别根本原因 |
 
-## Framework 1: Fishbone (Ishikawa) Diagram
+## 框架 1：Fishbone（Ishikawa）图
 
-### What is a Fishbone Diagram?
+### 什么是 Fishbone 图？
 
-A **Fishbone diagram** (also called Ishikawa or cause-and-effect diagram) organizes potential causes into categories, resembling a fish skeleton with the problem as the "head."
+**Fishbone 图**（又称 Ishikawa 图或因果图）把潜在原因按类别组织起来，形似鱼骨，问题本身作为"鱼头"。
 
 ```text
         ┌─────────────────────────────────────────────────────────┐
@@ -46,29 +46,29 @@ Measurement ──────────────────────�
         └───────────────────────────────────────────────┘
 ```
 
-### The 6M Categories
+### 6M 类别
 
-| Category | Also Called | Example Causes |
+| 类别 | 别称 | 示例原因 |
 |----------|-------------|----------------|
-| **Man** | People, Personnel | Training, skills, fatigue, communication |
-| **Machine** | Equipment, Technology | Hardware, software, tools, maintenance |
-| **Method** | Process, Procedure | Workflow, documentation, standards |
-| **Material** | Inputs, Data | Raw materials, components, information quality |
-| **Measurement** | Metrics, Inspection | Calibration, accuracy, data collection |
-| **Mother Nature** | Environment | Temperature, humidity, regulations, market |
+| **Man** | People、Personnel | 培训、技能、疲劳、沟通 |
+| **Machine** | Equipment、Technology | 硬件、软件、工具、维护 |
+| **Method** | Process、Procedure | workflow、文档、规范 |
+| **Material** | Inputs、Data | 原料、组件、信息质量 |
+| **Measurement** | Metrics、Inspection | 校准、精度、数据采集 |
+| **Mother Nature** | Environment | 温度、湿度、法规、市场 |
 
-### Alternative Category Sets
+### 可选的类别集合
 
-| Domain | Categories |
+| 领域 | 类别 |
 |--------|------------|
-| **Manufacturing (6M)** | Man, Machine, Method, Material, Measurement, Mother Nature |
-| **Service (8P)** | Product, Price, Place, Promotion, People, Process, Physical Evidence, Productivity |
-| **Software (5S)** | Systems, Skills, Suppliers, Surroundings, Safety |
-| **Custom** | Define categories relevant to your domain |
+| **Manufacturing（6M）** | Man、Machine、Method、Material、Measurement、Mother Nature |
+| **Service（8P）** | Product、Price、Place、Promotion、People、Process、Physical Evidence、Productivity |
+| **Software（5S）** | Systems、Skills、Suppliers、Surroundings、Safety |
+| **Custom** | 定义你所在领域相关的类别 |
 
-### Fishbone Workflow
+### Fishbone 工作流
 
-#### Step 1: Define the Problem
+#### Step 1：定义问题
 
 ```markdown
 ## Problem Statement
@@ -80,28 +80,28 @@ Measurement ──────────────────────�
 **Frequency:** [One-time / Recurring / Intermittent]
 ```
 
-**Good problem statements:**
+**好的问题陈述：**
 
-- ✅ "Customer orders delayed by 3+ days increased 40% in Q4"
-- ✅ "Production line 3 defect rate rose from 2% to 8% in November"
-- ❌ "Things are slow" (too vague)
-- ❌ "The system is broken" (not measurable)
+- ✅ "Q4 customer order 延迟超过 3 天的比例上升 40%"
+- ✅ "11 月产线 3 的 defect rate 从 2% 升到 8%"
+- ❌ "事情变慢了"（太模糊）
+- ❌ "系统坏了"（不可度量）
 
-#### Step 2: Assemble the Team
+#### Step 2：组建团队
 
-Include people with direct knowledge:
+纳入具有一手认知的人员：
 
-| Role | Contribution |
+| 角色 | 贡献 |
 |------|--------------|
-| **Process Owner** | Overall accountability |
-| **Front-line Workers** | Direct observation and experience |
-| **Subject Matter Experts** | Technical knowledge |
-| **Customer Representative** | Impact perspective |
-| **Facilitator** | Guide the process |
+| **Process Owner** | 总体问责 |
+| **Front-line Workers** | 直接观察与一线经验 |
+| **Subject Matter Experts** | 技术知识 |
+| **Customer Representative** | 影响视角 |
+| **Facilitator** | 引导流程 |
 
-#### Step 3: Brainstorm Causes by Category
+#### Step 3：按类别 brainstorm 原因
 
-For each category, ask: "What in this category could cause the problem?"
+对每个类别，问："该类别下有什么可能导致这个问题？"
 
 ```markdown
 ## Cause Brainstorming
@@ -144,20 +144,20 @@ For each category, ask: "What in this category could cause the problem?"
 | Regulatory changes | New requirements in October | Low |
 ```
 
-#### Step 4: Identify Most Likely Root Causes
+#### Step 4：识别最可能的根本原因
 
-Prioritize based on:
+基于以下准则排序：
 
-| Criterion | Question |
+| 准则 | 问题 |
 |-----------|----------|
-| **Evidence** | Is there data supporting this cause? |
-| **Frequency** | Does this cause relate to problem frequency? |
-| **Correlation** | Does the cause timing match problem timing? |
-| **Control** | Can we test or eliminate this cause? |
+| **Evidence** | 是否有数据支持该原因？ |
+| **Frequency** | 该原因是否与问题频率相关？ |
+| **Correlation** | 原因发生时机是否与问题时机吻合？ |
+| **Control** | 我们能否测试或消除该原因？ |
 
-#### Step 5: Validate Root Causes
+#### Step 5：验证根本原因
 
-For each high-likelihood cause:
+对每个高可能性原因：
 
 ```markdown
 ## Root Cause Validation
@@ -169,7 +169,7 @@ For each high-likelihood cause:
 | Unclear procedures | Review documentation | 3 conflicting SOPs found | ✅ Yes |
 ```
 
-### Fishbone Output Format
+### Fishbone 输出格式
 
 ```markdown
 ## Fishbone Analysis: [Problem]
@@ -216,7 +216,7 @@ For each high-likelihood cause:
 | 1 | [Corrective action] | Root Cause #1 | [Name] | [Date] |
 ```
 
-### Fishbone Mermaid Diagram
+### Fishbone Mermaid 图
 
 ```mermaid
 flowchart LR
@@ -262,17 +262,17 @@ flowchart LR
     style Problem fill:#f99,stroke:#900
 ```
 
-## Framework 2: 5 Whys
+## 框架 2：5 Whys
 
-### What is 5 Whys?
+### 什么是 5 Whys？
 
-**5 Whys** is an iterative interrogative technique that drills down from symptoms to root causes by repeatedly asking "Why?" (typically 5 times, but may be fewer or more).
+**5 Whys** 是一种迭代式追问技法，通过反复问"为什么？"（通常 5 次，也可更多或更少）从症状下钻到根本原因。
 
-**Key Principle:** Each answer becomes the subject of the next "Why?"
+**核心原则：** 上一次的答案成为下一次"为什么"的对象。
 
-### 5 Whys Workflow
+### 5 Whys 工作流
 
-#### Step 1: State the Problem
+#### Step 1：陈述问题
 
 ```markdown
 ## 5 Whys Analysis
@@ -282,7 +282,7 @@ flowchart LR
 **Analyst:** 5whys-analyst
 ```
 
-#### Step 2: Ask Why Iteratively
+#### Step 2：迭代式追问 Why
 
 ```markdown
 ### Why Chain
@@ -307,28 +307,28 @@ flowchart LR
 **Root Cause:** Load testing was not included in CI/CD pipeline during initial setup.
 ```
 
-#### Step 3: Validate the Root Cause
+#### Step 3：验证根本原因
 
-| Validation Check | Question | Pass? |
+| 验证项 | 问题 | 通过？ |
 |------------------|----------|-------|
-| **Specific** | Is the root cause specific and actionable? | ☐ |
-| **Systemic** | Does addressing this prevent recurrence? | ☐ |
-| **Controllable** | Can we actually fix this? | ☐ |
-| **Chain Valid** | Does each why-answer logically lead to the next? | ☐ |
+| **Specific（具体）** | 根本原因是否具体且可行动？ | ☐ |
+| **Systemic（系统性）** | 处理这个原因是否能防止再次发生？ | ☐ |
+| **Controllable（可控）** | 我们真的能修好它吗？ | ☐ |
+| **Chain Valid（链条成立）** | 每个 why-answer 是否逻辑上引出下一个？ | ☐ |
 
-### 5 Whys Best Practices
+### 5 Whys 最佳实践
 
 | Do | Don't |
 |----|-------|
-| ✅ Focus on process/system causes | ❌ Blame individuals |
-| ✅ Base answers on facts and evidence | ❌ Speculate without data |
-| ✅ Keep asking until actionable root found | ❌ Stop at symptoms |
-| ✅ Document the chain for future reference | ❌ Accept "human error" as root cause |
-| ✅ Consider multiple parallel chains | ❌ Assume single root cause |
+| ✅ 关注流程/系统层面的原因 | ❌ 追责个人 |
+| ✅ 基于事实与证据回答 | ❌ 无数据地推测 |
+| ✅ 问到找到可行动的根因为止 | ❌ 停在症状层面 |
+| ✅ 记录整个链条以备后续参考 | ❌ 把"人为失误"当成根本原因 |
+| ✅ 考虑多条并行链条 | ❌ 假设只有单一根因 |
 
-### Multiple 5 Why Chains
+### 多条 5 Why 链
 
-Complex problems often have multiple contributing causes. Run parallel 5 Whys chains:
+复杂问题往往有多个贡献因素。并行跑多条 5 Whys 链：
 
 ```markdown
 ## Multiple Why Chains
@@ -353,7 +353,7 @@ Why 4: Not communicated → No process for training updates
 ### Chain C: (Additional chains as needed)
 ```
 
-### 5 Whys Output Format
+### 5 Whys 输出格式
 
 ```markdown
 ## 5 Whys Analysis: [Problem]
@@ -387,7 +387,7 @@ Why 4: Not communicated → No process for training updates
 | [Action to address root cause] | [Name] | [Date] | Open |
 ```
 
-### 5 Whys Mermaid Diagram
+### 5 Whys Mermaid 图
 
 ```mermaid
 flowchart TD
@@ -410,14 +410,14 @@ flowchart TD
     style RC fill:#9f9,stroke:#090
 ```
 
-## Combined Approach
+## 组合方法
 
-For comprehensive analysis, combine both techniques:
+做全面分析时，组合使用两种技法：
 
-1. **Fishbone** to brainstorm all potential causes across categories
-2. **5 Whys** to drill down on each high-likelihood cause
-3. **Validate** multiple root causes found
-4. **Prioritize** corrective actions
+1. **Fishbone** — brainstorm 所有类别下的潜在原因
+2. **5 Whys** — 对每个高可能性原因下钻
+3. **验证** — 验证找到的多个根因
+4. **排序** — 对纠正措施排序
 
 ```markdown
 ## Combined RCA: [Problem]
@@ -446,18 +446,18 @@ Root Cause B: [Result]
 [CAPA based on validated root causes]
 ```
 
-## Corrective Action Planning (CAPA)
+## 纠正措施计划（CAPA）
 
-### Action Types
+### 措施类型
 
-| Type | Purpose | Example |
+| 类型 | 目的 | 示例 |
 |------|---------|---------|
-| **Immediate/Containment** | Stop the bleeding | Disable faulty feature |
-| **Corrective** | Fix the specific occurrence | Patch the bug |
-| **Preventive** | Prevent recurrence | Add automated testing |
-| **Systemic** | Address organizational factors | Update training program |
+| **Immediate/Containment（立即止血）** | 先止住损失 | 下线有问题的 feature |
+| **Corrective（纠正）** | 修复当次发生 | 打 bug 补丁 |
+| **Preventive（预防）** | 防止再次发生 | 新增自动化测试 |
+| **Systemic（系统性）** | 解决组织层面的因素 | 更新培训计划 |
 
-### CAPA Template
+### CAPA 模板
 
 ```markdown
 ## Corrective Action Plan
@@ -484,7 +484,7 @@ Root Cause B: [Result]
 - **Metrics to Monitor:** [KPIs]
 ```
 
-## Structured Data (YAML)
+## 结构化数据（YAML）
 
 ```yaml
 root_cause_analysis:
@@ -553,37 +553,37 @@ root_cause_analysis:
       status: open
 ```
 
-## When to Use RCA
+## 何时使用 RCA
 
-| Scenario | Use RCA? | Approach |
+| 场景 | 是否使用 RCA？ | 方法 |
 |----------|----------|----------|
-| Major incident | Yes | Full Fishbone + 5 Whys |
-| Recurring defect | Yes | Focused 5 Whys |
-| Customer complaint pattern | Yes | Combined approach |
-| Minor one-time issue | Maybe | Quick 5 Whys |
-| Proactive improvement | Partial | Fishbone for ideation |
+| 重大事故 | 是 | 完整的 Fishbone + 5 Whys |
+| 反复出现的 defect | 是 | 聚焦的 5 Whys |
+| 客诉模式 | 是 | 组合方法 |
+| 小的一次性问题 | 视情况 | 快速 5 Whys |
+| 主动性改进 | 部分适用 | 用 Fishbone 做构想 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **Incident reports** - Trigger for RCA
-- **Quality metrics** - Identify problems
-- **stakeholder-analysis** - Identify team members
+- **Incident reports** — RCA 的触发源
+- **Quality metrics** — 识别问题
+- **stakeholder-analysis** — 识别团队成员
 
-### Downstream
+### 下游
 
-- **Process improvement** - Implement corrective actions
-- **Training programs** - Address people-related causes
-- **value-stream-mapping** - Eliminate systemic waste
+- **Process improvement** — 落地纠正措施
+- **Training programs** — 解决人员相关的原因
+- **value-stream-mapping** — 消除系统性浪费
 
-## Related Skills
+## 相关 skill
 
-- `decision-analysis` - Evaluate corrective action options
-- `risk-analysis` - Assess risk of root causes
-- `value-stream-mapping` - Process improvement
-- `stakeholder-analysis` - Identify RCA participants
+- `decision-analysis` — 评估纠正措施的选项
+- `risk-analysis` — 评估根因的风险
+- `value-stream-mapping` — 流程改进
+- `stakeholder-analysis` — 识别 RCA 参与者
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

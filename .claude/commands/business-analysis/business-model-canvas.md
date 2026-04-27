@@ -1,177 +1,177 @@
 ---
-description: Create a Business Model Canvas (Osterwalder) or Lean Canvas (Maurya). Modes - bmc (full canvas), lean (startup-focused), quick (rapid fill). Interactive 9-block business model design.
-argument-hint: <business-description> [--mode bmc|lean|quick] [--output yaml|mermaid|both] [--dir <path>]
+description: 创建商业模式画布（Osterwalder）或精益画布（Maurya）。模式 - bmc（完整画布）、lean（初创企业聚焦）、quick（快速填充）。交互式9块商业模式设计。
+argument-hint: <业务描述> [--mode bmc|lean|quick] [--output yaml|mermaid|both] [--dir <路径>]
 allowed-tools: Task, Read, Write, Glob, Grep, Skill
 ---
 
-# Business Model Canvas Command
+# 商业模式画布命令
 
-Create a structured business model using Osterwalder's Business Model Canvas or Maurya's Lean Canvas to visualize and design how an organization creates, delivers, and captures value.
+使用 Osterwalder 的商业模式画布或 Maurya 的精益画布创建结构化的商业模式，以可视化和设计组织如何创造、交付和捕获价值。
 
-## Arguments
+## 参数
 
-- `<business-description>`: Description of the business, startup, or initiative to model
-- `--mode`: Canvas type (default: `bmc`)
-  - `bmc`: Full Business Model Canvas (~8K tokens)
-  - `lean`: Lean Canvas for startups (~6K tokens)
-  - `quick`: Rapid single-pass canvas (~3K tokens)
-- `--output`: Output format (default: `both`)
-  - `yaml`: Structured YAML for downstream processing
-  - `mermaid`: Mermaid diagram visualization
-  - `both`: Both formats
+- `<业务描述>`：要建模的业务、初创企业或倡议的描述
+- `--mode`：画布类型（默认：`bmc`）
+  - `bmc`：完整商业模式画布（约8K tokens）
+  - `lean`：面向初创企业的精益画布（约6K tokens）
+  - `quick`：快速单次填充画布（约3K tokens）
+- `--output`：输出格式（默认：`both`）
+  - `yaml`：结构化 YAML，用于下游处理
+  - `mermaid`：Mermaid 图表可视化
+  - `both`：两种格式
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行
 
-### Step 1: Parse Arguments
+### 步骤1：解析参数
 
-Extract business description, mode, and output format from arguments.
+从参数中提取业务描述、模式和输出格式。
 
-If no description provided, ask the user:
-"What business, product, or initiative would you like to create a canvas for?"
+如果未提供描述，询问用户：
+"您想为哪个业务、产品或倡议创建画布？"
 
-Default mode is `bmc`. Default output is `both`.
+默认模式为 `bmc`。默认输出为 `both`。
 
-### Step 2: Load Business Model Canvas Skill
+### 步骤2：加载商业模式画布 Skill
 
-Invoke the `business-model-canvas` skill to access:
+调用 `business-model-canvas` skill 以访问：
 
-- 9-block canvas structure
-- Block definitions and examples
-- Value proposition types
-- Revenue model patterns
-- Lean Canvas adaptations
+- 9块画布结构
+- 块定义和示例
+- 价值主张类型
+- 收入模式模式
+- 精益画布适配
 
-### Step 3: Execute Based on Mode
+### 步骤3：根据模式执行
 
-#### BMC Mode (Full Business Model Canvas)
+#### BMC 模式（完整商业模式画布）
 
-Work through all 9 blocks interactively (right-to-left order):
+按交互方式遍历所有9个块（从右到左的顺序）：
 
-**Demand Side (Start Here):**
+**需求侧（从这里开始）：**
 
-1. **Customer Segments**: Who are the most important customers?
-   - Segment types: Mass market, Niche, Segmented, Diversified, Multi-sided
+1. **客户细分**：最重要的客户是谁？
+   - 细分类型：大众市场、利基市场、细分市场、多元化市场、多边平台
 
-2. **Value Propositions**: What value do we deliver to each segment?
-   - Value types: Newness, Performance, Customization, Price, Convenience
+2. **价值主张**：我们为每个细分群体提供什么价值？
+   - 价值类型：新颖性、性能、定制化、价格、便利性
 
-3. **Channels**: How do we reach and deliver to customers?
-   - Phases: Awareness, Evaluation, Purchase, Delivery, After-sales
+3. **渠道**：我们如何触达并向客户交付？
+   - 阶段：认知、评估、购买、交付、售后
 
-4. **Customer Relationships**: How do we interact with each segment?
-   - Types: Personal, Dedicated, Self-service, Automated, Communities
+4. **客户关系**：我们如何与每个细分群体互动？
+   - 类型：个人化、专属服务、自助服务、自动化、社区
 
-5. **Revenue Streams**: How does each segment pay?
-   - Models: Asset sale, Usage fee, Subscription, Licensing, Advertising
+5. **收入来源**：每个细分群体如何付费？
+   - 模式：资产销售、使用费、订阅、许可、广告
 
-**Supply Side:**
+**供给侧：**
 
-6. **Key Resources**: What do we need to deliver value?
-   - Types: Physical, Intellectual, Human, Financial
+6. **核心资源**：我们需要什么来交付价值？
+   - 类型：实体、知识、人力、财务
 
-7. **Key Activities**: What must we do well?
-   - Types: Production, Problem Solving, Platform/Network
+7. **关键活动**：我们必须做好什么？
+   - 类型：生产、问题解决、平台/网络
 
-8. **Key Partnerships**: Who helps us?
-   - Types: Strategic alliances, Coopetition, Joint ventures, Suppliers
+8. **关键合作伙伴**：谁帮助我们？
+   - 类型：战略联盟、竞合关系、合资企业、供应商
 
-9. **Cost Structure**: What are major costs?
-   - Focus: Cost-driven vs Value-driven
+9. **成本结构**：主要成本是什么？
+   - 重点：成本驱动 vs 价值驱动
 
-After filling all blocks, validate coherence:
+填充所有块后，验证一致性：
 
-- Does value proposition address segment needs?
-- Do channels reach segments effectively?
-- Do revenues exceed costs?
+- 价值主张是否满足细分群体需求？
+- 渠道是否有效触达细分群体？
+- 收入是否超过成本？
 
-#### Lean Mode (Startup Canvas)
+#### Lean 模式（初创企业画布）
 
-Adapted blocks for early-stage ventures:
+针对早期创业公司的适配块：
 
-1. **Problem** (replaces Key Partners): Top 3 problems to solve
-2. **Solution** (replaces Key Activities): Top 3 features
-3. **Key Metrics** (replaces Key Resources): Numbers that matter
-4. **Unfair Advantage** (replaces Customer Relationships): Cannot be copied
+1. **问题**（替代关键合作伙伴）：要解决的3个首要问题
+2. **解决方案**（替代关键活动）：3个核心功能
+3. **关键指标**（替代核心资源）：重要的数字
+4. **独特优势**（替代客户关系）：无法被复制的优势
 
-Shared blocks: Customer Segments, Value Proposition, Channels, Revenue Streams, Cost Structure
+共享块：客户细分、价值主张、渠道、收入来源、成本结构
 
-Focus on problem-solution fit and early adopters.
+聚焦于问题-解决方案匹配和早期采用者。
 
-#### Quick Mode (Rapid Fill)
+#### Quick 模式（快速填充）
 
-Single-pass canvas completion:
+单次画布完成：
 
-1. Start with value proposition and customer segment
-2. Infer other blocks from context
-3. Skip detailed breakdowns
-4. Generate minimal viable canvas
-5. Mark assumptions for later validation
+1. 从价值主张和客户细分开始
+2. 从上下文推断其他块
+3. 跳过详细分解
+4. 生成最小可行画布
+5. 标记假设以供后续验证
 
-### Step 4: Generate Output Artifacts
+### 步骤4：生成输出产物
 
-#### YAML Output
+#### YAML 输出
 
 ```yaml
 business_model_canvas:
   version: "1.0"
-  organization: "[Business Name]"
-  date: "[ISO Date]"
-  type: "business_model_canvas"  # or "lean_canvas"
+  organization: "[企业名称]"
+  date: "[ISO日期]"
+  type: "business_model_canvas"  # 或 "lean_canvas"
   analyst: "canvas-facilitator"
 
   customer_segments:
-    - name: "[Segment Name]"
-      description: "[Who are they?]"
-      size: "[Market size estimate]"
-      priority: primary  # or secondary
+    - name: "[细分名称]"
+      description: "[他们是谁？]"
+      size: "[市场规模估算]"
+      priority: primary  # 或 secondary
 
   value_propositions:
-    - segment: "[Segment Name]"
-      proposition: "[Value delivered]"
-      type: convenience  # newness, performance, customization, price, etc.
-      differentiation: "[Why us?]"
+    - segment: "[细分名称]"
+      proposition: "[交付的价值]"
+      type: convenience  # newness, performance, customization, price等
+      differentiation: "[为什么选择我们？]"
 
   channels:
     - phase: awareness
-      channel: "[Channel name]"
-      type: own  # or partner
+      channel: "[渠道名称]"
+      type: own  # 或 partner
       effectiveness: high
 
   customer_relationships:
-    - segment: "[Segment Name]"
+    - segment: "[细分名称]"
       type: self_service
       purpose: retention  # acquisition, retention, upselling
 
   revenue_streams:
-    - segment: "[Segment Name]"
+    - segment: "[细分名称]"
       type: subscription
-      pricing: fixed  # or dynamic
+      pricing: fixed  # 或 dynamic
       percentage: 80
 
   key_resources:
-    - name: "[Resource]"
+    - name: "[资源]"
       category: intellectual  # physical, intellectual, human, financial
       source: own
       importance: critical
 
   key_activities:
-    - activity: "[Activity]"
+    - activity: "[活动]"
       category: production  # production, problem_solving, platform
       importance: critical
 
   key_partnerships:
-    - partner: "[Partner Name]"
+    - partner: "[合作伙伴名称]"
       type: strategic_alliance
       motivation: acquisition  # optimization, risk_reduction, acquisition
-      provides: "[What they provide]"
+      provides: "[他们提供什么]"
 
   cost_structure:
-    focus: value_driven  # cost_driven or value_driven
+    focus: value_driven  # cost_driven 或 value_driven
     costs:
-      - category: "[Cost category]"
-        type: fixed  # fixed or variable
+      - category: "[成本类别]"
+        type: fixed  # fixed 或 variable
         percentage: 40
 
   validation:
@@ -180,36 +180,36 @@ business_model_canvas:
     revenue_cost_balance: true
 ```
 
-#### Mermaid Output
+#### Mermaid 输出
 
 ```mermaid
 flowchart TB
-    subgraph Partners["Key Partners"]
-        P1[Partner 1]
+    subgraph Partners["关键合作伙伴"]
+        P1[合作伙伴1]
     end
 
-    subgraph Activities["Key Activities"]
-        A1[Activity 1]
+    subgraph Activities["关键活动"]
+        A1[活动1]
     end
 
-    subgraph Resources["Key Resources"]
-        R1[Resource 1]
+    subgraph Resources["核心资源"]
+        R1[资源1]
     end
 
-    subgraph VP["Value Propositions"]
-        V1[Value 1]
+    subgraph VP["价值主张"]
+        V1[价值1]
     end
 
-    subgraph CR["Customer Relationships"]
-        CR1[Relationship 1]
+    subgraph CR["客户关系"]
+        CR1[关系1]
     end
 
-    subgraph CH["Channels"]
-        CH1[Channel 1]
+    subgraph CH["渠道"]
+        CH1[渠道1]
     end
 
-    subgraph CS["Customer Segments"]
-        CS1[Segment 1]
+    subgraph CS["客户细分"]
+        CS1[细分1]
     end
 
     Partners --> Activities
@@ -220,81 +220,81 @@ flowchart TB
     CR --> CS
     CH --> CS
 
-    subgraph Costs["Cost Structure"]
-        C1[Cost 1]
+    subgraph Costs["成本结构"]
+        C1[成本1]
     end
 
-    subgraph Revenue["Revenue Streams"]
-        Rev1[Revenue 1]
+    subgraph Revenue["收入来源"]
+        Rev1[收入1]
     end
 ```
 
-#### Summary Report
+#### 摘要报告
 
 ```markdown
-## Business Model Canvas: [Organization]
+## 商业模式画布：[组织名称]
 
-**Date:** [ISO Date]
-**Type:** Business Model Canvas / Lean Canvas
+**日期：** [ISO日期]
+**类型：** 商业模式画布 / 精益画布
 
-### Executive Summary
+### 执行摘要
 
-[2-3 sentence summary of the business model]
+[2-3句话总结商业模式]
 
-### Customer Focus
+### 客户聚焦
 
-- **Primary Segment:** [Description]
-- **Value Delivered:** [Core value proposition]
-- **Channels:** [Primary channels]
+- **主要细分群体：** [描述]
+- **交付的价值：** [核心价值主张]
+- **渠道：** [主要渠道]
 
-### Value Creation
+### 价值创造
 
-- **Key Activities:** [Core activities]
-- **Key Resources:** [Critical resources]
-- **Key Partners:** [Strategic partners]
+- **关键活动：** [核心活动]
+- **核心资源：** [关键资源]
+- **关键合作伙伴：** [战略合作伙伴]
 
-### Financial Model
+### 财务模型
 
-- **Revenue Model:** [How money is made]
-- **Cost Structure:** [Major cost drivers]
-- **Unit Economics:** [Key metrics]
+- **收入模式：** [如何赚钱]
+- **成本结构：** [主要成本驱动因素]
+- **单位经济学：** [关键指标]
 
-### Risks and Assumptions
+### 风险和假设
 
-| Block | Assumption | Risk Level |
+| 块 | 假设 | 风险等级 |
 |-------|------------|------------|
-| [Block] | [Assumption] | High/Med/Low |
+| [块] | [假设] | 高/中/低 |
 
-### Recommendations
+### 建议
 
-1. [Validate assumption X]
-2. [Explore channel Y]
-3. [Consider partnership Z]
+1. [验证假设X]
+2. [探索渠道Y]
+3. [考虑合作伙伴Z]
 ```
 
-### Step 5: Save Results
+### 步骤5：保存结果
 
-Save outputs based on format flag:
+根据格式标志保存输出：
 
-**YAML file:**
+**YAML 文件：**
 
 - `docs/analysis/business-model-canvas.yaml`
 
-**Mermaid diagram:**
+**Mermaid 图表：**
 
 - `docs/analysis/business-model-canvas.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 指定自定义输出目录。
 
-### Step 6: Suggest Follow-Up Actions
+### 步骤6：建议后续行动
 
-After completing canvas:
+完成画布后：
 
 ```markdown
-## Suggested Next Steps
+## 建议的下一步
 
-1. **Strategic Context**: Use `/ba:swot-analysis` to understand environmental factors
-2. **Value Stream**: Use `/ba:value-stream` to optimize value delivery
-3. **Stakeholder Mapping**: Use `/ba:stakeholder-analyze` to identify key relationships
-4. **Validation Planning**: Test riskiest assumptions with customers
+1. **战略背景**：使用 `/ba:swot-analysis` 了解环境因素
+2. **价值流**：使用 `/ba:value-stream` 优化价值交付
+3. **干系人映射**：使用 `/ba:stakeholder-analyze` 识别关键关系
+4. **验证计划**：与客户测试风险最高的假设
 ```

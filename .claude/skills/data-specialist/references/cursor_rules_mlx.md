@@ -2,18 +2,18 @@
 description: This guide provides opinionated, actionable best practices for developing high-performance machine learning applications with MLX on Apple Silicon, focusing on Python and Swift.
 ---
 
-# mlx Best Practices
+# mlx 最佳实践
 
-MLX is Apple's high-performance array framework for numerical computing and AI on Apple Silicon. Adhering to these guidelines ensures your MLX code is efficient, maintainable, and integrates seamlessly with Apple's ML ecosystem.
+MLX 是 Apple 的高性能 array 框架，用于 Apple Silicon 上的数值计算和 AI。遵守这些准则可确保您的 MLX 代码高效、可维护，并与 Apple 的 ML 生态系统无缝集成。
 
-## 1. Code Organization and Structure
+## 1. 代码组织和结构
 
-Organize your MLX projects into logical, reusable modules. Mirror the structure of official Apple examples (e.g., `corenet` MLX examples) for clarity and maintainability.
+将您的 MLX 项目组织成逻辑的、可重用的模块。为了清晰和可维护性，镜像官方 Apple 示例的结构（例如，“corenet”MLX 示例）。
 
-### 1.1 Modularize Components
-Separate concerns into dedicated files: data loading, model definition, training loops, and utility functions.
+### 1.1 组件模块化
+将关注点分成专用文件：数据加载、模型定义、训练循环和实用函数。
 
-❌ **BAD: Monolithic Script**
+❌ **不好：整体脚本**
 ```python
 # train.py
 import mlx.core as mx
@@ -21,7 +21,7 @@ import mlx.nn as nn
 # ... data loading, model definition, training loop all in one file ...
 ```
 
-✅ **GOOD: Modular Structure**
+✅ **好：模块化结构**
 ```
 my_project/
 ├── data/
@@ -60,10 +60,10 @@ from models.simple_cnn import SimpleCNN
 # ... training logic ...
 ```
 
-### 1.2 Externalize Configuration
-Store training parameters, model hyperparameters, and dataset paths in version-controlled YAML or JSON files.
+### 1.2 外部化配置
+将训练参数、模型超参数和数据集路径存储在版本控制的 YAML 或 JSON 文件中。
 
-❌ **BAD: Hardcoded Parameters**
+❌ **不好：硬编码参数**
 ```python
 # train.py
 learning_rate = 0.001
@@ -72,7 +72,7 @@ num_epochs = 10
 model = SimpleCNN(num_classes=10)
 ```
 
-✅ **GOOD: Config-Driven**
+✅ **好：配置驱动**
 ```yaml
 # config/train_config.yaml
 training:
@@ -97,14 +97,14 @@ model = SimpleCNN(num_classes=config["model"]["num_classes"])
 # ... use config["training"]["learning_rate"] etc.
 ```
 
-## 2. Common Patterns and Anti-patterns
+## 2. 常见模式和反模式
 
-Leverage MLX's core features like lazy evaluation and unified memory for optimal performance.
+利用 MLX 的核心功能（例如惰性求值和统一内存）来实现最佳性能。
 
-### 2.1 Embrace Lazy Evaluation
-MLX computations are lazy; they build a computation graph but execute only when results are explicitly needed. Use `mlx.eval()` or `mlx.compile()` to force execution.
+### 2.1 拥抱惰性评估
+MLX 计算是惰性的；他们构建一个计算图，但仅在明确需要结果时才执行。使用 `mlx.eval()` 或 `mlx.compile()` 强制执行。
 
-❌ **BAD: Relying on Implicit Evaluation for Performance Critical Sections**
+❌ **不好：依赖于性能关键部分的隐式评估**
 ```python
 # This loop might build a huge graph or trigger many small evaluations
 # if intermediate results are printed or accessed.
@@ -114,8 +114,8 @@ for i in range(num_steps):
     # No explicit eval, performance can be unpredictable.
 ```
 
-✅ **GOOD: Explicit Evaluation for Control**
-Use `mlx.eval()` on the final outputs of a computation step to trigger execution efficiently. For static graphs, `mlx.compile()` offers further optimization.
+✅ **好：明确的控制评估**
+在计算步骤的最终输出上使用“mlx.eval()”以有效地触发执行。对于静态图，`mlx.compile()`提供了进一步的优化。
 
 ```python
 import mlx.core as mx
@@ -144,16 +144,16 @@ for i in range(num_steps):
     print(f"Step {i}, Loss: {loss.item()}")
 ```
 
-### 2.2 Leverage Unified Memory
-MLX arrays live in shared memory, eliminating explicit data transfers between CPU and GPU. Specify the device for operations when necessary, but default behavior is often sufficient.
+### 2.2 利用统一内存
+MLX 数组位于共享内存中，消除了 CPU 和 GPU 之间的显式数据传输。必要时指定操作设备，但默认行为通常就足够了。
 
-❌ **BAD: Unnecessary Device Management (like other frameworks)**
+❌ **不好：不必要的设备管理（与其他框架一样）**
 ```python
 # No need to explicitly move data to 'gpu' or 'cpu'
 data = mx.array([1, 2, 3]).to("gpu") # This is not how MLX works
 ```
 
-✅ **GOOD: Device-Agnostic Operations (or explicit per-op)**
+✅ **好：与设备无关的操作（或显式的每操作）**
 ```python
 import mlx.core as mx
 
@@ -169,24 +169,24 @@ d = mx.add(a, b, stream=mx.cpu) # Force CPU execution for this specific op
 mx.eval(d)
 ```
 
-### 2.3 Use Type Hints and Pure Functions
-Follow Python best practices: annotate functions and variables with type hints for clarity. Design functions to be pure where possible for easier testing and composability.
+### 2.3 使用类型提示和纯函数
+遵循 Python 最佳实践：为清晰起见，使用类型提示对函数和变量进行注释。尽可能将函数设计为纯粹的，以便于测试和可组合性。
 
-## 3. Performance Considerations
+## 3. 性能考虑
 
-Optimize for Apple Silicon by understanding MLX's execution model.
+通过了解 MLX 的执行模型来优化 Apple Silicon。
 
-### 3.1 Batching and Data Loading
-Efficient data loading and proper batching are critical for GPU utilization.
+### 3.1 批处理和数据加载
+高效的数据加载和正确的批处理对于 GPU 利用率至关重要。
 
-❌ **BAD: Iterating over single samples or inefficient data loading**
+❌ **不好：迭代单个样本或低效的数据加载**
 ```python
 # Inefficient for GPU
 for sample_x, sample_y in dataset:
     # ... process single sample ...
 ```
 
-✅ **GOOD: Batch Data and Preload**
+✅ **好：批量数据和预加载**
 ```python
 # Use a DataLoader or similar utility to yield batches of MLX arrays
 def data_loader(data, batch_size):
@@ -198,8 +198,8 @@ for X_batch, y_batch in data_loader(train_data, batch_size):
     # ... process batch ...
 ```
 
-### 3.2 Quantization for Deployment
-For deploying models on-device, consider quantizing weights (e.g., 4-bit) to reduce memory footprint and improve inference speed.
+### 3.2 量化部署
+对于在设备上部署模型，请考虑量化权重（例如 4 位）以减少内存占用并提高推理速度。
 
 ```python
 import mlx.core as mx
@@ -213,21 +213,21 @@ quantized_model = model.quantize(group_size=32, bits=4)
 mx.save("quantized_model.safetensors", quantized_model.parameters())
 ```
 
-## 4. Common Pitfalls and Gotchas
+## 4. 常见的陷阱和陷阱
 
-Avoid common mistakes that can lead to unexpected behavior or poor performance.
+避免可能导致意外行为或性能不佳的常见错误。
 
-### 4.1 Forgetting `mlx.eval()`
-The most common pitfall. If you don't explicitly evaluate, your graph might not execute, or only partially.
+### 4.1 忘记`mlx.eval()`
+最常见的陷阱。如果您不明确评估，您的图表可能无法执行或仅部分执行。
 
-❌ **BAD: No `eval()` on results**
+❌ **不好：结果上没有 `eval()`**
 ```python
 # This will print the MLX array object, not its computed value
 result = mx.add(mx.array([1]), mx.array([2]))
 print(result) # Output: array(value=..., shape=(1,), dtype=int32)
 ```
 
-✅ **GOOD: Always `eval()` when you need the value**
+✅ **好：当您需要值时始终使用“eval()”**
 ```python
 result = mx.add(mx.array([1]), mx.array([2]))
 mx.eval(result)
@@ -235,17 +235,17 @@ print(result) # Output: array(3, shape=(1,), dtype=int32)
 print(result.item()) # Output: 3
 ```
 
-### 4.2 Over-evaluating or Under-evaluating
-Finding the right balance for `mlx.eval()` is key. Too many small `eval` calls can break graph optimization. Too few can lead to memory issues or delayed execution.
+### 4.2 高估或低估
+为 `mlx.eval()` 找到正确的平衡是关键。太多小的“eval”调用可能会破坏图形优化。太少可能会导致内存问题或延迟执行。
 
-**Guideline:** Evaluate at logical synchronization points, typically at the end of a training step or inference call. Use `mx.eval(model, optimizer, loss)` to evaluate all relevant states.
+**指南：** 在逻辑同步点进行评估，通常是在训练步骤或推理调用结束时。使用 mx.eval(model, optimizationr, loss) 来评估所有相关状态。
 
-## 5. Testing Approaches
+## 5. 测试方法
 
-Ensure the reliability and correctness of your MLX models.
+确保 MLX 模型的可靠性和正确性。
 
-### 5.1 Unit Tests for Model Components
-Test individual layers, custom modules, and utility functions.
+### 5.1 模型组件的单元测试
+Test 各个层、自定义模块和实用函数。
 
 ```python
 # tests/test_simple_cnn.py
@@ -268,11 +268,11 @@ if __name__ == "__main__":
     test_simple_cnn_output_shape()
 ```
 
-### 5.2 Integration Tests for Inference
-Verify that your trained models perform as expected on new data, especially when integrating with Core ML or other on-device frameworks.
+### 5.2 推理集成测试
+验证您训练的模型在新数据上的表现是否符合预期，尤其是在与 Core ML 或其他设备上框架集成时。
 
-### 5.3 Data Validation and Reproducibility
-Implement sanity checks for all input data. Version control your data, models, and training configurations to ensure reproducible results.
+### 5.3 数据验证和再现性
+对所有输入数据实施健全性检查。对数据、模型和训练配置进行版本控制，以确保结果可重现。
 
 ```python
 # utils/data_validation.py
@@ -291,12 +291,12 @@ def validate_image_data(images: mx.array, expected_shape: tuple, expected_dtype:
 # validate_image_data(raw_images, (100, 1, 28, 28), mx.float32)
 ```
 
-## 6. Swift-Specific Guidelines
+## 6. Swift 特定指南
 
-When working with MLX Swift, adhere to Apple's official Swift style guides and API design guidelines.
+使用 MLX Swift 时，请遵守 Apple 官方 Swift 风格指南和 API 设计指南。
 
-### 6.1 Follow Swift API Style
-Use idiomatic Swift patterns, consistent naming, and proper error handling. Refer to the `mlx-swift` examples (e.g., MNISTTrainer) as templates.
+### 6.1 遵循 Swift API 风格
+使用惯用的 Swift 模式、一致的命名和正确的错误处理。请参阅“mlx-swift”示例（例如 MNISTTrainer）作为模板。
 
-### 6.2 Manage Object Lifetime
-Be mindful of object lifetimes, especially when bridging C++ MLX objects to Swift, as aggressive inlining and optimizations can affect behavior. The `mlx-swift` package includes recommendations for this.
+### 6.2 管理 Object 生命周期
+请注意 object 生命周期，尤其是在将 C++ MLX 对象桥接到 Swift 时，因为激进的内联和优化可能会影响行为。 `mlx-swift` 包包含这方面的建议。

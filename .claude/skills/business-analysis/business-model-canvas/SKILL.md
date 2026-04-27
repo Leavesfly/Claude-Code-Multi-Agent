@@ -4,24 +4,24 @@ description: Business model design using Osterwalder's Business Model Canvas and
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Business Model Canvas
+# Business Model Canvas（商业模式画布）
 
-Design and analyze business models using Osterwalder's Business Model Canvas and Lean Canvas. Creates structured 9-block canvases for business model innovation, startup validation, and strategic planning.
+使用 Osterwalder 的 Business Model Canvas 与 Lean Canvas 设计并分析商业模式。产出结构化的 9 宫格画布，支持商业模式创新、创业验证与战略规划。
 
-## What is a Business Model Canvas?
+## 什么是 Business Model Canvas？
 
-A **Business Model Canvas (BMC)** is a strategic management template for developing new or documenting existing business models. It's a visual chart describing a firm's value proposition, infrastructure, customers, and finances.
+**Business Model Canvas（商业模式画布，BMC）** 是一种用于开发新业务或记录现有业务的战略管理模板。它是一幅可视化图表，描述公司的价值主张、基础设施、客户与财务。
 
-| Aspect | Business Model Canvas | Lean Canvas |
+| 维度 | Business Model Canvas | Lean Canvas |
 |--------|----------------------|-------------|
-| **Creator** | Alexander Osterwalder | Ash Maurya |
-| **Focus** | Established businesses | Startups, early-stage |
-| **Emphasis** | Value creation & delivery | Problem-solution fit |
-| **Key Difference** | Key Partners, Key Resources | Problem, Solution, Unfair Advantage |
+| **提出者** | Alexander Osterwalder | Ash Maurya |
+| **焦点** | 成熟业务 | 创业公司、早期阶段 |
+| **重点** | 价值创造与交付 | Problem-solution fit |
+| **关键差异** | Key Partners、Key Resources | Problem、Solution、Unfair Advantage |
 
-## The 9 Building Blocks
+## 9 个构建块
 
-### Business Model Canvas Blocks
+### Business Model Canvas 各 block
 
 ```text
 ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┬─────────────────┐
@@ -42,25 +42,25 @@ A **Business Model Canvas (BMC)** is a strategic management template for develop
 └─────────────────────────────────────────────────────┴───────────────────────────────────┘
 ```
 
-### Block Definitions
+### block 定义
 
-| Block | Question | Examples |
+| Block | 核心问题 | 示例 |
 |-------|----------|----------|
-| **Customer Segments** | Who are our most important customers? | Mass market, Niche, Segmented, Diversified |
-| **Value Propositions** | What value do we deliver? What problems do we solve? | Newness, Performance, Customization, Price |
-| **Channels** | How do we reach and deliver to customers? | Direct, Indirect, Own, Partner |
-| **Customer Relationships** | How do we interact with each segment? | Personal, Automated, Self-service, Communities |
-| **Revenue Streams** | How does each segment pay? | Asset sale, Subscription, Licensing, Advertising |
-| **Key Resources** | What do we need to deliver our value proposition? | Physical, Intellectual, Human, Financial |
-| **Key Activities** | What must we do well? | Production, Problem Solving, Platform/Network |
-| **Key Partnerships** | Who helps us? | Strategic alliances, Suppliers, Joint ventures |
-| **Cost Structure** | What are our major costs? | Fixed, Variable, Economies of scale/scope |
+| **Customer Segments** | 最重要的客户是谁？ | Mass market、Niche、Segmented、Diversified |
+| **Value Propositions** | 我们交付什么价值？解决什么问题？ | Newness、Performance、Customization、Price |
+| **Channels** | 如何触达并交付给客户？ | Direct、Indirect、Own、Partner |
+| **Customer Relationships** | 如何与每个 segment 互动？ | Personal、Automated、Self-service、Communities |
+| **Revenue Streams** | 每个 segment 如何付费？ | Asset sale、Subscription、Licensing、Advertising |
+| **Key Resources** | 为交付价值主张需要什么？ | Physical、Intellectual、Human、Financial |
+| **Key Activities** | 我们必须做好什么？ | Production、Problem Solving、Platform/Network |
+| **Key Partnerships** | 谁在帮我们？ | Strategic alliances、Suppliers、Joint ventures |
+| **Cost Structure** | 主要成本是什么？ | Fixed、Variable、Economies of scale/scope |
 
-## Workflow
+## 工作流
 
-### Phase 1: Preparation
+### Phase 1：准备
 
-#### Step 1: Define Context
+#### Step 1：定义上下文
 
 ```markdown
 ## Canvas Context
@@ -72,20 +72,20 @@ A **Business Model Canvas (BMC)** is a strategic management template for develop
 **Facilitator:** canvas-facilitator
 ```
 
-#### Step 2: Gather Inputs
+#### Step 2：收集输入
 
-Before filling the canvas:
+在填画布前：
 
-- Existing business plans, strategy documents
-- Customer research, personas
-- Competitive analysis
-- Financial data (if documenting existing model)
+- 既有业务计划、战略文档
+- 客户调研、persona
+- 竞品分析
+- 财务数据（若用于记录现有模式）
 
-### Phase 2: Fill the Canvas (Right to Left)
+### Phase 2：填写画布（从右到左）
 
-Start with Customer Segments (demand side), then move to Value Proposition and infrastructure (supply side).
+从 Customer Segments（需求侧）开始，再到 Value Proposition 与基础设施（供给侧）。
 
-#### Step 1: Customer Segments
+#### Step 1：Customer Segments
 
 ```markdown
 ## Customer Segments
@@ -100,17 +100,17 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 - What are their jobs-to-be-done?
 ```
 
-##### Segment Types
+##### Segment 类型
 
-| Type | Description | Example |
+| 类型 | 描述 | 示例 |
 |------|-------------|---------|
-| **Mass Market** | Large group, similar needs | Consumer electronics |
-| **Niche Market** | Specialized, specific needs | Luxury goods |
-| **Segmented** | Distinct segments, related needs | Banks (retail vs wealth) |
-| **Diversified** | Unrelated segments | Amazon (retail + AWS) |
-| **Multi-sided** | Interdependent segments | Platforms (users + advertisers) |
+| **Mass Market** | 大规模群体，需求相似 | 消费电子 |
+| **Niche Market** | 专门化、需求具体 | 奢侈品 |
+| **Segmented** | 多个独立 segment，需求相关 | 银行（零售 vs 财富管理） |
+| **Diversified** | 互不相关的 segment | Amazon（零售 + AWS） |
+| **Multi-sided** | 互相依存的 segment | 平台（用户 + 广告主） |
 
-#### Step 2: Value Propositions
+#### Step 2：Value Propositions
 
 ```markdown
 ## Value Propositions
@@ -125,23 +125,23 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 - What bundles of products/services do we offer?
 ```
 
-##### Value Proposition Types
+##### Value Proposition 类型
 
-| Type | Description |
+| 类型 | 描述 |
 |------|-------------|
-| **Newness** | New, previously unavailable |
-| **Performance** | Better performance |
-| **Customization** | Tailored to needs |
-| **Getting the Job Done** | Helps complete a task |
-| **Design** | Superior design |
-| **Brand/Status** | Status or brand value |
-| **Price** | Lower price |
-| **Cost Reduction** | Reduces customer costs |
-| **Risk Reduction** | Reduces customer risks |
-| **Accessibility** | Makes available to new users |
-| **Convenience** | Easier to use |
+| **Newness** | 新事物，之前没有 |
+| **Performance** | 性能更好 |
+| **Customization** | 按需定制 |
+| **Getting the Job Done** | 帮客户完成某项任务 |
+| **Design** | 卓越设计 |
+| **Brand/Status** | 品牌或身份价值 |
+| **Price** | 价格更低 |
+| **Cost Reduction** | 降低客户成本 |
+| **Risk Reduction** | 降低客户风险 |
+| **Accessibility** | 让新用户也能用上 |
+| **Convenience** | 更易用 |
 
-#### Step 3: Channels
+#### Step 3：Channels
 
 ```markdown
 ## Channels
@@ -155,7 +155,7 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | After Sales | [How do we support?] | Own/Partner | High/Med/Low |
 ```
 
-#### Step 4: Customer Relationships
+#### Step 4：Customer Relationships
 
 ```markdown
 ## Customer Relationships
@@ -165,18 +165,18 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | [Segment] | [Type] | Acquisition/Retention/Upselling | High/Med/Low |
 ```
 
-##### Relationship Types
+##### 关系类型
 
-| Type | Description |
+| 类型 | 描述 |
 |------|-------------|
-| **Personal Assistance** | Human interaction |
-| **Dedicated Personal** | Specific rep assigned |
-| **Self-Service** | No direct relationship |
-| **Automated Services** | Automated personalization |
-| **Communities** | User communities |
-| **Co-creation** | Customers help create value |
+| **Personal Assistance** | 人工互动 |
+| **Dedicated Personal** | 指定专属代表 |
+| **Self-Service** | 无直接关系 |
+| **Automated Services** | 自动化的个性化服务 |
+| **Communities** | 用户社区 |
+| **Co-creation** | 客户共创价值 |
 
-#### Step 5: Revenue Streams
+#### Step 5：Revenue Streams
 
 ```markdown
 ## Revenue Streams
@@ -186,19 +186,19 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | [Segment] | [Type] | Fixed/Dynamic | [Percentage] |
 ```
 
-##### Revenue Types
+##### 收入类型
 
-| Type | Description | Pricing |
+| 类型 | 描述 | 定价 |
 |------|-------------|---------|
-| **Asset Sale** | Selling ownership rights | List price, Volume, Negotiation |
-| **Usage Fee** | Pay per use | Per unit, Tiered |
-| **Subscription** | Recurring payment | Monthly, Annual |
-| **Lending/Renting** | Temporary access | Time-based |
-| **Licensing** | Permission to use IP | Per license, Royalty |
-| **Brokerage** | Intermediation fee | Commission |
-| **Advertising** | Display ads | CPM, CPC, CPA |
+| **Asset Sale** | 出售所有权 | 定价、Volume、谈判 |
+| **Usage Fee** | 按使用付费 | 按次、分层 |
+| **Subscription** | 周期性付费 | 月付、年付 |
+| **Lending/Renting** | 临时使用 | 按时长 |
+| **Licensing** | 授权使用 IP | 按 license、Royalty |
+| **Brokerage** | 中介费 | 佣金 |
+| **Advertising** | 展示广告 | CPM、CPC、CPA |
 
-#### Step 6: Key Resources
+#### Step 6：Key Resources
 
 ```markdown
 ## Key Resources
@@ -208,7 +208,7 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | [Resource] | Physical/IP/Human/Financial | Own/Lease/Partner | Critical/Important/Supporting |
 ```
 
-#### Step 7: Key Activities
+#### Step 7：Key Activities
 
 ```markdown
 ## Key Activities
@@ -218,7 +218,7 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | [Activity] | Production/Problem Solving/Platform | Critical/Important | Insource/Outsource |
 ```
 
-#### Step 8: Key Partnerships
+#### Step 8：Key Partnerships
 
 ```markdown
 ## Key Partnerships
@@ -228,13 +228,13 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | [Partner] | Strategic Alliance/Coopetition/JV/Supplier | Optimization/Risk/Acquisition | [What they provide] |
 ```
 
-##### Partnership Motivations
+##### 合作动机
 
-- **Optimization and Economy of Scale** - Reduce costs
-- **Reduction of Risk and Uncertainty** - Share risk
-- **Acquisition of Resources and Activities** - Gain capabilities
+- **Optimization and Economy of Scale** — 降低成本
+- **Reduction of Risk and Uncertainty** — 共担风险
+- **Acquisition of Resources and Activities** — 获取能力
 
-#### Step 9: Cost Structure
+#### Step 9：Cost Structure
 
 ```markdown
 ## Cost Structure
@@ -246,19 +246,19 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 **Cost Focus:** ☐ Cost-Driven ☐ Value-Driven
 ```
 
-### Phase 3: Analysis and Validation
+### Phase 3：分析与验证
 
-#### Step 1: Check Coherence
+#### Step 1：检查一致性
 
-| Check | Question | Pass? |
+| 检查 | 问题 | 通过？ |
 |-------|----------|-------|
-| **Value-Customer Fit** | Does value proposition address segment needs? | ☐ |
-| **Channel-Segment Fit** | Do channels reach segments effectively? | ☐ |
-| **Revenue-Cost Balance** | Do revenues exceed costs? | ☐ |
-| **Resource-Activity Alignment** | Do resources support key activities? | ☐ |
-| **Partnership Logic** | Do partnerships fill capability gaps? | ☐ |
+| **Value-Customer Fit** | value proposition 是否匹配 segment 需求？ | ☐ |
+| **Channel-Segment Fit** | channels 能否有效触达 segment？ | ☐ |
+| **Revenue-Cost Balance** | revenue 是否覆盖 cost？ | ☐ |
+| **Resource-Activity Alignment** | resources 是否支撑 key activities？ | ☐ |
+| **Partnership Logic** | partnerships 是否填补能力缺口？ | ☐ |
 
-#### Step 2: Identify Risks
+#### Step 2：识别风险
 
 ```markdown
 ## Business Model Risks
@@ -268,18 +268,18 @@ Start with Customer Segments (demand side), then move to Value Proposition and i
 | [Block] | [Risk description] | H/M/L | H/M/L | [Action] |
 ```
 
-## Lean Canvas (Alternative)
+## Lean Canvas（可选）
 
-For startups and early-stage ventures, use Lean Canvas which replaces some blocks:
+创业公司或早期项目可用 Lean Canvas，它替换了部分 block：
 
-| BMC Block | Lean Canvas Block | Why the Change |
+| BMC Block | Lean Canvas Block | 替换原因 |
 |-----------|-------------------|----------------|
-| Key Partners | Problem | Focus on problem validation |
-| Key Activities | Solution | Focus on solution validation |
-| Key Resources | Key Metrics | Measure what matters |
-| Customer Relationships | Unfair Advantage | Competitive moat |
+| Key Partners | Problem | 专注于验证问题 |
+| Key Activities | Solution | 专注于验证解决方案 |
+| Key Resources | Key Metrics | 度量真正关键的指标 |
+| Customer Relationships | Unfair Advantage | 竞争护城河 |
 
-### Lean Canvas Template
+### Lean Canvas 模板
 
 ```markdown
 ## Lean Canvas: [Product/Startup]
@@ -323,9 +323,9 @@ For startups and early-stage ventures, use Lean Canvas which replaces some block
 [Something that cannot easily be copied or bought]
 ```
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Business Model Summary: [Organization]
@@ -363,7 +363,7 @@ For startups and early-stage ventures, use Lean Canvas which replaces some block
 2. [Secondary recommendation]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 business_model_canvas:
@@ -445,7 +445,7 @@ business_model_canvas:
     revenue_cost_balance: true
 ```
 
-### Mermaid Diagram
+### Mermaid 图
 
 ```mermaid
 flowchart TB
@@ -502,39 +502,39 @@ flowchart TB
     end
 ```
 
-## When to Use
+## 何时使用
 
-| Scenario | Use Business Model Canvas? |
+| 场景 | 是否使用 Business Model Canvas？ |
 |----------|---------------------------|
-| New venture planning | Yes - full canvas |
-| Startup validation | Yes - Lean Canvas preferred |
-| Business model innovation | Yes - explore alternatives |
-| Strategic planning | Yes - document current state |
-| M&A analysis | Yes - compare models |
-| Product line analysis | Partial - focused canvas |
+| 新业务规划 | 是 — 完整画布 |
+| 创业验证 | 是 — 优先 Lean Canvas |
+| 商业模式创新 | 是 — 探索替代方案 |
+| 战略规划 | 是 — 记录当前状态 |
+| M&A 分析 | 是 — 对比不同模式 |
+| 产品线分析 | 部分适用 — 聚焦画布 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **stakeholder-analysis** - Identify customer segments
-- **swot-pestle-analysis** - Environmental context
-- **journey-mapping** - Customer experience insights
+- **stakeholder-analysis** — 识别 customer segment
+- **swot-pestle-analysis** — 环境上下文
+- **journey-mapping** — 客户体验洞察
 
-### Downstream
+### 下游
 
-- **Requirements** - Feature requirements from value propositions
-- **Financial modeling** - Revenue and cost projections
-- **Roadmaps** - Initiative prioritization
+- **Requirements** — 从 value proposition 推导功能需求
+- **Financial modeling** — 收入与成本预测
+- **Roadmaps** — initiative 优先级
 
-## Related Skills
+## 相关 skill
 
-- `stakeholder-analysis` - Customer and partner analysis
-- `swot-pestle-analysis` - Strategic context
-- `value-stream-mapping` - Operational efficiency
-- `capability-mapping` - Organizational capabilities
-- `decision-analysis` - Business model decisions
+- `stakeholder-analysis` — 客户与合作方分析
+- `swot-pestle-analysis` — 战略上下文
+- `value-stream-mapping` — 运营效率
+- `capability-mapping` — 组织能力
+- `decision-analysis` — 商业模式决策
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

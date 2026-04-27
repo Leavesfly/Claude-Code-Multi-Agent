@@ -4,39 +4,39 @@ description: User and customer journey mapping for experience analysis. Creates 
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Journey Mapping
+# Journey Mapping（旅程地图）
 
-Create user and customer journey maps to understand experiences, identify pain points, and discover improvement opportunities. A human-centered complement to process-focused value stream mapping.
+绘制用户与客户旅程地图，用于理解体验、识别痛点、发现改进机会。是对聚焦流程的 value stream mapping 的一种以人为中心的补充。
 
-## What is a Journey Map?
+## 什么是 Journey Map？
 
-A **journey map** visualizes a user's experience over time as they accomplish a goal. Unlike process maps (which show what happens), journey maps show **how it feels** from the user's perspective.
+**Journey map（旅程地图）** 把用户完成某个目标的过程，按时间线可视化地呈现其体验。与流程图（展示"发生了什么"）不同，旅程地图展示的是用户视角下**"感受如何"**。
 
-| Element | Definition | Purpose |
+| 元素 | 定义 | 目的 |
 |---------|------------|---------|
-| **Persona** | Who is taking the journey | Focus on specific user type |
-| **Phases** | Major stages of the journey | Organize the experience |
-| **Touchpoints** | Interactions with your system | Identify contact points |
-| **Actions** | What the user does | Understand behavior |
-| **Thoughts** | What the user thinks | Understand mindset |
-| **Emotions** | How the user feels | Identify emotional peaks/valleys |
-| **Pain Points** | Friction and frustrations | Target improvements |
-| **Opportunities** | Ways to improve | Prioritize enhancements |
+| **Persona** | 走这段旅程的是谁 | 聚焦具体用户类型 |
+| **Phases** | 旅程的主要阶段 | 组织整段体验 |
+| **Touchpoints** | 与系统的交互点 | 识别接触点 |
+| **Actions** | 用户做了什么 | 理解行为 |
+| **Thoughts** | 用户在想什么 | 理解心理 |
+| **Emotions** | 用户感觉如何 | 识别情绪高低点 |
+| **Pain Points** | 阻力与挫败 | 瞄准改进目标 |
+| **Opportunities** | 改进途径 | 对改进排序 |
 
-## Journey Types
+## 旅程类型
 
-| Type | Scope | When to Use |
+| 类型 | 范围 | 何时使用 |
 |------|-------|-------------|
-| **Current State** | How things are today | Identify problems |
-| **Future State** | Desired experience | Design solutions |
-| **Day-in-the-Life** | Full day across contexts | Understand broader context |
-| **Service Blueprint** | Journey + backstage operations | Design service delivery |
+| **Current State（现状）** | 如今是怎样 | 识别问题 |
+| **Future State（未来态）** | 期望的体验 | 设计方案 |
+| **Day-in-the-Life（一日切片）** | 跨场景的完整一天 | 理解更大的上下文 |
+| **Service Blueprint（服务蓝图）** | 旅程 + 后台运营 | 设计服务交付 |
 
-## Workflow
+## 工作流
 
-### Phase 1: Preparation
+### Phase 1：准备
 
-#### Step 1: Define the Journey Scope
+#### Step 1：定义旅程范围
 
 ```markdown
 ## Journey Definition
@@ -49,7 +49,7 @@ A **journey map** visualizes a user's experience over time as they accomplish a 
 **Time Frame:** First 30 days
 ```
 
-#### Step 2: Select or Create Persona
+#### Step 2：选择或创建 Persona
 
 ```markdown
 ## Persona: Sarah - First-time SaaS Buyer
@@ -73,22 +73,22 @@ A **journey map** visualizes a user's experience over time as they accomplish a 
 **Quote:** "I need something that works out of the box."
 ```
 
-### Phase 2: Map the Journey
+### Phase 2：绘制旅程
 
-#### Step 1: Identify Phases
+#### Step 1：识别阶段
 
-Typical journey phases:
+典型的旅程阶段：
 
-| Domain | Common Phases |
+| 领域 | 常见阶段 |
 |--------|---------------|
-| **Purchase** | Awareness → Consideration → Decision → Purchase |
-| **Onboarding** | Sign-up → Setup → First Use → Habit Formation |
-| **Support** | Issue → Search → Contact → Resolution → Follow-up |
-| **Renewal** | Review → Evaluate → Negotiate → Renew/Churn |
+| **Purchase（购买）** | Awareness → Consideration → Decision → Purchase |
+| **Onboarding（初始体验）** | Sign-up → Setup → First Use → Habit Formation |
+| **Support（支持）** | Issue → Search → Contact → Resolution → Follow-up |
+| **Renewal（续约）** | Review → Evaluate → Negotiate → Renew/Churn |
 
-#### Step 2: Map Touchpoints and Actions
+#### Step 2：绘制 touchpoint 与 action
 
-For each phase:
+对每个阶段：
 
 ```markdown
 ## Phase: Setup
@@ -107,7 +107,7 @@ For each phase:
 5. Configures first workspace
 ```
 
-#### Step 3: Capture Thoughts and Emotions
+#### Step 3：记录想法与情绪
 
 ```markdown
 ## Phase: Setup - Experience
@@ -121,7 +121,7 @@ For each phase:
 | First workspace | "This is actually nice!" | Pleased | Very positive |
 ```
 
-#### Step 4: Identify Pain Points
+#### Step 4：识别痛点
 
 ```markdown
 ## Pain Points - Setup Phase
@@ -134,7 +134,7 @@ For each phase:
 | Team invite confusion | Medium | Support volume | Poor UX |
 ```
 
-#### Step 5: Identify Opportunities
+#### Step 5：识别机会
 
 ```markdown
 ## Opportunities - Setup Phase
@@ -147,9 +147,9 @@ For each phase:
 | Interactive setup tutorial | Medium | High | 4 |
 ```
 
-### Phase 3: Visualize the Journey
+### Phase 3：把旅程可视化
 
-#### Standard Journey Map Format
+#### 标准旅程地图格式
 
 ```text
 PHASE:      | Awareness    | Sign-up      | Setup        | First Use    | Habit
@@ -174,9 +174,9 @@ OPPORTUN-   | Clear        | Simpler      | Reduce       | Better       | Celebr
 ITIES       | comparisons  | pricing      | friction     | onboarding   | wins
 ```
 
-### Phase 4: Emotion Curve
+### Phase 4：情绪曲线
 
-Visualize emotional highs and lows:
+可视化情绪的高点与低点：
 
 ```text
 EMOTION
@@ -191,16 +191,16 @@ EMOTION
                                Pain Point: Long form
 ```
 
-### Phase 5: Identify Moments of Truth
+### Phase 5：识别 Moments of Truth
 
-**Moments of Truth** are critical interactions that disproportionately impact the overall experience:
+**Moments of Truth（关键时刻）** 是对整体体验有不成比例巨大影响的关键交互：
 
-| Moment Type | Definition | Example |
+| 类型 | 定义 | 示例 |
 |-------------|------------|---------|
-| **Zero Moment of Truth (ZMOT)** | Pre-purchase research | Reading reviews |
-| **First Moment of Truth (FMOT)** | Initial encounter | Landing page |
-| **Second Moment of Truth (SMOT)** | Using the product | First workflow |
-| **Ultimate Moment of Truth (UMOT)** | Sharing experience | Referral/review |
+| **Zero Moment of Truth（ZMOT）** | 购买前的调研 | 查看评价 |
+| **First Moment of Truth（FMOT）** | 初次相遇 | 落地页 |
+| **Second Moment of Truth（SMOT）** | 使用产品时 | 第一次走完工作流 |
+| **Ultimate Moment of Truth（UMOT）** | 分享体验 | 推荐/评价 |
 
 ```markdown
 ## Moments of Truth
@@ -212,9 +212,9 @@ EMOTION
 | UMOT | Habit | No celebration | Achievement sharing |
 ```
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Journey Map Summary
@@ -246,7 +246,7 @@ EMOTION
 - **Recommendation:** [Action]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 journey_map:
@@ -350,9 +350,9 @@ journey_map:
     top_recommendation: "Reduce setup friction through progressive disclosure"
 ```
 
-### Mermaid Diagrams
+### Mermaid 图
 
-**Journey Flow:**
+**Journey Flow：**
 
 ```mermaid
 journey
@@ -373,7 +373,7 @@ journey
         Daily usage: 5: Customer
 ```
 
-**Emotion Curve (Mermaid XYChart):**
+**情绪曲线（Mermaid XYChart）：**
 
 ```mermaid
 xychart-beta
@@ -383,51 +383,51 @@ xychart-beta
     line [0, -1, -2, 1, 2]
 ```
 
-## Multi-Persona Workshop
+## 多 persona 工作坊
 
-For comprehensive journey analysis, run parallel persona agents:
+做全面的旅程分析时，并行运行多个 persona agent：
 
-| Persona Agent | Perspective | Focus |
+| Persona Agent | 视角 | 关注点 |
 |---------------|-------------|-------|
-| `first-time-user-persona` | New to product | Onboarding friction |
-| `power-user-persona` | Experienced | Advanced needs |
-| `admin-persona` | Management | Configuration, oversight |
-| `support-seeker-persona` | Needs help | Support experience |
+| `first-time-user-persona` | 产品新用户 | 初始体验的摩擦 |
+| `power-user-persona` | 老练用户 | 进阶需求 |
+| `admin-persona` | 管理方 | 配置、监管 |
+| `support-seeker-persona` | 需要帮助的用户 | 支持体验 |
 
-## When to Use
+## 何时使用
 
-| Scenario | Use Journey Mapping? |
+| 场景 | 是否使用 Journey Mapping？ |
 |----------|---------------------|
-| UX redesign | Yes - understand current experience |
-| Service design | Yes - design end-to-end experience |
-| Customer complaints | Yes - find pain points |
-| Onboarding optimization | Yes - improve adoption |
-| Process improvement | Partial - combine with VSM |
-| Technical architecture | No - wrong level of abstraction |
+| UX 重设计 | 是 — 理解现状体验 |
+| 服务设计 | 是 — 设计端到端体验 |
+| 客户投诉 | 是 — 找出痛点 |
+| 初始体验优化 | 是 — 提升转化 |
+| 流程改进 | 部分 — 与 VSM 搭配使用 |
+| 技术架构 | 否 — 抽象层级不对 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **stakeholder-analysis** - Understand user stakeholders
-- **process-modeling** - Process context
-- **Persona research** - User research inputs
+- **stakeholder-analysis** — 理解用户相关的 stakeholder
+- **process-modeling** — 流程上下文
+- **Persona research** — 用户研究输入
 
-### Downstream
+### 下游
 
-- **Requirements** - Experience requirements
-- **UX design** - Design improvements
-- **value-stream-mapping** - Operational improvements
+- **Requirements** — 体验类需求
+- **UX design** — 设计改进
+- **value-stream-mapping** — 运营改进
 
-## Related Skills
+## 相关 skill
 
-- `value-stream-mapping` - Process efficiency perspective
-- `stakeholder-analysis` - Stakeholder needs
-- `capability-mapping` - Capability touchpoints
-- `root-cause-analysis` - Investigate pain point causes
-- `prioritization` - Prioritize opportunities
-- `decision-analysis` - Evaluate improvement options
+- `value-stream-mapping` — 流程效率视角
+- `stakeholder-analysis` — stakeholder 需求
+- `capability-mapping` — 能力接触点
+- `root-cause-analysis` — 调查痛点的根因
+- `prioritization` — 对机会排序
+- `decision-analysis` — 评估改进方案
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

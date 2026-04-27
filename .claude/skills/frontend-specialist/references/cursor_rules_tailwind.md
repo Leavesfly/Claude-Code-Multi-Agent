@@ -2,20 +2,20 @@
 description: Provides definitive best practices for using Tailwind CSS, focusing on maintainability, performance, and scalability in modern web development.
 ---
 
-# tailwind Best Practices
+# tailwind 最佳实践
 
-Tailwind CSS is a powerful utility-first framework. These rules ensure our projects leverage Tailwind effectively, promoting consistency, performance, and maintainability across the team.
+Tailwind CSS 是一个强大的实用程序优先框架。这些规则确保我们的项目有效地利用 Tailwind，促进整个团队的一致性、性能和可维护性。
 
-## 1. Design System Configuration
+## 1. 设计系统配置
 
-**Always define your design system in `tailwind.config.js`.** Avoid arbitrary values in markup unless absolutely necessary for unique, non-reusable styles. This ensures UI consistency and enables efficient PurgeCSS tree-shaking.
+**始终在“tailwind.config.js”中定义您的设计系统。**避免标记中的任意值，除非对于独特的、不可重用的样式绝对必要。这可确保 UI 一致性并实现高效的 PurgeCSS 树摇动。
 
-❌ BAD: Arbitrary values in markup
+❌ 不好：标记中的任意值
 ```html
 <div class="bg-[#1a2b3c] text-[15px] p-[1.25rem] rounded-[8px]">...</div>
 ```
 
-✅ GOOD: Configured design tokens
+✅ 好：配置的设计令牌
 ```js
 // tailwind.config.js
 module.exports = {
@@ -41,13 +41,13 @@ module.exports = {
 <div class="bg-brand-500 text-body-md p-layout-sm rounded-card">...</div>
 ```
 
-## 2. Component Abstraction
+## 2. Component 抽象
 
-**Extract reusable UI patterns into framework-specific components.** This keeps your markup clean, promotes reusability, and centralizes complex styling logic. Use libraries like `clsx` or `cva` for dynamic class composition.
+**将可重用的 UI 模式提取到特定于框架的组件中。** 这可以使您的标记保持干净，促进可重用性并集中复杂的样式逻辑。使用“clsx”或“cva”等库进行动态类组合。
 
-**Avoid `@apply` for general component styling.** It creates custom CSS that hides Tailwind's utility-first nature, making refactoring harder and reducing clarity. Reserve `@apply` for very specific, non-reusable base styles (e.g., resetting browser defaults) or legacy migrations.
+**避免使用 `@apply` 进行一般 component 样式。** 它创建自定义 CSS ，隐藏 Tailwind 实用程序优先的性质，使重构更加困难并降低清晰度。为非常具体的、不可重用的基本样式（例如，重置浏览器默认值）或遗留迁移保留“@apply”。
 
-❌ BAD: Duplicated utility soup in every instance
+❌ 不好：每个实例中都有重复的实用程序汤
 ```html
 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-hidden focus:ring-2 focus:ring-blue-500/50">
   Submit
@@ -55,7 +55,7 @@ module.exports = {
 <!-- ... many more buttons with the exact same classes ... -->
 ```
 
-✅ GOOD: Reusable component (React example)
+✅ 好：可重复使用 component （React 示例）
 ```jsx
 // components/Button.jsx
 import clsx from 'clsx';
@@ -85,24 +85,24 @@ export function Button({ variant = 'primary', size = 'md', className, ...props }
 <Button variant="secondary">Cancel</Button>
 ```
 
-## 3. Class Ordering & Readability
+## 3. 类的顺序和可读性
 
-**Group utility classes logically for improved readability.** While Tailwind doesn't enforce an order, a consistent pattern makes scanning classes easier and reduces cognitive load. We recommend:
-`Layout` > `Flexbox` > `Grid` > `Box Model (p, m, w, h)` > `Typography` > `Backgrounds` > `Borders` > `Effects` > `Interactivity` > `States (hover, focus, active, responsive)`
+**对实用程序类进行逻辑分组以提高可读性。** 虽然 Tailwind 不强制执行顺序，但一致的模式使扫描类变得更容易并减少认知负担。我们推荐：
+`布局` > `Flexbox` > `网格` > `盒子模型（p、m、w、h）` > `版式` > `背景` > `边框` > `效果` > `交互性` > `状态（悬停、焦点、活动、响应）`
 
-❌ BAD: Random order
+❌ 不好：随机顺序
 ```html
 <div class="text-lg flex shadow-md p-4 items-center bg-white rounded-lg">...</div>
 ```
 
-✅ GOOD: Consistent order
+✅ 好：顺序一致
 ```html
 <div class="flex items-center p-4 bg-white rounded-lg shadow-md text-lg">...</div>
 ```
 
-## 4. Mobile-First & Responsive Design
+## 4. 移动优先和响应式设计
 
-**Adopt a mobile-first approach.** Design for the smallest screen first, then use responsive prefixes (`sm:`, `md:`, `lg:`, `xl:`, `2xl:`) to adapt styles for larger viewports. This is the default and most efficient way to build responsive UIs with Tailwind.
+**采用移动优先的方法。** 首先针对最小屏幕进行设计，然后使用响应式前缀（`sm:`、`md:`、`lg:`、`xl:`、`2xl:`）来适应更大视口的样式。这是使用 Tailwind 构建响应式 UI 的默认且最有效的方法。
 
 ```html
 <!-- Default (mobile) is stacked, medium screens and up are side-by-side -->
@@ -115,9 +115,9 @@ export function Button({ variant = 'primary', size = 'md', className, ...props }
 </div>
 ```
 
-## 5. Performance Optimization
+## 5. 性能优化
 
-**Configure `content` for PurgeCSS and leverage JIT.** Ensure your `tailwind.config.js` accurately lists *all* files containing Tailwind classes. This is critical for PurgeCSS to tree-shake unused CSS, keeping your bundle size minimal. Tailwind v4 uses the Just-In-Time (JIT) engine by default, providing fast compilation.
+**为 PurgeCSS 配置 `content` 并利用 JIT。** 确保您的 `tailwind.config.js` 准确列出包含 Tailwind 类的*所有*文件。这对于 PurgeCSS 来说至关重要，它可以对未使用的 CSS 进行 tree-shake，从而使包大小保持最小。 Tailwind v4 默认使用 Just-In-Time (JIT) 引擎，提供快速编译。
 
 ```js
 // tailwind.config.js
@@ -131,29 +131,29 @@ module.exports = {
 };
 ```
 
-**Keep Tailwind updated.** Use `npx @tailwindcss/upgrade` to migrate from v3 to v4, benefiting from performance improvements and modern CSS features. Be aware of v4's modern browser requirements (Safari 16.4+, Chrome 111+, Firefox 128+).
+**保持 Tailwind 更新。** 使用 `npx @tailwindcss/upgrade` 从 v3 迁移到 v4，受益于性能改进和现代 CSS 功能。请注意 v4 的现代浏览器要求（Safari 16.4+、Chrome 111+、Firefox 128+）。
 
-## 6. Accessibility
+## 6. 辅助功能
 
-**Prioritize semantic HTML.** Tailwind styles should enhance, not replace, proper HTML structure. Ensure all interactive elements have clear, visible focus states.
+**优先考虑语义 HTML。** Tailwind 样式应该增强而不是取代正确的 HTML 结构。确保所有交互元素都有清晰可见的焦点状态。
 
-**`outline-hidden` vs `outline-none` (Tailwind v4):**
-*   **`outline-hidden`**: Sets an invisible outline that *still shows in forced colors mode* for accessibility. **Prefer this for interactive elements** when you want to hide the default browser outline but ensure accessibility.
-*   **`outline-none`**: Sets `outline-style: none`, completely removing the outline. **Avoid this for interactive elements** unless you provide a custom, accessible focus indicator (e.g., `focus:ring-2`).
+**`outline-hidden` 与 `outline-none` (Tailwind v4)：**
+* **`轮廓隐藏`**：设置一个不可见的轮廓，*仍然以强制颜色模式显示*以方便访问。 **当您想要隐藏默认浏览器轮廓但确保可访问性时，首选交互元素**。
+* **`outline-none`**：设置`outline-style: none`，完全去除轮廓。 **对于交互式元素，请避免这种情况**，除非您提供自定义的、可访问的焦点指示器（例如“focus:ring-2”）。
 
-❌ BAD: Removing focus entirely
+❌ 坏处：完全失去焦点
 ```html
 <button class="focus:outline-none">Click me</button>
 ```
 
-✅ GOOD: Accessible focus state
+✅ 好：可访问的焦点状态
 ```html
 <button class="focus:outline-hidden focus:ring-2 focus:ring-blue-500/50">Click me</button>
 ```
 
-## 7. Theming & Dark Mode
+## 7. 主题和深色模式
 
-**Extend your `tailwind.config.js` for custom themes.** Define custom colors, fonts, spacing, and other design tokens to match your brand. Leverage the `dark:` variant for built-in dark mode support.
+**为自定义主题扩展“tailwind.config.js”。**定义自定义颜色、字体、间距和其他设计标记以匹配您的品牌。利用“dark:”变体获得内置暗模式支持。
 
 ```js
 // tailwind.config.js

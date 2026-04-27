@@ -4,93 +4,93 @@ description: Prioritization techniques including MoSCoW, Kano model, weighted sc
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Prioritization
+# Prioritization（优先级排序）
 
-Systematically rank and prioritize requirements, features, backlog items, and initiatives using proven prioritization frameworks. Supports MoSCoW, Kano model, weighted scoring, and value-effort analysis.
+使用成熟的优先级框架系统性地对需求、feature、backlog item 与 initiative 进行排序。支持 MoSCoW、Kano 模型、加权评分与 value-effort 分析。
 
-## What is Prioritization?
+## 什么是 Prioritization？
 
-**Prioritization** is the process of determining relative importance and ordering of items to focus resources on what matters most. Effective prioritization balances:
+**Prioritization（优先级排序）** 是判定各项事项的相对重要性与先后顺序、把资源集中投入到最重要事项的过程。有效的优先级排序需要平衡：
 
-- **Value**: Benefit to customers or business
-- **Effort**: Cost, time, and resources required
-- **Risk**: Uncertainty and potential downsides
-- **Dependencies**: Constraints and sequencing
+- **Value（价值）**：对客户或业务的收益
+- **Effort（投入）**：成本、时间与资源
+- **Risk（风险）**：不确定性与潜在的负面影响
+- **Dependencies（依赖）**：约束与先后顺序
 
-## Prioritization Techniques
+## 优先级排序技法
 
-### MoSCoW Method
+### MoSCoW 方法
 
-Categorical prioritization for timeboxed delivery:
+面向时间盒交付的分类式优先级排序：
 
-| Category | Definition | Guidance |
+| 类别 | 定义 | 说明 |
 |----------|------------|----------|
-| **Must** | Non-negotiable, required for success | Without these, delivery is a failure |
-| **Should** | Important but not critical | Significant value, workarounds exist |
-| **Could** | Desirable if resources permit | Nice to have, enhances experience |
-| **Won't** | Explicitly excluded this time | Not now, maybe later |
+| **Must** | 不可妥协、成败必备 | 没有它，交付即失败 |
+| **Should** | 重要但非关键 | 价值显著，有变通方案 |
+| **Could** | 资源允许时就做 | 锦上添花 |
+| **Won't** | 这次明确不做 | 当前不做，以后再说 |
 
-**When to Use:** Sprint planning, release scoping, MVP definition, timeboxed projects
+**适用场景：** sprint 规划、发布范围界定、MVP 定义、时间盒项目
 
-**Rules:**
+**规则：**
 
-- Musts should be ~60% of capacity (leave room for unknowns)
-- Won'ts are explicitly stated (not silently dropped)
-- Categories are relative to the timebox, not absolute
+- Must 项应约占产能的 60%（为未知留余量）
+- Won't 必须明确声明（而不是悄悄省掉）
+- 类别是相对于该时间盒的，不是绝对的
 
-### Kano Model
+### Kano 模型
 
-Customer satisfaction-based classification:
+基于客户满意度的分类：
 
-| Category | If Present | If Absent | Detection |
+| 类别 | 如果具备 | 如果缺失 | 识别方式 |
 |----------|------------|-----------|-----------|
-| **Basic (Must-Be)** | No increase in satisfaction | Major dissatisfaction | Customers assume these exist |
-| **Performance (Linear)** | Proportional satisfaction | Proportional dissatisfaction | Customers explicitly request |
-| **Delighter (Excitement)** | High satisfaction | No dissatisfaction | Customers don't expect |
-| **Indifferent** | No impact | No impact | No reaction either way |
-| **Reverse** | Dissatisfaction | Satisfaction | Segment prefers absence |
+| **Basic（必备型）** | 满意度不提升 | 强烈不满 | 客户默认它存在 |
+| **Performance（线性型）** | 满意度线性增加 | 不满线性增加 | 客户会明确提出 |
+| **Delighter（兴奋型）** | 大幅提升满意度 | 不造成不满 | 客户预期不到 |
+| **Indifferent（无差别型）** | 无影响 | 无影响 | 客户无反应 |
+| **Reverse（反向型）** | 造成不满 | 提升满意 | 某些客户反而不喜欢 |
 
-**When to Use:** Product feature prioritization, understanding customer needs, differentiating from competitors
+**适用场景：** 产品 feature 优先级、理解客户需求、与竞品做差异化
 
-**Kano Questionnaire:**
+**Kano 问卷：**
 
-- Functional: "How would you feel if this feature was present?"
-- Dysfunctional: "How would you feel if this feature was absent?"
+- Functional（正向）："如果具备该 feature，你会有什么感受？"
+- Dysfunctional（反向）："如果缺失该 feature，你会有什么感受？"
 
-**Responses:** Like it, Expect it, Neutral, Can tolerate, Dislike it
+**选项：** 喜欢、期待、中性、可以接受、讨厌
 
-### Weighted Scoring Matrix
+### 加权评分矩阵
 
-Multi-criteria quantitative comparison:
+多维度量化对比：
 
-#### Step 1: Define Criteria
+#### 步骤 1：定义评估维度
 
-| Criterion | Weight | Description |
+| 维度 | 权重 | 描述 |
 |-----------|--------|-------------|
-| Customer Value | 40% | Impact on customer satisfaction |
-| Strategic Fit | 25% | Alignment with goals |
-| Effort | 20% | Development cost (inverse) |
-| Risk | 15% | Uncertainty/failure potential (inverse) |
+| Customer Value | 40% | 对客户满意度的影响 |
+| Strategic Fit | 25% | 与目标的对齐度 |
+| Effort | 20% | 开发成本（反向） |
+| Risk | 15% | 不确定性/失败可能（反向） |
 
-#### Step 2: Score Items
+#### 步骤 2：对每项打分
 
-| Item | Customer Value (1-5) | Strategic Fit (1-5) | Effort (1-5) | Risk (1-5) | Weighted Score |
+| 事项 | Customer Value (1-5) | Strategic Fit (1-5) | Effort (1-5) | Risk (1-5) | 加权分 |
 |------|---------------------|---------------------|--------------|------------|----------------|
 | A | 5 | 4 | 3 | 4 | 4.15 |
 | B | 3 | 5 | 4 | 3 | 3.75 |
 
-#### Step 3: Calculate Weighted Score
+#### 步骤 3：计算加权分
 
 ```text
 Score = Σ (Weight × Score)
 Item A = (0.40×5) + (0.25×4) + (0.20×3) + (0.15×4) = 4.20
 ```
 
-**When to Use:** Complex trade-offs, multiple stakeholders, defensible decisions
+**适用场景：** 复杂权衡、多 stakeholder、需要可辩护的决策
 
-### Value vs Effort Matrix
+### Value vs Effort 矩阵
 
-2×2 prioritization for quick decisions:
+用于快速决策的 2×2 优先级矩阵：
 
 ```mermaid
 quadrantChart
@@ -103,35 +103,35 @@ quadrantChart
     quadrant-4 Money Pits (Avoid)
 ```
 
-| Quadrant | Value | Effort | Action |
+| 象限 | Value | Effort | 行动 |
 |----------|-------|--------|--------|
-| Quick Wins | High | Low | Do first |
-| Big Bets | High | High | Plan carefully |
-| Fill-ins | Low | Low | Do if time permits |
-| Money Pits | Low | High | Avoid or deprioritize |
+| Quick Wins | 高 | 低 | 优先做 |
+| Big Bets | 高 | 高 | 审慎规划 |
+| Fill-ins | 低 | 低 | 有空就做 |
+| Money Pits | 低 | 高 | 回避或降优先级 |
 
-**When to Use:** Fast initial triage, backlog grooming, stakeholder alignment
+**适用场景：** 快速初筛、backlog grooming、stakeholder 对齐
 
-### RICE Scoring
+### RICE 打分法
 
-Product management prioritization:
+产品管理常用的优先级排序：
 
-| Factor | Definition | Calculation |
+| 因素 | 定义 | 计算 |
 |--------|------------|-------------|
-| **R**each | Users/customers affected | Number per time period |
-| **I**mpact | Effect on each user | 0.25 (minimal) to 3 (massive) |
-| **C**onfidence | Certainty of estimates | 0.5 (low) to 1 (high) |
-| **E**ffort | Person-months required | Number |
+| **R**each | 影响的用户/客户数 | 每个时间段的数量 |
+| **I**mpact | 对每个用户的影响 | 0.25（极小）到 3（巨大） |
+| **C**onfidence | 估计的置信度 | 0.5（低）到 1（高） |
+| **E**ffort | 所需人月 | 数字 |
 
 ```text
 RICE Score = (Reach × Impact × Confidence) / Effort
 ```
 
-**When to Use:** Product roadmap prioritization, feature comparison
+**适用场景：** 产品 roadmap 优先级、feature 对比
 
-### WSJF (Weighted Shortest Job First)
+### WSJF（Weighted Shortest Job First）
 
-SAFe/Lean prioritization for flow:
+SAFe/Lean 中用于 flow 的优先级排序：
 
 ```text
 WSJF = Cost of Delay / Job Duration
@@ -139,20 +139,20 @@ WSJF = Cost of Delay / Job Duration
 Cost of Delay = User/Business Value + Time Criticality + Risk Reduction
 ```
 
-| Factor | Score (1-20) | Description |
+| 因素 | 分值 (1-20) | 描述 |
 |--------|--------------|-------------|
-| User/Business Value | 1-20 | Benefit to users or business |
-| Time Criticality | 1-20 | Urgency, deadlines, decay |
-| Risk Reduction | 1-20 | Risk/opportunity addressed |
-| Job Duration | 1-20 | Relative size (inverted) |
+| User/Business Value | 1-20 | 对用户或业务的收益 |
+| Time Criticality | 1-20 | 紧迫程度、deadline、价值衰减 |
+| Risk Reduction | 1-20 | 化解的风险/机会 |
+| Job Duration | 1-20 | 相对规模（取反向） |
 
-**When to Use:** Continuous flow environments, maximizing value delivery
+**适用场景：** 持续 flow 环境、最大化价值交付
 
-## Workflow
+## 工作流
 
-### Phase 1: Prepare
+### Phase 1：准备
 
-#### Step 1: Gather Items to Prioritize
+#### 步骤 1：汇集待排序的事项
 
 ```markdown
 ## Prioritization Session
@@ -170,31 +170,31 @@ Cost of Delay = User/Business Value + Time Criticality + Risk Reduction
 | 2 | [Item 2] | [Name] |
 ```
 
-#### Step 2: Select Prioritization Technique
+#### 步骤 2：选择优先级技法
 
-| Situation | Recommended Technique |
+| 场景 | 推荐技法 |
 |-----------|----------------------|
-| Sprint/release planning | MoSCoW |
-| Product feature decisions | Kano + RICE |
-| Trade-off decisions | Weighted Scoring |
-| Quick triage | Value vs Effort |
-| Continuous flow | WSJF |
-| Multiple criteria | Weighted Scoring |
+| Sprint/发布规划 | MoSCoW |
+| 产品 feature 决策 | Kano + RICE |
+| 权衡式决策 | Weighted Scoring |
+| 快速初筛 | Value vs Effort |
+| 持续 flow | WSJF |
+| 多维度 | Weighted Scoring |
 
-### Phase 2: Execute
+### Phase 2：执行
 
-#### Step 1: Apply Selected Technique
+#### 步骤 1：套用选定的技法
 
-Follow the specific technique workflow (see above).
+按该技法的具体工作流执行（见上文）。
 
-#### Step 2: Validate Results
+#### 步骤 2：校验结果
 
-- Do top priorities align with strategy?
-- Are dependencies respected?
-- Does the team have capacity?
-- Are stakeholders aligned?
+- 头部优先级是否与战略一致？
+- 依赖关系是否被尊重？
+- 团队是否有产能？
+- stakeholder 是否对齐？
 
-#### Step 3: Document Rationale
+#### 步骤 3：记录理由
 
 ```markdown
 ## Prioritization Rationale
@@ -214,9 +214,9 @@ Follow the specific technique workflow (see above).
 - **[Item C]** - Reason: [Why deferred]
 ```
 
-### Phase 3: Communicate
+### Phase 3：沟通
 
-#### Step 1: Create Prioritized Backlog
+#### 步骤 1：产出排序后的 backlog
 
 ```markdown
 ## Prioritized Backlog
@@ -228,16 +228,16 @@ Follow the specific technique workflow (see above).
 | 3 | [Item C] | Should / 3.8 | [Name] | Sprint 2 |
 ```
 
-#### Step 2: Communicate Decisions
+#### 步骤 2：同步决策
 
-- Share prioritization results with stakeholders
-- Explain rationale for key decisions
-- Address concerns about deprioritized items
-- Set expectations for what's not included
+- 把排序结果告知 stakeholder
+- 解释关键决策背后的理由
+- 回应被降优先级的事项引发的担忧
+- 对"不在范围内"的部分设定预期
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Prioritization Summary
@@ -273,7 +273,7 @@ Follow the specific technique workflow (see above).
 2. Re-prioritize at [next review point]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 prioritization:
@@ -325,9 +325,9 @@ prioritization:
     wont: ["FEAT-005"]
 ```
 
-### Mermaid Visualizations
+### Mermaid 可视化
 
-**Value-Effort Matrix:**
+**Value-Effort 矩阵：**
 
 ```mermaid
 quadrantChart
@@ -345,7 +345,7 @@ quadrantChart
     "Feature E": [0.2, 0.2]
 ```
 
-**MoSCoW Distribution:**
+**MoSCoW 分布：**
 
 ```mermaid
 pie title MoSCoW Distribution
@@ -355,49 +355,49 @@ pie title MoSCoW Distribution
     "Won't" : 2
 ```
 
-## When to Use Each Technique
+## 各技法的适用场景
 
-| Technique | Best For | Team Size | Time Required |
+| 技法 | 最适合 | 团队规模 | 耗时 |
 |-----------|----------|-----------|---------------|
-| MoSCoW | Sprint/release planning | Any | 30-60 min |
-| Kano | Product features | Product team | 2-4 hours |
-| Weighted Scoring | Complex trade-offs | Cross-functional | 1-2 hours |
-| Value vs Effort | Quick triage | Any | 15-30 min |
-| RICE | Product roadmap | Product team | 1-2 hours |
-| WSJF | Continuous flow | SAFe teams | 30-60 min |
+| MoSCoW | Sprint/发布规划 | 任意 | 30-60 分钟 |
+| Kano | 产品 feature | 产品团队 | 2-4 小时 |
+| Weighted Scoring | 复杂权衡 | 跨职能 | 1-2 小时 |
+| Value vs Effort | 快速初筛 | 任意 | 15-30 分钟 |
+| RICE | 产品 roadmap | 产品团队 | 1-2 小时 |
+| WSJF | 持续 flow | SAFe 团队 | 30-60 分钟 |
 
-## Common Pitfalls
+## 常见陷阱
 
-| Pitfall | Prevention |
+| 陷阱 | 如何规避 |
 |---------|------------|
-| Everything is "Must" | Enforce category limits (60% capacity) |
-| HiPPO (highest paid person's opinion) | Use objective scoring criteria |
-| Ignoring effort | Always consider cost/effort dimension |
-| Static prioritization | Re-prioritize regularly as context changes |
-| Overcomplicating | Start simple, add complexity only if needed |
-| Ignoring dependencies | Map dependencies before finalizing order |
+| 什么都是 "Must" | 强制类别占比上限（60% 产能） |
+| HiPPO（职位最高者的意见） | 使用客观的评分标准 |
+| 忽略投入 | 始终考虑成本/投入这个维度 |
+| 一次排完永不变 | 随情境变化定期重新排优先级 |
+| 过度复杂化 | 从简单入手，必要时才增加复杂度 |
+| 忽略依赖 | 在最终确定顺序前先把依赖梳理清楚 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **Requirements** - Items to prioritize
-- **stakeholder-analysis** - Stakeholder input on value
-- **swot-pestle-analysis** - Strategic context
+- **Requirements** — 待排序的事项
+- **stakeholder-analysis** — stakeholder 对价值的输入
+- **swot-pestle-analysis** — 战略上下文
 
-### Downstream
+### 下游
 
-- **Sprint planning** - Ordered backlog
-- **Roadmaps** - Prioritized initiatives
-- **decision-analysis** - Detailed option evaluation
+- **Sprint planning** — 有序的 backlog
+- **Roadmaps** — 排好序的 initiative
+- **decision-analysis** — 方案细评
 
-## Related Skills
+## 相关 skill
 
-- `decision-analysis` - For complex option evaluation
-- `stakeholder-analysis` - Stakeholder input on priorities
-- `risk-analysis` - Risk dimension of prioritization
-- `capability-mapping` - Capability investment prioritization
+- `decision-analysis` — 复杂方案评估
+- `stakeholder-analysis` — stakeholder 对优先级的输入
+- `risk-analysis` — 优先级中的风险维度
+- `capability-mapping` — 能力投入的优先级
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

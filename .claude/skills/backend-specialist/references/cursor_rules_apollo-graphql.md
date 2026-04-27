@@ -2,19 +2,19 @@
 description: Definitive guidelines for building robust, performant, and maintainable apollo-graphql applications using modern best practices and tooling.
 ---
 
-# apollo-graphql Best Practices
+# apollo-graphql 最佳实践
 
-This guide outlines our definitive best practices for developing with Apollo GraphQL, covering both server-side (Apollo Server 5) and client-side (Apollo Client) implementations. Adhering to these rules ensures consistency, performance, and maintainability across our GraphQL ecosystem.
+本指南给出使用 Apollo GraphQL 开发的权威最佳实践，涵盖服务端（Apollo Server 5）和客户端（Apollo Client）两部分。遵循这些规则能保证我们 GraphQL 生态的一致性、性能与可维护性。
 
-## 1. Schema Design and Organization
+## 1. Schema 设计与组织
 
-Your GraphQL schema is the contract. Design it meticulously, document it thoroughly, and organize it logically.
+GraphQL schema 就是契约。精心设计、完整记录、按逻辑组织它。
 
-### 1.1 Schema-First Development with SDL
+### 1.1 基于 SDL 的 Schema-First 开发
 
-Always start by defining your schema using Schema Definition Language (SDL). This forces clear API design before implementation.
+始终先用 Schema Definition Language（SDL）定义 schema。这能在实现之前就强制你进行清晰的 API 设计。
 
-❌ BAD
+❌ 差
 ```javascript
 // Implicit schema definition through resolvers
 const resolvers = {
@@ -25,7 +25,7 @@ const resolvers = {
 // Schema is inferred or built programmatically, harder to review
 ```
 
-✅ GOOD
+✅ 好
 ```graphql
 # schema/user.graphql
 """Represents a user in the system."""

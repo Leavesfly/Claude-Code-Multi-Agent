@@ -1,72 +1,72 @@
 ---
 name: user-research-planning
-description: Plan user research studies - method selection, participant recruitment, study design, and research questions for generative and evaluative research.
+description: 规划用户研究 —— 面向 generative 和 evaluative 研究的方法选择、参与者招募、研究设计和研究问题。
 allowed-tools: Read, Glob, Grep, Task
 ---
 
-# User Research Planning
+# User Research Planning（用户研究规划）
 
-Plan and design user research studies for gathering insights about users, their needs, behaviors, and pain points.
+规划并设计用户研究，用于收集关于用户、需求、行为和痛点的洞察。
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **User Research Planning tasks** - Working on plan user research studies - method selection, participant recruitment, study design, and research questions for generative and evaluative research
-- **Planning or design** - Need guidance on User Research Planning approaches
-- **Best practices** - Want to follow established patterns and standards
+- **用户研究规划任务** —— 需要规划用户研究：方法选择、参与者招募、研究设计，以及 generative 和 evaluative 研究的研究问题
+- **规划或设计** —— 需要在用户研究规划方面得到指引
+- **最佳实践** —— 希望遵循成熟的模式和标准
 
-## MANDATORY: Skill Loading First
+## 强制：先加载 skill
 
-Before answering ANY user research question:
+在回答任何用户研究相关问题前：
 
-2. Use official UX research methodology sources
-3. Base all guidance on established research practices
+2. 使用官方的 UX 研究方法论来源
+3. 所有建议都基于成熟的研究实践
 
-## Research Method Selection
+## 研究方法选择
 
-### Method Categories
+### 方法分类
 
-| Category | Purpose | When to Use |
+| 类别 | 目的 | 何时使用 |
 |----------|---------|-------------|
-| **Generative/Discovery** | Understand problem space, user needs | Early product development, problem framing |
-| **Evaluative/Formative** | Test solutions, gather feedback | During design, iteration |
-| **Summative** | Measure success, validate | Post-launch, benchmarking |
+| **Generative/Discovery** | 理解问题空间、用户需求 | 产品早期开发、问题框定 |
+| **Evaluative/Formative** | 测试方案、收集反馈 | 设计过程中、迭代期 |
+| **Summative** | 衡量成果、验证 | 发布后、做基准 |
 
-### Research Methods Matrix
+### 研究方法矩阵
 
-| Method | Type | Sample Size | Time | Best For |
+| 方法 | 类型 | 样本量 | 时长 | 最适合 |
 |--------|------|-------------|------|----------|
-| **Contextual Inquiry** | Generative | 5-10 | 2-3 hours each | Understanding workflows in context |
-| **User Interviews** | Generative | 8-12 | 45-60 min each | Deep understanding of needs/motivations |
-| **Diary Studies** | Generative | 10-20 | 1-4 weeks | Longitudinal behavior patterns |
-| **Ethnographic Observation** | Generative | 5-15 | Full days | Natural behavior in environment |
-| **Focus Groups** | Generative | 6-10 per group | 90-120 min | Group dynamics, idea generation |
-| **Surveys** | Evaluative | 100+ | Varies | Quantitative validation, reach |
-| **Card Sorting** | Evaluative | 15-30 | 30-60 min | Information architecture |
-| **Tree Testing** | Evaluative | 50+ | 10-20 min | Navigation validation |
-| **Usability Testing** | Evaluative | 5-8 | 45-60 min | Interface evaluation |
-| **A/B Testing** | Summative | 1000+ | Days-weeks | Comparing alternatives at scale |
+| **Contextual Inquiry** | Generative | 5-10 | 每人 2-3 小时 | 在情境中理解 workflow |
+| **User Interviews** | Generative | 8-12 | 每人 45-60 分钟 | 深入理解需求/动机 |
+| **Diary Studies** | Generative | 10-20 | 1-4 周 | 纵向行为模式 |
+| **Ethnographic Observation** | Generative | 5-15 | 整天 | 环境中的自然行为 |
+| **Focus Groups** | Generative | 每组 6-10 | 90-120 分钟 | 团体互动、创意产出 |
+| **Surveys** | Evaluative | 100+ | 视情况 | 定量验证、覆盖广 |
+| **Card Sorting** | Evaluative | 15-30 | 30-60 分钟 | 信息架构 |
+| **Tree Testing** | Evaluative | 50+ | 10-20 分钟 | 导航验证 |
+| **Usability Testing** | Evaluative | 5-8 | 45-60 分钟 | 界面评估 |
+| **A/B Testing** | Summative | 1000+ | 数天-数周 | 大规模对比方案 |
 
-### Method Selection Decision Tree
+### 方法选型决策树
 
 ```text
-What do you want to learn?
-├── About users, their needs, and context
-│   ├── In their natural environment → Contextual Inquiry / Ethnography
-│   ├── Their motivations and attitudes → User Interviews
-│   └── Behavior over time → Diary Studies
-├── About your solution's effectiveness
-│   ├── Can they complete tasks? → Usability Testing
-│   ├── Can they find content? → Tree Testing / Card Sorting
-│   └── Which version performs better? → A/B Testing
-└── About broad patterns and preferences
-    └── Large-scale validation → Surveys
+你想了解什么？
+├── 关于用户、他们的需求和情境
+│   ├── 在自然环境中 → 情境访谈 / 民族志研究
+│   ├── 他们的动机和态度 → 用户访谈
+│   └── 随时间变化的行为 → 日记研究
+├── 关于你的方案的有效性
+│   ├── 他们能完成任务吗？ → 可用性测试
+│   ├── 他们能找到内容吗？ → 树测试 / 卡片分类
+│   └── 哪个版本表现更好？ → A/B 测试
+└── 关于广泛的模式和偏好
+    └── 大规模验证 → 问卷调查
 ```
 
-## Study Design Framework
+## 研究设计框架
 
-### Research Plan Structure
+### 研究方案结构
 
 ```markdown
 # Research Plan: [Study Name]
@@ -135,21 +135,21 @@ What do you want to learn?
 - [ ] Presentation to stakeholders
 ```
 
-## Participant Recruitment
+## 参与者招募
 
-### Sample Size Guidelines
+### 样本量指南
 
-| Method | Minimum | Recommended | Notes |
+| 方法 | 最低 | 推荐 | 说明 |
 |--------|---------|-------------|-------|
-| Interviews | 5 | 8-12 | Until saturation |
-| Usability Tests | 5 | 5-8 | 85% issues found at 5 |
-| Card Sorts (Open) | 15 | 30+ | More = more stable patterns |
-| Card Sorts (Closed) | 15 | 30+ | Statistical significance |
-| Tree Tests | 50 | 100+ | Quantitative validity |
-| Surveys | 100 | 300+ | Depends on analysis |
-| Diary Studies | 10 | 15-20 | Account for dropout |
+| Interviews | 5 | 8-12 | 直到饱和 |
+| Usability Tests | 5 | 5-8 | 5 人能发现 85% 的问题 |
+| Card Sorts（开放式） | 15 | 30+ | 越多模式越稳定 |
+| Card Sorts（封闭式） | 15 | 30+ | 获得统计显著性 |
+| Tree Tests | 50 | 100+ | 定量有效性 |
+| Surveys | 100 | 300+ | 取决于分析方式 |
+| Diary Studies | 10 | 15-20 | 考虑流失率 |
 
-### Screener Question Types
+### Screener 问题类型
 
 ```csharp
 // Example: Screener model for .NET research recruitment system
@@ -196,24 +196,24 @@ public record ScreenerCriteria
 }
 ```
 
-### Screener Best Practices
+### Screener 最佳实践
 
-**Do:**
+**Do：**
 
-- Start with general questions, get specific later
-- Include behavioral questions (past actions > hypotheticals)
-- Add attention check questions
-- Screen for articulation ability (open-ended response)
-- Verify availability and technology requirements
+- 从泛问题开始，后续再具体
+- 纳入行为类问题（过去行为 > 假设情境）
+- 加入注意力检查题
+- 筛查表达能力（开放题作答）
+- 确认参与时间和技术条件
 
-**Don't:**
+**Don't：**
 
-- Lead with qualifying questions (gaming)
-- Use double-barreled questions
-- Make qualifying criteria obvious
-- Ask about future intentions only
+- 把筛选题放最前面（容易被作答者投其所好）
+- 用 double-barreled 问题
+- 让筛选标准一眼就看出来
+- 只问未来意向
 
-### Example Screener Structure
+### Screener 示例结构
 
 ```markdown
 ## Screener: [Study Name]
@@ -251,52 +251,52 @@ public record ScreenerCriteria
 9. Are you comfortable with [video recording/screen sharing]?
 ```
 
-## Research Questions
+## 研究问题
 
-### SMART Research Questions
+### SMART 研究问题
 
-Research questions should be:
+研究问题应当：
 
-- **S**pecific: Focused on one concept
-- **M**easurable: Can be answered with data
-- **A**chievable: Within scope and resources
-- **R**elevant: Addresses business/user needs
-- **T**ime-bound: Scoped to study timeline
+- **S**pecific：聚焦单一概念
+- **M**easurable：可用数据回答
+- **A**chievable：在范围和资源内可达
+- **R**elevant：与业务/用户需求相关
+- **T**ime-bound：控制在研究周期内
 
-### Question Hierarchy
+### 问题层级
 
 ```text
-Research Goal (High-level)
-└── Research Question (Study-level)
-    └── Interview Questions (Session-level)
-        └── Follow-up Probes (Moment-level)
+研究目标（高层）
+└── 研究问题（研究层面）
+    └── 访谈问题（会话层面）
+        └── 追问（即时层面）
 ```
 
-### Example Transformation
+### 示例转换
 
-**Business Question:** Why aren't users completing checkout?
+**业务问题：** 为什么用户没完成结账？
 
-**Research Questions:**
+**研究问题：**
 
-- RQ1: What are users' mental models of the checkout process?
-- RQ2: At what points do users experience friction or confusion?
-- RQ3: What information do users need to feel confident completing purchase?
+- RQ1：用户对结账流程的 mental model 是什么？
+- RQ2：在哪些点上用户会感到摩擦或困惑？
+- RQ3：用户需要什么信息才有信心完成购买？
 
-**Interview Questions:**
+**访谈问题：**
 
-- "Walk me through your last online purchase experience."
-- "What goes through your mind when you reach a checkout page?"
-- "What would make you abandon a purchase at checkout?"
+- "带我回顾一下你最近一次在线购物的经历。"
+- "当你到达结账页面时，你在想什么？"
+- "什么情况下你会在结账时放弃购买？"
 
-**Probes:**
+**追问（Probes）：**
 
-- "Tell me more about that..."
-- "What did you expect to happen?"
-- "How did that make you feel?"
+- "多跟我说说那个..."
+- "你当时期望发生什么？"
+- "那让你有什么感受？"
 
-## Interview Guide Structure
+## 访谈指南结构
 
-### Template: Semi-Structured Interview
+### 模板：半结构化访谈
 
 ```markdown
 # Interview Guide: [Study Name]
@@ -356,21 +356,21 @@ valuable. [Incentive details]"
 - [ ] Flag key quotes
 ```
 
-## Research Outputs
+## 研究产出
 
-### Deliverable Types
+### 交付物类型
 
-| Output | Purpose | Audience |
+| 产出 | 目的 | 受众 |
 |--------|---------|----------|
-| **Research Report** | Comprehensive findings | Full team |
-| **Executive Summary** | Key insights, 1-2 pages | Leadership |
-| **Affinity Diagram** | Organized themes | Research/Design |
-| **Journey Map** | User experience flow | Product/Design |
-| **Personas** | User archetypes | All teams |
-| **Video Highlights** | Evidence and empathy | Stakeholders |
-| **Recommendations** | Actionable next steps | Product team |
+| **Research Report** | 完整结论 | 整个团队 |
+| **Executive Summary** | 关键洞察，1-2 页 | 管理层 |
+| **Affinity Diagram** | 整理好的主题 | Research/Design |
+| **Journey Map** | 用户体验流程 | Product/Design |
+| **Personas** | 用户原型 | 所有团队 |
+| **Video Highlights** | 证据与共情 | stakeholder |
+| **Recommendations** | 可行动的下一步 | 产品团队 |
 
-### Findings Framework
+### Findings 框架
 
 ```markdown
 ## Finding: [Descriptive Title]
@@ -394,7 +394,7 @@ valuable. [Incentive details]"
 **Severity/Opportunity:** [High/Medium/Low]
 ```
 
-## .NET Research Data Model
+## .NET 研究数据模型
 
 ```csharp
 // Research study management
@@ -452,57 +452,57 @@ public record Evidence(
 );
 ```
 
-## Checklist: Research Planning
+## Checklist：研究规划
 
-### Before Starting
+### 启动前
 
-- [ ] Clearly defined business question
-- [ ] Stakeholder alignment on objectives
-- [ ] Timeline and resources confirmed
-- [ ] Ethics/legal review if needed
+- [ ] 明确业务问题
+- [ ] stakeholder 对目标达成一致
+- [ ] 时间与资源确认
+- [ ] 如有必要，走伦理/法务审查
 
-### Study Design
+### 研究设计
 
-- [ ] Method selected and justified
-- [ ] Research questions documented
-- [ ] Sample size determined
-- [ ] Participant criteria defined
-- [ ] Screener created
+- [ ] 已选定方法并说明理由
+- [ ] 研究问题已记录
+- [ ] 样本量已确定
+- [ ] 参与者标准已定义
+- [ ] screener 已完成
 
-### Materials
+### 材料
 
-- [ ] Discussion guide/protocol
-- [ ] Consent forms
-- [ ] Recording setup tested
-- [ ] Note-taking templates
-- [ ] Stimulus materials (if any)
+- [ ] 讨论指南/protocol
+- [ ] 知情同意书
+- [ ] 录制设置已测试
+- [ ] 笔记模板
+- [ ] 刺激物材料（如有）
 
-### Recruitment
+### 招募
 
-- [ ] Recruitment channels identified
-- [ ] Screener deployed
-- [ ] Participants scheduled
-- [ ] Incentives arranged
-- [ ] Confirmation emails sent
+- [ ] 招募渠道已确定
+- [ ] screener 已投放
+- [ ] 参与者已排期
+- [ ] 报酬已安排
+- [ ] 确认邮件已发送
 
-### During Fieldwork
+### 实地研究中
 
-- [ ] Pre-session checklist
-- [ ] Consistent protocol across sessions
-- [ ] Daily debriefs scheduled
-- [ ] Issue escalation plan
+- [ ] 每场前的 checklist
+- [ ] 各场次 protocol 一致
+- [ ] 每日复盘已安排
+- [ ] 有问题上报机制
 
-### After Fieldwork
+### 实地研究后
 
-- [ ] All sessions completed
-- [ ] Notes organized
-- [ ] Analysis approach defined
-- [ ] Synthesis sessions scheduled
-- [ ] Report timeline set
+- [ ] 所有场次已完成
+- [ ] 笔记已整理
+- [ ] 已定义分析方式
+- [ ] 综合分析会已安排
+- [ ] 报告时间表已定
 
-## Related Skills
+## 相关 skill
 
-- `usability-testing` - Test design and execution
-- `information-architecture` - Card sorting, tree testing
-- `service-blueprinting` - Service design research
-- `journey-mapping` (business-analysis) - Journey research synthesis
+- `usability-testing` —— 测试设计与执行
+- `information-architecture` —— card sorting、tree testing
+- `service-blueprinting` —— 服务设计研究
+- `journey-mapping`（business-analysis）—— journey research 综合

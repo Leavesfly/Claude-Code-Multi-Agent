@@ -1,8 +1,8 @@
-# Power/Interest Matrix Variations
+# 权力/利益矩阵的变种
 
-## Classic Power/Interest Grid (Mendelow)
+## 经典权力/利益网格（Mendelow）
 
-The standard 2x2 matrix plotting Power vs Interest:
+标准的 2x2 矩阵，以 Power 为一轴、Interest 为另一轴：
 
 ```text
            HIGH INTEREST
@@ -19,148 +19,148 @@ POWER          │             POWER
            LOW INTEREST
 ```
 
-### Engagement Strategies by Quadrant
+### 各象限的参与策略
 
-#### Manage Closely (High Power, High Interest)
+#### Manage Closely（高权力、高利益）
 
-**Characteristics:**
+**特征：**
 
-- Key decision makers
-- Highly invested in outcome
-- Can significantly impact success
+- 关键决策者
+- 对结果投入很深
+- 能显著影响成败
 
-**Strategies:**
+**策略：**
 
-- Involve in major decisions
-- Frequent 1:1 communication
-- Address concerns proactively
-- Make them project champions
-- Regular status updates
+- 让其参与重大决策
+- 频繁的 1:1 沟通
+- 主动回应其关切
+- 把他们发展成项目的旗帜人物
+- 定期状态更新
 
-**Risks if Neglected:**
+**忽视他们的风险：**
 
-- Project blocked or cancelled
-- Scope creep from late involvement
-- Loss of critical support
+- 项目被阻塞或取消
+- 因临时介入导致范围蔓延
+- 丧失关键支持
 
-#### Keep Satisfied (High Power, Low Interest)
+#### Keep Satisfied（高权力、低利益）
 
-**Characteristics:**
+**特征：**
 
-- Senior leaders with other priorities
-- Can intervene if problems arise
-- Often have veto power
+- 身居高位、但有其他优先事项
+- 一旦出问题可以介入
+- 通常拥有否决权
 
-**Strategies:**
+**策略：**
 
-- Provide summary updates
-- Escalate issues appropriately
-- Don't overwhelm with details
-- Be ready for ad-hoc requests
-- Understand their priorities
+- 提供摘要式更新
+- 适时上报问题
+- 不要用细节淹没他们
+- 做好应对临时请求的准备
+- 理解他们的优先级
 
-**Risks if Neglected:**
+**忽视他们的风险：**
 
-- Surprise intervention
-- Withdrawal of support
-- Resource reallocation
+- 被意外介入打乱节奏
+- 支持被撤回
+- 资源被重新分配
 
-#### Keep Informed (Low Power, High Interest)
+#### Keep Informed（低权力、高利益）
 
-**Characteristics:**
+**特征：**
 
-- Often end users or affected parties
-- Care deeply about outcome
-- Limited formal authority
+- 通常是终端用户或受影响方
+- 非常在意结果
+- 正式权力有限
 
-**Strategies:**
+**策略：**
 
-- Regular communication
-- Gather input and feedback
-- Build coalition of support
-- Address concerns respectfully
-- Involve in testing/validation
+- 定期沟通
+- 收集意见与反馈
+- 建立支持者联盟
+- 以尊重的方式回应关切
+- 让其参与测试/验证
 
-**Risks if Neglected:**
+**忽视他们的风险：**
 
-- Resistance at implementation
-- Negative word-of-mouth
-- Adoption failures
+- 实施阶段出现抵制
+- 负面口碑
+- 采纳失败
 
-#### Monitor (Low Power, Low Interest)
+#### Monitor（低权力、低利益）
 
-**Characteristics:**
+**特征：**
 
-- Peripheral stakeholders
-- Minimal impact/interest
-- May become interested later
+- 边缘 stakeholder
+- 影响/兴趣都很低
+- 以后可能会产生兴趣
 
-**Strategies:**
+**策略：**
 
-- Minimal communication
-- General announcements only
-- Monitor for changes
-- Don't waste their time
+- 最少的沟通
+- 仅做通用公告
+- 监测其变化
+- 不浪费他们的时间
 
-**Risks if Neglected:**
+**忽视他们的风险：**
 
-- Usually low risk
-- Watch for increased interest
+- 通常风险较低
+- 注意兴趣上升的迹象
 
-## Power/Influence/Interest Cube
+## Power/Influence/Interest 立方体
 
-A 3D extension for complex stakeholder landscapes:
+针对复杂 stakeholder 场景的三维扩展：
 
-| Dimension | Meaning | Assessment |
+| 维度 | 含义 | 评估方式 |
 |-----------|---------|------------|
-| **Power** | Formal authority | Can approve/block? |
-| **Influence** | Informal sway | Can they convince others? |
-| **Interest** | Level of concern | Do they care? |
+| **Power（权力）** | 正式权威 | 能否批准/否决？ |
+| **Influence（影响力）** | 非正式的影响 | 他们能否说服别人？ |
+| **Interest（利益）** | 关注程度 | 他们在意吗？ |
 
-**Why Add Influence?**
-Some stakeholders have low formal power but high informal influence:
+**为什么加入 Influence？**
+有些 stakeholder 正式权力很低，但非正式影响力很高：
 
-- Technical leads respected by teams
-- Long-tenured employees with institutional knowledge
-- Union representatives
-- External industry experts
+- 在团队中受尊敬的技术负责人
+- 了解组织历史的资深员工
+- 工会代表
+- 外部行业专家
 
-## Salience Model (Mitchell et al.)
+## Salience 模型（Mitchell 等）
 
-Classifies stakeholders on three attributes:
+按三种属性对 stakeholder 分类：
 
-| Attribute | Definition |
+| 属性 | 定义 |
 |-----------|------------|
-| **Power** | Ability to impose will |
-| **Legitimacy** | Socially accepted authority |
-| **Urgency** | Time-sensitivity of claims |
+| **Power（权力）** | 强加意志的能力 |
+| **Legitimacy（合法性）** | 被社会认可的权威 |
+| **Urgency（紧迫性）** | 诉求的时间敏感度 |
 
-**Stakeholder Types:**
+**Stakeholder 类型：**
 
-| Type | Power | Legitimacy | Urgency | Strategy |
+| 类型 | Power | Legitimacy | Urgency | 策略 |
 |------|-------|------------|---------|----------|
-| Definitive | Yes | Yes | Yes | Top priority |
-| Dominant | Yes | Yes | No | High attention |
-| Dangerous | Yes | No | Yes | Handle carefully |
-| Dependent | No | Yes | Yes | Protect interests |
-| Discretionary | No | Yes | No | Monitor |
-| Demanding | No | No | Yes | Low priority |
-| Dormant | Yes | No | No | Watch |
+| Definitive | 是 | 是 | 是 | 最高优先级 |
+| Dominant | 是 | 是 | 否 | 高度关注 |
+| Dangerous | 是 | 否 | 是 | 谨慎处理 |
+| Dependent | 否 | 是 | 是 | 保护其利益 |
+| Discretionary | 否 | 是 | 否 | 监测 |
+| Demanding | 否 | 否 | 是 | 低优先级 |
+| Dormant | 是 | 否 | 否 | 观察 |
 
-## Attitude Overlay
+## 态度叠加
 
-Add attitude assessment to any matrix:
+在任意矩阵上叠加对态度的评估：
 
-| Attitude | Description | Action |
+| 态度 | 描述 | 行动 |
 |----------|-------------|--------|
-| **Champion** | Active supporter | Leverage their support |
-| **Supporter** | Positive, passive | Maintain relationship |
-| **Neutral** | No strong opinion | Build awareness |
-| **Skeptic** | Doubts but open | Address concerns |
-| **Resistor** | Actively opposes | Understand and engage |
-| **Blocker** | Will sabotage | Escalate or isolate |
+| **Champion（旗帜人物）** | 积极支持者 | 借助其支持 |
+| **Supporter（支持者）** | 正面、被动 | 维持关系 |
+| **Neutral（中立）** | 无强烈意见 | 提升其认知 |
+| **Skeptic（怀疑者）** | 存疑但开放 | 回应其关切 |
+| **Resistor（抵制者）** | 主动反对 | 理解并拉拢 |
+| **Blocker（阻挠者）** | 会蓄意破坏 | 升级处理或隔离 |
 
-**Combined View:**
+**综合视图：**
 
 ```markdown
 | Stakeholder | Power | Interest | Attitude | Action |
@@ -171,9 +171,9 @@ Add attitude assessment to any matrix:
 | IT Ops | Medium | High | Resistor | Involve early |
 ```
 
-## Movement Analysis
+## 位置变动分析
 
-Track stakeholder position changes over time:
+追踪 stakeholder 位置随时间的变化：
 
 ```text
 Current Position → Desired Position
@@ -192,42 +192,42 @@ POWER          │                POWER
             LOW INTEREST
 ```
 
-**Movement Strategies:**
+**移动策略：**
 
-| From | To | Strategy |
+| 从 | 到 | 策略 |
 |------|-----|----------|
-| Monitor → Keep Informed | Increase awareness | Regular updates, show relevance |
-| Keep Satisfied → Manage Closely | Increase interest | Show strategic value |
-| Resistor → Supporter | Change attitude | Address concerns, involve early |
-| Neutral → Champion | Build commitment | Show benefits, give ownership |
+| Monitor → Keep Informed | 提升认知度 | 定期更新、展示相关性 |
+| Keep Satisfied → Manage Closely | 提升兴趣 | 展示战略价值 |
+| Resistor → Supporter | 改变态度 | 回应关切、尽早让其参与 |
+| Neutral → Champion | 建立承诺 | 展示收益、赋予 ownership |
 
-## Assessment Questions
+## 评估问题
 
-### Power Assessment
+### 权力评估
 
-| Question | Low | Medium | High |
+| 问题 | 低 | 中 | 高 |
 |----------|-----|--------|------|
-| Can they approve/reject decisions? | No | Some | Yes |
-| Do they control budget? | No | Partial | Full |
-| Do they own required resources? | No | Some | Critical |
-| Can they stop the project? | No | Delay | Cancel |
-| Is their sign-off required? | No | Nice to have | Required |
+| 他们能批准/否决决策吗？ | 不能 | 部分能 | 能 |
+| 他们控制预算吗？ | 不 | 部分 | 完全 |
+| 他们掌握所需资源吗？ | 不 | 部分 | 关键资源 |
+| 他们能叫停项目吗？ | 不能 | 能拖延 | 能取消 |
+| 需要他们签字吗？ | 不需要 | 有更好 | 必需 |
 
-### Interest Assessment
+### 利益评估
 
-| Question | Low | Medium | High |
+| 问题 | 低 | 中 | 高 |
 |----------|-----|--------|------|
-| How much does outcome affect them? | Minimal | Some impact | Major impact |
-| Do they ask for updates? | Rarely | Sometimes | Often |
-| Do they attend meetings? | Optional | Sometimes | Always |
-| Have they expressed opinions? | No | Some | Strong views |
-| Will they use the solution? | No | Occasionally | Daily |
+| 结果对他们影响多大？ | 极小 | 有一定影响 | 重大影响 |
+| 他们是否主动索要进展？ | 很少 | 有时 | 经常 |
+| 他们会参加会议吗？ | 可选 | 有时 | 总是 |
+| 他们是否表达过意见？ | 没有 | 一些 | 观点强烈 |
+| 他们会使用解决方案吗？ | 不会 | 偶尔 | 每天 |
 
-### Influence Assessment
+### 影响力评估
 
-| Question | Low | Medium | High |
+| 问题 | 低 | 中 | 高 |
 |----------|-----|--------|------|
-| Do others follow their lead? | No | Sometimes | Always |
-| Do they have credibility? | Limited | Respected | Highly regarded |
-| Can they sway executive opinion? | No | Somewhat | Yes |
-| Do they shape team culture? | No | Somewhat | Significantly |
+| 其他人会跟随他们吗？ | 不会 | 有时 | 总是 |
+| 他们有可信度吗？ | 有限 | 受尊重 | 备受推崇 |
+| 他们能影响高层意见吗？ | 不能 | 部分 | 能 |
+| 他们能塑造团队文化吗？ | 不能 | 一定程度 | 显著 |

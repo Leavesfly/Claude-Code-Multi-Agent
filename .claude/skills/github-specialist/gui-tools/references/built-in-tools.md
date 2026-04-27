@@ -1,10 +1,10 @@
-# Built-in Git GUI Tools
+# Git 内置 GUI 工具
 
-Git ships with two built-in GUI tools that are available on all platforms without additional installation.
+Git 自带两个内置的 GUI 工具，在所有平台上无需额外安装即可使用。
 
-## gitk - Repository Browser
+## gitk —— repository 浏览器
 
-**Purpose**: Visualize repository history
+**用途**：可视化 repository 历史
 
 ```bash
 # View current branch history
@@ -20,19 +20,19 @@ gitk path/to/file
 gitk --author="John Doe"
 ```
 
-**Features:**
+**特性：**
 
-- ✅ Ships with Git (no installation needed)
-- ✅ Fast, lightweight
-- ✅ Good for quick history browsing
-- ⚠️ Dated UI
-- ⚠️ Read-only (visualization only)
+- ✅ 随 Git 一起发布（无需安装）
+- ✅ 快速、轻量
+- ✅ 适合快速浏览历史
+- ⚠️ UI 较陈旧
+- ⚠️ 只读（仅用于可视化）
 
 ---
 
-## Git GUI - Commit Tool
+## Git GUI —— commit 工具
 
-**Purpose**: Stage changes and create commits
+**用途**：暂存变更并创建 commit
 
 ```bash
 # Open Git GUI in current repository
@@ -42,14 +42,14 @@ git gui
 git gui --repo /path/to/repo
 ```
 
-**Features:**
+**特性：**
 
-- ✅ Ships with Git (no installation needed)
-- ✅ Lightweight
-- ✅ Good for staging/committing
-- ⚠️ Dated UI
-- ⚠️ Limited features (no branch management, merging, etc.)
+- ✅ 随 Git 一起发布（无需安装）
+- ✅ 轻量
+- ✅ 适合暂存 / commit
+- ⚠️ UI 较陈旧
+- ⚠️ 功能有限（没有 branch 管理、merge 等）
 
 ---
 
-**Last Updated:** 2025-11-28
+**最后更新：** 2025-11-28

@@ -4,101 +4,101 @@ description: Benchmarking and competitive analysis techniques. Compares performa
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Benchmarking
+# Benchmarking（对标分析）
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **Benchmarking tasks** - Working on benchmarking and competitive analysis techniques. compares performance, processes, and practices against industry standards, competitors, and best-in-class organizations
-- **Planning or design** - Need guidance on Benchmarking approaches
-- **Best practices** - Want to follow established patterns and standards
+- **Benchmarking 任务** — 做对标与竞争分析；针对行业标准、竞争对手、最佳实践组织，比较绩效、流程与做法
+- **规划或设计** — 需要对标方法的指引
+- **最佳实践** — 想遵循成熟的模式与标准
 
-## Overview
+## 概览
 
-Systematically compare performance, processes, and practices against internal units, competitors, industry standards, or best-in-class organizations. Identifies gaps and improvement opportunities.
+系统性地将自己的绩效、流程与做法，与内部单元、竞争对手、行业标准或最佳实践组织进行比较，识别差距与改进机会。
 
-## What is Benchmarking?
+## 什么是 Benchmarking？
 
-**Benchmarking** is the process of measuring your organization's processes, products, or services against those of recognized leaders to identify gaps and improvement opportunities.
+**Benchmarking（对标）** 是把自己组织的流程、产品或服务，与公认的领先者进行度量比较，以识别差距与改进机会的过程。
 
-### Benchmarking Purpose
+### 对标的目的
 
-| Goal | Description |
+| 目标 | 描述 |
 |------|-------------|
-| **Identify Gaps** | Where do we fall short of leaders? |
-| **Set Targets** | What level of performance is achievable? |
-| **Learn Practices** | How do leaders achieve superior results? |
-| **Drive Improvement** | What changes will close the gaps? |
+| **Identify Gaps（识别差距）** | 我们在哪些地方落后于领先者？ |
+| **Set Targets（设定目标）** | 可达到的绩效水平是多少？ |
+| **Learn Practices（学习做法）** | 领先者如何取得卓越成绩？ |
+| **Drive Improvement（推动改进）** | 哪些改变能缩小差距？ |
 
 ### Benchmarking vs Competitive Analysis
 
-| Aspect | Benchmarking | Competitive Analysis |
+| 维度 | Benchmarking | Competitive Analysis |
 |--------|--------------|---------------------|
-| Focus | Processes and practices | Products and market position |
-| Goal | Improve own performance | Understand competitors |
-| Scope | Can include non-competitors | Direct competitors |
-| Outcome | Improvement plan | Competitive strategy |
+| 关注点 | 流程与做法 | 产品与市场地位 |
+| 目标 | 提升自身绩效 | 理解竞争对手 |
+| 范围 | 可以包含非竞争对手 | 直接竞争对手 |
+| 产出 | 改进计划 | 竞争战略 |
 
-## Types of Benchmarking
+## 对标的类型
 
-### Internal Benchmarking
+### Internal Benchmarking（内部对标）
 
-Compare across internal units, teams, or locations:
+在内部单元、团队、地点之间比较：
 
-| Advantage | Disadvantage |
+| 优点 | 缺点 |
 |-----------|--------------|
-| Easy data access | Limited to internal best |
-| Common context | May miss external innovations |
-| Quick to implement | Political sensitivities |
-| Low cost | May perpetuate mediocrity |
+| 数据易获取 | 上限只是"内部最好" |
+| 上下文一致 | 可能忽视外部创新 |
+| 实施快 | 有办公室政治顾虑 |
+| 成本低 | 可能固化平庸 |
 
-**When to Use:** Multiple locations, varied performance, starting point
+**何时使用：** 多地点、绩效差异大、作为起点
 
-### Competitive Benchmarking
+### Competitive Benchmarking（竞争对标）
 
-Compare against direct competitors:
+与直接竞争对手比较：
 
-| Advantage | Disadvantage |
+| 优点 | 缺点 |
 |-----------|--------------|
-| Relevant comparison | Data hard to obtain |
-| Direct market context | May be biased/incomplete |
-| Stakeholder understanding | Legal considerations |
-| Strategic relevance | Competitors may not be best |
+| 可比性相关性强 | 数据难获取 |
+| 直接匹配市场语境 | 可能片面/不完整 |
+| stakeholder 易理解 | 涉及法律考量 |
+| 战略相关 | 竞争对手未必最优 |
 
-**When to Use:** Market positioning, product comparison, pricing
+**何时使用：** 市场定位、产品对比、定价
 
-### Functional Benchmarking
+### Functional Benchmarking（职能对标）
 
-Compare similar functions across different industries:
+跨行业对比相似职能：
 
-| Advantage | Disadvantage |
+| 优点 | 缺点 |
 |-----------|--------------|
-| Best-in-class practices | Context differences |
-| Innovative ideas | May not transfer directly |
-| Less competitive sensitivity | Harder to arrange |
-| Broader perspective | More complex adaptation |
+| 可学到最佳实践 | 上下文差异 |
+| 能带来创新思路 | 不一定能直接移植 |
+| 竞争敏感性低 | 较难安排 |
+| 视角更广 | 适配更复杂 |
 
-**When to Use:** Process improvement, breakthrough thinking
+**何时使用：** 流程改进、突破性思考
 
-### Strategic Benchmarking
+### Strategic Benchmarking（战略对标）
 
-Compare strategies and business models:
+对比战略与商业模式：
 
-| Advantage | Disadvantage |
+| 优点 | 缺点 |
 |-----------|--------------|
-| Strategic insights | High-level, less actionable |
-| Transformative potential | Longer time to implement |
-| Industry-changing ideas | Harder to measure |
-| Vision-setting | May require significant change |
+| 提供战略洞见 | 层次高、可操作性低 |
+| 具备变革潜力 | 实施周期长 |
+| 带来颠覆性想法 | 难度量 |
+| 协助确立愿景 | 可能需要大规模变革 |
 
-**When to Use:** Strategy development, transformation, disruption
+**何时使用：** 战略制定、转型、颠覆
 
-## Benchmarking Process
+## 对标流程
 
-### Phase 1: Plan
+### Phase 1：规划
 
-#### Step 1: Define Scope
+#### Step 1：定义范围
 
 ```markdown
 ## Benchmarking Scope
@@ -115,7 +115,7 @@ Compare strategies and business models:
 - [How results will be used]
 ```
 
-#### Step 2: Identify Metrics
+#### Step 2：识别度量指标
 
 ```markdown
 ## Key Performance Indicators
@@ -128,18 +128,18 @@ Compare strategies and business models:
 | Cost | [Metric 4] | [Value] | [How measured] |
 ```
 
-#### Step 3: Select Benchmarking Partners
+#### Step 3：选择对标伙伴
 
-| Criteria | Description |
+| 准则 | 描述 |
 |----------|-------------|
-| **Relevant** | Similar processes or challenges |
-| **Best-in-class** | Superior performance in area |
-| **Willing** | Open to sharing |
-| **Accessible** | Data or contact available |
+| **Relevant（相关）** | 流程或挑战类似 |
+| **Best-in-class（业界标杆）** | 在该领域表现卓越 |
+| **Willing（愿意）** | 愿意分享 |
+| **Accessible（可触达）** | 有公开数据或可建立联系 |
 
-### Phase 2: Collect
+### Phase 2：收集数据
 
-#### Step 1: Gather Internal Data
+#### Step 1：收集内部数据
 
 ```markdown
 ## Internal Performance Data
@@ -150,30 +150,30 @@ Compare strategies and business models:
 | [Process 2] | [Metric] | [Value] | [Up/Down/Stable] |
 ```
 
-#### Step 2: Gather External Data
+#### Step 2：收集外部数据
 
-| Source | Type | Reliability |
+| 来源 | 类型 | 可靠性 |
 |--------|------|-------------|
-| Industry reports | Secondary | Medium-High |
-| Public filings | Secondary | High |
-| Surveys | Primary | Medium |
-| Site visits | Primary | High |
-| Conferences | Secondary | Medium |
-| Published case studies | Secondary | Medium |
+| 行业报告 | 二手 | 中-高 |
+| 公开披露文件 | 二手 | 高 |
+| 问卷调研 | 一手 | 中 |
+| 实地访问 | 一手 | 高 |
+| 会议/峰会 | 二手 | 中 |
+| 已发表的案例研究 | 二手 | 中 |
 
-#### Step 3: Normalize Data
+#### Step 3：规范化数据
 
-Ensure comparability:
+确保可比性：
 
-- Common definitions
-- Same time periods
-- Equivalent scope
-- Currency/unit conversion
-- Size adjustments (per employee, per revenue)
+- 统一定义
+- 相同时间口径
+- 范围等价
+- 货币/单位换算
+- 规模调整（如按人均、按营收占比）
 
-### Phase 3: Analyze
+### Phase 3：分析
 
-#### Step 1: Calculate Gaps
+#### Step 1：计算差距
 
 ```markdown
 ## Gap Analysis
@@ -185,16 +185,16 @@ Ensure comparability:
 | [Metric 3] | $50 | $30 | +$20 | +67% |
 ```
 
-#### Step 2: Identify Root Causes
+#### Step 2：识别根因
 
-For each significant gap:
+对每个重要差距：
 
-- Why does the gap exist?
-- What practices enable superior performance?
-- What barriers prevent us from closing the gap?
-- What resources would be required?
+- 为什么存在这个差距？
+- 哪些做法支撑了卓越表现？
+- 我们闭合差距的障碍是什么？
+- 需要哪些资源？
 
-#### Step 3: Prioritize Gaps
+#### Step 3：差距优先级排序
 
 ```mermaid
 quadrantChart
@@ -211,9 +211,9 @@ quadrantChart
     "Gap D": [0.2, 0.3]
 ```
 
-### Phase 4: Adapt
+### Phase 4：调整适配
 
-#### Step 1: Develop Improvement Actions
+#### Step 1：制定改进动作
 
 ```markdown
 ## Improvement Plan
@@ -233,35 +233,35 @@ quadrantChart
 **Success Metric:** [How we'll measure improvement]
 ```
 
-#### Step 2: Set Targets
+#### Step 2：设定目标
 
-| Approach | Description | When to Use |
+| 策略 | 描述 | 何时使用 |
 |----------|-------------|-------------|
-| Match benchmark | Achieve same level | Realistic, proven possible |
-| Exceed benchmark | Surpass best-in-class | Competitive advantage |
-| Incremental | Close gap by X% | Resource-constrained |
-| Breakthrough | Leapfrog to new level | Transformational |
+| 匹配对标 | 达到相同水平 | 现实可行，已被证实可达 |
+| 超越对标 | 超过 best-in-class | 谋求竞争优势 |
+| 渐进 | 缩小差距 X% | 资源受限 |
+| 突破 | 跃升到新台阶 | 变革性改进 |
 
-#### Step 3: Implement and Monitor
+#### Step 3：实施与监控
 
-- Execute improvement actions
-- Track progress against targets
-- Report on gap closure
-- Iterate and refine
+- 执行改进动作
+- 对照目标追踪进度
+- 汇报差距闭合情况
+- 迭代优化
 
-## Competitive Analysis Framework
+## 竞争分析框架
 
-### Porter's Five Forces Context
+### Porter's Five Forces 上下文
 
-| Force | Benchmarking Focus |
+| 力量 | 对标关注点 |
 |-------|-------------------|
-| Rivalry | Direct competitor comparison |
-| New Entrants | Emerging competitor practices |
-| Substitutes | Alternative solution benchmarks |
-| Supplier Power | Supply chain efficiency |
-| Buyer Power | Customer satisfaction metrics |
+| 行业竞争（Rivalry） | 直接竞争对手对比 |
+| 新进入者（New Entrants） | 新兴竞争者的做法 |
+| 替代品（Substitutes） | 替代方案的基准 |
+| 供应商议价（Supplier Power） | 供应链效率 |
+| 买方议价（Buyer Power） | 客户满意度指标 |
 
-### Competitive Profile Matrix
+### Competitive Profile Matrix（竞争档案矩阵）
 
 ```markdown
 ## Competitive Profile Matrix
@@ -280,20 +280,20 @@ quadrantChart
 Rating: 1=Major Weakness, 2=Minor Weakness, 3=Neutral, 4=Minor Strength, 5=Major Strength
 ```
 
-### SWOT Integration
+### 与 SWOT 结合
 
-Benchmarking informs SWOT:
+对标结果可以反馈到 SWOT：
 
-| SWOT Element | Benchmarking Input |
+| SWOT 元素 | 对标输入 |
 |--------------|-------------------|
-| Strengths | Where we exceed benchmarks |
-| Weaknesses | Where we fall short |
-| Opportunities | Best practices to adopt |
-| Threats | Competitor advantages |
+| Strengths | 我们超越基准的地方 |
+| Weaknesses | 我们落后的地方 |
+| Opportunities | 值得借鉴的最佳实践 |
+| Threats | 竞争对手的优势 |
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Benchmarking Summary
@@ -340,7 +340,7 @@ Benchmarking informs SWOT:
 3. [Long-term initiative]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 benchmarking:
@@ -414,7 +414,7 @@ benchmarking:
       timeline: "12 months"
 ```
 
-### Comparison Table
+### 对比表
 
 ```markdown
 ## Competitive Comparison
@@ -429,7 +429,7 @@ benchmarking:
 **Legend:** Green = above average, Yellow = average, Red = below average
 ```
 
-### Gap Visualization
+### 差距可视化
 
 ```mermaid
 xychart-beta
@@ -440,56 +440,56 @@ xychart-beta
     line [100, 100, 100, 100]
 ```
 
-## Benchmarking Ethics
+## 对标的伦理
 
-### Do's
+### 应该做的
 
-- Use publicly available information
-- Get permission for site visits/interviews
-- Share appropriately if participating in consortium
-- Protect confidential information
-- Give credit to sources
+- 使用公开可得的信息
+- 实地参访/访谈前取得许可
+- 若参与 consortium，要适度分享
+- 保护机密信息
+- 注明来源致谢
 
-### Don'ts
+### 不应做的
 
-- Use deceptive practices to gather data
-- Violate NDAs or trade secrets
-- Misrepresent benchmarking data
-- Use competitive intelligence unethically
-- Ignore legal and antitrust considerations
+- 使用欺骗手段收集数据
+- 违反 NDA 或侵犯商业机密
+- 歪曲对标数据
+- 不合伦理地使用竞争情报
+- 忽视法律与反垄断考量
 
-## Common Pitfalls
+## 常见陷阱
 
-| Pitfall | Prevention |
+| 陷阱 | 如何规避 |
 |---------|------------|
-| Wrong metrics | Align with strategic objectives |
-| Poor partners | Select truly best-in-class |
-| Apples to oranges | Normalize data carefully |
-| Data without action | Focus on actionable insights |
-| One-time exercise | Continuous improvement cycle |
-| Copying blindly | Adapt to your context |
+| 选错指标 | 与战略目标对齐 |
+| 选错伙伴 | 挑选真正的 best-in-class |
+| 风马牛对比 | 仔细规范化数据 |
+| 光有数据无行动 | 聚焦可执行的洞察 |
+| 一次性活动 | 建立持续改进循环 |
+| 盲目照搬 | 结合自身语境调整 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **swot-pestle-analysis** - Strategic context
-- **stakeholder-analysis** - Who cares about benchmarks
-- **Requirements** - Performance requirements
+- **swot-pestle-analysis** — 战略上下文
+- **stakeholder-analysis** — 谁关心这些基准
+- **Requirements** — 绩效类需求
 
-### Downstream
+### 下游
 
-- **Gap analysis** - Improvement priorities
-- **prioritization** - Resource allocation
-- **Roadmap** - Improvement initiatives
+- **Gap analysis** — 改进优先级
+- **prioritization** — 资源分配
+- **Roadmap** — 改进 initiative
 
-## Related Skills
+## 相关 skill
 
-- `swot-pestle-analysis` - Strategic environmental analysis
-- `prioritization` - Prioritizing improvement actions
-- `decision-analysis` - Evaluating improvement options
-- `capability-mapping` - Capability maturity benchmarking
+- `swot-pestle-analysis` — 战略环境分析
+- `prioritization` — 对改进行动排序
+- `decision-analysis` — 评估改进方案
+- `capability-mapping` — 能力成熟度对标
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

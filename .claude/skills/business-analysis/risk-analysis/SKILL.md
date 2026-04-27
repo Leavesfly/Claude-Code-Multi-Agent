@@ -4,46 +4,46 @@ description: Risk analysis using risk registers, probability/impact matrices, an
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Risk Analysis
+# Risk Analysis（风险分析）
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **Risk Analysis tasks** - Working on risk analysis using risk registers, probability/impact matrices, and mitigation planning. identifies, assesses, and manages project, business, and technical risks with structured response strategies
-- **Planning or design** - Need guidance on Risk Analysis approaches
-- **Best practices** - Want to follow established patterns and standards
+- **Risk Analysis 任务** — 用 risk register、概率/影响矩阵以及结构化的应对规划做风险分析；识别、评估并管理项目、业务、技术相关的风险
+- **规划或设计** — 需要风险分析方法的指引
+- **最佳实践** — 想遵循成熟的模式与标准
 
-## Overview
+## 概览
 
-Systematically identify, assess, and manage risks using risk registers, probability/impact matrices, and structured response planning. Supports project risks, business risks, technical risks, and opportunity management.
+用 risk register、概率/影响矩阵与结构化的应对规划，系统性地识别、评估并管理风险。支持项目风险、业务风险、技术风险与机会管理。
 
-## What is Risk Analysis?
+## 什么是 Risk Analysis？
 
-**Risk** is an uncertain event or condition that, if it occurs, has a positive or negative effect on objectives. Risk analysis involves:
+**Risk（风险）** 是一种不确定的事件或状态，一旦发生，对目标可能产生正面或负面的影响。风险分析包括：
 
-- **Identification**: What could happen?
-- **Assessment**: How likely? How impactful?
-- **Response Planning**: What will we do about it?
-- **Monitoring**: Track and update risks
+- **Identification（识别）**：可能发生什么？
+- **Assessment（评估）**：多大可能？多大影响？
+- **Response Planning（应对规划）**：我们打算怎么做？
+- **Monitoring（监控）**：持续追踪与更新
 
 ### Risk vs Issue
 
-| Concept | Definition | Action |
+| 概念 | 定义 | 动作 |
 |---------|------------|--------|
-| **Risk** | Potential future event (uncertain) | Plan response |
-| **Issue** | Current problem (certain) | Resolve now |
+| **Risk（风险）** | 未来可能发生的事件（不确定） | 规划应对 |
+| **Issue（问题）** | 当前已经存在的问题（确定） | 立刻处理 |
 
-### Threats vs Opportunities
+### Threat vs Opportunity
 
-| Type | Effect | Response Goal |
+| 类型 | 效应 | 应对目标 |
 |------|--------|---------------|
-| **Threat** | Negative impact | Minimize exposure |
-| **Opportunity** | Positive impact | Maximize benefit |
+| **Threat（威胁）** | 负面影响 | 最小化暴露 |
+| **Opportunity（机会）** | 正面影响 | 最大化收益 |
 
-## Risk Register
+## Risk Register（风险登记表）
 
-The central repository for all identified risks:
+所有已识别风险的中央存储：
 
 ```markdown
 ## Risk Register
@@ -53,58 +53,58 @@ The central repository for all identified risks:
 | R-001 | [Description] | [Category] | H/M/L | H/M/L | [P×I] | [Name] | [Strategy] | Open |
 ```
 
-### Risk Register Fields
+### Risk Register 字段
 
-| Field | Description |
+| 字段 | 描述 |
 |-------|-------------|
-| **ID** | Unique identifier |
-| **Description** | Clear risk statement |
-| **Category** | Type of risk |
-| **Probability** | Likelihood of occurrence |
-| **Impact** | Consequence if it occurs |
-| **Score** | Risk priority (P × I) |
-| **Owner** | Person responsible |
-| **Response** | Planned response strategy |
-| **Status** | Open, Mitigated, Closed, Occurred |
+| **ID** | 唯一标识 |
+| **Description** | 清晰的风险陈述 |
+| **Category** | 风险类型 |
+| **Probability** | 发生可能性 |
+| **Impact** | 发生后的后果 |
+| **Score** | 风险优先级（P × I） |
+| **Owner** | 责任人 |
+| **Response** | 计划采取的应对策略 |
+| **Status** | Open、Mitigated、Closed、Occurred |
 
-### Risk Categories
+### 风险分类
 
-| Category | Examples |
+| 类别 | 示例 |
 |----------|----------|
-| **Technical** | Technology failure, integration issues |
-| **Schedule** | Delays, dependencies |
-| **Cost** | Budget overrun, resource costs |
-| **Resource** | Skill gaps, availability |
-| **External** | Vendor, regulatory, market |
-| **Organizational** | Change resistance, priorities |
-| **Quality** | Defects, performance |
-| **Security** | Data breach, unauthorized access |
+| **Technical（技术）** | 技术失败、集成问题 |
+| **Schedule（进度）** | 延期、依赖 |
+| **Cost（成本）** | 预算超支、资源成本 |
+| **Resource（资源）** | 技能缺口、人手不足 |
+| **External（外部）** | 供应商、监管、市场 |
+| **Organizational（组织）** | 变更阻力、优先级 |
+| **Quality（质量）** | 缺陷、性能 |
+| **Security（安全）** | 数据泄露、越权访问 |
 
-## Probability/Impact Matrix
+## 概率/影响矩阵
 
-### Scoring Scales
+### 评分量表
 
-**Probability Scale:**
+**概率量表：**
 
-| Level | Score | Description | Likelihood |
+| 等级 | 分值 | 描述 | 可能性 |
 |-------|-------|-------------|------------|
-| Very Low | 1 | Rare | < 10% |
-| Low | 2 | Unlikely | 10-30% |
-| Medium | 3 | Possible | 30-50% |
-| High | 4 | Likely | 50-70% |
-| Very High | 5 | Almost Certain | > 70% |
+| Very Low | 1 | 罕见 | < 10% |
+| Low | 2 | 不太可能 | 10-30% |
+| Medium | 3 | 有可能 | 30-50% |
+| High | 4 | 很可能 | 50-70% |
+| Very High | 5 | 几乎必然 | > 70% |
 
-**Impact Scale:**
+**影响量表：**
 
-| Level | Score | Schedule | Cost | Quality |
+| 等级 | 分值 | 进度 | 成本 | 质量 |
 |-------|-------|----------|------|---------|
-| Very Low | 1 | < 1 week | < 5% | Minor |
-| Low | 2 | 1-2 weeks | 5-10% | Noticeable |
-| Medium | 3 | 2-4 weeks | 10-20% | Significant |
-| High | 4 | 1-3 months | 20-40% | Major |
-| Very High | 5 | > 3 months | > 40% | Critical |
+| Very Low | 1 | < 1 周 | < 5% | 轻微 |
+| Low | 2 | 1-2 周 | 5-10% | 可察觉 |
+| Medium | 3 | 2-4 周 | 10-20% | 明显 |
+| High | 4 | 1-3 个月 | 20-40% | 严重 |
+| Very High | 5 | > 3 个月 | > 40% | 灾难级 |
 
-### Risk Score Calculation
+### 风险分值的计算
 
 ```text
 Risk Score = Probability × Impact
@@ -112,16 +112,16 @@ Risk Score = Probability × Impact
 Score Range: 1-25
 ```
 
-**Risk Priority Zones:**
+**优先级区段：**
 
-| Score | Priority | Action |
+| 分值 | 优先级 | 行动 |
 |-------|----------|--------|
-| 1-4 | Low | Accept or monitor |
-| 5-9 | Medium | Active management |
-| 10-14 | High | Priority attention |
-| 15-25 | Critical | Immediate action |
+| 1-4 | 低 | 接受或仅监测 |
+| 5-9 | 中 | 主动管理 |
+| 10-14 | 高 | 重点关注 |
+| 15-25 | 危急 | 立即行动 |
 
-### Visual Matrix
+### 矩阵可视化
 
 ```mermaid
 quadrantChart
@@ -134,27 +134,27 @@ quadrantChart
     quadrant-4 Medium Priority
 ```
 
-## Risk Response Strategies
+## 风险应对策略
 
-### For Threats (Negative Risks)
+### 针对 Threat（负向风险）
 
-| Strategy | Description | When to Use |
+| 策略 | 描述 | 何时使用 |
 |----------|-------------|-------------|
-| **Avoid** | Eliminate the threat | High probability and impact |
-| **Transfer** | Shift to third party | Financial/contractual risks |
-| **Mitigate** | Reduce probability or impact | Most common approach |
-| **Accept** | Acknowledge, no action | Low priority risks |
+| **Avoid（规避）** | 消除威胁 | 概率与影响都高 |
+| **Transfer（转移）** | 转给第三方 | 财务/合同类风险 |
+| **Mitigate（缓解）** | 降低概率或影响 | 最常用的策略 |
+| **Accept（接受）** | 承认但不采取行动 | 低优先级的风险 |
 
-### For Opportunities (Positive Risks)
+### 针对 Opportunity（正向风险）
 
-| Strategy | Description | When to Use |
+| 策略 | 描述 | 何时使用 |
 |----------|-------------|-------------|
-| **Exploit** | Ensure opportunity occurs | High-value opportunities |
-| **Share** | Partner to increase capability | Need external help |
-| **Enhance** | Increase probability or impact | Moderate opportunities |
-| **Accept** | Take advantage if it occurs | Low-effort opportunities |
+| **Exploit（利用）** | 确保机会发生 | 高价值机会 |
+| **Share（共享）** | 合作以增强能力 | 需要外部帮助 |
+| **Enhance（强化）** | 提升概率或影响 | 中等机会 |
+| **Accept（顺势而为）** | 机会出现时顺势抓住 | 低投入的机会 |
 
-### Response Planning Template
+### 应对规划模板
 
 ```markdown
 ## Risk Response Plan: R-001
@@ -180,34 +180,34 @@ quadrantChart
 - New Score: [Residual score]
 ```
 
-## Workflow
+## 工作流
 
-### Phase 1: Risk Identification
+### Phase 1：识别风险
 
-#### Step 1: Gather Inputs
+#### Step 1：收集输入
 
-Sources for risk identification:
+识别风险的来源：
 
-- Project plans and schedules
-- Stakeholder concerns
-- Historical data from similar projects
-- SWOT analysis (Threats)
-- Technical assessments
-- External environment analysis
+- 项目计划与进度
+- stakeholder 的顾虑
+- 类似项目的历史数据
+- SWOT 分析（Threats 部分）
+- 技术评估
+- 外部环境分析
 
-#### Step 2: Brainstorm Risks
+#### Step 2：头脑风暴
 
-Techniques:
+技法：
 
-- **Checklist review**: Standard risk categories
-- **Expert interviews**: Subject matter experts
-- **Assumption analysis**: Test project assumptions
-- **Root cause analysis**: Work backward from impacts
-- **SWOT**: Threats and opportunities
+- **Checklist review**：标准风险分类
+- **Expert interviews**：领域专家
+- **Assumption analysis**：质疑项目的假设
+- **Root cause analysis**：从影响反推原因
+- **SWOT**：威胁与机会
 
-#### Step 3: Document Risks
+#### Step 3：记录风险
 
-Risk statement format:
+风险陈述的格式：
 
 ```text
 "There is a risk that [CONDITION/CAUSE] may result in [CONSEQUENCE/IMPACT]"
@@ -216,26 +216,26 @@ Example:
 "There is a risk that key developer leaves may result in schedule delay and knowledge loss"
 ```
 
-### Phase 2: Risk Assessment
+### Phase 2：风险评估
 
-#### Step 1: Assess Probability
+#### Step 1：评估概率
 
-For each risk:
+对每个风险：
 
-- What is the likelihood of occurrence?
-- What evidence supports this assessment?
-- Use defined scale (1-5)
+- 发生的可能性有多大？
+- 支持该评估的证据是什么？
+- 使用既定量表（1-5）
 
-#### Step 2: Assess Impact
+#### Step 2：评估影响
 
-For each risk:
+对每个风险：
 
-- What would be the consequence?
-- Consider multiple impact types (schedule, cost, quality)
-- Use the highest impact dimension
-- Use defined scale (1-5)
+- 后果是什么？
+- 考虑多个影响维度（进度、成本、质量）
+- 取影响最大的维度
+- 使用既定量表（1-5）
 
-#### Step 3: Calculate and Prioritize
+#### Step 3：计算并排序
 
 ```markdown
 ## Risk Assessment Summary
@@ -247,51 +247,51 @@ For each risk:
 | R-003 | [Risk 3] | 2 | 2 | 4 | Low |
 ```
 
-### Phase 3: Response Planning
+### Phase 3：应对规划
 
-#### Step 1: Select Response Strategy
+#### Step 1：选择应对策略
 
-For each significant risk:
+对每个重要风险：
 
-- Match strategy to risk characteristics
-- Consider cost of response vs. risk exposure
-- Assign risk owner
+- 让策略匹配风险特征
+- 权衡应对成本与风险暴露
+- 指派风险 owner
 
-#### Step 2: Define Response Actions
+#### Step 2：定义应对动作
 
-- Specific, measurable actions
-- Clear owners and due dates
-- Contingency triggers defined
+- 具体、可度量的动作
+- 明确的 owner 与截止日期
+- 明确的应急触发条件
 
-#### Step 3: Calculate Residual Risk
+#### Step 3：计算残余风险
 
-After planned mitigations:
+在预设缓解措施之后：
 
-- Re-assess probability and impact
-- Calculate residual risk score
-- Determine if acceptable
+- 重新评估概率与影响
+- 计算残余风险分值
+- 判断是否可接受
 
-### Phase 4: Monitoring
+### Phase 4：监控
 
-#### Step 1: Track Risk Status
+#### Step 1：追踪风险状态
 
-Regular review cadence:
+定期复核节奏：
 
-- Critical risks: Weekly
-- High risks: Bi-weekly
-- Medium risks: Monthly
-- Low risks: Quarterly
+- 危急风险：每周
+- 高风险：每两周
+- 中风险：每月
+- 低风险：每季
 
-#### Step 2: Update Register
+#### Step 2：更新 register
 
-- New risks identified
-- Risk scores changed
-- Responses executed
-- Risks closed or occurred
+- 新发现的风险
+- 分值的变化
+- 已执行的应对
+- 已关闭或已发生的风险
 
-## Output Formats
+## 输出格式
 
-### Risk Register (Markdown Table)
+### Risk Register（Markdown 表格）
 
 ```markdown
 ## Risk Register: [Project/Initiative]
@@ -315,7 +315,7 @@ Regular review cadence:
 - **Low (1-4):** 1
 ```
 
-### Risk Matrix Visualization
+### 风险矩阵可视化
 
 ```mermaid
 quadrantChart
@@ -332,7 +332,7 @@ quadrantChart
     "R-004 Regulation": [0.5, 0.35]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 risk_register:
@@ -408,7 +408,7 @@ risk_register:
       occurred: 0
 ```
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Risk Assessment Summary
@@ -449,39 +449,39 @@ risk_register:
 3. **Monitor:** Watch for regulatory announcements
 ```
 
-## Common Pitfalls
+## 常见陷阱
 
-| Pitfall | Prevention |
+| 陷阱 | 如何规避 |
 |---------|------------|
-| Vague risk descriptions | Use "condition may cause consequence" format |
-| Inconsistent scoring | Define and use standard scales |
-| No risk owners | Assign owner at identification |
-| Stale register | Schedule regular reviews |
-| Ignoring opportunities | Include positive risks |
-| Over-analysis | Focus on high-priority risks |
-| No contingency | Plan for when risks occur |
+| 风险描述含糊 | 使用 "condition may cause consequence" 格式 |
+| 评分标准不一致 | 定义并使用统一量表 |
+| 无风险 owner | 识别时就指派 owner |
+| register 陈旧 | 安排定期复核 |
+| 忽略 opportunity | 把正向风险也纳入 |
+| 过度分析 | 聚焦高优先级风险 |
+| 无 contingency | 为风险发生时做好准备 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **swot-pestle-analysis** - Threats from strategic analysis
-- **stakeholder-analysis** - Stakeholder concerns as risks
-- **decision-analysis** - Risks inform decisions
+- **swot-pestle-analysis** — 战略分析得出的威胁
+- **stakeholder-analysis** — 把 stakeholder 的顾虑转化为风险
+- **decision-analysis** — 风险作为决策输入
 
-### Downstream
+### 下游
 
-- **Project planning** - Risk-adjusted schedules
-- **Budgeting** - Contingency reserves
-- **Monitoring** - Risk tracking dashboards
+- **Project planning** — 风险调整后的进度计划
+- **Budgeting** — 应急储备
+- **Monitoring** — 风险追踪看板
 
-## Related Skills
+## 相关 skill
 
-- `swot-pestle-analysis` - Strategic threats/opportunities
-- `root-cause-analysis` - When risks occur
-- `decision-analysis` - Risk-based decisions
-- `prioritization` - Risk prioritization
+- `swot-pestle-analysis` — 战略层面的威胁/机会
+- `root-cause-analysis` — 风险真实发生时使用
+- `decision-analysis` — 基于风险的决策
+- `prioritization` — 风险优先级排序
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

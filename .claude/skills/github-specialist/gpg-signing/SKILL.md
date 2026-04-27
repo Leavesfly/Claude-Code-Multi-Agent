@@ -1,58 +1,58 @@
 ---
 name: gpg-signing
-description: Comprehensive guide to GPG commit signing. Set up, configure, and troubleshoot GPG commit signing. Fix GPG signing errors, configure passphrase caching, verify commit signatures. Use when working with Git commit signing, GPG keys, commit verification, signature verification, GPG configuration, or when encountering GPG signing errors. Covers Windows (Gpg4win), macOS (GPG Suite), Linux (gnupg), and WSL installation and setup.
+description: GPG commit 签名完整指南。配置、设置并排查 GPG commit 签名。修复 GPG 签名错误、配置 passphrase 缓存、验证 commit 签名。在处理 Git commit 签名、GPG key、commit 校验、签名校验、GPG 配置，或遇到 GPG 签名错误时使用。覆盖 Windows（Gpg4win）、macOS（GPG Suite）、Linux（gnupg）和 WSL 的安装与设置。
 allowed-tools: Read, Bash, Glob, Grep
 ---
 
-# Git GPG Signing
+# Git GPG 签名
 
-Comprehensive guidance for setting up, configuring, and troubleshooting GPG commit signing across all platforms.
+在各平台上设置、配置和排查 GPG commit 签名的完整指南。
 
-## Table of Contents
+## 目录
 
-- [Overview](#overview)
-- [When to Use This Skill](#when-to-use-this-skill)
-- [Quick Start](#quick-start)
-- [Platform-Specific Setup](#platform-specific-setup)
-- [Key Generation](#key-generation)
-- [Git Configuration](#git-configuration)
-- [Passphrase Caching](#passphrase-caching)
-- [GitHub Integration](#github-integration)
-- [Troubleshooting](#troubleshooting)
-- [GPG Signing Methods Comparison](#gpg-signing-methods-comparison)
-- [Security Best Practices](#security-best-practices)
-- [Resources](#resources)
-- [Related Skills](#related-skills)
+- [概述](#概述)
+- [何时使用本技能](#何时使用本-skill)
+- [快速开始](#快速开始)
+- [各平台设置](#各平台设置)
+- [密钥生成](#key-生成)
+- [Git 配置](#git-配置)
+- [口令缓存](#passphrase-缓存)
+- [GitHub 集成](#github-集成)
+- [故障排查](#故障排查)
+- [GPG 签名方式对比](#gpg-签名方式对比)
+- [安全最佳实践](#安全最佳实践)
+- [资源](#资源)
+- [相关技能](#相关-skill)
 
-## Overview
+## 概述
 
-Git commit signing provides cryptographic proof that commits came from you. This skill helps you:
+Git commit 签名通过密码学证明来验证 commit 确实来自于你本人。本技能帮助你：
 
-- Install and configure GPG tools on Windows, macOS, and Linux
-- Set up commit signing with proper key management
-- Configure passphrase caching for better workflow
-- Troubleshoot common GPG signing issues
-- Understand security trade-offs and best practices
+- 在 Windows、macOS、Linux 上安装和配置 GPG 工具
+- 使用合理的密钥管理方式设置 commit 签名
+- 配置口令缓存以获得更流畅的工作流程
+- 排查常见 GPG 签名问题
+- 理解安全权衡和最佳实践
 
-## When to Use This Skill
+## 何时使用本 skill
 
-This skill should be used when:
+在以下场景使用本技能：
 
-- Setting up GPG commit signing for the first time
-- Configuring GPG tools (Gpg4win, GPG Suite, gnupg)
-- Troubleshooting GPG signing errors ("gpg: signing failed", "inappropriate ioctl", etc.)
-- Troubleshooting keyboxd daemon startup issues (Windows race condition)
-- Determining which GPG installation Git is using
-- Understanding Windows daemon startup behavior vs. official design
-- Configuring passphrase caching to reduce prompts
-- Understanding GPG vs SSH vs S/MIME signing methods
-- Adding GPG keys to GitHub/GitLab/Bitbucket
-- Resolving "Unverified" commits on GitHub
-- Working with `.gnupg/gpg-agent.conf` configuration
+- 首次设置 GPG commit 签名
+- 配置 GPG 工具（Gpg4win、GPG Suite、gnupg）
+- 排查 GPG 签名错误（"gpg: signing failed"、"inappropriate ioctl" 等）
+- 排查 keyboxd daemon 启动问题（Windows 竞态条件）
+- 确定 Git 使用的是哪个 GPG 安装
+- 理解 Windows daemon 启动行为与官方设计的对比
+- 配置口令缓存以减少提示次数
+- 理解 GPG、SSH 和 S/MIME 签名方式的差异
+- 向 GitHub/GitLab/Bitbucket 添加 GPG 密钥
+- 解决 GitHub 上 "Unverified" commit 问题
+- 处理 `.gnupg/gpg-agent.conf` 配置
 
-## Quick Start
+## 快速开始
 
-**Basic Setup (Single Personal Key):**
+**基础配置（单个个人密钥）：**
 
 ```bash
 # 1. Install GPG (see Platform-Specific Setup below)
@@ -76,39 +76,39 @@ gpg --armor --export <KEY_ID>
 # Paste at: https://github.com/settings/keys
 ```
 
-## Platform-Specific Setup
+## 各平台设置
 
-### Windows: Gpg4win Installation
+### Windows：安装 Gpg4win
 
-**For detailed Windows setup**, see [references/windows-setup.md](references/windows-setup.md).
+**详细 Windows 设置**见 [references/windows-setup.md](references/windows-setup.md)。
 
-**Quick install:**
+**快速安装：**
 
 ```powershell
-# Option 1: Download installer
+# 选项 1：下载安装程序
 # https://gpg4win.org/thanks-for-download.html
 
-# Option 2: winget
+# 选项 2：使用 winget
 winget install --id GnuPG.Gpg4win -e --source winget
 
-# Configure Git to use Gpg4win (adjust path if installed elsewhere)
+# 配置 Git 使用 Gpg4win（如果安装在其他位置，请调整路径）
 git config --global gpg.program "C:/Program Files (x86)/GnuPG/bin/gpg.exe"
 ```
 
-### macOS: GPG Suite / Homebrew
+### macOS：GPG Suite / Homebrew
 
 ```bash
-# Option 1: Homebrew (recommended)
+# 选项 1：Homebrew（推荐）
 brew install gnupg
 
-# Option 2: GPG Suite
-# Download from: https://gpgtools.org/
+# 选项 2：GPG Suite
+# 下载地址：https://gpgtools.org/
 
-# Configure Git (if needed)
+# 配置 Git（如需要）
 git config --global gpg.program $(which gpg)
 ```
 
-### Linux: GnuPG
+### Linux：GnuPG
 
 ```bash
 # Debian/Ubuntu
@@ -121,379 +121,379 @@ sudo dnf install gnupg2
 sudo pacman -S gnupg
 ```
 
-### WSL: Follow Linux Instructions
+### WSL：参考 Linux 的说明
 
-**WSL users:** Follow the Linux setup instructions above (WSL runs Linux). See troubleshooting section for WSL-specific issues if needed.
+**WSL 用户：** 按上面 Linux 的设置步骤操作（WSL 运行的是 Linux）。如有 WSL 专属问题，请参见故障排查章节。
 
-## Key Generation
+## 密钥生成
 
-### Personal Development Key (Interactive)
+### 个人开发密钥（交互式）
 
 ```bash
-# Generate key interactively
+# 交互式生成密钥
 gpg --full-generate-key
 
-# Follow prompts:
-# 1. Key type: (9) ECC (sign and encrypt) *default*
-# 2. Curve: (1) Curve 25519 *default*
-# 3. Expiration: 0 = no expiration (or 2y for 2 years)
-# 4. Real name: Your Name
-# 5. Email: your.verified@email.com
-# 6. Comment: (optional, can leave blank)
-# 7. Passphrase: Strong 20+ character passphrase
+# 按照提示操作：
+# 1. 密钥类型：(9) ECC（签名和加密）*默认*
+# 2. 曲线：(1) Curve 25519 *默认*
+# 3. 过期时间：0 = 永不过期（或 2y 表示 2 年）
+# 4. 真实姓名：您的姓名
+# 5. 邮箱：your.verified@email.com
+# 6. 注释：（可选，可以留空）
+# 7. 口令：强口令，至少 20 个字符
 
-# List keys to get KEY_ID
+# 列出密钥以获取 KEY_ID
 gpg --list-secret-keys --keyid-format=long
-# Look for "sec   ed25519/<KEY_ID>"
+# 查找 "sec   ed25519/<KEY_ID>"
 ```
 
-**Recommended algorithm:** EdDSA using Curve25519 (Ed25519) - modern, fast, small keys, excellent security
+**推荐算法：** 使用基于 Curve25519 的 EdDSA（Ed25519）—— 现代、快速、密钥体积小、安全性优秀
 
-**Alternative:** RSA 4096-bit (traditional, widely compatible)
+**替代方案：** RSA 4096 位（传统、兼容性广泛）
 
-### Exporting Keys
+### 导出密钥
 
 ```bash
-# Export public key (for GitHub)
+# 导出公钥（用于 GitHub）
 gpg --armor --export <KEY_ID>
 
-# Export private key (for backup only - KEEP SECURE!)
+# 导出私钥（仅用于备份 - 请妥善保管！）
 gpg --armor --export-secret-keys <KEY_ID>
 ```
 
-## Git Configuration
+## Git 配置
 
-### Enable Commit Signing
+### 启用 commit 签名
 
 ```bash
-# Global (all repositories)
+# 全局配置（所有仓库）
 git config --global user.signingkey <KEY_ID>
 git config --global commit.gpgsign true
 git config --global tag.gpgSign true
 
-# Repository-local (specific repo)
+# 仓库级配置（特定仓库）
 cd /path/to/repo
 git config user.signingkey <KEY_ID>
 git config commit.gpgsign true
 ```
 
-### Verify Configuration
+### 验证配置
 
 ```bash
-# Check configured key
+# 检查已配置的密钥
 git config --global user.signingkey
 
-# Test signing
+# 测试签名
 git commit --allow-empty -m "Test GPG signing"
 
-# Verify signature
+# 验证签名
 git log --show-signature -1
 ```
 
-## Passphrase Caching
+## 口令缓存
 
-GPG agent caches passphrases to reduce how often you're prompted.
+GPG agent 会缓存口令以减少输入提示次数。
 
-**Check if config exists:**
+**检查配置是否存在：**
 
 ```bash
 ls ~/.gnupg/gpg-agent.conf
 ```
 
-**Create or edit** `~/.gnupg/gpg-agent.conf`:
+**创建或编辑** `~/.gnupg/gpg-agent.conf`：
 
 ```conf
-# Cache passphrase for 8 hours of inactivity
+# 空闲 8 小时后清除缓存的口令
 default-cache-ttl 28800
 
-# Maximum cache time of 24 hours regardless of use
+# 无论是否使用，最长缓存 24 小时
 max-cache-ttl 86400
 
-# Allow pinentry to cache the passphrase
+# 允许 pinentry 缓存口令
 allow-preset-passphrase
 ```
 
-**Apply changes:**
+**应用变更：**
 
 ```bash
 gpgconf --kill gpg-agent
 gpgconf --launch gpg-agent
 ```
 
-**For comprehensive caching configuration**, including security scenarios, testing procedures, and troubleshooting, see [references/passphrase-caching.md](references/passphrase-caching.md).
+**完整缓存配置**，包括安全场景、测试流程和排查，见 [references/passphrase-caching.md](references/passphrase-caching.md)。
 
-### Windows-Specific: Dual GPG Installation Issue
+### Windows 专属：双 GPG 安装问题
 
-**CRITICAL for Windows users:** Windows typically has **two separate GPG installations** (Gpg4win and Git Bash GPG), each with different config file locations:
+**Windows 用户特别注意：** Windows 通常会有**两套独立的 GPG 安装**（Gpg4win 和 Git Bash GPG），二者的配置文件位置不同：
 
-- **Gpg4win:** `%APPDATA%\gnupg\gpg-agent.conf` (typically `C:\Users\<Username>\AppData\Roaming\gnupg\gpg-agent.conf`)
-- **Git Bash GPG:** `~/.gnupg/gpg-agent.conf` (resolves to `C:\Users\<Username>\.gnupg\gpg-agent.conf`)
+- **Gpg4win：** `%APPDATA%\gnupg\gpg-agent.conf`（通常是 `C:\Users\<Username>\AppData\Roaming\gnupg\gpg-agent.conf`）
+- **Git Bash GPG：** `~/.gnupg/gpg-agent.conf`（解析为 `C:\Users\<Username>\.gnupg\gpg-agent.conf`）
 
-**Common problem:** Configuring `~/.gnupg/gpg-agent.conf` (Git Bash GPG) when Git is configured to use Gpg4win. Result: **configuration silently ignored, caching doesn't work**.
+**常见问题：** Git 配置使用 Gpg4win，却去配置了 `~/.gnupg/gpg-agent.conf`（Git Bash GPG）。结果：**配置被静默忽略，缓存不生效**。
 
-**Verify which GPG Git is using:**
+**确认 Git 使用的是哪个 GPG：**
 
 ```bash
-# Check Git's GPG configuration
+# 检查 Git 的 GPG 配置
 git config --global gpg.program
 
-# If output is "C:/Program Files (x86)/GnuPG/bin/gpg.exe":
-# → Use: %APPDATA%\gnupg\gpg-agent.conf
+# 如果输出是 "C:/Program Files (x86)/GnuPG/bin/gpg.exe"：
+# → 使用：%APPDATA%\gnupg\gpg-agent.conf
 
-# Verify GPG's config directory
+# 验证 GPG 的配置目录
 gpgconf --list-dirs homedir
 ```
 
-**Windows configuration must include pinentry-program:**
+**Windows 配置必须包含 pinentry-program：**
 
 ```conf
-# Example: %APPDATA%\gnupg\gpg-agent.conf
+# 示例：%APPDATA%\gnupg\gpg-agent.conf
 default-cache-ttl 28800
 max-cache-ttl 86400
 allow-preset-passphrase
 
-# REQUIRED for Windows:
+# Windows 必需配置：
 pinentry-program C:/Program Files (x86)/GnuPG/bin/pinentry-basic.exe
 ```
 
-**See:** [Windows Setup Guide - Dual GPG Installations](references/windows-setup.md) for detailed explanation.
+**详见：** [Windows Setup Guide - Dual GPG Installations](references/windows-setup.md)。
 
-### Recommended Cache Durations
+### 推荐缓存时长
 
-| Scenario | default-cache-ttl | max-cache-ttl | Rationale |
+| 场景 | default-cache-ttl | max-cache-ttl | 原因 |
 | --- | --- | --- | --- |
-| **High Security** | 900 (15 min) | 3600 (1 hour) | Prompt frequently, short window |
-| **Balanced** | 3600 (1 hour) | 28800 (8 hours) | Prompt every ~hour, expires by end of day |
-| **Convenience** | 28800 (8 hours) | 86400 (24 hours) | Prompt once per workday, expires daily |
+| **高安全** | 900（15 分钟） | 3600（1 小时） | 频繁提示，时间窗口短 |
+| **平衡** | 3600（1 小时） | 28800（8 小时） | 每小时提示一次，一天结束时过期 |
+| **便利** | 28800（8 小时） | 86400（24 小时） | 工作日只提示一次，每天过期 |
 
-## GitHub Integration
+## GitHub 集成
 
-### Adding GPG Key to GitHub
+### 向 GitHub 添加 GPG 密钥
 
-1. **Export public key:**
+1. **导出公钥：**
 
    ```bash
    gpg --armor --export <KEY_ID>
    ```
 
-2. **Add to GitHub:**
-   - Go to: [https://github.com/settings/keys](https://github.com/settings/keys)
-   - Click "New GPG key"
-   - Paste ASCII-armored public key
-   - Click "Add GPG key"
+2. **添加到 GitHub：**
+   - 访问：[https://github.com/settings/keys](https://github.com/settings/keys)
+   - 点击 "New GPG key"
+   - 粘贴 ASCII 编码的公钥
+   - 点击 "Add GPG key"
 
-3. **Verify email matches:**
-   - Git email must match GPG key email
-   - Email must be verified in GitHub account
+3. **验证邮箱匹配：**
+   - Git 邮箱必须与 GPG 密钥的邮箱一致
+   - 邮箱必须在 GitHub 账号中已验证
 
    ```bash
-   # Check Git email
+   # 检查 Git 邮箱
    git config --global user.email
 
-   # Check GPG key email
+   # 检查 GPG 密钥邮箱
    gpg --list-keys <KEY_ID>
    ```
 
-### Troubleshooting "Unverified" Commits
+### 排查 "Unverified" commit
 
-**Possible causes:**
+**可能原因：**
 
-1. **Public key not added to GitHub** → Add key at Settings → SSH and GPG keys
-2. **Email mismatch** → Ensure Git email = GPG key email = GitHub verified email
-3. **Key expired** → Extend expiration or generate new key
-4. **Key revoked** → Generate new key (cannot un-revoke)
+1. **公钥未添加到 GitHub** → 在 Settings → SSH and GPG keys 中添加
+2. **邮箱不匹配** → 确保 Git 邮箱 = GPG 密钥邮箱 = GitHub 已验证邮箱
+3. **密钥已过期** → 延长过期时间或生成新密钥
+4. **密钥已吊销** → 生成新密钥（吊销操作无法撤销）
 
-## Troubleshooting
+## 故障排查
 
-**For comprehensive troubleshooting**, see [references/troubleshooting.md](references/troubleshooting.md).
+**完整排查指南**见 [references/troubleshooting.md](references/troubleshooting.md)。
 
 ### "gpg: signing failed: No secret key"
 
-**Cause:** Git configured to use key ID that doesn't exist in keyring.
+**原因：** Git 配置使用的密钥 ID 在密钥环中不存在。
 
-**Solution:**
+**解决方法：**
 
 ```bash
-# List available keys
+# 列出可用密钥
 gpg --list-secret-keys --keyid-format=long
 
-# Verify Git config matches available key
+# 验证 Git 配置与可用密钥匹配
 git config --global user.signingkey
 
-# If mismatch, update config
+# 如果不匹配，更新配置
 git config --global user.signingkey <CORRECT_KEY_ID>
 ```
 
 ### "gpg: signing failed: Inappropriate ioctl for device"
 
-**Cause:** GPG agent cannot prompt for passphrase (terminal issue).
+**原因：** GPG agent 无法提示输入口令（终端问题）。
 
-**Solution (Linux/macOS/WSL):**
+**解决方法（Linux/macOS/WSL）：**
 
 ```bash
-# Set GPG_TTY environment variable
+# 设置 GPG_TTY 环境变量
 export GPG_TTY=$(tty)
 
-# Add to shell profile (e.g., ~/.bashrc, ~/.zshrc)
+# 添加到 shell 配置文件（例如 ~/.bashrc、~/.zshrc）
 echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
 ```
 
-**Solution (Windows with Gpg4win):**
+**解决方法（Windows 配合 Gpg4win）：**
 
 ```bash
-# Use GUI pinentry (adjust path to match your Gpg4win installation)
+# 使用图形界面 pinentry（调整路径以匹配您的 Gpg4win 安装）
 echo 'pinentry-program "C:/Program Files (x86)/GnuPG/bin/pinentry-basic.exe"' >> ~/.gnupg/gpg-agent.conf
 gpgconf --kill gpg-agent
 ```
 
 ### "error: gpg failed to sign the data"
 
-**Debug steps:**
+**调试步骤：**
 
 ```bash
-# Test GPG signing directly
+# 直接测试 GPG 签名
 echo "test" | gpg --clearsign
 
-# Check GPG agent status
+# 检查 GPG agent 状态
 gpgconf --list-components
 
-# Check key expiration
+# 检查密钥过期时间
 gpg --list-keys --keyid-format=long <KEY_ID>
 
-# Restart GPG agent
+# 重启 GPG agent
 gpgconf --kill gpg-agent
 gpgconf --launch gpg-agent
 
-# Try commit again
+# 再次尝试 commit
 git commit -m "test"
 ```
 
-### Passphrase Prompt Every Commit (Cache Not Working)
+### 每次 commit 都提示输入口令（缓存不工作）
 
-**Windows users:** This is commonly caused by dual GPG installation issues. See [Windows Setup - Passphrase Caching Troubleshooting](references/windows-setup.md) and [Troubleshooting - Windows Caching Issue](references/troubleshooting.md) for detailed diagnosis.
+**Windows 用户：** 这通常是由双 GPG 安装问题引起。详细诊断见 [Windows Setup - Passphrase Caching Troubleshooting](references/windows-setup.md) 和 [Troubleshooting - Windows Caching Issue](references/troubleshooting.md)。
 
-**Possible causes:**
+**可能原因：**
 
-1. **Wrong config file location (Windows):**
+1. **配置文件位置错误（Windows）：**
 
    ```bash
-   # Verify which GPG Git is using
+   # 验证 Git 使用的是哪个 GPG
    git config --global gpg.program
 
-   # Check GPG's config directory
+   # 检查 GPG 的配置目录
    gpgconf --list-dirs homedir
 
-   # Ensure config exists at correct location
+   # 确保配置存在于正确位置
    # Windows (Gpg4win): %APPDATA%\gnupg\gpg-agent.conf
    # Windows (Git Bash): ~/.gnupg/gpg-agent.conf
    # Linux/macOS/WSL: ~/.gnupg/gpg-agent.conf
    ```
 
-2. **gpg-agent.conf not loaded:**
+2. **gpg-agent.conf 未被加载：**
 
    ```bash
-   # Restart agent to load config
+   # 重启 agent 以加载配置
    gpgconf --kill gpg-agent
    gpgconf --launch gpg-agent
 
-   # Verify config loaded
+   # 验证配置已加载
    gpgconf --list-options gpg-agent | grep cache-ttl
    ```
 
-3. **Cache TTL set too low** → Increase cache time in `~/.gnupg/gpg-agent.conf`
+3. **缓存 TTL 设置过低** → 在 `~/.gnupg/gpg-agent.conf` 中增加缓存时间
 
-4. **Multiple GPG agents running:**
+4. **同时运行多个 GPG agent：**
 
    ```bash
-   # Kill all agents
+   # 终止所有 agent
    pkill gpg-agent
 
-   # Launch single agent
+   # 启动单个 agent
    gpgconf --launch gpg-agent
    ```
 
-## GPG Signing Methods Comparison
+## GPG 签名方式对比
 
-| Method | Best For | Setup Complexity | Key Management |
+| 方式 | 最适合 | 配置复杂度 | 密钥管理 |
 | --- | --- | --- | --- |
-| **GPG** | Full-featured, supports expiration/revocation | Medium | Most flexible |
-| **SSH** | Simplest, reuses existing SSH keys | Low | Limited features |
-| **S/MIME** | Enterprise with X.509 certificates | High | Org-managed |
+| **GPG** | 功能完整、支持过期/吊销 | 中等 | 最灵活 |
+| **SSH** | 最简单，复用现有 SSH 密钥 | 低 | 功能有限 |
+| **S/MIME** | 使用 X.509 证书的企业场景 | 高 | 组织管理 |
 
-### SSH Signing (Alternative)
+### SSH 签名（替代方式）
 
-**When to use SSH instead of GPG:**
+**什么时候使用 SSH 而不是 GPG：**
 
-- Simple personal projects
-- Already have SSH key setup
-- Don't need expiration/revocation features
-- Want minimal configuration
+- 简单个人项目
+- 已经配置好 SSH 密钥
+- 不需要过期/吊销功能
+- 希望尽量减少配置
 
-**Setup:**
+**设置方法：**
 
 ```bash
-# Configure Git to use SSH signing
+# 配置 Git 使用 SSH 签名
 git config --global gpg.format ssh
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
 git config --global commit.gpgsign true
 
-# Add SSH key to GitHub as "Signing Key"
+# 将 SSH 密钥作为"签名密钥"添加到 GitHub
 ```
 
-**Limitations:**
+**局限性：**
 
-- No key expiration support
-- No revocation tracking
-- Requires Git 2.34+ (2021)
+- 不支持密钥过期
+- 没有吊销追踪
+- 需要 Git 2.34+（2021 年发布）
 
-## Security Best Practices
+## 安全最佳实践
 
-**For comprehensive security guidance**, see [references/security-best-practices.md](references/security-best-practices.md).
+**完整安全指引**见 [references/security-best-practices.md](references/security-best-practices.md)。
 
-**Quick recommendations:**
+**快速建议：**
 
-- ✅ Use passphrase protection on personal keys (minimum 20 characters)
-- ✅ Configure caching to balance security and convenience (4-8 hours)
-- ✅ Consider key expiration: No expiration for personal projects, 1-year for enterprise work
-- ✅ Backup private key to encrypted vault or password manager's Secure Documents
-- ⚠️ Never store unencrypted keys in Git repos, cloud storage, or email
+- ✅ 个人密钥使用口令保护（至少 20 个字符）
+- ✅ 配置缓存以平衡安全与便利（4-8 小时）
+- ✅ 考虑密钥过期：个人项目不过期，企业工作设置 1 年
+- ✅ 将私钥备份到加密保险库或密码管理器的安全文档中
+- ⚠️ 绝不将未加密的密钥放在 Git 仓库、云存储或邮件中
 
-## Resources
+## 资源
 
-### Reference Documentation
+### 参考文档
 
-- [Quick Command Reference](references/quick-reference.md) - Quick lookup for common GPG and Git signing commands
-- [Windows Setup Guide](references/windows-setup.md) - Gpg4win installation, Git Bash paths, security considerations
-- [Passphrase Caching Configuration](references/passphrase-caching.md) - Cache strategies, security trade-offs
-- [Security Best Practices](references/security-best-practices.md) - Passphrase protection, key expiration, backup strategies
-- [Troubleshooting Guide](references/troubleshooting.md) - Common issues and solutions
-- [GPG Agent Configuration Example](references/gpg-agent-config-example.conf) - Sample configuration file
-- [Test Scenarios](references/test-scenarios.md) - Skill activation validation scenarios
+- [Quick Command Reference](references/quick-reference.md) —— 常用 GPG 和 Git 签名命令速查
+- [Windows Setup Guide](references/windows-setup.md) —— Gpg4win 安装、Git Bash 路径、安全考量
+- [Passphrase Caching Configuration](references/passphrase-caching.md) —— 缓存策略、安全权衡
+- [Security Best Practices](references/security-best-practices.md) —— 口令保护、密钥过期、备份策略
+- [Troubleshooting Guide](references/troubleshooting.md) —— 常见问题与解决方案
+- [GPG Agent Configuration Example](references/gpg-agent-config-example.conf) —— 配置文件示例
+- [Test Scenarios](references/test-scenarios.md) —— skill 激活验证场景
 
-### Official Documentation
+### 官方文档
 
 - [GitHub: Managing commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification)
 - [GnuPG Documentation](https://www.gnupg.org/documentation/)
 - [Git Documentation: Signing Your Work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
 
-## Related Skills
+## 相关技能
 
-- **git-commit**: Use for complete git commit workflow with Conventional Commits format, safety protocols, and attribution requirements
-- **config**: Advanced Git configuration including aliases, credentials, and performance tuning
-- **gpg-multi-key**: Multi-key management for consultants, CI/CD automation, and enterprise teams
+- **git-commit**：完整 git commit 工作流，含 Conventional Commits 格式、安全协议和署名要求
+- **config**：Git 高级配置，包括别名、凭证和性能调优
+- **gpg-multi-key**：面向咨询顾问、CI/CD 自动化和企业团队的多密钥管理
 
-## Version History
+## 版本历史
 
-- v1.1.1 (2025-11-25): Progressive disclosure optimization - extracted Test Scenarios to reference file, removed redundant Quick Command Reference section, reduced SKILL.md to under 500 lines
-- v1.1.0 (2025-11-22): Enhanced troubleshooting - added keyboxd daemon race condition troubleshooting (T7777/T7829), dynamic GPG detection workflow, Windows startup best practices with official design vs. reality analysis
-- v1.0.5 (2025-11-19): Optimization improvements - added table of contents to SKILL.md, extracted Essential Commands Reference to quick-reference.md, reduced line count from 530 to 522
-- v1.0.4 (2025-11-17): Progressive disclosure improvement - extracted Security Best Practices to separate reference file
-- v1.0.3 (2025-11-17): Validated against official documentation - fixed tag.gpgSign capitalization, updated Last Verified dates
-- v1.0.2 (2025-11-12): Enhanced documentation - added TOCs to long references, documented test scenarios
-- v1.0.1 (2025-11-13): Added cross-reference to git-commit skill
-- v1.0.0 (2025-01-09): Initial release migrated from repository documentation
+- v1.1.1（2025-11-25）：渐进式披露优化 —— 将测试场景抽取到 reference 文件，移除冗余的快速命令参考章节，SKILL.md 缩减至 500 行以内
+- v1.1.0（2025-11-22）：排查增强 —— 新增 keyboxd daemon 竞态条件排查（T7777/T7829）、动态 GPG 检测工作流、Windows 启动最佳实践与官方设计对比现实的分析
+- v1.0.5（2025-11-19）：优化 —— 为 SKILL.md 添加目录，将基本命令参考抽取到 quick-reference.md，行数从 530 减至 522
+- v1.0.4（2025-11-17）：渐进式披露改进 —— 将安全最佳实践抽取到独立 reference 文件
+- v1.0.3（2025-11-17）：对照官方文档验证 —— 修正 tag.gpgSign 大小写，更新最后验证日期
+- v1.0.2（2025-11-12）：文档增强 —— 为长 reference 文件添加目录，记录测试场景
+- v1.0.1（2025-11-13）：新增对 git-commit skill 的交叉引用
+- v1.0.0（2025-01-09）：首次发布，从仓库文档迁移
 
-## Last Updated
+## 最后更新
 
-**Date:** 2025-11-28
-**Model:** claude-opus-4-5-20251101
+**日期：** 2025-11-28
+**模型：** claude-opus-4-5-20251101

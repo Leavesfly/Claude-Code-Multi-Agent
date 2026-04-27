@@ -1,191 +1,191 @@
 ---
-description: Prioritize items using MoSCoW, Kano, or weighted scoring methods. Supports requirements, features, backlog items, or any list needing ranking.
-argument-hint: <items-or-context> [--mode moscow|kano|weighted|all] [--output yaml|markdown|both] [--dir <path>]
+description: 使用 MoSCoW、Kano 或加权评分方法对项目进行优先级排序。支持需求、功能、待办事项列表或任何需要排名的项目列表。
+argument-hint: <项目或上下文> [--mode moscow|kano|weighted|all] [--output yaml|markdown|both] [--dir <路径>]
 allowed-tools: Task, Read, Write, Glob, Grep, Skill
 ---
 
-# Prioritize Command
+# 优先级排序命令
 
-Systematically prioritize items using proven frameworks: MoSCoW for stakeholder-driven categorization, Kano for customer satisfaction, and weighted scoring for multi-criteria decisions.
+使用经过验证的框架系统地确定项目优先级：MoSCoW 用于干系人驱动的分类，Kano 用于客户满意度，加权评分用于多标准决策。
 
-## Arguments
+## 参数
 
-- `<items-or-context>`: Items to prioritize (inline list, file reference, or context description)
-- `--mode`: Prioritization method (default: `moscow`)
-  - `moscow`: Must/Should/Could/Won't categorization (~4K tokens)
-  - `kano`: Customer satisfaction categorization (~5K tokens)
-  - `weighted`: Multi-criteria weighted scoring (~6K tokens)
-  - `all`: All three methods for comparison (~12K tokens)
-- `--output`: Output format (default: `both`)
-  - `yaml`: Structured YAML for downstream processing
-  - `markdown`: Formatted markdown tables
-  - `both`: Both formats
+- `<项目或上下文>`：要优先排序的项目（内联列表、文件引用或上下文描述）
+- `--mode`：优先级排序方法（默认：`moscow`）
+  - `moscow`：Must/Should/Could/Won't 分类（约4K tokens）
+  - `kano`：客户满意度分类（约5K tokens）
+  - `weighted`：多标准加权评分（约6K tokens）
+  - `all`：三种方法进行比较（约12K tokens）
+- `--output`：输出格式（默认：`both`）
+  - `yaml`：结构化 YAML，用于下游处理
+  - `markdown`：格式化的 Markdown 表格
+  - `both`：两种格式
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行
 
-### Step 1: Parse Arguments
+### 步骤1：解析参数
 
-Extract items, mode, and output format from arguments.
+从参数中提取项目、模式和输出格式。
 
-If no items provided, ask the user:
-"What items would you like to prioritize? You can provide a list, reference a file, or describe the context."
+如果未提供项目，询问用户：
+"您想对哪些项目进行优先级排序？您可以提供列表、引用文件或描述上下文。"
 
-Default mode is `moscow`. Default output is `both`.
+默认模式为 `moscow`。默认输出为 `both`。
 
-### Step 2: Load Prioritization Skill
+### 步骤2：加载优先级排序 Skill
 
-Invoke the `prioritization` skill to access:
+调用 `prioritization` skill 以访问：
 
-- MoSCoW categorization rules
-- Kano model categories and survey approach
-- Weighted scoring matrix methodology
-- Value vs Effort matrix
-- Selection guidance (when to use which method)
+- MoSCoW 分类规则
+- Kano 模型类别和调查方法
+- 加权评分矩阵方法
+- 价值 vs Effort 矩阵
+- 选择指导（何时使用哪种方法）
 
-### Step 3: Gather Items
+### 步骤3：收集项目
 
-Collect items to prioritize:
+收集要优先排序的项目：
 
-**From inline list:**
+**来自内联列表：**
 
 ```text
-/prioritize "Feature A, Feature B, Feature C, Feature D"
+/prioritize "功能A, 功能B, 功能C, 功能D"
 ```
 
-**From file reference:**
+**来自文件引用：**
 
 ```text
 /prioritize @backlog.md --mode weighted
 ```
 
-**From context:**
+**来自上下文：**
 
 ```text
-/prioritize "Sprint planning for authentication module"
+/prioritize "身份验证模块的 Sprint 规划"
 ```
 
-For context-based requests, explore the codebase or ask clarifying questions to identify items.
+对于基于上下文的请求，探索代码库或提出澄清问题以识别项目。
 
-### Step 4: Execute Based on Mode
+### 步骤4：根据模式执行
 
-#### MoSCoW Mode (Default)
+#### MoSCoW 模式（默认）
 
-Categorize items into four groups:
+将项目分为四类：
 
-1. **Must Have**: Critical requirements, non-negotiable
-   - Without these, the solution is not viable
-   - Core functionality, compliance, safety
+1. **Must Have（必须有）**：关键需求，不可协商
+   - 没有这些，解决方案就不可行
+   - 核心功能、合规性、安全性
 
-2. **Should Have**: Important but not critical
-   - Significant value but workarounds exist
-   - High priority for next iteration
+2. **Should Have（应该有）**：重要但不关键
+   - 具有显著价值但存在变通方案
+   - 下一个迭代的高优先级
 
-3. **Could Have**: Desirable if time/resources permit
-   - Nice-to-have features
-   - Enhance user experience
+3. **Could Have（可以有）**：如果时间/资源允许则理想
+   - 锦上添花的功能
+   - 增强用户体验
 
-4. **Won't Have (This Time)**: Explicitly excluded
-   - Documented for future consideration
-   - Helps manage scope creep
+4. **Won't Have（这次不会有）**：明确排除
+   - 记录以供将来考虑
+   - 有助于管理范围蔓延
 
-For each item, gather stakeholder input on:
+对于每个项目，收集干系人对以下方面的输入：
 
-- Business criticality
-- Technical dependencies
-- Compliance requirements
-- User impact
+- 业务关键性
+- 技术依赖
+- 合规要求
+- 用户影响
 
-#### Kano Mode (Customer Satisfaction)
+#### Kano 模式（客户满意度）
 
-Categorize items by satisfaction impact:
+按满意度影响对项目进行分类：
 
-1. **Basic (Must-Be)**: Expected features
-   - Absence causes dissatisfaction
-   - Presence doesn't increase satisfaction
-   - Example: Login functionality
+1. **基本型（Must-Be）**：预期功能
+   - 缺失会导致不满意
+   - 存在不会增加满意度
+   - 示例：登录功能
 
-2. **Performance (One-Dimensional)**: Linear satisfaction
-   - More = better satisfaction
-   - Less = dissatisfaction
-   - Example: Page load speed
+2. **期望型（One-Dimensional）**：线性满意度
+   - 越多 = 满意度越高
+   - 越少 = 不满意
+   - 示例：页面加载速度
 
-3. **Delighter (Attractive)**: Unexpected value
-   - Presence creates excitement
-   - Absence doesn't cause dissatisfaction
-   - Example: AI-powered suggestions
+3. **兴奋型（Attractive）**：意外价值
+   - 存在会创造兴奋感
+   - 缺失不会导致不满意
+   - 示例：AI 驱动的建议
 
-4. **Indifferent**: No satisfaction impact
-   - Users don't care either way
-   - Consider removing from scope
+4. **无差异型**：无满意度影响
+   - 用户不在乎
+   - 考虑从范围中移除
 
-5. **Reverse**: Causes dissatisfaction
-   - Some users actively dislike
-   - Segment or reconsider
+5. **反向型**：导致不满意
+   - 一些用户主动不喜欢
+   - 细分或重新考虑
 
-For each item, consider:
+对于每个项目，考虑：
 
-- Customer expectations
-- Competitive baseline
-- Emotional response to presence/absence
+- 客户期望
+- 竞争基准
+- 对存在/缺失的情感反应
 
-#### Weighted Scoring Mode (Multi-Criteria)
+#### Weighted 模式（多标准）
 
-Apply weighted criteria scoring:
+应用加权标准评分：
 
-##### Step A: Define Criteria
+##### 步骤 A：定义标准
 
 ```markdown
-| Criterion | Weight | Description |
+| 标准 | 权重 | 描述 |
 |-----------|--------|-------------|
-| Business Value | 30% | Revenue/strategic impact |
-| User Impact | 25% | User experience improvement |
-| Effort | 20% | Development complexity (inverse) |
-| Risk | 15% | Technical/business risk (inverse) |
-| Dependencies | 10% | Blocking other work |
+| 业务价值 | 30% | 收入/战略影响 |
+| 用户影响 | 25% | 用户体验改进 |
+| Effort | 20% | 开发复杂度（反向） |
+| 风险 | 15% | 技术/业务风险（反向） |
+| 依赖关系 | 10% | 阻塞其他工作 |
 ```
 
-##### Step B: Score Each Item
+##### 步骤 B：为每个项目评分
 
-Rate each item 1-5 on each criterion.
+对每个项目的每个标准进行 1-5 分评分。
 
-##### Step C: Calculate Weighted Scores
+##### 步骤 C：计算加权分数
 
 ```text
-Score = Σ (Criterion Weight × Item Score)
+分数 = Σ (标准权重 × 项目分数)
 ```
 
-##### Step D: Rank by Total Score
+##### 步骤 D：按总分排名
 
-#### All Mode (Comparison)
+#### All 模式（比较）
 
-Run all three methods and compare:
+运行所有三种方法并进行比较：
 
-- Identify items with consistent priority across methods
-- Highlight items with priority conflicts
-- Recommend final priority based on synthesis
+- 识别在不同方法中具有 consistently 优先级的项目
+- 突出显示优先级冲突的项目
+- 基于综合推荐最终优先级
 
-### Step 5: Generate Output Artifacts
+### 步骤5：生成输出产物
 
-#### YAML Output
+#### YAML 输出
 
 ```yaml
 prioritization:
   version: "1.0"
-  date: "[ISO Date]"
+  date: "[ISO日期]"
   method: "[moscow|kano|weighted|all]"
   analyst: "ba-orchestrator"
 
   items:
     - id: "ITEM-1"
-      name: "[Item name]"
+      name: "[项目名称]"
       moscow:
         category: "must"
-        rationale: "[Why must-have]"
+        rationale: "[为什么是必须有]"
       kano:
         category: "basic"
-        rationale: "[Why expected]"
+        rationale: "[为什么是预期]"
       weighted:
         scores:
           business_value: 5
@@ -221,100 +221,100 @@ prioritization:
     remove: ["ITEM-6"]
 ```
 
-#### Markdown Output
+#### Markdown 输出
 
-**MoSCoW Summary:**
+**MoSCoW 摘要：**
 
 ```markdown
-## MoSCoW Prioritization
+## MoSCoW 优先级排序
 
-### Must Have (Critical)
-| Item | Rationale |
+### Must Have（关键）
+| 项目 | 理由 |
 |------|-----------|
-| [Item 1] | [Why critical] |
+| [项目1] | [为什么关键] |
 
-### Should Have (Important)
-| Item | Rationale |
+### Should Have（重要）
+| 项目 | 理由 |
 |------|-----------|
-| [Item 2] | [Why important] |
+| [项目2] | [为什么重要] |
 
-### Could Have (Desirable)
-| Item | Rationale |
+### Could Have（理想）
+| 项目 | 理由 |
 |------|-----------|
-| [Item 3] | [Why nice-to-have] |
+| [项目3] | [为什么是锦上添花] |
 
-### Won't Have (This Time)
-| Item | Rationale | Future? |
+### Won't Have（这次不会有）
+| 项目 | 理由 | 将来？ |
 |------|-----------|---------|
-| [Item 4] | [Why excluded] | Yes |
+| [项目4] | [为什么排除] | 是 |
 ```
 
-**Weighted Scoring Matrix:**
+**加权评分矩阵：**
 
 ```markdown
-## Weighted Scoring Matrix
+## 加权评分矩阵
 
-| Item | Business (30%) | User (25%) | Effort (20%) | Risk (15%) | Deps (10%) | Total | Rank |
+| 项目 | 业务 (30%) | 用户 (25%) | Effort (20%) | 风险 (15%) | 依赖 (10%) | 总分 | 排名 |
 |------|----------------|------------|--------------|------------|------------|-------|------|
-| Item 1 | 5 (1.50) | 4 (1.00) | 3 (0.60) | 4 (0.60) | 3 (0.30) | 4.00 | 1 |
-| Item 2 | 4 (1.20) | 5 (1.25) | 2 (0.40) | 3 (0.45) | 4 (0.40) | 3.70 | 2 |
+| 项目1 | 5 (1.50) | 4 (1.00) | 3 (0.60) | 4 (0.60) | 3 (0.30) | 4.00 | 1 |
+| 项目2 | 4 (1.20) | 5 (1.25) | 2 (0.40) | 3 (0.45) | 4 (0.40) | 3.70 | 2 |
 ```
 
-#### Summary Report
+#### 摘要报告
 
 ```markdown
-## Prioritization Summary
+## 优先级排序摘要
 
-**Date:** [ISO Date]
-**Method:** [moscow|kano|weighted|all]
-**Total Items:** [Count]
+**日期：** [ISO日期]
+**方法：** [moscow|kano|weighted|all]
+**项目总数：** [计数]
 
-### Priority Distribution
+### 优先级分布
 
-| Priority | Items | Percentage |
+| 优先级 | 项目数 | 百分比 |
 |----------|-------|------------|
-| High | [Count] | [%] |
-| Medium | [Count] | [%] |
-| Low | [Count] | [%] |
-| Excluded | [Count] | [%] |
+| 高 | [计数] | [%] |
+| 中 | [计数] | [%] |
+| 低 | [计数] | [%] |
+| 排除 | [计数] | [%] |
 
-### Top Priorities
+### 最高优先级
 
-1. **[Item 1]**: [Brief rationale]
-2. **[Item 2]**: [Brief rationale]
-3. **[Item 3]**: [Brief rationale]
+1. **[项目1]**：[简要理由]
+2. **[项目2]**：[简要理由]
+3. **[项目3]**：[简要理由]
 
-### Recommendations
+### 建议
 
-- **Immediate Action**: [Items to start now]
-- **Next Iteration**: [Items for next phase]
-- **Review Needed**: [Items with conflicting priorities]
+- **立即行动**：[现在要开始的项目]
+- **下一个迭代**：[下一阶段的项目]
+- **需要审查**：[优先级冲突的项目]
 ```
 
-### Step 6: Save Results
+### 步骤6：保存结果
 
-Save outputs based on format flag:
+根据格式标志保存输出：
 
-**YAML file:**
+**YAML 文件：**
 
 - `docs/analysis/prioritization.yaml`
 
-**Markdown file:**
+**Markdown 文件：**
 
 - `docs/analysis/prioritization.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 指定自定义输出目录。
 
-### Step 7: Suggest Follow-Up Actions
+### 步骤7：建议后续行动
 
-After completing prioritization:
+完成优先级排序后：
 
 ```markdown
-## Suggested Next Steps
+## 建议的下一步
 
-1. **Stakeholder Review**: Share priorities with stakeholders for validation
-2. **Effort Estimation**: Use estimation techniques for high-priority items
-3. **Risk Analysis**: Use `/ba:risk-register` for high-priority, high-risk items
-4. **Roadmap Planning**: Sequence items into delivery phases
-5. **Capability Mapping**: Use `/ba:capability-map` to align with capabilities
+1. **干系人审查**：与干系人分享优先级以进行验证
+2. **Effort 估算**：对高优先级项目使用估算技术
+3. **风险分析**：对高优先级、高风险项目使用 `/ba:risk-register`
+4. **路线图规划**：将项目排序到交付阶段
+5. **能力映射**：使用 `/ba:capability-map` 与能力对齐
 ```

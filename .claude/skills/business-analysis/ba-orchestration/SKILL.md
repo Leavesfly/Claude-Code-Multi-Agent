@@ -4,72 +4,72 @@ description: Multi-technique business analysis orchestration using BABOK. Coordi
 allowed-tools: Read, Glob, Grep, Skill
 ---
 
-# Business Analysis Orchestration
+# Business Analysis Orchestration（业务分析编排）
 
-Coordinate multiple business analysis techniques into comprehensive analysis packages. Based on BABOK v3 methodology for combining techniques effectively.
+将多种业务分析技法编排为一套综合分析方案。基于 BABOK v3 的方法论，讲究把各种技法有效组合起来。
 
-## Overview
+## 概览
 
-Business analysis rarely uses a single technique in isolation. Complex initiatives require orchestrated combinations of techniques, sequenced appropriately, with findings synthesized into actionable recommendations.
+业务分析很少只用单一技法。复杂的 initiative 需要把多种技法按适当顺序编排起来，把产出综合成可落地的建议。
 
-## Available Techniques (14 Skills)
+## 可用技法（14 个 skill）
 
-### Strategic Analysis
+### 战略分析
 
-| Skill | Purpose |
+| Skill | 用途 |
 |-------|---------|
-| `swot-pestle-analysis` | SWOT, PESTLE, Porter's Five Forces |
-| `business-model-canvas` | BMC, Lean Canvas, 9-block analysis |
-| `benchmarking` | Competitive analysis, industry comparison |
+| `swot-pestle-analysis` | SWOT、PESTLE、波特五力 |
+| `business-model-canvas` | BMC、Lean Canvas、9 格分析 |
+| `benchmarking` | 竞争分析、行业对标 |
 
-### Problem Solving
+### 问题解决
 
-| Skill | Purpose |
+| Skill | 用途 |
 |-------|---------|
-| `root-cause-analysis` | Fishbone/Ishikawa, 5 Whys |
-| `decision-analysis` | Decision tables, weighted scoring, decision trees |
-| `risk-analysis` | Risk registers, probability/impact matrices |
+| `root-cause-analysis` | Fishbone/Ishikawa、5 Whys |
+| `decision-analysis` | 决策表、加权评分、决策树 |
+| `risk-analysis` | 风险登记表、概率/影响矩阵 |
 
-### Planning & Estimation
+### 规划与估算
 
-| Skill | Purpose |
+| Skill | 用途 |
 |-------|---------|
-| `prioritization` | MoSCoW, Kano model, weighted scoring |
-| `estimation` | Analogous, parametric, PERT, story points |
-| `capability-mapping` | Business capabilities, maturity models |
-| `stakeholder-analysis` | Power/interest, RACI, communication plans |
+| `prioritization` | MoSCoW、Kano 模型、加权评分 |
+| `estimation` | 类比法、参数法、PERT、story point |
+| `capability-mapping` | 业务能力、成熟度模型 |
+| `stakeholder-analysis` | Power/Interest、RACI、沟通计划 |
 
-### Process & Data Design
+### 流程与数据设计
 
-| Skill | Purpose |
+| Skill | 用途 |
 |-------|---------|
-| `value-stream-mapping` | Current/future state, Lean analysis |
-| `journey-mapping` | Customer experience, touchpoints |
-| `process-modeling` | BPMN notation, workflows |
-| `data-modeling` | ERDs, data dictionaries |
+| `value-stream-mapping` | 当前/未来状态、精益分析 |
+| `journey-mapping` | 客户体验、touchpoint |
+| `process-modeling` | BPMN 记号、workflow |
+| `data-modeling` | ERD、数据字典 |
 
-## Technique Selection Guide
+## 技法选型指南
 
-| Goal | Primary Technique | Supporting Techniques |
+| 目标 | 主要技法 | 辅助技法 |
 |------|-------------------|----------------------|
-| Strategic planning | SWOT/PESTLE | Capability Mapping, Benchmarking |
-| Business model design | Business Model Canvas | Stakeholder Analysis, Value Stream |
-| Process improvement | Value Stream Mapping | Root Cause Analysis, Process Modeling |
-| Customer experience | Journey Mapping | Stakeholder Analysis, Prioritization |
-| Problem investigation | Root Cause Analysis | Risk Analysis, Decision Analysis |
-| Technology decision | Decision Analysis | Benchmarking, Risk Analysis |
-| Project estimation | Estimation | Prioritization, Risk Analysis |
-| Backlog prioritization | Prioritization | Stakeholder Analysis, Estimation |
-| Database design | Data Modeling | Process Modeling, Capability Mapping |
-| Risk management | Risk Analysis | Prioritization, Stakeholder Analysis |
-| Transformation planning | Capability + VSM | SWOT, Stakeholder Analysis |
-| New initiative | Full analysis | Multi-technique package |
-| M&A due diligence | Capability + Benchmarking | Stakeholder Analysis, Risk |
-| Competitive positioning | Benchmarking | SWOT, Business Model Canvas |
+| 战略规划 | SWOT/PESTLE | Capability Mapping、Benchmarking |
+| 商业模式设计 | Business Model Canvas | Stakeholder Analysis、Value Stream |
+| 流程改进 | Value Stream Mapping | Root Cause Analysis、Process Modeling |
+| 客户体验 | Journey Mapping | Stakeholder Analysis、Prioritization |
+| 问题调查 | Root Cause Analysis | Risk Analysis、Decision Analysis |
+| 技术选型 | Decision Analysis | Benchmarking、Risk Analysis |
+| 项目估算 | Estimation | Prioritization、Risk Analysis |
+| Backlog 排优先级 | Prioritization | Stakeholder Analysis、Estimation |
+| 数据库设计 | Data Modeling | Process Modeling、Capability Mapping |
+| 风险管理 | Risk Analysis | Prioritization、Stakeholder Analysis |
+| 转型规划 | Capability + VSM | SWOT、Stakeholder Analysis |
+| 新 initiative | 全量分析 | 多技法组合包 |
+| M&A 尽调 | Capability + Benchmarking | Stakeholder Analysis、Risk |
+| 竞争定位 | Benchmarking | SWOT、Business Model Canvas |
 
-## Standard Workflows
+## 标准 workflow
 
-### Workflow 1: Strategic Planning
+### Workflow 1：战略规划
 
 ```text
 1. Stakeholder Analysis - Identify key stakeholders
@@ -79,7 +79,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 5. Prioritization - Investment decisions
 ```
 
-### Workflow 2: Customer Experience Improvement
+### Workflow 2：客户体验改进
 
 ```text
 1. Stakeholder Analysis - Identify user segments
@@ -89,7 +89,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 5. Prioritization - Impact vs effort matrix
 ```
 
-### Workflow 3: Process Optimization
+### Workflow 3：流程优化
 
 ```text
 1. Process Modeling - Capture current process (BPMN)
@@ -99,7 +99,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 5. Estimation - Plan improvement effort
 ```
 
-### Workflow 4: Full Analysis Package
+### Workflow 4：全量分析组合包
 
 ```text
 1. Stakeholder Analysis - Who is involved?
@@ -110,7 +110,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 6. Synthesis - Integrated findings
 ```
 
-### Workflow 5: Strategic Assessment
+### Workflow 5：战略评估
 
 ```text
 1. SWOT/PESTLE Analysis - Environmental scan
@@ -121,7 +121,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 6. Prioritization - Strategic initiatives
 ```
 
-### Workflow 6: Problem Investigation
+### Workflow 6：问题调查
 
 ```text
 1. Stakeholder Analysis - Who's affected?
@@ -132,7 +132,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 6. Estimation - Implementation effort
 ```
 
-### Workflow 7: New Project Planning
+### Workflow 7：新项目规划
 
 ```text
 1. Stakeholder Analysis - Who's involved?
@@ -143,7 +143,7 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 6. Data Modeling - Data structures
 ```
 
-### Workflow 8: Database/System Design
+### Workflow 8：数据库/系统设计
 
 ```text
 1. Process Modeling - Business workflows
@@ -153,77 +153,77 @@ Business analysis rarely uses a single technique in isolation. Complex initiativ
 5. Capability Mapping - System capabilities
 ```
 
-## Orchestration Process
+## 编排流程
 
-### Step 1: Understand the Goal
+### 步骤 1：理解目标
 
-Ask clarifying questions:
+先问清楚：
 
-- What decision needs to be made?
-- Who are the key stakeholders?
-- What's the time frame?
-- What data/access is available?
+- 需要做什么决策？
+- 谁是关键 stakeholder？
+- 时间周期是多少？
+- 有哪些数据/访问权限？
 
-### Step 2: Select Workflow
+### 步骤 2：选择 workflow
 
-Based on the goal, select the appropriate workflow from above or design a custom sequence.
+根据目标，从上面的列表中选择合适的 workflow，或设计自定义的序列。
 
-### Step 3: Execute Techniques
+### 步骤 3：执行技法
 
-For each technique in the workflow:
+对于 workflow 中的每个技法：
 
-1. Load the appropriate skill
-2. Gather required inputs
-3. Execute the technique
-4. Capture outputs
+1. 加载相应的 skill
+2. 收集所需输入
+3. 执行该技法
+4. 记录输出
 
-### Step 4: Synthesize Findings
+### 步骤 4：综合产出
 
-Combine outputs into integrated analysis:
+把各项输出综合为一体化分析：
 
-1. **Cross-reference stakeholders** to capability owners
-2. **Link pain points** to capabilities and processes
-3. **Align improvements** across all techniques
-4. **Prioritize recommendations** by impact and feasibility
-5. **Create unified roadmap**
+1. **交叉引用 stakeholder** 与能力 owner
+2. **把痛点关联到**能力与流程
+3. 在所有技法之间**对齐改进点**
+4. 按影响与可行性**给建议排优先级**
+5. **构建统一的路线图**
 
-## Parallel vs Sequential Execution
+## 并行 vs 串行执行
 
-### When to Parallelize
+### 何时并行
 
-Execute techniques in parallel when:
+以下情况可并行执行：
 
-- No data dependencies between them
-- Different stakeholders/SMEs provide input
-- Time constraints require faster completion
+- 技法之间没有数据依赖
+- 由不同的 stakeholder/SME 提供输入
+- 时间压力要求更快完成
 
-### When to Sequence
+### 何时串行
 
-Execute techniques sequentially when:
+以下情况应串行执行：
 
-- Output of one feeds into another
-- Same stakeholders for both (avoids fatigue)
-- Earlier technique shapes scope of later one
+- 某个技法的输出是下一个的输入
+- 两者面对同一批 stakeholder（避免疲劳）
+- 先前的技法会影响后续的范围
 
-### Example Parallel Plan
+### 并行规划示例
 
-**Phase 1 (Parallel):**
+**Phase 1（并行）：**
 
 - Stakeholder Analysis
-- Capability Mapping (discovery)
+- Capability Mapping（discovery）
 
-**Phase 2 (Parallel, after Phase 1):**
+**Phase 2（Phase 1 之后并行）：**
 
-- Value Stream Mapping (uses stakeholder context)
-- Journey Mapping (uses persona from stakeholder analysis)
+- Value Stream Mapping（使用 stakeholder 上下文）
+- Journey Mapping（使用 stakeholder 分析得到的 persona）
 
-**Phase 3 (Sequential):**
+**Phase 3（串行）：**
 
-- Synthesis and Integration
+- 综合与整合
 
-## Output Package Structure
+## 输出组合包结构
 
-### Integrated Analysis Package
+### 一体化分析组合包
 
 ```markdown
 ## Integrated Business Analysis: [Initiative]
@@ -253,35 +253,35 @@ Execute techniques sequentially when:
 [Full outputs from each technique]
 ```
 
-## Quality Checklist
+## 质量检查清单
 
-Orchestrated packages must include:
+编排出的组合包必须包含：
 
-- [ ] Clear problem/goal statement
-- [ ] Technique selection rationale
-- [ ] Outputs from each technique
-- [ ] Cross-referenced findings
-- [ ] Integrated recommendations
-- [ ] Prioritized roadmap
-- [ ] Traceability between deliverables
+- [ ] 清晰的问题/目标说明
+- [ ] 技法选型的理由
+- [ ] 每项技法的输出
+- [ ] 交叉引用后的发现
+- [ ] 一体化的建议
+- [ ] 按优先级排序的路线图
+- [ ] 交付物之间的可追溯性
 
-## Related Skills
+## 相关 skill
 
-- `stakeholder-analysis` - Stakeholder identification and engagement
-- `capability-mapping` - Business capability modeling
-- `value-stream-mapping` - Lean value stream analysis
-- `journey-mapping` - Customer/user experience mapping
-- `process-modeling` - BPMN process documentation
-- `data-modeling` - Entity-relationship design
-- `root-cause-analysis` - Problem investigation
-- `swot-pestle-analysis` - Strategic environmental scan
-- `business-model-canvas` - Business model design
-- `prioritization` - MoSCoW, Kano, weighted scoring
-- `risk-analysis` - Risk identification and mitigation
-- `decision-analysis` - Decision support techniques
-- `estimation` - Effort and duration estimation
-- `benchmarking` - Competitive analysis
+- `stakeholder-analysis` — Stakeholder 识别与参与
+- `capability-mapping` — 业务能力建模
+- `value-stream-mapping` — 精益 value stream 分析
+- `journey-mapping` — 客户/用户体验映射
+- `process-modeling` — BPMN 流程文档
+- `data-modeling` — Entity-Relationship 设计
+- `root-cause-analysis` — 问题调查
+- `swot-pestle-analysis` — 战略环境扫描
+- `business-model-canvas` — 商业模式设计
+- `prioritization` — MoSCoW、Kano、加权评分
+- `risk-analysis` — 风险识别与缓解
+- `decision-analysis` — 决策支持技法
+- `estimation` — 工作量与工期估算
+- `benchmarking` — 竞争分析
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2026-01-10): Initial release - extracted from ba-orchestrator agent
+- **v1.0.0**（2026-01-10）：首次发布 — 从 ba-orchestrator agent 中抽取而来

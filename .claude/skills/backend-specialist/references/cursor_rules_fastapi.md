@@ -2,15 +2,15 @@
 description: Definitive guidelines for building high-performance, maintainable, and secure FastAPI applications using modern Python best practices.
 ---
 
-# FastAPI Best Practices
+# FastAPI 最佳实践
 
-FastAPI is the go-to for high-performance Python APIs. This guide ensures your projects are scalable, secure, and maintainable from day one.
+FastAPI 是高性能 Python API 的首选。本指南确保您的项目从第一天起就具有可扩展性、安全性和可维护性。
 
-## 1. Code Organization: Domain-Driven Modularity
+## 1. 代码组织：领域驱动的模块化
 
-For any project beyond a few endpoints, organize by domain functionality, not file type. This improves scalability and team collaboration.
+对于超出几个端点的任何项目，请按域功能而不是文件类型进行组织。这提高了可扩展性和团队协作。
 
-❌ BAD: Single `main.py` or `routers/`, `schemas/` directories with all domains mixed.
+❌ 不好：单个 `main.py` 或 `routers/`、`schemas/` 目录与所有域混合。
 ```python
 # app/routers/users.py
 # app/routers/items.py
@@ -18,7 +18,7 @@ For any project beyond a few endpoints, organize by domain functionality, not fi
 # app/schemas/item.py
 ```
 
-✅ GOOD: Group related components by domain.
+✅ 好：按域对相关组件进行分组。
 ```
 src/
 ├── auth/
@@ -41,18 +41,18 @@ src/
 └── __init__.py
 ```
 
-## 2. Type Hints: Mandatory Everywhere
+## 2. 类型提示：到处强制
 
-Leverage Python's type hints and Pydantic for robust data validation, auto-documentation, and IDE support.
+利用 Python 的类型提示和 Pydantic 实现强大的数据验证、自动文档记录和 IDE 支持。
 
-❌ BAD: Missing or inconsistent type hints.
+❌ 不好：类型提示缺失或不一致。
 ```python
 @app.post("/items/")
 def create_item(item: dict): # No Pydantic model
     return item
 ```
 
-✅ GOOD: Explicit Pydantic models and type hints for all function signatures.
+✅ 好：所有函数签名的显式 Pydantic 模型和类型提示。
 ```python
 from pydantic import BaseModel
 from fastapi import FastAPI
@@ -70,18 +70,18 @@ async def create_item(item: ItemCreate) -> ItemCreate:
     return item
 ```
 
-## 3. Dependency Injection: Decouple Components
+## 3. 依赖注入：解耦组件
 
-Use `fastapi.Depends` for managing database sessions, authentication, and other shared resources. This makes code testable and modular.
+使用 `fastapi.Depends` 来管理 database 会话、authentication 和其他共享资源。这使得代码可测试且模块化。
 
-❌ BAD: Global database session or direct instantiation.
+❌ 不好：全局 database session 或直接实例化。
 ```python
 # In router.py
 from app.db.session import SessionLocal
 db = SessionLocal() # Global or directly called
 ```
 
-✅ GOOD: Inject dependencies using `Depends`.
+✅ 好：使用 `Depends` 注入依赖项。
 ```python
 from typing import Annotated
 from fastapi import Depends
@@ -102,11 +102,11 @@ async def read_current_user(
     return current_user
 ```
 
-## 4. API Design: Versioning & Thin Endpoints
+## 4. API 设计：版本控制和瘦端点
 
-Version your API from day one. Keep router endpoints focused, delegating business logic to service layers.
+从第一天起就对您的 API 进行版本控制。集中 router 端点，将业务逻辑委托给服务层。
 
-❌ BAD: Unversioned API, fat endpoints with business logic.
+❌ 不好：未版本化的 API，具有业务逻辑的胖端点。
 ```python
 # app/main.py
 @app.get("/users/{user_id}")
@@ -116,7 +116,7 @@ def get_user_details(user_id: int, db: 'Session'): # Placeholder
     return user
 ```
 
-✅ GOOD: Use `APIRouter` with prefixes and tags. Delegate logic to `service.py`.
+✅ 好：使用带有前缀和标签的“APIRouter”。将逻辑委托给“service.py”。
 ```python
 # src/users/router.py
 from fastapi import APIRouter, Depends
@@ -137,11 +137,11 @@ async def get_user_by_id(db: 'AsyncSession', user_id: int) -> 'User': # Placehol
     return None # await db.get(User, user_id)
 ```
 
-## 5. Error Handling: Use `HTTPException`
+## 5. 错误处理：使用`HTTPException`
 
-Raise `HTTPException` for API-specific errors. Implement custom handlers for global error types.
+针对 API 特定错误引发 `HTTPException`。为全局错误类型实现自定义处理程序。
 
-❌ BAD: Raising generic Python exceptions.
+❌ 不好：引发通用 Python 异常。
 ```python
 items_db = {1: {"name": "item1"}}
 @app.get("/items/{item_id}")
@@ -151,7 +151,7 @@ async def get_item(item_id: int):
     return items_db[item_id]
 ```
 
-✅ GOOD: Raise `HTTPException` with appropriate status codes.
+✅ 好：使用适当的状态代码引发“HTTPException”。
 ```python
 from fastapi import HTTPException, status
 
@@ -166,11 +166,11 @@ async def get_item_good(item_id: int):
     return items_db[item_id]
 ```
 
-## 6. Performance: Async-First & Production Deployment
+## 6. 性能：Async-首次和生产部署
 
-Embrace `async`/`await` for I/O-bound operations. For CPU-bound tasks, use `run_in_threadpool`. Deploy with Gunicorn + Uvicorn.
+对于 I/O 密集型操作，采用 `async`/`await`。对于 CPU 密集型任务，请使用“run_in_threadpool”。使用 Gunicorn + Uvicorn 进行部署。
 
-❌ BAD: Blocking I/O in async endpoints.
+❌ 不好：在 async 端点中阻塞 I/O。
 ```python
 # In an async endpoint
 import time
@@ -180,7 +180,7 @@ async def blocking_endpoint():
     return {"message": "Done blocking work"}
 ```
 
-✅ GOOD: Use async libraries (e.g., `asyncpg`, `httpx[async]`) or `run_in_threadpool`.
+✅ 好：使用 async 库（例如，`asyncpg`、`httpx[async]`）或`run_in_threadpool`。
 ```python
 from fastapi import FastAPI
 from fastapi.concurrency import run_in_threadpool
@@ -201,17 +201,17 @@ async def handle_cpu_work():
 # gunicorn -k uvicorn.workers.UvicornWorker src.main:app --workers 4 --bind 0.0.0.0:8000
 ```
 
-## 7. Security: Environment Variables & Auth
+## 7. 安全性：环境变量和身份验证
 
-Store sensitive configuration in environment variables using `pydantic-settings`. Implement authentication via `Depends`.
+使用“pydantic-settings”将敏感配置存储在环境变量中。通过“Depends”实现 authentication。
 
-❌ BAD: Hardcoded secrets or config.
+❌ 不好：硬编码的秘密或配置。
 ```python
 # app/core/config.py
 DATABASE_URL = "postgresql://user:pass@host:port/db" # Bad
 ```
 
-✅ GOOD: Use `pydantic-settings` for environment-based configuration.
+✅ 好：使用 `pydantic-settings` 进行基于环境的配置。
 ```python
 # src/core/config.py
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -242,16 +242,16 @@ async def get_current_active_user(token: str = Depends(oauth2_scheme)):
     return {"username": "current_user"} # Placeholder
 ```
 
-## 8. Logging: Structured & Centralized
+## 8. 日志记录：结构化和集中化
 
-Log to `stdout`/`stderr` in a structured format (e.g., JSON). Let your deployment environment handle aggregation.
+结构化格式中的 Log 到 `stdout`/`stderr`（例如 JSON）。让您的部署环境处理聚合。
 
-❌ BAD: Writing logs to local files or unstructured print statements.
+❌ 不好：将日志写入本地文件或非结构化打印语句。
 ```python
 print("User accessed /health endpoint")
 ```
 
-✅ GOOD: Use Python's `logging` module with a structured formatter.
+✅ 好：使用 Python 的 `logging` 模块和结构化格式化程序。
 ```python
 import logging
 # from pythonjsonlogger.jsonlogger import JsonFormatter # Install python-json-logger

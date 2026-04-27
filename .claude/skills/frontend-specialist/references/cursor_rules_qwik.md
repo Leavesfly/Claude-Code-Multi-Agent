@@ -2,17 +2,17 @@
 description: This guide outlines definitive best practices for building high-performance, resumable Qwik applications, focusing on maximizing lazy loading and ensuring optimal developer experience.
 ---
 
-# qwik Best Practices
+# qwik 最佳实践
 
-Qwik is an edge-first framework built on **resumability**, not hydration. This means your application's JavaScript is only loaded and executed when absolutely necessary, leading to instant Time-To-Interactive (TTI). Our guidelines prioritize this core principle.
+Qwik 是一个基于**可恢复性**而不是水化构建的边缘优先框架。这意味着您的应用程序的 JavaScript 仅在绝对必要时才加载和执行，从而实现即时交互时间 (TTI)。我们的指导方针优先考虑这一核心原则。
 
-## Critical Guidelines:
+## 关键准则：
 
-### 1. Define Every UI Piece with `component$`
+### 1. 使用 `component$` 定义每个 UI 部分
 
-All interactive UI components **must** be wrapped in `component$`. This is Qwik's fundamental primitive for enabling automatic code-splitting and lazy loading.
+所有交互式 UI 组件**必须**包装在 `component$` 中。这是 Qwik 启用自动代码分割和延迟加载的基本原语。
 
-❌ **BAD: Regular function component**
+❌ **不好：常规函数 component**
 ```typescript
 // my-button.tsx
 export const MyButton = () => { // Missing '$'
@@ -20,7 +20,7 @@ export const MyButton = () => { // Missing '$'
 };
 ```
 
-✅ **GOOD: `component$` for resumability**
+✅ **好：`component$` 可恢复性**
 ```typescript
 // my-button.tsx
 import { component$ } from '@builder.io/qwik';
@@ -30,11 +30,11 @@ export const MyButton = component$(() => {
 });
 ```
 
-### 2. Use `useStore` for Reactive State
+### 2. 使用`useStore`来实现反应状态
 
-Manage component-local reactive state using `useStore`. This ensures state is serializable and resumable across server-side rendering and client-side interactions. Always type your stores for clarity and safety.
+使用“useStore”管理 component-本地反应状态。这确保了状态在服务器端渲染和客户端交互中是可序列化和可恢复的。为了清晰和安全起见，请务必输入您的商店。
 
-❌ **BAD: Non-reactive or non-serializable state**
+❌ **坏：非反应性或不可序列化状态**
 ```typescript
 // counter.tsx
 import { component$ } from '@builder.io/qwik';
@@ -46,7 +46,7 @@ export const Counter = component$(() => {
 });
 ```
 
-✅ **GOOD: `useStore` with TypeScript interface**
+✅ **好：`useStore` 具有 TypeScript 接口**
 ```typescript
 // counter.tsx
 import { component$, useStore } from '@builder.io/qwik';
@@ -65,11 +65,11 @@ export const Counter = component$(() => {
 });
 ```
 
-### 3. Defer Client-Side Effects with `useVisibleTask$`
+### 3. 使用“useVisibleTask$”推迟客户端效果
 
-Execute client-specific logic, such as third-party library initialization or DOM manipulation, only when a component becomes visible in the viewport. This prevents unnecessary JavaScript execution on initial load. For effects that *must* run on the client regardless of visibility, use `useClientEffect$`.
+仅当 component 在视口中可见时，才执行客户端特定的逻辑，例如第三方库初始化或 DOM 操作。这可以防止在初始加载时不必要的 JavaScript 执行。对于“必须”在客户端上运行（无论可见性如何）的效果，请使用“useClientEffect$”。
 
-❌ **BAD: Eager client-side effect in component render**
+❌ **不好：component 渲染中急切的客户端效果**
 ```typescript
 // chart-component.tsx
 import { component$ } from '@builder.io/qwik';
@@ -87,7 +87,7 @@ export const ChartComponent = component$(() => {
 });
 ```
 
-✅ **GOOD: `useVisibleTask$` for client-side effects**
+✅ **好：`useVisibleTask$` 用于客户端效果**
 ```typescript
 // chart-component.tsx
 import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
@@ -121,11 +121,11 @@ export const ChartComponent = component$(() => {
 });
 ```
 
-### 4. Use `$` Suffix for All QRLs
+### 4. 对所有 QRL 使用“$”后缀
 
-Any function that needs to be code-split and lazy-loaded by Qwik's optimizer **must** end with a `$` suffix. This includes components (`component$`), event handlers (`onClick$`, `onInput$`), and hooks (`useStore`, `useTask$`, `useVisibleTask$`, `useClientEffect$`, `useResource$`, `useSignal$`).
+任何需要由 Qwik 的优化器进行代码分割和延迟加载的函数**必须**以“$”后缀结尾。这包括组件 (`component$`)、事件处理程序 (`onClick$`、`onInput$`) 和挂钩 (`useStore`、`useTask$`、`useVisibleTask$`、`useClientEffect$`、`useResource$`、`useSignal$`)。
 
-❌ **BAD: Missing `$` suffix on event handler**
+❌ **不好：事件处理程序中缺少 `$` 后缀**
 ```typescript
 // button.tsx
 import { component$ } from '@builder.io/qwik';
@@ -138,7 +138,7 @@ export const MyButton = component$(() => {
 });
 ```
 
-✅ **GOOD: Correct `$` suffix for QRLs**
+✅ **好：正确的 QRL 后缀“$”**
 ```typescript
 // button.tsx
 import { component$ } from '@builder.io/qwik';
@@ -151,11 +151,11 @@ export const MyButton = component$(() => {
 });
 ```
 
-### 5. Leverage Qwik City for Routing and Data Loading
+### 5. 利用 Qwik City 进行路由和数据加载
 
-For applications using Qwik City, utilize its file-system based routing, layouts, and `loader$` functions for efficient data fetching. This provides a zero-overhead solution for server-side data loading and routing.
+对于使用 Qwik City 的应用程序，利用其基于文件系统的路由、布局和“loader$”函数来高效获取数据。这为服务器端数据加载和路由提供了零开销解决方案。
 
-❌ **BAD: Manual routing or client-side data fetching for initial load**
+❌ **不好：手动路由或客户端数据获取以进行初始加载**
 ```typescript
 // routes/products/index.tsx
 import { component$, useClientEffect$, useStore } from '@builder.io/qwik';
@@ -170,7 +170,7 @@ export default component$(() => {
 });
 ```
 
-✅ **GOOD: `loader$` for server-side data fetching**
+✅ **好：`loader$` 用于服务器端数据获取**
 ```typescript
 // routes/products/index.tsx
 import { component$ } from '@builder.io/qwik';
@@ -203,11 +203,11 @@ export default component$(() => {
 });
 ```
 
-### 6. Use `PropFunction` for Passing Functions as Props
+### 6. 使用 `PropFunction` 将函数作为 Prop 传递
 
-When passing a function as a prop to a child component that itself is a `component$`, ensure the prop type is `PropFunction<(...args: any[]) => any>`. This signals to Qwik that the function is a QRL and should be serialized and lazy-loaded.
+当将函数作为 prop 传递给本身是 `component$` 的子 component 时，请确保 prop 类型为 `PropFunction<(...args: any[]) => any>`。这向 Qwik 发出信号，表明该函数是 QRL，应该进行序列化和延迟加载。
 
-❌ **BAD: Passing a regular function type as a prop**
+❌ **不好：将常规函数类型作为 prop 传递**
 ```typescript
 // child-button.tsx
 import { component$ } from '@builder.io/qwik';
@@ -230,7 +230,7 @@ export const ParentComponent = component$(() => {
 });
 ```
 
-✅ **GOOD: Using `PropFunction` for function props**
+✅ **好：使用 `PropFunction` 作为函数 props**
 ```typescript
 // child-button.tsx
 import { component$, type PropFunction } from '@builder.io/qwik';
@@ -253,11 +253,11 @@ export const ParentComponent = component$(() => {
 });
 ```
 
-### 7. Adopt Atomic CSS (e.g., Tailwind CSS)
+### 7. 采用原子 CSS （例如 Tailwind CSS）
 
-Integrate styling solutions like Tailwind CSS that generate static, utility-first classes at build time. This avoids runtime style calculations and keeps CSS payloads minimal, aligning with Qwik's performance goals.
+集成诸如 Tailwind CSS 之类的样式解决方案，在构建时生成静态的、实用程序优先的类。这避免了运行时风格的计算，并使 CSS 有效负载保持最小，与 Qwik 的性能目标保持一致。
 
-❌ **BAD: Runtime CSS-in-JS or complex dynamic styling**
+❌ **不好：运行时 CSS-in-JS 或复杂的动态样式**
 ```typescript
 // styled-button.tsx
 import { component$ } from '@builder.io/qwik';
@@ -278,7 +278,7 @@ export const StyledButton = component$(() => {
 });
 ```
 
-✅ **GOOD: Tailwind CSS for static styling**
+✅ **好：Tailwind CSS 用于静态样式**
 ```typescript
 // tailwind-button.tsx
 import { component$ } from '@builder.io/qwik';
@@ -292,11 +292,11 @@ export const TailwindButton = component$(() => {
 });
 ```
 
-### 8. Use Vitest and Playwright for Testing
+### 8.使用Vitest和Playwright进行测试
 
-Leverage Qwik's built-in testing stack: Vitest for unit and component tests, and Playwright for end-to-end scenarios. These tools are integrated and optimized for Qwik's unique architecture, ensuring your lazy-loading and resumability work correctly.
+利用 Qwik 的内置测试堆栈：用于单元和 component 测试的 Vitest，以及用于端到端场景的 Playwright。这些工具针对 Qwik 的独特架构进行了集成和优化，确保您的延迟加载和可恢复性正常工作。
 
-❌ **BAD: Using Jest/Enzyme for Qwik component testing**
+❌ **不好：使用 Jest/Enzyme 进行 Qwik component 测试**
 ```typescript
 // my-component.test.js (using Jest)
 import { render } from '@testing-library/react'; // Incorrect library for Qwik
@@ -308,7 +308,7 @@ test('MyComponent renders correctly', () => {
 });
 ```
 
-✅ **GOOD: Vitest for Qwik component testing**
+✅ **好：Vitest 进行 Qwik component 测试**
 ```typescript
 // my-component.test.tsx (using Vitest)
 import { render, screen } from '@builder.io/qwik/testing';

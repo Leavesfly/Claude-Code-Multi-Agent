@@ -4,53 +4,53 @@ description: Estimation techniques including analogous, parametric, three-point,
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Estimation
+# Estimation（估算）
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **Estimation tasks** - Working on estimation techniques including analogous, parametric, three-point, and expert judgment methods. provides effort, cost, duration, and complexity estimates for projects, features, and tasks
-- **Planning or design** - Need guidance on Estimation approaches
-- **Best practices** - Want to follow established patterns and standards
+- **Estimation 任务** — 使用 analogous、parametric、三点估算、专家判断等方法；为项目、功能、任务提供工作量、成本、工期与复杂度的估算
+- **规划或设计** — 需要估算方法的指引
+- **最佳实践** — 想遵循成熟的模式与标准
 
-## Overview
+## 概览
 
-Systematically estimate effort, cost, duration, and complexity using proven estimation techniques. Supports analogous, parametric, three-point (PERT), and expert judgment methods for projects, features, and tasks.
+使用经验证的估算技术，系统性地估算工作量、成本、工期与复杂度。支持 analogous、parametric、三点（PERT）、专家判断等方法，适用于项目、功能和任务。
 
-## What is Estimation?
+## 什么是 Estimation？
 
-**Estimation** is the process of forecasting the resources, time, and cost required to complete work. Good estimation balances:
+**Estimation（估算）** 是对完成工作所需的资源、时间与成本进行预测的过程。良好的估算需平衡：
 
-- **Accuracy**: How close to actual results
-- **Precision**: Consistency of estimates
-- **Speed**: Time to produce estimates
-- **Communication**: Shared understanding of uncertainty
+- **Accuracy（准确性）**：估算值与实际结果的接近程度
+- **Precision（精确性）**：估算的一致性
+- **Speed（速度）**：得出估算的时间
+- **Communication（沟通）**：对不确定性的共识
 
-### Estimation vs Commitment
+### Estimate vs Commitment
 
-| Concept | Definition | Use |
+| 概念 | 定义 | 用途 |
 |---------|------------|-----|
-| **Estimate** | Best guess given current knowledge | Planning, forecasting |
-| **Commitment** | Promise to deliver by date/cost | Contracts, deadlines |
-| **Target** | Desired outcome to aim for | Goals, objectives |
+| **Estimate（估算）** | 基于当前知识的最佳猜测 | 规划、预测 |
+| **Commitment（承诺）** | 按日期/成本交付的承诺 | 合同、截止 |
+| **Target（目标）** | 期望达成的结果 | 目标、OKR |
 
-**Key principle:** Estimates are ranges with uncertainty, not single-point guarantees.
+**关键原则：** 估算是带不确定性的区间，而不是单点保证。
 
-## Estimation Techniques
+## 估算技术
 
-### Analogous Estimation (Top-Down)
+### Analogous Estimation（类比估算，Top-Down）
 
-Estimate based on similar past work:
+基于相似的历史工作进行估算：
 
-| Step | Action |
+| 步骤 | 动作 |
 |------|--------|
-| 1 | Identify similar completed project/feature |
-| 2 | Retrieve actual effort/cost/duration |
-| 3 | Adjust for differences (complexity, team, technology) |
-| 4 | Apply adjustment factor |
+| 1 | 找到相似的已完成项目/功能 |
+| 2 | 取出实际的工作量/成本/工期 |
+| 3 | 针对差异（复杂度、团队、技术）做调整 |
+| 4 | 套用调整系数 |
 
-**Formula:**
+**公式：**
 
 ```text
 New Estimate = Historical Actual × Adjustment Factor
@@ -61,21 +61,21 @@ New project is ~20% more complex
 Estimate = 200 × 1.20 = 240 hours
 ```
 
-**When to Use:** Early phases, limited detail, experienced teams with historical data
+**何时使用：** 项目早期、细节有限、具备历史数据的成熟团队
 
-**Accuracy:** +/- 25-50% (improves with good historical data)
+**准确性：** ±25-50%（有良好历史数据会更准）
 
-### Parametric Estimation
+### Parametric Estimation（参数估算）
 
-Estimate using statistical relationships:
+基于统计关系进行估算：
 
-| Element | Description |
+| 要素 | 描述 |
 |---------|-------------|
-| **Unit of Work** | Measurable element (screen, API, table) |
-| **Productivity Rate** | Effort per unit from historical data |
-| **Quantity** | Number of units to produce |
+| **Unit of Work** | 可度量的工作单元（screen、API、table） |
+| **Productivity Rate** | 来自历史数据的单位工作量 |
+| **Quantity** | 需要产出的单元数量 |
 
-**Formula:**
+**公式：**
 
 ```text
 Estimate = Quantity × Productivity Rate
@@ -84,31 +84,31 @@ Example:
 10 API endpoints × 16 hours/endpoint = 160 hours
 ```
 
-**Common Productivity Metrics:**
+**常见生产率指标：**
 
-| Work Type | Metric | Typical Range |
+| 工作类型 | 指标 | 典型区间 |
 |-----------|--------|---------------|
-| UI screens | Hours/screen | 8-40 hours |
-| API endpoints | Hours/endpoint | 4-24 hours |
-| Database tables | Hours/table | 4-16 hours |
-| Test cases | Hours/test | 0.5-4 hours |
-| Documentation pages | Hours/page | 2-8 hours |
+| UI screens | 小时/screen | 8-40 小时 |
+| API endpoints | 小时/endpoint | 4-24 小时 |
+| 数据库表 | 小时/table | 4-16 小时 |
+| Test case | 小时/test | 0.5-4 小时 |
+| 文档页 | 小时/page | 2-8 小时 |
 
-**When to Use:** Repeatable work, good historical data, similar technology
+**何时使用：** 重复性工作、有良好历史数据、技术相似
 
-**Accuracy:** +/- 15-25% (with calibrated rates)
+**准确性：** ±15-25%（使用经过校准的速率）
 
-### Three-Point Estimation (PERT)
+### Three-Point Estimation（PERT 三点估算）
 
-Estimate using optimistic, most likely, and pessimistic values:
+用乐观、最可能、悲观三个值进行估算：
 
-| Value | Symbol | Definition |
+| 取值 | 符号 | 定义 |
 |-------|--------|------------|
-| **Optimistic** | O | Best case, everything goes right |
-| **Most Likely** | M | Most probable outcome |
-| **Pessimistic** | P | Worst case, problems occur |
+| **Optimistic（乐观）** | O | 最好情况，一切顺利 |
+| **Most Likely（最可能）** | M | 最可能出现的结果 |
+| **Pessimistic（悲观）** | P | 最坏情况，出现问题 |
 
-**PERT Formula (Weighted Average):**
+**PERT 公式（加权平均）：**
 
 ```text
 Expected = (O + 4M + P) / 6
@@ -120,114 +120,114 @@ Expected = (5 + 4×8 + 17) / 6 = 9 days
 Std Dev = (17 - 5) / 6 = 2 days
 ```
 
-**Confidence Intervals:**
+**置信区间：**
 
-| Confidence | Calculation | Example (E=9, SD=2) |
+| 置信度 | 计算 | 示例（E=9, SD=2） |
 |------------|-------------|---------------------|
-| 68% | E ± 1 SD | 7-11 days |
-| 95% | E ± 2 SD | 5-13 days |
-| 99.7% | E ± 3 SD | 3-15 days |
+| 68% | E ± 1 SD | 7-11 天 |
+| 95% | E ± 2 SD | 5-13 天 |
+| 99.7% | E ± 3 SD | 3-15 天 |
 
-**When to Use:** Uncertain work, new technology, need to communicate risk
+**何时使用：** 不确定的工作、新技术、需要传达风险
 
-**Accuracy:** Provides explicit uncertainty range
+**准确性：** 提供显式的不确定性区间
 
-### Expert Judgment
+### Expert Judgment（专家判断）
 
-Estimate using collective expert knowledge:
+基于集体专家知识进行估算：
 
-**Wideband Delphi Process:**
+**Wideband Delphi 流程：**
 
-| Round | Activity |
+| 轮次 | 活动 |
 |-------|----------|
-| 1 | Experts estimate independently |
-| 2 | Collect and share anonymous estimates |
-| 3 | Discuss high/low outliers, share rationale |
-| 4 | Re-estimate independently |
-| 5 | Repeat until convergence (or average) |
+| 1 | 专家独立估算 |
+| 2 | 收集并匿名共享估算 |
+| 3 | 讨论过高/过低的离群值，分享理由 |
+| 4 | 再次独立估算 |
+| 5 | 重复直到收敛（或取均值） |
 
-**Planning Poker (Agile):**
+**Planning Poker（敏捷）：**
 
-| Step | Action |
+| 步骤 | 动作 |
 |------|--------|
-| 1 | Present item to estimate |
-| 2 | Discuss briefly (2-5 minutes) |
-| 3 | Each team member selects card privately |
-| 4 | Reveal simultaneously |
-| 5 | Discuss outliers |
-| 6 | Re-vote until consensus |
+| 1 | 展示要估算的 item |
+| 2 | 简短讨论（2-5 分钟） |
+| 3 | 每位成员私下出牌 |
+| 4 | 同时揭示 |
+| 5 | 讨论离群值 |
+| 6 | 重新投票直到达成共识 |
 
-**Common Scales:**
+**常见量表：**
 
-| Scale Type | Values |
+| 量表类型 | 取值 |
 |------------|--------|
 | Fibonacci | 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 |
 | Modified Fibonacci | 0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100 |
 | T-shirt | XS, S, M, L, XL, XXL |
-| Powers of 2 | 1, 2, 4, 8, 16, 32, 64 |
+| 2 的幂 | 1, 2, 4, 8, 16, 32, 64 |
 
-**When to Use:** Complex work, multiple perspectives needed, team alignment
+**何时使用：** 复杂工作、需要多视角、团队对齐
 
-### Function Point Analysis
+### Function Point Analysis（功能点分析）
 
-Estimate based on functional size (for larger systems):
+基于功能规模估算（适合较大系统）：
 
-| Component | Description | Weight Range |
+| 组件 | 描述 | 权重区间 |
 |-----------|-------------|--------------|
-| External Inputs | Data entering system | 3-6 |
-| External Outputs | Data leaving system | 4-7 |
-| External Inquiries | Read-only queries | 3-6 |
-| Internal Files | Logical data stores | 7-15 |
-| External Interfaces | Shared data | 5-10 |
+| External Inputs | 进入系统的数据 | 3-6 |
+| External Outputs | 离开系统的数据 | 4-7 |
+| External Inquiries | 只读查询 | 3-6 |
+| Internal Files | 逻辑数据存储 | 7-15 |
+| External Interfaces | 共享数据 | 5-10 |
 
-**Process:**
+**流程：**
 
-1. Count each component type
-2. Classify complexity (low/medium/high)
-3. Apply weights
-4. Calculate unadjusted function points
-5. Apply technical complexity factor
+1. 统计各类组件的数量
+2. 划分复杂度（低/中/高）
+3. 套用权重
+4. 计算未调整功能点
+5. 套用技术复杂度系数
 
-**When to Use:** Large projects, formal contracts, industry benchmarking
+**何时使用：** 大型项目、正式合同、行业对标
 
-## Relative Estimation
+## 相对估算
 
-### Story Points
+### Story Points（故事点）
 
-Relative complexity/effort measure:
+相对复杂度/工作量度量：
 
-| Points | Relative Size | Example |
+| 点数 | 相对规模 | 示例 |
 |--------|---------------|---------|
-| 1 | Trivial | Fix typo, config change |
-| 2 | Simple | Simple bug fix, minor feature |
-| 3 | Moderate | Standard feature, moderate complexity |
-| 5 | Complex | Multi-component feature |
-| 8 | Very complex | Integration work, significant unknowns |
-| 13 | Epic-sized | Consider breaking down |
-| 21+ | Too large | Must decompose |
+| 1 | 琐碎 | 修笔误、改配置 |
+| 2 | 简单 | 简单 bug fix、小 feature |
+| 3 | 中等 | 标准 feature，中等复杂度 |
+| 5 | 复杂 | 多组件 feature |
+| 8 | 非常复杂 | 集成类工作、不确定性高 |
+| 13 | Epic 级 | 考虑拆分 |
+| 21+ | 过大 | 必须拆分 |
 
-**Baseline:** Pick a well-understood story as reference (e.g., "this is a 3")
+**基线：** 选一个大家都理解的 story 作参照（例如"这个是 3 点"）
 
-**Velocity:** Story points completed per iteration (used for forecasting)
+**Velocity（速度）：** 每迭代完成的 story point（用于预测）
 
-### T-Shirt Sizing
+### T-Shirt Sizing（T 恤码估算）
 
-Quick relative sizing for roadmap planning:
+roadmap 规划的快速相对估算：
 
-| Size | Effort Range | Duration Range |
+| 尺码 | 工作量区间 | 工期区间 |
 |------|--------------|----------------|
-| XS | 1-4 hours | < 1 day |
-| S | 0.5-2 days | 1-2 days |
-| M | 2-5 days | 3-5 days |
-| L | 1-2 weeks | 1-2 weeks |
-| XL | 2-4 weeks | 2-4 weeks |
-| XXL | 1-3 months | Too big, decompose |
+| XS | 1-4 小时 | < 1 天 |
+| S | 0.5-2 天 | 1-2 天 |
+| M | 2-5 天 | 3-5 天 |
+| L | 1-2 周 | 1-2 周 |
+| XL | 2-4 周 | 2-4 周 |
+| XXL | 1-3 月 | 过大，需拆分 |
 
-## Workflow
+## 工作流
 
-### Phase 1: Prepare
+### Phase 1：准备
 
-#### Step 1: Clarify Scope
+#### Step 1：厘清范围
 
 ```markdown
 ## Estimation Request
@@ -246,27 +246,27 @@ Quick relative sizing for roadmap planning:
 - **Constraints:** [Known constraints]
 ```
 
-#### Step 2: Select Estimation Technique
+#### Step 2：选择估算技术
 
-| Situation | Recommended Technique |
+| 情境 | 推荐技术 |
 |-----------|----------------------|
-| Early project phase | Analogous + T-shirt sizing |
-| Detailed requirements | Parametric + Three-point |
-| Agile backlog | Story points + Planning poker |
-| New technology/domain | Expert judgment + Three-point |
-| Contract/budget | Function points + Parametric |
+| 项目早期 | Analogous + T-shirt sizing |
+| 需求细化 | Parametric + 三点估算 |
+| 敏捷 backlog | Story point + Planning poker |
+| 新技术/新领域 | Expert judgment + 三点估算 |
+| 合同/预算 | Function point + Parametric |
 
-### Phase 2: Estimate
+### Phase 2：估算
 
-#### Step 1: Decompose Work
+#### Step 1：分解工作
 
-Break down into estimable units (half-day to 2-week chunks)
+拆解到可估算的单元（半天到 2 周的 chunk）
 
-#### Step 2: Apply Technique
+#### Step 2：应用技术
 
-Use selected technique(s) from above
+使用上述选定的技术
 
-#### Step 3: Add Contingency
+#### Step 3：加上 contingency
 
 ```markdown
 ## Contingency Calculation
@@ -279,16 +279,16 @@ Use selected technique(s) from above
 | Very High | 75-100% | Research, innovation, first-of-kind |
 ```
 
-#### Step 4: Validate
+#### Step 4：校验
 
-- Sanity check against similar work
-- Review with team
-- Check for missing items
-- Verify assumptions
+- 与相似工作做 sanity check
+- 与团队复核
+- 检查是否漏项
+- 验证假设
 
-### Phase 3: Communicate
+### Phase 3：沟通
 
-#### Step 1: Express as Range
+#### Step 1：以区间表达
 
 ```markdown
 ## Estimate Summary
@@ -302,7 +302,7 @@ Use selected technique(s) from above
 - Dependency on third-party availability
 ```
 
-#### Step 2: Document Assumptions
+#### Step 2：记录假设
 
 ```markdown
 ## Estimation Assumptions
@@ -316,9 +316,9 @@ Use selected technique(s) from above
 **If assumptions change, estimate should be revisited.**
 ```
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Estimation Summary
@@ -360,7 +360,7 @@ Use selected technique(s) from above
 2. [When to re-estimate]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 estimation:
@@ -435,7 +435,7 @@ estimation:
     adjustment_factor: 0.9
 ```
 
-### Breakdown Table
+### 分解表
 
 ```markdown
 ## Effort Breakdown
@@ -451,62 +451,62 @@ estimation:
 | **Total** | | | | **209h** |
 ```
 
-## Estimation Accuracy
+## 估算的准确性
 
-### Cone of Uncertainty
+### Cone of Uncertainty（不确定性锥）
 
-Estimate accuracy improves as project progresses:
+随着项目推进，估算准确度会提升：
 
-| Phase | Accuracy Range |
+| 阶段 | 准确区间 |
 |-------|----------------|
-| Initial concept | 0.25x - 4x |
-| Approved project | 0.5x - 2x |
-| Requirements complete | 0.67x - 1.5x |
-| Detailed design | 0.8x - 1.25x |
-| Code complete | 0.9x - 1.1x |
+| 初始概念 | 0.25x - 4x |
+| 立项后 | 0.5x - 2x |
+| 需求完成 | 0.67x - 1.5x |
+| 详细设计 | 0.8x - 1.25x |
+| 代码完成 | 0.9x - 1.1x |
 
-**Implication:** Early estimates need wider ranges; refine as knowledge grows.
+**启示：** 早期估算需要更宽的区间；随着认知增长再细化。
 
-### Estimation Levels
+### 估算层次
 
-| Level | Accuracy | When Used |
+| 层次 | 准确度 | 使用时机 |
 |-------|----------|-----------|
-| **ROM** (Rough Order of Magnitude) | -25% to +75% | Initial budgeting |
-| **Budget** | -10% to +25% | Project approval |
-| **Definitive** | -5% to +10% | Execution baseline |
+| **ROM**（Rough Order of Magnitude，粗量级） | -25% 到 +75% | 初步预算 |
+| **Budget**（预算级） | -10% 到 +25% | 项目审批 |
+| **Definitive**（确定级） | -5% 到 +10% | 执行基线 |
 
-## Common Pitfalls
+## 常见陷阱
 
-| Pitfall | Prevention |
+| 陷阱 | 如何规避 |
 |---------|------------|
-| Single-point estimates | Always provide ranges |
-| Optimism bias | Use historical data, add contingency |
-| Anchoring | Estimate before seeing others' estimates |
-| Planning fallacy | Include realistic overhead and risks |
-| Scope creep | Document assumptions, re-estimate on changes |
-| Precision theater | Match precision to actual knowledge |
+| 给单点估算 | 始终给区间 |
+| 乐观偏见 | 用历史数据、加 contingency |
+| 锚定效应 | 在看到他人估算前先独立估算 |
+| 规划谬误 | 纳入现实的开销与风险 |
+| 范围蔓延 | 记录假设，范围变更时重新估算 |
+| 精度表演 | 让精度匹配实际认知 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **Requirements** - What to estimate
-- **risk-analysis** - Risks affecting estimates
-- **stakeholder-analysis** - Who needs estimates, precision required
+- **Requirements** — 被估算的对象
+- **risk-analysis** — 影响估算的风险
+- **stakeholder-analysis** — 谁需要估算、需要什么精度
 
-### Downstream
+### 下游
 
-- **Project planning** - Resource allocation, scheduling
-- **Budgeting** - Cost forecasting
-- **prioritization** - Cost input for value/effort analysis
+- **Project planning** — 资源分配、排期
+- **Budgeting** — 成本预测
+- **prioritization** — 为 value/effort 分析提供成本输入
 
-## Related Skills
+## 相关 skill
 
-- `risk-analysis` - Risks affecting estimates
-- `prioritization` - Using estimates for prioritization
-- `decision-analysis` - Trade-off decisions
-- `value-stream-mapping` - Estimating process improvement effort
+- `risk-analysis` — 影响估算的风险
+- `prioritization` — 用估算做优先级排序
+- `decision-analysis` — 权衡决策
+- `value-stream-mapping` — 估算流程改进的工作量
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

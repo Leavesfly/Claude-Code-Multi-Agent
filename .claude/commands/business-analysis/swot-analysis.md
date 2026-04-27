@@ -4,67 +4,67 @@ argument-hint: <subject> [--mode swot|full|pestle|porter] [--output yaml|mermaid
 allowed-tools: Task, Read, Write, Glob, Grep, Skill, WebFetch, mcp__perplexity__search
 ---
 
-# SWOT Analysis Command
+# SWOT 分析命令
 
-Perform strategic analysis using SWOT (Strengths, Weaknesses, Opportunities, Threats) and complementary frameworks to understand competitive positioning and environmental factors.
+使用 SWOT（Strengths、Weaknesses、Opportunities、Threats）以及配套的框架进行战略分析，理解竞争态势与环境因素。
 
-## Arguments
+## 参数
 
-- `<subject>`: Organization, product, market, or initiative to analyze
-- `--mode`: Analysis framework (default: `swot`)
-  - `swot`: SWOT analysis only (~4K tokens)
-  - `full`: SWOT + PESTLE + Porter's Five Forces (~12K tokens)
-  - `pestle`: Macro-environment analysis only (~4K tokens)
-  - `porter`: Industry structure analysis only (~4K tokens)
-- `--output`: Output format (default: `both`)
-  - `yaml`: Structured YAML for downstream processing
-  - `mermaid`: Mermaid diagram visualization
-  - `both`: Both formats
+- `<subject>`：要分析的组织、产品、市场或某项 initiative
+- `--mode`：分析框架（默认：`swot`）
+  - `swot`：仅做 SWOT 分析（约 4K tokens）
+  - `full`：SWOT + PESTLE + 波特五力（约 12K tokens）
+  - `pestle`：仅做宏观环境分析（约 4K tokens）
+  - `porter`：仅做行业结构分析（约 4K tokens）
+- `--output`：输出格式（默认：`both`）
+  - `yaml`：用于下游处理的结构化 YAML
+  - `mermaid`：Mermaid 图示可视化
+  - `both`：两种都输出
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行流程
 
-### Step 1: Parse Arguments
+### 步骤 1：解析参数
 
-Extract subject, mode, and output format from arguments.
+从参数中提取 subject、mode 与输出格式。
 
-If no subject provided, ask the user:
-"What organization, product, market, or initiative would you like to analyze?"
+如果未提供 subject，则询问用户：
+"你想分析哪个组织、产品、市场或 initiative？"
 
-Default mode is `swot`. Default output is `both`.
+默认 mode 为 `swot`。默认输出为 `both`。
 
-### Step 2: Load SWOT-PESTLE Analysis Skill
+### 步骤 2：加载 SWOT-PESTLE 分析 skill
 
-Invoke the `swot-pestle-analysis` skill to access:
+调用 `swot-pestle-analysis` skill 以获得：
 
-- SWOT matrix structure
-- PESTLE categories
-- Porter's Five Forces framework
-- Strategic implications methodology
-- Mermaid diagram templates
+- SWOT 矩阵结构
+- PESTLE 分类
+- 波特五力框架
+- 战略启示的方法论
+- Mermaid 图模板
 
-### Step 3: Execute Based on Mode
+### 步骤 3：按 mode 执行
 
-#### SWOT Mode (Default)
+#### SWOT 模式（默认）
 
-Analyze internal and external factors:
+分析内外部因素：
 
-1. **Strengths (Internal)**: What does the subject do well? Competitive advantages?
-2. **Weaknesses (Internal)**: What areas need improvement? Resource gaps?
-3. **Opportunities (External)**: What trends or changes could be leveraged?
-4. **Threats (External)**: What external factors could harm the subject?
+1. **Strengths（内部优势）**：subject 做得好的方面？竞争优势？
+2. **Weaknesses（内部劣势）**：哪些地方需要改进？资源缺口？
+3. **Opportunities（外部机会）**：哪些趋势或变化可以借力？
+4. **Threats（外部威胁）**：哪些外部因素可能带来损害？
 
-Generate strategic implications:
+生成战略启示：
 
-- S-O Strategies: Use strengths to capture opportunities
-- W-O Strategies: Address weaknesses to pursue opportunities
-- S-T Strategies: Use strengths to counter threats
-- W-T Strategies: Minimize weaknesses and avoid threats
+- S-O 策略：用优势抓住机会
+- W-O 策略：改进劣势以抓住机会
+- S-T 策略：用优势对抗威胁
+- W-T 策略：最小化劣势并避开威胁
 
-#### Full Mode (All Frameworks)
+#### Full 模式（所有框架）
 
-Spawn the `strategic-analyst` agent for comprehensive analysis:
+派生 `strategic-analyst` agent 做综合分析：
 
 ```text
 Perform comprehensive strategic analysis:
@@ -80,41 +80,41 @@ Requirements:
 6. Generate both YAML and Mermaid outputs
 ```
 
-The agent will:
+该 agent 将：
 
-- Research current market data
-- Cross-reference across frameworks
-- Identify interconnected factors
-- Produce comprehensive strategic assessment
+- 研究当前市场数据
+- 在多个框架间交叉引用
+- 识别相互关联的因素
+- 产出综合性的战略评估
 
-#### PESTLE Mode (Macro-Environment)
+#### PESTLE 模式（宏观环境）
 
-Analyze external macro-environment factors:
+分析外部宏观环境因素：
 
-1. **Political**: Government policy, stability, trade regulations
-2. **Economic**: GDP, inflation, interest rates, employment
-3. **Social**: Demographics, culture, lifestyle trends
-4. **Technological**: Innovation, automation, R&D
-5. **Legal**: Regulation, compliance, litigation
-6. **Environmental**: Climate, sustainability, resources
+1. **Political（政治）**：政府政策、稳定性、贸易法规
+2. **Economic（经济）**：GDP、通胀、利率、就业
+3. **Social（社会）**：人口结构、文化、生活方式趋势
+4. **Technological（技术）**：创新、自动化、研发
+5. **Legal（法律）**：法规、合规、诉讼
+6. **Environmental（环境）**：气候、可持续性、资源
 
-Rate each factor by impact (High/Medium/Low) and likelihood.
+对每个因素按影响（高/中/低）和可能性评分。
 
-#### Porter Mode (Industry Analysis)
+#### Porter 模式（行业分析）
 
-Analyze industry competitive structure:
+分析行业竞争结构：
 
-1. **Competitive Rivalry**: Intensity of competition
-2. **Threat of New Entrants**: Barriers to entry
-3. **Threat of Substitutes**: Alternative products/services
-4. **Bargaining Power of Suppliers**: Supplier concentration
-5. **Bargaining Power of Buyers**: Customer power
+1. **Competitive Rivalry**：竞争强度
+2. **Threat of New Entrants**：进入壁垒
+3. **Threat of Substitutes**：替代产品/服务
+4. **Bargaining Power of Suppliers**：供应商集中度
+5. **Bargaining Power of Buyers**：客户议价能力
 
-Rate each force (Strong/Moderate/Weak) with evidence.
+对每个力量评分（强/中/弱）并给出证据。
 
-### Step 4: Generate Output Artifacts
+### 步骤 4：生成输出产物
 
-#### YAML Output
+#### YAML 输出
 
 ```yaml
 strategic_analysis:
@@ -153,7 +153,7 @@ strategic_analysis:
       - "[Strategy]"
 ```
 
-#### Mermaid Output
+#### Mermaid 输出
 
 ```mermaid
 quadrantChart
@@ -170,7 +170,7 @@ quadrantChart
     "Threat 1": [0.75, 0.25]
 ```
 
-#### Summary Report
+#### 汇总报告
 
 ```markdown
 ## Strategic Analysis: [Subject]
@@ -204,23 +204,23 @@ quadrantChart
 3. [Long-term consideration]
 ```
 
-### Step 5: Save Results
+### 步骤 5：保存结果
 
-Save outputs based on format flag:
+根据格式参数保存输出：
 
-**YAML file:**
+**YAML 文件：**
 
 - `docs/analysis/swot-analysis.yaml`
 
-**Mermaid diagram:**
+**Mermaid 图：**
 
 - `docs/analysis/swot-analysis.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 可指定自定义输出目录。
 
-### Step 6: Suggest Follow-Up Actions
+### 步骤 6：建议后续行动
 
-After completing analysis:
+分析完成后：
 
 ```markdown
 ## Suggested Next Steps

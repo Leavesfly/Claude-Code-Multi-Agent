@@ -4,35 +4,35 @@ description: Design Thinking methodology for human-centered innovation. Covers t
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Design Thinking
+# Design Thinking（设计思维）
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **Design Thinking tasks** - Working on design thinking methodology for human-centered innovation. covers the 5-phase ideo/stanford d.school approach (empathize, define, ideate, prototype, test) with workshop facilitation and exercise templates
-- **Planning or design** - Need guidance on Design Thinking approaches
-- **Best practices** - Want to follow established patterns and standards
+- **Design Thinking 任务** — 使用以人为中心的创新方法；遵循 IDEO/Stanford d.school 的五阶段流程（Empathize、Define、Ideate、Prototype、Test），含工作坊引导与练习模板
+- **规划或设计** — 需要设计思维方法的指引
+- **最佳实践** — 想遵循成熟的模式与标准
 
-## Overview
+## 概览
 
-A human-centered approach to innovation that integrates the needs of people, the possibilities of technology, and the requirements for business success.
+一种以人为中心的创新方法，把"人的需求"、"技术的可能性"与"商业的成功要求"整合在一起。
 
-## What is Design Thinking?
+## 什么是 Design Thinking？
 
-Design Thinking is a problem-solving methodology developed by IDEO and taught at Stanford d.school. It emphasizes understanding users, challenging assumptions, redefining problems, and creating innovative solutions through iterative prototyping and testing.
+Design Thinking 是由 IDEO 提出、并在 Stanford d.school 传授的问题解决方法。它强调理解用户、挑战假设、重构问题，并通过迭代的原型与测试来创造创新方案。
 
-### Core Principles
+### 核心原则
 
-| Principle | Description |
+| 原则 | 描述 |
 |-----------|-------------|
-| **Human-Centered** | Start with people, not technology or process |
-| **Embrace Ambiguity** | Comfortable with uncertainty early on |
-| **Bias to Action** | Learn by doing, not just thinking |
-| **Radical Collaboration** | Cross-functional, diverse perspectives |
-| **Iterate Rapidly** | Fail fast, learn fast, improve fast |
+| **Human-Centered（以人为中心）** | 从人出发，而不是从技术或流程出发 |
+| **Embrace Ambiguity（拥抱模糊）** | 在早期对不确定性保持从容 |
+| **Bias to Action（行动偏好）** | 靠做来学，而不只是想 |
+| **Radical Collaboration（深度协作）** | 跨职能、视角多元 |
+| **Iterate Rapidly（快速迭代）** | 快速失败、快速学习、快速改进 |
 
-## The 5 Phases
+## 五个阶段
 
 ```text
 ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐
@@ -46,31 +46,31 @@ Design Thinking is a problem-solving methodology developed by IDEO and taught at
      └────────────────── Iterate ─────────────────────────┘
 ```
 
-### Phase Characteristics
+### 阶段特征
 
-| Phase | Mode | Key Question | Output |
+| 阶段 | 模式 | 关键问题 | 产出 |
 |-------|------|--------------|--------|
-| **Empathize** | Diverge | What is the user experiencing? | Insights, observations |
-| **Define** | Converge | What is the core problem? | POV statement |
-| **Ideate** | Diverge | What are possible solutions? | Ideas, concepts |
-| **Prototype** | Converge | How can we make it tangible? | Prototypes |
-| **Test** | Learn | What works and what doesn't? | Validated learning |
+| **Empathize（共情）** | Diverge（发散） | 用户在经历什么？ | 洞察、观察 |
+| **Define（定义）** | Converge（收敛） | 核心问题是什么？ | POV statement |
+| **Ideate（构想）** | Diverge（发散） | 可能的方案有哪些？ | 创意、概念 |
+| **Prototype（原型）** | Converge（收敛） | 如何让它变得具体？ | 原型 |
+| **Test（测试）** | Learn（学习） | 哪些管用、哪些不行？ | 经过验证的学习 |
 
-## Phase 1: Empathize
+## Phase 1：Empathize（共情）
 
-Build deep understanding of users and their experiences.
+对用户及其体验建立深入理解。
 
-### Empathy Methods
+### 共情方法
 
-| Method | Duration | Participants | Best For |
+| 方法 | 时长 | 参与者 | 适用场景 |
 |--------|----------|--------------|----------|
-| **User Interviews** | 30-60 min | 1:1 | Deep individual insight |
-| **Observation** | Hours-days | Field work | Natural behavior |
-| **Empathy Mapping** | 15-30 min | Workshop | Synthesizing research |
-| **Journey Mapping** | 1-2 hours | Workshop | Experience visualization |
-| **Shadowing** | Half-day | Field work | Workflow understanding |
+| **User Interviews** | 30-60 分钟 | 1:1 | 深入的个人洞察 |
+| **Observation** | 数小时到数天 | 现场 | 自然行为 |
+| **Empathy Mapping** | 15-30 分钟 | 工作坊 | 综合调研结果 |
+| **Journey Mapping** | 1-2 小时 | 工作坊 | 可视化体验 |
+| **Shadowing（跟班观察）** | 半天 | 现场 | 理解工作流 |
 
-### Empathy Map Template
+### Empathy Map 模板
 
 ```markdown
 ## Empathy Map: [User/Persona Name]
@@ -106,7 +106,7 @@ Build deep understanding of users and their experiences.
 - [Gain 2]
 ```
 
-### Interview Guide Structure
+### 访谈提纲结构
 
 ```markdown
 ## User Interview Guide
@@ -140,11 +140,11 @@ Build deep understanding of users and their experiences.
 - Can we follow up if we have questions?
 ```
 
-## Phase 2: Define
+## Phase 2：Define（定义）
 
-Synthesize observations and frame the right problem.
+综合观察结果，界定正确的问题。
 
-### Point of View (POV) Statement
+### Point of View（POV）陈述
 
 ```markdown
 ## POV Statement
@@ -166,9 +166,9 @@ because they want to model good eating habits for their children
 but feel guilty about the time-cost tradeoff.
 ```
 
-### How Might We (HMW) Questions
+### How Might We（HMW）问题
 
-Transform POV into actionable opportunity statements:
+把 POV 转化为可行动的机会陈述：
 
 ```markdown
 ## How Might We Questions
@@ -196,23 +196,23 @@ Generate HMW questions by asking:
 **Priority HMW:** [The one to ideate on]
 ```
 
-## Phase 3: Ideate
+## Phase 3：Ideate（构想）
 
-Generate a wide range of creative solutions.
+产生尽可能多的创造性方案。
 
-### Ideation Rules
+### 构想规则
 
-| Rule | Description |
+| 规则 | 描述 |
 |------|-------------|
-| **Defer judgment** | No criticism during brainstorming |
-| **Go for quantity** | More ideas = better ideas |
+| **Defer judgment** | brainstorm 期间不批评 |
+| **Go for quantity** | 数量多 = 质量更好 |
 | **Build on others' ideas** | "Yes, and..." |
-| **Encourage wild ideas** | Think big, no constraints |
-| **Be visual** | Sketch, don't just talk |
-| **One conversation** | Listen, build, riff |
-| **Stay focused** | Keep the HMW visible |
+| **Encourage wild ideas** | 大胆想，不设限 |
+| **Be visual** | 动手画，不要只说 |
+| **One conversation** | 一次一个对话：倾听、承接、延展 |
+| **Stay focused** | 让 HMW 始终可见 |
 
-### Brainstorming Session Template
+### Brainstorm 会议模板
 
 ```markdown
 ## Ideation Session
@@ -251,39 +251,39 @@ Generate a wide range of creative solutions.
 3. [Idea 3]
 ```
 
-### Ideation Techniques
+### 构想技法
 
-| Technique | Description | When to Use |
+| 技法 | 描述 | 何时使用 |
 |-----------|-------------|-------------|
-| **Classic Brainstorm** | Free association | Starting point |
-| **Brainwriting** | Silent written ideas | Quiet/remote groups |
-| **SCAMPER** | Substitute, Combine, Adapt, Modify, Put to other use, Eliminate, Reverse | Improving existing |
-| **Analogies** | How would X solve this? | Breaking mental models |
-| **Worst Idea** | Intentionally bad ideas | When stuck |
-| **Mash-up** | Combine unrelated concepts | Radical innovation |
+| **Classic Brainstorm** | 自由联想 | 作为起点 |
+| **Brainwriting** | 静默写想法 | 偏安静/远程团队 |
+| **SCAMPER** | Substitute、Combine、Adapt、Modify、Put to other use、Eliminate、Reverse | 改进现有 |
+| **Analogies** | "X 会怎么解决这个？" | 打破心智模型 |
+| **Worst Idea** | 故意想坏主意 | 陷入卡壳时 |
+| **Mash-up** | 把不相关概念揉在一起 | 激进式创新 |
 
-## Phase 4: Prototype
+## Phase 4：Prototype（原型）
 
-Build quick, cheap representations to learn.
+做快速、低成本的表达，用于学习。
 
-### Prototype Philosophy
+### 原型哲学
 
 > "If a picture is worth 1,000 words, a prototype is worth 1,000 meetings."
 > — IDEO
 
-### Prototype Types
+### 原型类型
 
-| Type | Fidelity | Time | Best For |
+| 类型 | 保真度 | 时间 | 适用场景 |
 |------|----------|------|----------|
-| **Paper Sketch** | Very Low | Minutes | Earliest exploration |
-| **Storyboard** | Low | 30 min | User journey, scenarios |
-| **Paper Prototype** | Low | 1-2 hours | Screen flows, UI |
-| **Role Play** | Low | 30 min | Service experiences |
-| **Wizard of Oz** | Medium | Hours | Complex interactions |
-| **Clickable Mockup** | Medium | Days | Digital products |
-| **Physical Model** | Varies | Varies | Tangible products |
+| **Paper Sketch** | 极低 | 分钟级 | 最早期的探索 |
+| **Storyboard** | 低 | 30 分钟 | 用户旅程、场景 |
+| **Paper Prototype** | 低 | 1-2 小时 | 界面流、UI |
+| **Role Play** | 低 | 30 分钟 | 服务体验 |
+| **Wizard of Oz** | 中 | 数小时 | 复杂交互 |
+| **Clickable Mockup** | 中 | 数天 | 数字产品 |
+| **Physical Model** | 视情况 | 视情况 | 实体产品 |
 
-### Prototype Planning Template
+### 原型规划模板
 
 ```markdown
 ## Prototype Plan
@@ -314,7 +314,7 @@ Build quick, cheap representations to learn.
 - [How we'll know it worked]
 ```
 
-### Storyboard Template
+### Storyboard 模板
 
 ```markdown
 ## Storyboard: [Concept Name]
@@ -340,21 +340,21 @@ Build quick, cheap representations to learn.
 **User says/thinks:** "[Quote]"
 ```
 
-## Phase 5: Test
+## Phase 5：Test（测试）
 
-Learn what works, what doesn't, and iterate.
+搞清楚什么管用、什么不行，然后迭代。
 
-### Testing Principles
+### 测试原则
 
-| Principle | Description |
+| 原则 | 描述 |
 |-----------|-------------|
-| **Show, don't tell** | Let the prototype speak |
-| **Create experiences** | Have users interact, not just look |
-| **Ask "why?"** | Dig into reactions |
-| **Embrace failure** | Every test teaches something |
-| **Iterate** | Build-test-learn cycles |
+| **Show, don't tell** | 让原型自己说话 |
+| **Create experiences** | 让用户真正互动，而不是看 |
+| **Ask "why?"** | 深挖反应背后的原因 |
+| **Embrace failure** | 每次测试都在教你东西 |
+| **Iterate** | build-test-learn 循环 |
 
-### Test Session Template
+### 测试会议模板
 
 ```markdown
 ## Test Session
@@ -391,7 +391,7 @@ Please think out loud as you interact with this."
 - [New question to explore]
 ```
 
-### Iteration Framework
+### 迭代框架
 
 ```markdown
 ## Iteration Review
@@ -415,9 +415,9 @@ Please think out loud as you interact with this."
 If we [change], then [expected outcome] because [reason].
 ```
 
-## Workshop Agenda Templates
+## 工作坊议程模板
 
-### Half-Day Workshop (4 hours)
+### 半日工作坊（4 小时）
 
 ```markdown
 ## Design Thinking Workshop
@@ -460,7 +460,7 @@ If we [change], then [expected outcome] because [reason].
 - Next steps
 ```
 
-### Full-Day Sprint (8 hours)
+### 全日 Sprint（8 小时）
 
 ```markdown
 ## Design Sprint (1-Day)
@@ -508,23 +508,23 @@ If we [change], then [expected outcome] because [reason].
 - Next steps
 ```
 
-## Integration with Other Methods
+## 与其他方法的集成
 
-### Upstream
+### 上游
 
-- **User Research** - Feeds into Empathize phase
-- **Stakeholder Analysis** - Identifies who to interview
-- **Strategic Analysis** - Business context for innovation
+- **User Research** — 输入到 Empathize 阶段
+- **Stakeholder Analysis** — 识别要访谈的对象
+- **Strategic Analysis** — 创新所需的商业上下文
 
-### Downstream
+### 下游
 
-- **Lean Startup** - Build-Measure-Learn loops
-- **Agile Development** - Iterative implementation
-- **Business Model Canvas** - Modeling the solution
+- **Lean Startup** — Build-Measure-Learn 循环
+- **Agile Development** — 迭代式落地
+- **Business Model Canvas** — 对方案进行建模
 
-## .NET/C# Context
+## .NET/C# 示例
 
-When applying Design Thinking to software products:
+把 Design Thinking 应用到软件产品时：
 
 ```csharp
 // Example: Tracking Design Thinking sessions
@@ -572,13 +572,13 @@ public record Idea(
 );
 ```
 
-## Related Skills
+## 相关 skill
 
-- `stakeholder-analysis` - Identifying interview subjects
-- `journey-mapping` - Empathize phase visualization
-- `business-model-canvas` - Modeling solutions
-- `prioritization` - Selecting which ideas to prototype
+- `stakeholder-analysis` — 识别访谈对象
+- `journey-mapping` — Empathize 阶段的可视化
+- `business-model-canvas` — 对方案做建模
+- `prioritization` — 选择要做成原型的 idea
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

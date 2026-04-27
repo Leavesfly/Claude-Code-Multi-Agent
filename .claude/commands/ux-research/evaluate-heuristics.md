@@ -1,247 +1,247 @@
 ---
-description: Conduct a heuristic evaluation of an interface using Nielsen's 10 heuristics. Use for expert usability review without user testing.
+description: 使用 Nielsen 的 10 条启发式原则对界面进行启发式评估。用于无需用户测试的专家可用性审查。
 allowed-tools: Read, Glob, Grep, Write, Skill, Task
 argument-hint: <interface> [--scope <pages-or-flows>]
 ---
 
-# Heuristic Evaluation
+# 启发式评估
 
-Conduct an expert usability review using Nielsen's 10 heuristics.
+使用 Nielsen 的 10 条启发式原则进行专家可用性审查。
 
-## Workflow
+## 工作流程
 
-### Step 1: Load Required Skills
+### 步骤 1：加载所需技能
 
-Load these skills:
+加载以下技能：
 
-- `heuristic-evaluation` - Nielsen's heuristics and evaluation methodology
+- `heuristic-evaluation` - Nielsen 的启发式原则和评估方法论
 
-### Step 2: Understand Evaluation Scope
+### 步骤 2：理解评估范围
 
-Gather context about: {{ interface }}
+收集关于 {{ interface }} 的上下文信息：
 
-{% if scope %}Scope: {{ scope }}{% endif %}
+{% if scope %}范围：{{ scope }}{% endif %}
 
-Understand:
+了解：
 
-- What is being evaluated (live product, prototype, designs)?
-- What are the key user flows?
-- Are there known usability concerns?
-- Who are the target users?
+- 正在评估什么（上线产品、原型、设计稿）？
+- 关键用户流程是什么？
+- 是否存在已知的可用性问题？
+- 目标用户是谁？
 
-### Step 3: Conduct Heuristic Analysis
+### 步骤 3：进行启发式分析
 
-For each of Nielsen's 10 heuristics, evaluate the interface:
+针对 Nielsen 的 10 条启发式原则，逐一评估界面：
 
-#### 1. Visibility of System Status
+#### 1. 系统状态的可见性
 
-- Does the system keep users informed?
-- Are there loading indicators, progress bars?
-- Is feedback provided after actions?
+- 系统是否让用户随时了解状态？
+- 是否有加载指示器、进度条？
+- 操作后是否提供反馈？
 
-#### 2. Match Between System and Real World
+#### 2. 系统与真实世界的匹配
 
-- Is language user-friendly?
-- Are concepts familiar?
-- Is information organized logically?
+- 语言是否对用户友好？
+- 概念是否熟悉？
+- 信息组织是否符合逻辑？
 
-#### 3. User Control and Freedom
+#### 3. 用户控制与自由
 
-- Can users undo/redo?
-- Are there clear exit paths?
-- Can users cancel actions?
+- 用户可以撤销/重做吗？
+- 是否有清晰的退出路径？
+- 用户可以取消操作吗？
 
-#### 4. Consistency and Standards
+#### 4. 一致性与标准
 
-- Is design consistent throughout?
-- Are platform conventions followed?
-- Are similar actions similar?
+- 整个设计是否一致？
+- 是否遵循平台约定？
+- 相似的操作是否相似？
 
-#### 5. Error Prevention
+#### 5. 错误预防
 
-- Are destructive actions confirmed?
-- Is input validated before submission?
-- Are error-prone situations eliminated?
+- 破坏性操作是否经过确认？
+- 提交前是否验证输入？
+- 是否消除了容易出错的情况？
 
-#### 6. Recognition Rather Than Recall
+#### 6. 识别而非回忆
 
-- Are options visible?
-- Is context provided?
-- Do users need to remember information?
+- 选项是否可见？
+- 是否提供上下文？
+- 用户是否需要记住信息？
 
-#### 7. Flexibility and Efficiency of Use
+#### 7. 使用的灵活性和效率
 
-- Are there shortcuts for experts?
-- Can users customize?
-- Are frequent actions optimized?
+- 是否为专家提供快捷方式？
+- 用户可以自定义吗？
+- 常用操作是否优化？
 
-#### 8. Aesthetic and Minimalist Design
+#### 8. 美学与极简设计
 
-- Is information prioritized?
-- Is there visual clutter?
-- Is content focused?
+- 信息是否优先排序？
+- 是否存在视觉混乱？
+- 内容是否聚焦？
 
-#### 9. Help Users Recognize, Diagnose, and Recover from Errors
+#### 9. 帮助用户识别、诊断和从错误中恢复
 
-- Are error messages helpful?
-- Do they suggest solutions?
-- Are errors clearly indicated?
+- 错误消息是否有帮助？
+- 它们是否建议解决方案？
+- 错误是否清晰标示？
 
-#### 10. Help and Documentation
+#### 10. 帮助和文档
 
-- Is help available in context?
-- Is documentation searchable?
-- Are instructions task-focused?
+- 是否在上下文中提供帮助？
+- 文档是否可搜索？
+- 说明是否以任务为中心？
 
-### Step 4: Document Findings
+### 步骤 4：记录发现
 
-For each issue found:
+对于发现的每个问题：
 
-- Location in interface
-- Violated heuristic
-- Severity (0-4)
-- Description
-- Recommendation
+- 界面中的位置
+- 违反的启发式原则
+- 严重程度（0-4）
+- 描述
+- 建议
 
-### Step 5: Generate Report
+### 步骤 5：生成报告
 
-Compile findings into prioritized report:
+将发现汇总为优先级报告：
 
-- Executive summary
-- Issues by severity
-- Issues by heuristic
-- Recommendations
+- 执行摘要
+- 按严重程度分类的问题
+- 按启发式原则分类的问题
+- 建议
 
-## Example Usage
+## 示例用法
 
 ```bash
-# Full heuristic evaluation
-/ux-research:evaluate-heuristics "project management dashboard"
+# 完整启发式评估
+/ux-research:evaluate-heuristics "项目管理仪表板"
 
-# Focused evaluation
-/ux-research:evaluate-heuristics "e-commerce site" --scope "checkout flow"
+# 聚焦评估
+/ux-research:evaluate-heuristics "电子商务网站" --scope "结账流程"
 
-# Prototype evaluation
-/ux-research:evaluate-heuristics "new onboarding designs"
+# 原型评估
+/ux-research:evaluate-heuristics "新入门设计"
 ```
 
-## Output Format
+## 输出格式
 
 ```markdown
-# Heuristic Evaluation: [Interface]
+# 启发式评估：[界面]
 
-## Executive Summary
+## 执行摘要
 
-**Evaluation Date:** [Date]
-**Scope:** [What was evaluated]
-**Overall Assessment:** [Good/Needs Work/Poor]
+**评估日期：** [日期]
+**范围：** [评估内容]
+**总体评估：** [良好/需要改进/差]
 
-### Issue Summary
-| Severity | Count |
+### 问题摘要
+| 严重程度 | 数量 |
 |----------|-------|
-| Catastrophic (4) | [N] |
-| Major (3) | [N] |
-| Minor (2) | [N] |
-| Cosmetic (1) | [N] |
+| 灾难性 (4) | [N] |
+| 主要 (3) | [N] |
+| 次要 (2) | [N] |
+| 表面性 (1) | [N] |
 
-### Top Issues
-1. [Issue] - Severity [N]
-2. [Issue] - Severity [N]
-3. [Issue] - Severity [N]
-
----
-
-## Heuristic Analysis
-
-### 1. Visibility of System Status
-
-**Score:** [Good/Needs Work/Poor]
-
-#### Issues Found
-
-**Issue 1.1: [Title]**
-- **Location:** [Where in interface]
-- **Severity:** [0-4]
-- **Description:** [What's wrong]
-- **Recommendation:** [How to fix]
-
-[Continue for each issue...]
-
-#### Strengths
-- [What works well]
+### 主要问题
+1. [问题] - 严重程度 [N]
+2. [问题] - 严重程度 [N]
+3. [问题] - 严重程度 [N]
 
 ---
 
-### 2. Match Between System and Real World
+## 启发式分析
 
-[Continue pattern for all 10 heuristics...]
+### 1. 系统状态的可见性
+
+**评分：** [良好/需要改进/差]
+
+#### 发现的问题
+
+**问题 1.1：[标题]**
+- **位置：** [界面中的位置]
+- **严重程度：** [0-4]
+- **描述：** [什么问题]
+- **建议：** [如何修复]
+
+[继续每个问题...]
+
+#### 优势
+- [哪些做得好]
 
 ---
 
-## Issues by Severity
+### 2. 系统与真实世界的匹配
 
-### Catastrophic (4)
-| # | Heuristic | Issue | Location |
+[对所有 10 条启发式原则继续此模式...]
+
+---
+
+## 按严重程度分类的问题
+
+### 灾难性 (4)
+| # | 启发式原则 | 问题 | 位置 |
 |---|-----------|-------|----------|
-| 1 | [H#] | [Issue] | [Location] |
+| 1 | [H#] | [问题] | [位置] |
 
-### Major (3)
-[Table...]
+### 主要 (3)
+[表格...]
 
-### Minor (2)
-[Table...]
+### 次要 (2)
+[表格...]
 
-### Cosmetic (1)
-[Table...]
-
----
-
-## Recommendations
-
-### Immediate Actions (Severity 4)
-1. [Action with specific guidance]
-
-### High Priority (Severity 3)
-1. [Action]
-
-### Medium Priority (Severity 2)
-1. [Action]
+### 表面性 (1)
+[表格...]
 
 ---
 
-## Methodology
+## 建议
 
-This evaluation used Nielsen's 10 Usability Heuristics as the framework for assessing [interface]. The evaluation was conducted [describe approach - systematic review of each screen/flow].
+### 立即行动（严重程度 4）
+1. [带有具体指导的行动]
 
-### Severity Scale Used
-| Rating | Meaning |
+### 高优先级（严重程度 3）
+1. [行动]
+
+### 中优先级（严重程度 2）
+1. [行动]
+
+---
+
+## 方法论
+
+本评估使用 Nielsen 的 10 条可用性启发式原则作为评估 [界面] 的框架。评估采用 [描述方法 - 对每个屏幕/流程的系统审查] 进行。
+
+### 使用的严重度量表
+| 评级 | 含义 |
 |--------|---------|
-| 0 | Not a usability problem |
-| 1 | Cosmetic problem only |
-| 2 | Minor usability problem |
-| 3 | Major usability problem |
-| 4 | Usability catastrophe |
+| 0 | 不是可用性问题 |
+| 1 | 仅表面性问题 |
+| 2 | 轻微可用性问题 |
+| 3 | 主要可用性问题 |
+| 4 | 可用性灾难 |
 
 ---
 
-## Next Steps
+## 下一步
 
-1. [Recommended next step]
-2. [Recommended next step]
-3. [Recommended next step]
+1. [推荐的下一步]
+2. [推荐的下一步]
+3. [推荐的下一步]
 ```
 
-## Severity Rating Guide
+## 严重程度评级指南
 
-| Factor | Question |
+| 因素 | 问题 |
 |--------|----------|
-| **Frequency** | How often does this occur? |
-| **Impact** | How serious when it happens? |
-| **Persistence** | Can users overcome it easily? |
+| **频率** | 这种情况多久发生一次？ |
+| **影响** | 发生时有多严重？ |
+| **持续性** | 用户可以轻松克服吗？ |
 
-**Rating Decision:**
+**评级决策：**
 
-- **4 (Catastrophic):** High frequency + High impact + Hard to overcome
-- **3 (Major):** Common or impactful, causes significant problems
-- **2 (Minor):** Occasional inconvenience, users can work around
-- **1 (Cosmetic):** Noticed but doesn't really affect tasks
+- **4（灾难性）：** 高频率 + 高影响 + 难以克服
+- **3（主要）：** 常见或影响大，造成显著问题
+- **2（次要）：** 偶尔不便，用户可以绕过
+- **1（表面性）：** 注意到但不真正影响任务

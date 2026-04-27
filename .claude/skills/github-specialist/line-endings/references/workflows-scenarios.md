@@ -1,8 +1,8 @@
-# Workflows & Scenarios
+# 工作流程和场景
 
-Common workflows and real-world scenarios for Git line ending configuration.
+Git 行结束配置的常见工作流程和实际场景。
 
-## Scenario A: New Repository (You Control)
+## 场景 A：新 Repository（您控制）
 
 ```bash
 # 1. Initialize repository
@@ -26,16 +26,16 @@ git add .gitattributes && git commit -m "Add .gitattributes"
 git add . && git commit -m "Initial commit"
 ```
 
-## Scenario B: Existing Repository with .gitattributes
+## 场景 B：现有 Repository 带有 .gitattributes
 
-**Fresh Clone:**
+**新鲜克隆：**
 
 ```bash
 git clone https://github.com/user/repo.git
 # Files checked out with correct line endings automatically
 ```
 
-**After .gitattributes update:**
+**.gitattributes 更新后：**
 
 ```bash
 git pull
@@ -43,12 +43,12 @@ git add --renormalize .
 git status && git commit -m "Normalize line endings"
 ```
 
-## Scenario C: External Repository Without .gitattributes
+## 场景 C：外部 Repository 不带 .gitattributes
 
-With Option 1 config (safe): Files normalized automatically ✅
-With Option 2 config (broken): Mixed line endings ❌
+使用选项 1 配置（安全）：文件自动标准化 ✅
+使用选项 2 配置（已损坏）：混合行结尾 ❌
 
-## Scenario D: Fixing Mixed Line Endings
+## 场景 D：修复混合行结尾
 
 ```bash
 # 1. Detect

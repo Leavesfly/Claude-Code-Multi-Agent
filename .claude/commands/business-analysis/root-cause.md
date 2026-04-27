@@ -4,48 +4,48 @@ argument-hint: <problem-statement> [--mode fishbone|5whys|full] [--output yaml|m
 allowed-tools: Task, Read, Write, Glob, Grep, Skill
 ---
 
-# Root Cause Analysis Command
+# Root Cause Analysis 命令
 
-Systematically diagnose problems and identify root causes using proven techniques: Fishbone (Ishikawa) diagrams for categorical exploration and 5 Whys for drilling to root causes. Develop actionable CAPA plans.
+使用成熟的技法系统性地诊断问题、定位根因：Fishbone（Ishikawa，鱼骨图）做类别式探索，5 Whys 用于逐层深挖到根因。并产出可落地的 CAPA 方案。
 
-## Arguments
+## 参数
 
-- `<problem-statement>`: Description of the problem to analyze
-- `--mode`: Analysis technique (default: `full`)
-  - `fishbone`: Fishbone diagram with 6M categories (~4K tokens)
-  - `5whys`: 5 Whys drill-down technique (~3K tokens)
-  - `full`: Both techniques combined (~8K tokens)
-- `--output`: Output format (default: `both`)
-  - `yaml`: Structured YAML for downstream processing
-  - `mermaid`: Mermaid diagram visualization
-  - `both`: Both formats
+- `<problem-statement>`：要分析的问题描述
+- `--mode`：分析技法（默认：`full`）
+  - `fishbone`：按 6M 分类的鱼骨图（约 4K tokens）
+  - `5whys`：5 Whys 深挖技法（约 3K tokens）
+  - `full`：两种技法结合（约 8K tokens）
+- `--output`：输出格式（默认：`both`）
+  - `yaml`：用于下游处理的结构化 YAML
+  - `mermaid`：Mermaid 图示可视化
+  - `both`：两种都输出
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行流程
 
-### Step 1: Parse Arguments
+### 步骤 1：解析参数
 
-Extract problem statement, mode, and output format from arguments.
+从参数中提取问题陈述、mode 与输出格式。
 
-If no problem provided, ask the user:
-"What problem would you like to analyze for root causes?"
+如果未提供问题，则询问用户：
+"你想针对什么问题做根因分析？"
 
-Default mode is `full`. Default output is `both`.
+默认 mode 为 `full`。默认输出为 `both`。
 
-### Step 2: Load Root Cause Analysis Skill
+### 步骤 2：加载 Root Cause Analysis skill
 
-Invoke the `root-cause-analysis` skill to access:
+调用 `root-cause-analysis` skill 以获得：
 
-- Fishbone (6M) categories
-- 5 Whys methodology
-- CAPA planning templates
-- Problem definition framework
-- Common pitfalls to avoid
+- Fishbone（6M）分类
+- 5 Whys 方法论
+- CAPA 规划模板
+- 问题定义框架
+- 需要规避的常见陷阱
 
-### Step 3: Define the Problem
+### 步骤 3：定义问题
 
-Before analysis, clarify the problem:
+开始分析前先把问题说清楚：
 
 ```markdown
 ## Problem Definition
@@ -59,42 +59,42 @@ Before analysis, clarify the problem:
 **Data Available:** [Evidence and metrics]
 ```
 
-Verify: Is this the real problem or a symptom?
+自检：这是真问题，还是只是症状？
 
-### Step 4: Execute Based on Mode
+### 步骤 4：按 mode 执行
 
-#### Fishbone Mode (6M Categories)
+#### Fishbone 模式（6M 分类）
 
-Explore causes across all 6M categories:
+在 6M 的全部类别中探索可能的原因：
 
-1. **Man (People)**: Human factors
-   - Training, skills, motivation, fatigue, communication
+1. **Man（人）**：人的因素
+   - 培训、技能、动机、疲劳、沟通
 
-2. **Machine (Equipment)**: Equipment factors
-   - Maintenance, calibration, age, capacity, reliability
+2. **Machine（设备）**：设备因素
+   - 维保、校准、老化、产能、可靠性
 
-3. **Method (Process)**: Process factors
-   - Procedures, standards, sequence, design, documentation
+3. **Method（方法/流程）**：流程因素
+   - 程序、标准、顺序、设计、文档
 
-4. **Material (Inputs)**: Input factors
-   - Quality, specifications, suppliers, storage, handling
+4. **Material（物料/输入）**：输入因素
+   - 质量、规格、供应商、存储、搬运
 
-5. **Measurement (Data)**: Data factors
-   - Accuracy, frequency, instruments, definitions, collection
+5. **Measurement（测量/数据）**：数据因素
+   - 准确性、频率、仪器、定义、采集
 
-6. **Mother Nature (Environment)**: Environmental factors
-   - Temperature, humidity, lighting, workspace, external conditions
+6. **Mother Nature（环境）**：环境因素
+   - 温度、湿度、照明、工位、外部条件
 
-For each category:
+对每个类别：
 
-- Brainstorm potential causes
-- Gather evidence for each cause
-- Rate likelihood (High/Medium/Low)
-- Identify relationships between causes
+- 头脑风暴潜在原因
+- 为每项原因收集证据
+- 评估可能性（高/中/低）
+- 识别各原因之间的关系
 
-#### 5 Whys Mode (Drill-Down)
+#### 5 Whys 模式（逐层深挖）
 
-Progressive questioning to reach root cause:
+用递进式提问追溯到根因：
 
 ```text
 Problem: [Observed effect]
@@ -115,13 +115,13 @@ Why 5: Why does [cause 4] happen?
 → Because [ROOT CAUSE]
 ```
 
-Verification: If we address [ROOT CAUSE], will the problem be resolved?
+验证：如果我们解决了 [ROOT CAUSE]，问题就会被消除吗？
 
-May require fewer or more than 5 whys - stop when you reach an actionable cause.
+可能只需要不到 5 次 why，也可能需要更多 — 直到挖到一个**可行动**的原因才停下来。
 
-#### Full Mode (Combined Analysis)
+#### Full 模式（综合分析）
 
-Spawn the `problem-solver` agent for comprehensive analysis:
+派生 `problem-solver` agent 做综合分析：
 
 ```text
 Analyze this problem and identify root causes:
@@ -137,16 +137,16 @@ Requirements:
 6. Generate both YAML and Mermaid outputs
 ```
 
-The agent will:
+该 agent 将：
 
-- Validate problem definition
-- Systematically explore all cause categories
-- Drill down to root causes
-- Produce actionable CAPA plan
+- 校验问题定义
+- 系统性地探索所有原因类别
+- 深挖到根因
+- 产出可落地的 CAPA 方案
 
-### Step 5: Consolidate Root Causes
+### 步骤 5：整合根因
 
-Summarize findings:
+汇总发现：
 
 ```markdown
 ## Root Causes Identified
@@ -160,9 +160,9 @@ Summarize findings:
 **Contributing Factors:** [Secondary causes]
 ```
 
-### Step 6: Develop CAPA Plan
+### 步骤 6：制定 CAPA 方案
 
-Create corrective and preventive actions:
+制定纠正措施与预防措施：
 
 ```markdown
 ## CAPA Plan
@@ -188,9 +188,9 @@ Create corrective and preventive actions:
 | [Action] | [How to verify] | [What success looks like] | [Date] |
 ```
 
-### Step 7: Generate Output Artifacts
+### 步骤 7：生成输出产物
 
-#### YAML Output
+#### YAML 输出
 
 ```yaml
 root_cause_analysis:
@@ -265,9 +265,9 @@ root_cause_analysis:
         target_date: "[Date]"
 ```
 
-#### Mermaid Output
+#### Mermaid 输出
 
-**Fishbone Diagram:**
+**鱼骨图：**
 
 ```mermaid
 flowchart LR
@@ -312,7 +312,7 @@ flowchart LR
     style MT2 fill:#ff9999
 ```
 
-#### Summary Report
+#### 汇总报告
 
 ```markdown
 ## Root Cause Analysis: [Problem]
@@ -350,23 +350,23 @@ flowchart LR
 3. [Monitoring action]
 ```
 
-### Step 8: Save Results
+### 步骤 8：保存结果
 
-Save outputs based on format flag:
+根据格式参数保存输出：
 
-**YAML file:**
+**YAML 文件：**
 
 - `docs/analysis/root-cause-analysis.yaml`
 
-**Mermaid diagram:**
+**Mermaid 图：**
 
 - `docs/analysis/root-cause-analysis.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 可指定自定义输出目录。
 
-### Step 9: Suggest Follow-Up Actions
+### 步骤 9：建议后续行动
 
-After completing analysis:
+分析完成后：
 
 ```markdown
 ## Suggested Next Steps

@@ -4,51 +4,51 @@ argument-hint: <context-or-file> [--mode create|update|review] [--output yaml|ma
 allowed-tools: Task, Read, Write, Glob, Grep, Skill
 ---
 
-# Risk Register Command
+# Risk Register 命令
 
-Systematically identify, assess, and plan responses for risks using risk registers, probability/impact matrices, and mitigation strategies. Supports threats and opportunities.
+使用风险登记表、概率/影响矩阵与应对策略，系统性地识别、评估并规划风险应对。同时支持威胁（threat）和机会（opportunity）。
 
-## Arguments
+## 参数
 
-- `<context-or-file>`: Project/initiative context or existing risk register file
-- `--mode`: Operation mode (default: `create`)
-  - `create`: Create new risk register (~6K tokens)
-  - `update`: Add risks to existing register (~4K tokens)
-  - `review`: Review and re-assess existing risks (~5K tokens)
-- `--output`: Output format (default: `both`)
-  - `yaml`: Structured YAML for downstream processing
-  - `markdown`: Formatted markdown tables
-  - `both`: Both formats
+- `<context-or-file>`：项目/initiative 的背景信息，或已有的 risk register 文件
+- `--mode`：运行模式（默认：`create`）
+  - `create`：新建 risk register（约 6K tokens）
+  - `update`：向已有 register 追加风险（约 4K tokens）
+  - `review`：复核与重新评估已有风险（约 5K tokens）
+- `--output`：输出格式（默认：`both`）
+  - `yaml`：用于下游处理的结构化 YAML
+  - `markdown`：排版好的 markdown 表格
+  - `both`：两种都输出
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行流程
 
-### Step 1: Parse Arguments
+### 步骤 1：解析参数
 
-Extract context/file, mode, and output format from arguments.
+从参数中提取 context/文件、mode 与输出格式。
 
-If no context provided, ask the user:
-"What project, initiative, or area would you like to assess for risks?"
+如果未提供 context，则询问用户：
+"你想针对哪个项目、initiative 或领域做风险评估？"
 
-Default mode is `create`. Default output is `both`.
+默认 mode 为 `create`。默认输出为 `both`。
 
-### Step 2: Load Risk Analysis Skill
+### 步骤 2：加载 Risk Analysis skill
 
-Invoke the `risk-analysis` skill to access:
+调用 `risk-analysis` skill 以获得：
 
-- Risk identification techniques
-- Probability and Impact scales
-- Risk scoring methodology
-- Response strategies (Avoid, Transfer, Mitigate, Accept)
-- Risk register templates
-- Monitoring and review processes
+- 风险识别技法
+- 概率与影响的量表
+- 风险打分方法论
+- 应对策略（Avoid、Transfer、Mitigate、Accept）
+- Risk register 模板
+- 监控与复核流程
 
-### Step 3: Execute Based on Mode
+### 步骤 3：按 mode 执行
 
-#### Create Mode (New Register)
+#### Create 模式（新建 register）
 
-##### Step A: Define Context
+##### 子步骤 A：定义上下文
 
 ```markdown
 ## Risk Register Context
@@ -60,38 +60,38 @@ Invoke the `risk-analysis` skill to access:
 **Date Created:** [ISO Date]
 ```
 
-##### Step B: Identify Risks
+##### 子步骤 B：识别风险
 
-Use multiple techniques to identify risks:
+用多种技法识别风险：
 
-1. **Checklist Review**: Standard risk categories
-   - Technical, Schedule, Cost, Resource, External, Quality, Security
+1. **Checklist Review**：标准风险分类
+   - 技术、进度、成本、资源、外部、质量、安全
 
-2. **Assumption Analysis**: List and challenge assumptions
-   - What are we assuming will go right?
-   - What if those assumptions fail?
+2. **Assumption Analysis**：列出并挑战假设
+   - 我们假设哪些事情会顺利？
+   - 如果这些假设失败会怎样？
 
-3. **Expert Input**: Domain-specific risks
-   - What could go wrong in this domain?
-   - What has failed before in similar projects?
+3. **Expert Input**：领域特定风险
+   - 在这个领域可能会出什么问题？
+   - 类似项目以前在哪翻过车？
 
-4. **SWOT Threats**: From strategic analysis
-   - External factors that could harm objectives
+4. **SWOT Threats**：来自战略分析
+   - 可能损害目标的外部因素
 
-For each risk, capture:
+对每个风险，记录：
 
-- Clear description (cause + effect format)
-- Category
-- Initial assessment
-- Potential impact areas
+- 清晰的描述（cause + effect 格式）
+- 分类
+- 初步评估
+- 潜在的影响面
 
-##### Step C: Assess Risks
+##### 子步骤 C：评估风险
 
-Apply probability/impact scoring:
+套用概率/影响评分：
 
-**Probability Scale (1-5):**
+**概率量表（1-5）：**
 
-| Level | Score | Likelihood |
+| 等级 | 分值 | 发生可能性 |
 |-------|-------|------------|
 | Very Low | 1 | < 10% |
 | Low | 2 | 10-30% |
@@ -99,74 +99,74 @@ Apply probability/impact scoring:
 | High | 4 | 50-70% |
 | Very High | 5 | > 70% |
 
-**Impact Scale (1-5):**
+**影响量表（1-5）：**
 
-| Level | Score | Schedule | Cost | Quality |
+| 等级 | 分值 | 进度 | 成本 | 质量 |
 |-------|-------|----------|------|---------|
-| Very Low | 1 | < 1 week | < 5% | Minor |
-| Low | 2 | 1-2 weeks | 5-10% | Noticeable |
-| Medium | 3 | 2-4 weeks | 10-20% | Significant |
-| High | 4 | 1-3 months | 20-40% | Major |
-| Very High | 5 | > 3 months | > 40% | Critical |
+| Very Low | 1 | < 1 周 | < 5% | 轻微 |
+| Low | 2 | 1-2 周 | 5-10% | 可察觉 |
+| Medium | 3 | 2-4 周 | 10-20% | 明显 |
+| High | 4 | 1-3 个月 | 20-40% | 严重 |
+| Very High | 5 | > 3 个月 | > 40% | 灾难级 |
 
-**Risk Score:** Probability × Impact (1-25)
+**风险分值：** 概率 × 影响（1-25）
 
-**Priority Zones:**
+**优先级区段：**
 
-| Score | Priority | Action |
+| 分值 | 优先级 | 行动 |
 |-------|----------|--------|
-| 1-4 | Low | Accept or monitor |
-| 5-9 | Medium | Active management |
-| 10-14 | High | Priority attention |
-| 15-25 | Critical | Immediate action |
+| 1-4 | 低 | 接受或仅监测 |
+| 5-9 | 中 | 主动管理 |
+| 10-14 | 高 | 重点关注 |
+| 15-25 | 危急 | 立即行动 |
 
-##### Step D: Plan Responses
+##### 子步骤 D：规划应对
 
-For each significant risk, define response strategy:
+对每个重要风险定义应对策略：
 
-**For Threats:**
+**针对 Threat（威胁）：**
 
-- **Avoid**: Eliminate the threat entirely
-- **Transfer**: Shift to third party (insurance, contract)
-- **Mitigate**: Reduce probability or impact
-- **Accept**: Acknowledge with contingency plan
+- **Avoid**：完全消除威胁
+- **Transfer**：转移给第三方（保险、合同）
+- **Mitigate**：降低概率或影响
+- **Accept**：承认风险并制定应急预案
 
-**For Opportunities:**
+**针对 Opportunity（机会）：**
 
-- **Exploit**: Ensure opportunity occurs
-- **Share**: Partner to increase capability
-- **Enhance**: Increase probability or impact
-- **Accept**: Take advantage if it occurs
+- **Exploit**：确保机会发生
+- **Share**：合作以增强能力
+- **Enhance**：提升概率或影响
+- **Accept**：机会出现时顺势而为
 
-For each response, define:
+对每项应对，定义：
 
-- Prevention actions (reduce probability)
-- Contingency actions (if risk occurs)
-- Owner and target dates
-- Residual risk after mitigation
+- 预防措施（降低概率）
+- 应急措施（风险发生时采取）
+- 责任人与目标日期
+- 缓解后的残余风险
 
-#### Update Mode (Add to Existing)
+#### Update 模式（追加到已有 register）
 
-1. Read existing risk register file
-2. Identify new risks to add
-3. Assess new risks using same scales
-4. Plan responses for new risks
-5. Update summary statistics
-6. Preserve existing risk history
+1. 读取已有的 risk register 文件
+2. 识别要新增的风险
+3. 用相同量表评估新风险
+4. 为新风险规划应对
+5. 更新汇总统计
+6. 保留已有的风险历史
 
-#### Review Mode (Re-assess)
+#### Review 模式（重新评估）
 
-1. Read existing risk register
-2. For each open risk:
-   - Has probability changed?
-   - Has impact changed?
-   - Have mitigation actions been completed?
-   - Should status change (Open → Mitigated → Closed)?
-3. Identify any new risks discovered during review
-4. Update review date and notes
-5. Adjust priorities based on current assessment
+1. 读取已有的 risk register
+2. 对每个 open 的风险：
+   - 概率是否变化？
+   - 影响是否变化？
+   - 缓解措施是否已执行完？
+   - 状态是否需要变更（Open → Mitigated → Closed）？
+3. 识别复核过程中新发现的风险
+4. 更新复核日期与备注
+5. 根据当前评估调整优先级
 
-### Step 4: Generate Risk Matrix Visualization
+### 步骤 4：生成风险矩阵可视化
 
 ```mermaid
 quadrantChart
@@ -183,9 +183,9 @@ quadrantChart
     "R-004 Tech debt": [0.4, 0.3]
 ```
 
-### Step 5: Generate Output Artifacts
+### 步骤 5：生成输出产物
 
-#### YAML Output
+#### YAML 输出
 
 ```yaml
 risk_register:
@@ -269,7 +269,7 @@ risk_register:
       changes: "[Summary of changes]"
 ```
 
-#### Markdown Output
+#### Markdown 输出
 
 ```markdown
 ## Risk Register: [Project/Initiative]
@@ -339,7 +339,7 @@ risk_register:
 | Closed | 1 | 1 | → |
 ```
 
-#### Summary Report
+#### 汇总报告
 
 ```markdown
 ## Risk Assessment Summary
@@ -377,23 +377,23 @@ Overall risk exposure is [Low/Medium/High/Critical] based on:
 4. **Review**: Schedule stakeholder risk review
 ```
 
-### Step 6: Save Results
+### 步骤 6：保存结果
 
-Save outputs based on format flag:
+根据格式参数保存输出：
 
-**YAML file:**
+**YAML 文件：**
 
 - `docs/analysis/risk-register.yaml`
 
-**Markdown file:**
+**Markdown 文件：**
 
 - `docs/analysis/risk-register.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 可指定自定义输出目录。
 
-### Step 7: Suggest Follow-Up Actions
+### 步骤 7：建议后续行动
 
-After completing risk assessment:
+风险评估完成后：
 
 ```markdown
 ## Suggested Next Steps

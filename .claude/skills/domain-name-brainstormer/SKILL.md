@@ -3,31 +3,31 @@ name: domain-name-brainstormer
 description: 为您的项目生成创意域名想法，并检查多个顶级域名（.com、.io、.dev、.ai 等）的可用性。节省数小时的头脑风暴和手动检查时间。
 ---
 
-# Domain Name Brainstormer
+# Domain Name Brainstormer（域名头脑风暴）
 
-This skill helps you find the perfect domain name for your project by generating creative options and checking what's actually available to register.
+本 skill 通过生成有创意的候选并核对实际可注册情况，帮你为项目找到合适的域名。
 
-## When to Use This Skill
+## 何时使用本 skill
 
-- Starting a new project or company
-- Launching a product or service
-- Creating a personal brand or portfolio site
-- Rebranding an existing project
-- Registering a domain for a side project
-- Finding available alternatives when your first choice is taken
+- 开启新项目或公司
+- 发布产品或服务
+- 建立个人品牌或作品集站点
+- 对现有项目重新品牌化
+- 为 side project 注册域名
+- 当首选域名被占用时寻找可用替代
 
-## What This Skill Does
+## 本 skill 能做什么
 
-1. **Understands Your Project**: Analyzes what you're building and who it's for
-2. **Generates Creative Names**: Creates relevant, memorable domain options
-3. **Checks Availability**: Verifies which domains are actually available across multiple TLDs
-4. **Multiple Extensions**: Suggests .com, .io, .dev, .ai, .app, and more
-5. **Provides Alternatives**: Offers variations if top choices are taken
-6. **Branding Insights**: Explains why certain names work well
+1. **理解你的项目**：分析你在做什么、面向谁
+2. **生成有创意的名字**：产出相关、易记的域名选项
+3. **检查可用性**：核对跨多个 TLD 哪些是真的可以注册
+4. **多种后缀**：建议 .com、.io、.dev、.ai、.app 等
+5. **提供备选**：当首选已被占用时给变体
+6. **品牌洞察**：解释为什么某些名字更好用
 
-## How to Use
+## 用法
 
-### Basic Brainstorming
+### 基础头脑风暴
 
 ```
 I'm building a project management tool for remote teams. 
@@ -38,25 +38,25 @@ Suggest domain names.
 Help me brainstorm domain names for a personal finance app
 ```
 
-### Specific Preferences
+### 指定偏好
 
 ```
 I need a domain name for my AI writing assistant. 
 Prefer short names with .ai or .io extension.
 ```
 
-### With Keywords
+### 带关键词
 
 ```
 Suggest domain names using the words "pixel" or "studio" 
 for my design agency
 ```
 
-## Example
+## 示例
 
-**User**: "I'm building a tool for developers to share code snippets. Suggest creative domain names."
+**User**："I'm building a tool for developers to share code snippets. Suggest creative domain names."
 
-**Output**:
+**Output**：
 ```
 Analyzing your project...
 Target audience: Developers
@@ -107,106 +107,106 @@ Next steps:
 3. Need help with logo ideas for these names?
 ```
 
-**Inspired by:** Ben Aiad's use case from Lenny's Newsletter
+**灵感来源：** Ben Aiad 在 Lenny's Newsletter 里的用例
 
-## Domain Naming Tips
+## 域名命名技巧
 
-### What Makes a Good Domain
+### 好域名的特征
 
-✓ **Short**: Under 15 characters ideal
-✓ **Memorable**: Easy to recall and spell
-✓ **Pronounceable**: Can be said in conversation
-✓ **Descriptive**: Hints at what you do
-✓ **Brandable**: Unique enough to stand out
-✓ **No hyphens**: Easier to share verbally
+✓ **短**：理想 15 字符以内
+✓ **易记**：容易回忆、拼写
+✓ **可口播**：能在对话中说出来
+✓ **有描述性**：暗示你做什么
+✓ **可品牌化**：独特到能脱颖而出
+✓ **没有连字符**：口头分享更容易
 
-### TLD Guide
+### TLD 指南
 
-- **.com**: Universal, trusted, great for businesses
-- **.io**: Tech startups, developer tools
-- **.dev**: Developer-focused products
-- **.ai**: AI/ML products
-- **.app**: Mobile or web applications
-- **.co**: Alternative to .com
-- **.xyz**: Modern, creative projects
-- **.design**: Creative/design agencies
-- **.tech**: Technology companies
+- **.com**：通用、可信、适合企业
+- **.io**：科技创业公司、开发者工具
+- **.dev**：面向开发者的产品
+- **.ai**：AI/ML 产品
+- **.app**：移动或 Web 应用
+- **.co**：.com 的替代
+- **.xyz**：现代、创意项目
+- **.design**：创意/设计机构
+- **.tech**：科技公司
 
-## Advanced Features
+## 进阶能力
 
-### Check Similar Variations
+### 检查相似变体
 
 ```
 Check availability for "codebase" and similar variations 
 across .com, .io, .dev
 ```
 
-### Industry-Specific
+### 行业聚焦
 
 ```
 Suggest domain names for a sustainable fashion brand, 
 checking .eco and .fashion TLDs
 ```
 
-### Multilingual Options
+### 多语种选项
 
 ```
 Brainstorm domain names in English and Spanish for 
 a language learning app
 ```
 
-### Competitor Analysis
+### 竞品分析
 
 ```
 Show me domain patterns used by successful project 
 management tools, then suggest similar available ones
 ```
 
-## Example Workflows
+## 常见 workflow
 
-### Startup Launch
-1. Describe your startup idea
-2. Get 10-15 domain suggestions across TLDs
-3. Review availability and pricing
-4. Pick top 3 favorites
-5. Register immediately
+### 创业发布
+1. 描述你的创业 idea
+2. 得到 10-15 个跨 TLD 的域名建议
+3. 审阅可用性与价格
+4. 挑选前 3 个最爱
+5. 立即注册
 
-### Personal Brand
-1. Share your name and profession
-2. Get variations (firstname.com, firstnamelastname.dev, etc.)
-3. Check social media handle availability too
-4. Register consistent brand across platforms
+### 个人品牌
+1. 分享你的姓名与职业
+2. 得到变体（firstname.com、firstnamelastname.dev 等）
+3. 同时核对社交媒体用户名可用性
+4. 跨平台注册一致的品牌标识
 
-### Product Naming
-1. Describe product and target market
-2. Get creative, brandable names
-3. Check trademark conflicts
-4. Verify domain and social availability
-5. Test names with target audience
+### 产品命名
+1. 描述产品与目标市场
+2. 得到有创意、可品牌化的名字
+3. 检查商标冲突
+4. 核对域名与社媒可用性
+5. 用目标受众测试名字
 
-## Tips for Success
+## 成功要点
 
-1. **Act Fast**: Good domains get taken quickly
-2. **Register Variations**: Get .com and .io to protect brand
-3. **Avoid Numbers**: Hard to communicate verbally
-4. **Check Social Media**: Make sure @username is available too
-5. **Say It Out Loud**: Test if it's easy to pronounce
-6. **Check Trademarks**: Ensure no legal conflicts
-7. **Think Long-term**: Will it still make sense in 5 years?
+1. **动作要快**：好域名被抢得很快
+2. **注册变体**：拿下 .com 和 .io 保护品牌
+3. **避免数字**：口头沟通困难
+4. **核对社交媒体**：确保 @username 也可用
+5. **念出来**：测试是否好读
+6. **核对商标**：确保没有法律冲突
+7. **着眼长期**：5 年后它还说得通吗？
 
-## Pricing Context
+## 价格背景
 
-When suggesting domains, I'll note:
-- Standard domains: ~$10-15/year
-- Premium TLDs (.io, .ai): ~$30-50/year
-- Taken domains: Market price if listed
-- Premium domains: $hundreds to $thousands
+给建议时会标注：
+- 标准域名：每年约 $10-15
+- 优质 TLD（.io、.ai）：每年约 $30-50
+- 已占域名：挂牌者的市场价
+- 优质域名：数百到数千美元
 
-## Related Tools
+## 相关工具
 
-After picking a domain:
-- Check logo design options
-- Verify social media handles
-- Research trademark availability
-- Plan brand identity colors/fonts
+挑好域名后：
+- 检查 logo 设计选项
+- 核对社交媒体用户名
+- 调研商标可用性
+- 规划品牌色与字体
 

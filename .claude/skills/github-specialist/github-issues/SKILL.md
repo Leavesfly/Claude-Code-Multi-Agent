@@ -1,43 +1,43 @@
 ---
 name: github-issues
-description: Query and search GitHub issues using gh CLI with web fallback. Supports filtering by labels, state, assignees, and full-text search. Use when troubleshooting errors, checking if an issue is already reported, or finding workarounds.
+description: 用 gh CLI 查询和搜索 GitHub issues，并带 web 兜底。支持按 label、state、assignee 过滤以及全文搜索。在排查错误、确认 issue 是否已被报告、或寻找 workaround 时使用。
 allowed-tools: Bash, Read, Glob, Grep, WebFetch, WebSearch
 ---
 
-# GitHub Issues Lookup
+# GitHub Issues Lookup（GitHub Issue 查询）
 
-Query and search GitHub issues for troubleshooting, bug tracking, and finding workarounds. Supports `gh` CLI with automatic web fallback.
+查询和搜索 GitHub issues，用于排查、bug 追踪以及寻找 workaround。支持 `gh` CLI，并在不可用时自动降级到 web 方式。
 
-## Overview
+## 概述
 
-This skill provides comprehensive guidance for querying GitHub issues from any repository. It prioritizes the GitHub CLI (`gh`) for fast, reliable access with automatic fallback to web-based methods when gh is unavailable.
+本 skill 为从任意 repo 查询 GitHub issues 提供完整指导。优先使用 GitHub CLI（`gh`）以获得快速、可靠的访问；当 gh 不可用时自动降级到 web 方式。
 
-**Core value:** Quickly find relevant issues when troubleshooting errors, checking if bugs are already reported, or discovering workarounds for known problems.
+**核心价值：** 在排查错误、确认 bug 是否已被报告、或为已知问题寻找 workaround 时，快速找到相关 issue。
 
-## When to Use This Skill
+## 何时使用本 skill
 
-This skill should be used when:
+在以下场景使用本 skill：
 
-- **Troubleshooting errors** - Search for issues matching error messages or symptoms
-- **Checking if issue exists** - Before reporting a bug, search for duplicates
-- **Finding workarounds** - Discover solutions from issue discussions
-- **Tracking features** - Search for feature requests and their status
-- **Understanding history** - Find closed issues explaining past decisions
+- **排查错误** —— 搜索与错误信息或症状匹配的 issue
+- **确认 issue 是否存在** —— 报告 bug 前先搜重复项
+- **寻找 workaround** —— 从 issue 讨论中发现解决方案
+- **追踪特性** —— 搜索 feature request 及其状态
+- **理解历史** —— 找出解释过去决策的已关闭 issue
 
-**Trigger keywords:** github issues, search issues, find issue, bug report, issue lookup, gh issue, troubleshoot, workaround, known issue
+**触发关键词：** github issues、search issues、find issue、bug report、issue lookup、gh issue、troubleshoot、workaround、known issue
 
-## Prerequisites
+## 前置条件
 
-**Recommended (not required):**
+**推荐（非必需）：**
 
-- **GitHub CLI (gh)** - Install from <https://cli.github.com/>
-- **Authentication** - Run `gh auth login` for private repos
+- **GitHub CLI（gh）** —— 从 <https://cli.github.com/> 安装
+- **认证** —— 对 private repo 运行 `gh auth login`
 
-The skill works without `gh` by falling back to web-based methods.
+即使没有 `gh`，本 skill 也能通过降级到 web 方式工作。
 
-## Quick Start
+## 快速开始
 
-### Search Issues (gh CLI)
+### 搜索 issue（gh CLI）
 
 ```bash
 # Check if gh is available
@@ -56,9 +56,9 @@ gh issue view 11984 --repo owner/repo
 gh issue list --repo owner/repo --search "error message here" --limit 20
 ```
 
-### Search Issues (Web Fallback)
+### 搜索 issue（web 兜底）
 
-When gh is unavailable, use WebSearch or WebFetch:
+当 gh 不可用时，使用 WebSearch 或 WebFetch：
 
 ```text
 # Search via web (using WebSearch tool)
@@ -68,13 +68,13 @@ Search: "site:github.com/owner/repo/issues keyword"
 https://github.com/owner/repo/issues?q=keyword
 ```
 
-## Core Capabilities
+## 核心能力
 
-### 1. Basic Issue Search
+### 1. 基础 issue 搜索
 
-Search issues by keywords, matching title and body text.
+按关键词搜索 issue，匹配 title 和正文。
 
-**gh CLI:**
+**gh CLI：**
 
 ```bash
 # Basic keyword search (all states)
@@ -87,13 +87,13 @@ gh issue list --repo anthropics/claude-code --search "path doubling" --state ope
 gh issue list --repo anthropics/claude-code --search "path doubling" --state closed
 ```
 
-**For detailed query syntax:** See [references/query-patterns.md](references/query-patterns.md)
+**详细查询语法：** 参见 [references/query-patterns.md](references/query-patterns.md)
 
 ---
 
-### 2. Filter by Labels
+### 2. 按 label 过滤
 
-Narrow results using repository labels.
+用 repo 的 label 缩小范围。
 
 ```bash
 # Single label
@@ -109,9 +109,9 @@ gh issue list --repo owner/repo --label "documentation"
 
 ---
 
-### 3. Filter by Assignee/Author
+### 3. 按 assignee / author 过滤
 
-Find issues by who created or is assigned to them.
+根据 issue 的创建者或被指派者来查找。
 
 ```bash
 # By assignee
@@ -126,9 +126,9 @@ gh issue list --repo owner/repo --author username --state closed
 
 ---
 
-### 4. View Issue Details
+### 4. 查看 issue 详情
 
-Get full issue content including description and comments.
+获取完整 issue 内容，包括描述和评论。
 
 ```bash
 # View issue (opens in terminal)
@@ -143,11 +143,11 @@ gh issue view 11984 --repo anthropics/claude-code --json title,body,comments
 
 ---
 
-### 5. Web Fallback Strategy
+### 5. Web 兜底策略
 
-When gh CLI is unavailable, fall back to web-based methods.
+当 gh CLI 不可用时，降级到 web 方式。
 
-**Detection:**
+**探测：**
 
 ```bash
 # Check if gh is available
@@ -158,23 +158,23 @@ else
 fi
 ```
 
-**Web methods (in order of preference):**
+**Web 方式（按优先级）：**
 
-1. **WebSearch tool**: `site:github.com/owner/repo/issues keyword`
-2. **firecrawl MCP**: Scrape GitHub search results
-3. **Direct URL**: `https://github.com/owner/repo/issues?q=keyword`
+1. **WebSearch 工具**：`site:github.com/owner/repo/issues keyword`
+2. **firecrawl MCP**：抓取 GitHub 搜索结果
+3. **直接 URL**：`https://github.com/owner/repo/issues?q=keyword`
 
-**For detailed fallback guidance:** See [references/web-fallback.md](references/web-fallback.md)
+**详细兜底指南：** 参见 [references/web-fallback.md](references/web-fallback.md)
 
 ---
 
-## Output Formats
+## 输出格式
 
-The skill supports three output formats:
+本 skill 支持三种输出格式：
 
-### Compact (default)
+### Compact（默认）
 
-One line per issue, good for scanning:
+每个 issue 一行，适合快速扫读：
 
 ```text
 #11984 [open] Path doubling in PowerShell hooks (bug, hooks)
@@ -182,9 +182,9 @@ One line per issue, good for scanning:
 #10892 [open] Add custom status line support (enhancement)
 ```
 
-### Table
+### Table（表格）
 
-Markdown table format for structured display:
+Markdown 表格形式，结构化展示：
 
 ```markdown
 | # | State | Title | Labels |
@@ -193,9 +193,9 @@ Markdown table format for structured display:
 | 11523 | closed | Fix memory leak in long sessions | bug, fixed |
 ```
 
-### Detailed
+### Detailed（详细）
 
-Full information for deep investigation:
+完整信息，用于深入调查：
 
 ```markdown
 ### #11984 - Path doubling in PowerShell hooks
@@ -207,36 +207,36 @@ When using cd && in PowerShell, paths get doubled...
 
 ---
 
-## Common Workflows
+## 常见 workflow
 
-### Troubleshooting an Error
+### 排查错误
 
-1. Extract key terms from error message
-2. Search issues with those terms
-3. Check both open and closed issues
-4. Look for workarounds in comments
+1. 从错误信息中提取关键词
+2. 用这些词搜 issue
+3. 同时看 open 和 closed issue
+4. 在评论里找 workaround
 
 ```bash
 # Example: Troubleshoot a specific error
 gh issue list --repo anthropics/claude-code --search "ENOENT" --state all --limit 10
 ```
 
-### Before Reporting a Bug
+### 报告 bug 前
 
-1. Search for existing issues with similar symptoms
-2. Check closed issues for past fixes
-3. If duplicate exists, add your context as a comment
+1. 搜索症状相似的已有 issue
+2. 查 closed issue 里过去的修复
+3. 若存在重复，把你的上下文作为评论补上
 
 ```bash
 # Search before reporting
 gh issue list --repo owner/repo --search "feature not working" --state all
 ```
 
-### Finding Workarounds
+### 寻找 workaround
 
-1. Search closed issues with your problem keywords
-2. Look for issues with "workaround" or "solution" in body
-3. Check issue comments for community solutions
+1. 用问题关键词搜 closed issue
+2. 找正文里包含 "workaround" 或 "solution" 的 issue
+3. 看 issue 评论中的社区方案
 
 ```bash
 # Find workarounds
@@ -245,9 +245,9 @@ gh issue list --repo owner/repo --search "workaround" --state closed --label "bu
 
 ---
 
-## Error Handling
+## 错误处理
 
-### gh not installed
+### gh 未安装
 
 ```text
 Error: gh: command not found
@@ -260,7 +260,7 @@ Solution: Install GitHub CLI from https://cli.github.com/
 Alternatively, falling back to web-based search...
 ```
 
-### Not authenticated
+### 未认证
 
 ```text
 Error: gh requires authentication
@@ -269,7 +269,7 @@ Solution: Run `gh auth login` and follow the prompts.
 For public repos, web fallback can be used without authentication.
 ```
 
-### Rate limited
+### 触发限流
 
 ```text
 Error: API rate limit exceeded
@@ -278,7 +278,7 @@ Solution: Wait 60 seconds before retrying.
 Authenticated requests have higher limits (5000/hour vs 60/hour).
 ```
 
-### No results found
+### 没有结果
 
 ```text
 No issues found matching "very specific query"
@@ -292,63 +292,63 @@ Suggestions:
 
 ---
 
-## References
+## 参考
 
-**Detailed Guides:**
+**详细指南：**
 
-- [references/gh-cli-guide.md](references/gh-cli-guide.md) - Installation, authentication, advanced usage
-- [references/query-patterns.md](references/query-patterns.md) - Search syntax and filter examples
-- [references/web-fallback.md](references/web-fallback.md) - Web-based fallback strategies
+- [references/gh-cli-guide.md](references/gh-cli-guide.md) —— 安装、认证、进阶用法
+- [references/query-patterns.md](references/query-patterns.md) —— 搜索语法与过滤示例
+- [references/web-fallback.md](references/web-fallback.md) —— 基于 web 的兜底策略
 
-**Related Agents:**
+**相关 agent：**
 
-- **history-reviewer** agent - Git history exploration and summarization
-
----
-
-## Test Scenarios
-
-### Scenario 1: Basic issue search
-
-**Query:** "Search for issues about hooks in the Claude Code repo"
-
-**Expected Behavior:**
-
-- Skill activates on "issues", "hooks", "Claude Code"
-- Checks if gh CLI is available
-- Runs `gh issue list --repo anthropics/claude-code --search "hooks" --state all`
-- Returns formatted results
-
-### Scenario 2: Troubleshooting error
-
-**Query:** "I'm getting a path doubling error in PowerShell. Is this a known issue?"
-
-**Expected Behavior:**
-
-- Skill activates on "error", "known issue", "PowerShell"
-- Searches for related issues
-- Finds #11984 and similar
-- Provides workaround if available
-
-### Scenario 3: Fallback to web
-
-**Query:** "Search for issues but gh isn't installed"
-
-**Expected Behavior:**
-
-- Detects gh not available
-- Falls back to WebSearch with `site:github.com/owner/repo/issues`
-- Returns results in same format
-
-## Version History
-
-- **v1.0.0** (2025-12-26): Initial release
+- **history-reviewer** agent —— Git 历史探索与总结
 
 ---
 
-## Last Updated
+## 测试场景
 
-**Date:** 2025-12-05
-**Model:** claude-opus-4-5-20251101
+### 场景 1：基础 issue 搜索
 
-**Audit Status:** NEW - Pending initial audit
+**Query：** "Search for issues about hooks in the Claude Code repo"
+
+**期望行为：**
+
+- skill 在 "issues"、"hooks"、"Claude Code" 这些词上激活
+- 检查 gh CLI 是否可用
+- 运行 `gh issue list --repo anthropics/claude-code --search "hooks" --state all`
+- 返回格式化后的结果
+
+### 场景 2：排查错误
+
+**Query：** "I'm getting a path doubling error in PowerShell. Is this a known issue?"
+
+**期望行为：**
+
+- skill 在 "error"、"known issue"、"PowerShell" 上激活
+- 搜索相关 issue
+- 找到 #11984 和类似 issue
+- 若有则给出 workaround
+
+### 场景 3：降级到 web
+
+**Query：** "Search for issues but gh isn't installed"
+
+**期望行为：**
+
+- 检测到 gh 不可用
+- 用 `site:github.com/owner/repo/issues` 降级到 WebSearch
+- 以同样格式返回结果
+
+## 版本历史
+
+- **v1.0.0**（2025-12-26）：首次发布
+
+---
+
+## 最后更新
+
+**日期：** 2025-12-05
+**模型：** claude-opus-4-5-20251101
+
+**审计状态：** NEW —— 等待首次审计

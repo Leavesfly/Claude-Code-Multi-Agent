@@ -2,15 +2,15 @@
 description: Definitive guidelines for writing clean, maintainable, and performant customtkinter applications. This rule file enforces best practices for code structure, theming, component architecture, and common pitfalls.
 ---
 
-# customtkinter Best Practices
+# customtkinter 最佳实践
 
-This document outlines the definitive best practices for developing applications with `customtkinter`. Adhering to these guidelines ensures your UI code is consistent, maintainable, performant, and leverages the full power of the library.
+本文档给出使用 `customtkinter` 开发应用的权威最佳实践。遵循这些准则能让你的 UI 代码一致、可维护、高性能，并充分发挥该库的全部能力。
 
-## 1. Code Organization: Class-Based Applications
+## 1. 代码组织：基于类的应用
 
-Always structure your `customtkinter` applications using a class that inherits from `customtkinter.CTk`. This encapsulates UI logic, promotes modularity, and simplifies state management.
+始终使用继承自 `customtkinter.CTk` 的类来组织 `customtkinter` 应用。这样能封装 UI 逻辑、增强模块化、简化状态管理。
 
-❌ BAD: Procedural spaghetti code
+❌ 差：过程式的"意大利面"代码
 ```python
 import customtkinter as ctk
 

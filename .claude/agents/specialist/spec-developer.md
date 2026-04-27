@@ -30,7 +30,7 @@ tools: Read, Write, Edit, MultiEdit, Bash, Glob, Grep, TodoWrite
 
 ### 4. 集成
 -   确保与现有代码无缝集成
--   精确遵循API契约
+-   精确遵循 API 契约
 -   保持向后兼容性
 -   记录重大变更
 
@@ -38,7 +38,7 @@ tools: Read, Write, Edit, MultiEdit, Bash, Glob, Grep, TodoWrite
 
 ### 代码结构
 ```typescript
-// Example: Well-structured service class
+// 示例：结构良好的服务类
 export class UserService {
   constructor(
     private readonly userRepository: UserRepository,
@@ -47,43 +47,43 @@ export class UserService {
   ) {}
 
   async createUser(dto: CreateUserDto): Promise<User> {
-    // Input validation
+    // 输入验证
     this.validateUserDto(dto);
     
-    // Check for existing user
+    // 检查是否存在已有用户
     const existingUser = await this.userRepository.findByEmail(dto.email);
     if (existingUser) {
-      throw new ConflictException('User with this email already exists');
+      throw new ConflictException('该邮箱的用户已存在');
     }
     
-    // Create user with transaction
+    // 使用事务创建用户
     const user = await this.userRepository.transaction(async (manager) => {
-      // Hash password
+      // 哈希密码
       const hashedPassword = await bcrypt.hash(dto.password, 10);
       
-      // Create user
+      // 创建用户
       const user = await manager.create({
         ...dto,
         password: hashedPassword,
       });
       
-      // Send welcome email
+      // 发送欢迎邮件
       await this.emailService.sendWelcomeEmail(user.email, user.name);
       
       return user;
     });
     
-    this.logger.info(`User created: ${user.id}`);
+    this.logger.info(`用户已创建：${user.id}`);
     return user;
   }
   
   private validateUserDto(dto: CreateUserDto): void {
     if (!dto.email || !this.isValidEmail(dto.email)) {
-      throw new ValidationException('Invalid email format');
+      throw new ValidationException('无效的邮箱格式');
     }
     
     if (!dto.password || dto.password.length < 8) {
-      throw new ValidationException('Password must be at least 8 characters');
+      throw new ValidationException('密码长度至少为 8 个字符');
     }
   }
 }
@@ -91,10 +91,10 @@ export class UserService {
 
 ### 错误处理
 ```typescript
-// Comprehensive error handling
+// 全面的错误处理
 export class ErrorHandler {
   static handle(error: unknown): ErrorResponse {
-    // Known application errors
+    // 已知的应用错误
     if (error instanceof AppError) {
       return {
         status: error.status,
@@ -103,17 +103,17 @@ export class ErrorHandler {
       };
     }
     
-    // Database errors
+    // 数据库错误
     if (error instanceof DatabaseError) {
-      logger.error('Database error:', error);
+      logger.error('数据库错误：', error);
       return {
         status: 503,
-        message: 'Service temporarily unavailable',
+        message: '服务暂时不可用',
         code: 'DATABASE_ERROR',
       };
     }
     
-    // Validation errors
+    // 验证错误
     if (error instanceof ValidationError) {
       return {
         status: 400,
@@ -123,11 +123,11 @@ export class ErrorHandler {
       };
     }
     
-    // Unknown errors
-    logger.error('Unexpected error:', error);
+    // 未知错误
+    logger.error('意外错误：', error);
     return {
       status: 500,
-      message: 'Internal server error',
+      message: '内部服务器错误',
       code: 'INTERNAL_ERROR',
     };
   }
@@ -136,7 +136,7 @@ export class ErrorHandler {
 
 ### 测试模式
 ```typescript
-// Comprehensive test example
+// 综合测试示例
 describe('UserService', () => {
   let userService: UserService;
   let userRepository: MockUserRepository;
@@ -149,42 +149,42 @@ describe('UserService', () => {
   });
   
   describe('createUser', () => {
-    it('should create user with valid data', async () => {
-      // Arrange
+    it('应使用有效数据创建用户', async () => {
+      // 准备
       const dto: CreateUserDto = {
         email: 'test@example.com',
         password: 'SecurePass123!',
         name: 'Test User',
       };
       
-      // Act
+      // 执行
       const user = await userService.createUser(dto);
       
-      // Assert
+      // 断言
       expect(user).toBeDefined();
       expect(user.email).toBe(dto.email);
-      expect(user.password).not.toBe(dto.password); // Should be hashed
+      expect(user.password).not.toBe(dto.password); // 应已哈希
       expect(emailService.sendWelcomeEmail).toHaveBeenCalledWith(
         dto.email,
         dto.name
       );
     });
     
-    it('should throw ConflictException for duplicate email', async () => {
-      // Arrange
+    it('应对重复邮箱抛出 ConflictException', async () => {
+      // 准备
       userRepository.findByEmail.mockResolvedValue(existingUser);
       
-      // Act & Assert
+      // 执行与断言
       await expect(userService.createUser(dto))
         .rejects
         .toThrow(ConflictException);
     });
     
-    it('should rollback transaction on email failure', async () => {
-      // Arrange
-      emailService.sendWelcomeEmail.mockRejectedValue(new Error('Email failed'));
+    it('应在邮件发送失败时回滚事务', async () => {
+      // 准备
+      emailService.sendWelcomeEmail.mockRejectedValue(new Error('邮件发送失败'));
       
-      // Act & Assert
+      // 执行与断言
       await expect(userService.createUser(dto)).rejects.toThrow();
       expect(userRepository.create).not.toHaveBeenCalled();
     });
@@ -196,7 +196,7 @@ describe('UserService', () => {
 
 ### 组件开发
 ```tsx
-// Example: Well-structured React component
+// 示例：结构良好的 React 组件
 import { useState, useCallback, useMemo } from 'react';
 import { useUser } from '@/hooks/useUser';
 import { Button } from '@/components/ui/button';
@@ -220,15 +220,15 @@ export function UserProfile({ userId, onUpdate }: UserProfileProps) {
       setIsEditing(false);
       await refetch();
     } catch (error) {
-      console.error('Failed to update user:', error);
-      // Error is handled by ErrorBoundary
+      console.error('更新用户失败：', error);
+      // 错误由 ErrorBoundary 处理
       throw error;
     }
   }, [userId, onUpdate, refetch]);
   
   const formattedDate = useMemo(() => {
     if (!user?.createdAt) return '';
-    return new Intl.DateTimeFormat('en-US', {
+    return new Intl.DateTimeFormat('zh-CN', {
       dateStyle: 'medium',
       timeStyle: 'short',
     }).format(new Date(user.createdAt));
@@ -243,7 +243,7 @@ export function UserProfile({ userId, onUpdate }: UserProfileProps) {
   }
   
   if (!user) {
-    return <EmptyState message="User not found" />;
+    return <EmptyState message="未找到用户" />;
   }
   
   return (
@@ -256,7 +256,7 @@ export function UserProfile({ userId, onUpdate }: UserProfileProps) {
             size="sm"
             onClick={() => setIsEditing(!isEditing)}
           >
-            {isEditing ? 'Cancel' : 'Edit'}
+            {isEditing ? '取消' : '编辑'}
           </Button>
         </div>
         
@@ -273,18 +273,18 @@ export function UserProfile({ userId, onUpdate }: UserProfileProps) {
 
 ### 状态管理
 ```typescript
-// Example: Zustand store with TypeScript
+// 示例：带 TypeScript 的 Zustand store
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
 interface AppState {
-  // State
+  // 状态
   user: User | null;
   isAuthenticated: boolean;
   theme: 'light' | 'dark';
   
-  // Actions
+  // 动作
   setUser: (user: User | null) => void;
   updateUser: (updates: Partial<User>) => void;
   logout: () => void;
@@ -295,12 +295,12 @@ export const useAppStore = create<AppState>()(
   devtools(
     persist(
       immer((set) => ({
-        // Initial state
+        // 初始状态
         user: null,
         isAuthenticated: false,
         theme: 'light',
         
-        // Actions
+        // 动作
         setUser: (user) =>
           set((state) => {
             state.user = user;
@@ -340,23 +340,23 @@ export const useAppStore = create<AppState>()(
 
 ### 后端优化
 ```typescript
-// Query optimization example
+// 查询优化示例
 export class OptimizedUserRepository {
-  // Use DataLoader for N+1 query prevention
+  // 使用 DataLoader 防止 N+1 查询问题
   private userLoader = new DataLoader<string, User>(
     async (ids) => {
       const users = await this.db.user.findMany({
         where: { id: { in: ids } },
       });
       
-      // Map to maintain order
+      // 映射以保持顺序
       const userMap = new Map(users.map((u) => [u.id, u]));
       return ids.map((id) => userMap.get(id) || null);
     },
     { cache: true }
   );
   
-  // Efficient pagination with cursor
+  // 使用游标的高效分页
   async findPaginated(cursor?: string, limit = 20): Promise<PaginatedResult<User>> {
     const users = await this.db.user.findMany({
       take: limit + 1,
@@ -367,7 +367,7 @@ export class OptimizedUserRepository {
         email: true,
         name: true,
         createdAt: true,
-        // Avoid selecting heavy fields unless needed
+        // 除非需要，否则避免选择大字段
       },
     });
     
@@ -381,9 +381,9 @@ export class OptimizedUserRepository {
     };
   }
   
-  // Use indexes effectively
+  // 有效使用索引
   async findByEmail(email: string): Promise<User | null> {
-    // Assuming email has a unique index
+    // 假设 email 有唯一索引
     return this.db.user.findUnique({
       where: { email },
     });
@@ -393,16 +393,16 @@ export class OptimizedUserRepository {
 
 ### 前端优化
 ```tsx
-// Performance optimizations
+// 性能优化
 import { lazy, Suspense, memo, useMemo, useCallback } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
-// Code splitting with lazy loading
+// 使用懒加载进行代码分割
 const HeavyComponent = lazy(() => import('./HeavyComponent'));
 
-// Memoized component
+// Memoized 组件
 export const UserList = memo<UserListProps>(({ users, onSelect }) => {
-  // Virtual scrolling for large lists
+  // 大型列表的虚拟滚动
   const parentRef = useRef<HTMLDivElement>(null);
   
   const virtualizer = useVirtualizer({
@@ -412,13 +412,13 @@ export const UserList = memo<UserListProps>(({ users, onSelect }) => {
     overscan: 5,
   });
   
-  // Memoize expensive calculations
+  // Memoize 昂贵计算
   const sortedUsers = useMemo(
     () => [...users].sort((a, b) => a.name.localeCompare(b.name)),
     [users]
   );
   
-  // Stable callbacks
+  // 稳定的回调
   const handleSelect = useCallback(
     (userId: string) => {
       const user = users.find((u) => u.id === userId);
@@ -466,43 +466,43 @@ UserList.displayName = 'UserList';
 
 ### 输入验证
 ```typescript
-// Comprehensive input validation
+// 全面的输入验证
 import { z } from 'zod';
 
 export const createUserSchema = z.object({
   email: z
     .string()
-    .email('Invalid email format')
-    .max(255, 'Email too long'),
+    .email('无效的邮箱格式')
+    .max(255, '邮箱过长'),
   password: z
     .string()
-    .min(8, 'Password must be at least 8 characters')
-    .regex(/[A-Z]/, 'Password must contain uppercase letter')
-    .regex(/[a-z]/, 'Password must contain lowercase letter')
-    .regex(/[0-9]/, 'Password must contain number')
-    .regex(/[^A-Za-z0-9]/, 'Password must contain special character'),
+    .min(8, '密码长度至少为 8 个字符')
+    .regex(/[A-Z]/, '密码必须包含大写字母')
+    .regex(/[a-z]/, '密码必须包含小写字母')
+    .regex(/[0-9]/, '密码必须包含数字')
+    .regex(/[^A-Za-z0-9]/, '密码必须包含特殊字符'),
   name: z
     .string()
-    .min(2, 'Name too short')
-    .max(100, 'Name too long')
-    .regex(/^[a-zA-Z\s'-]+$/, 'Invalid characters in name'),
+    .min(2, '名称过短')
+    .max(100, '名称过长')
+    .regex(/^[a-zA-Z\s'-]+$/, '名称包含无效字符'),
 });
 
-// SQL injection prevention
+// SQL 注入防护
 export class SecureRepository {
   async findUsers(filters: UserFilters): Promise<User[]> {
-    // Use parameterized queries
+    // 使用参数化查询
     const query = this.db
       .selectFrom('users')
       .selectAll();
     
     if (filters.email) {
-      // Safe: Uses parameterized query
+      // 安全：使用参数化查询
       query.where('email', '=', filters.email);
     }
     
     if (filters.name) {
-      // Safe: Properly escaped
+      // 安全：正确转义
       query.where('name', 'like', `%${filters.name}%`);
     }
     
@@ -510,7 +510,7 @@ export class SecureRepository {
   }
 }
 
-// XSS prevention
+// XSS 防护
 export function sanitizeHtml(input: string): string {
   return DOMPurify.sanitize(input, {
     ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a'],
@@ -534,7 +534,7 @@ export function sanitizeHtml(input: string): string {
 ### 代码质量清单
 -   [ ] 代码遵循项目约定
 -   [ ] 所有测试通过
--   [ ] 没有linting错误
+-   [ ] 没有 linting 错误
 -   [ ] 错误处理完整
 -   [ ] 性能可接受
 -   [ ] 考虑了安全性

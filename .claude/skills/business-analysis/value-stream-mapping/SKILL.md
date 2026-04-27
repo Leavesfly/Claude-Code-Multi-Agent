@@ -4,45 +4,45 @@ description: Lean value stream mapping for identifying waste and optimization op
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Value Stream Mapping
+# Value Stream Mapping（价值流图）
 
-Create Lean value stream maps to visualize flow, identify waste, and design improvement opportunities. Based on Lean manufacturing principles adapted for knowledge work.
+创建 Lean 价值流图，可视化流动、识别浪费、设计改进机会。基于 Lean 制造原则，并适配到知识工作。
 
-## What is a Value Stream?
+## 什么是 Value Stream？
 
-A **value stream** is the sequence of activities required to deliver value to a customer, from request to delivery. Value stream mapping (VSM) visualizes this flow to identify:
+**value stream（价值流）** 是从请求到交付、向客户交付价值所需的一系列活动。价值流图（VSM）把这个流动可视化，用于识别：
 
-- **Value-adding activities** - Steps that directly create customer value
-- **Waste (Muda)** - Steps that consume resources without adding value
-- **Flow problems** - Bottlenecks, delays, and inefficiencies
+- **增值活动** — 直接创造客户价值的步骤
+- **Waste（Muda，浪费）** — 消耗资源却不增值的步骤
+- **流动问题** — 瓶颈、延迟与低效
 
-## The 8 Wastes (TIMWOODS)
+## 8 种 Waste（TIMWOODS）
 
-| Waste | Description | Examples in Knowledge Work |
+| Waste | 描述 | 知识工作中的示例 |
 |-------|-------------|---------------------------|
-| **T**ransportation | Moving work between locations | Handoffs between teams, tool switching |
-| **I**nventory | Unfinished work waiting | Backlog, WIP, queued requests |
-| **M**otion | Unnecessary movement | Context switching, searching for info |
-| **W**aiting | Idle time | Approvals, blocked work, dependencies |
-| **O**verproduction | Making more than needed | Unused features, premature optimization |
-| **O**verprocessing | Doing more than required | Gold plating, excessive documentation |
-| **D**efects | Errors requiring rework | Bugs, miscommunication, rework |
-| **S**kills | Underutilized talent | Manual work that could be automated |
+| **T**ransportation | 在不同位置之间搬运工作 | 团队间交接、工具切换 |
+| **I**nventory | 未完成的工作在排队 | backlog、WIP、排队的请求 |
+| **M**otion | 不必要的动作 | 上下文切换、找资料 |
+| **W**aiting | 闲置时间 | 审批、阻塞、依赖 |
+| **O**verproduction | 做得比需要的多 | 没人用的 feature、过早优化 |
+| **O**verprocessing | 做得比必要的多 | 镀金、过量文档 |
+| **D**efects | 导致返工的错误 | bug、沟通失误、返工 |
+| **S**kills | 人才未被用好 | 可以自动化的手工工作 |
 
-## Workflow
+## 工作流
 
-### Phase 1: Define Scope
+### Phase 1：定义范围
 
-#### Step 1: Identify the Value Stream
+#### Step 1：识别价值流
 
-| Question | Answer |
+| 问题 | 答案 |
 |----------|--------|
-| What value are we delivering? | [Customer outcome] |
-| Who is the customer? | [Internal/External customer] |
-| Where does the stream start? | [Trigger/Request] |
-| Where does it end? | [Value delivered] |
+| 我们在交付什么价值？ | [客户产出] |
+| 客户是谁？ | [内部/外部客户] |
+| 价值流从哪里开始？ | [触发/请求] |
+| 到哪里结束？ | [价值已交付] |
 
-#### Step 2: Set Boundaries
+#### Step 2：设定边界
 
 ```markdown
 ## Value Stream Definition
@@ -54,28 +54,28 @@ A **value stream** is the sequence of activities required to deliver value to a 
 **Customer:** External retail customer
 ```
 
-### Phase 2: Current State Map
+### Phase 2：Current State Map（现状图）
 
-#### Step 1: Walk the Process
+#### Step 1：走查流程
 
-Observe actual work (gemba walk):
+现场观察真实工作（gemba walk）：
 
-- Follow a real work item through the process
-- Document what actually happens, not what should happen
-- Note handoffs, delays, and workarounds
+- 跟随一个真实的工件走完整个流程
+- 记录"真实发生了什么"，而不是"应该发生什么"
+- 标注交接点、延迟与绕路
 
-#### Step 2: Document Process Steps
+#### Step 2：记录流程步骤
 
-For each step, capture:
+对每个步骤，记录：
 
-| Metric | Definition | How to Measure |
+| 度量 | 定义 | 测量方式 |
 |--------|------------|----------------|
-| **Process Time (PT)** | Active work time | Time actually working |
-| **Lead Time (LT)** | Total elapsed time | Clock time start to finish |
-| **Wait Time (WT)** | Time waiting | LT - PT |
-| **% Complete & Accurate (%C&A)** | First-time quality | % not requiring rework |
+| **Process Time (PT)** | 实际工作时间 | 真正在做事的时间 |
+| **Lead Time (LT)** | 总经过时间 | 从开始到结束的墙上时间 |
+| **Wait Time (WT)** | 等待时间 | LT - PT |
+| **% Complete & Accurate (%C&A)** | 一次合格率 | 无需返工的比例 |
 
-#### Step 3: Create Current State Map
+#### Step 3：绘制 Current State Map
 
 ```markdown
 ## Current State Value Stream
@@ -93,9 +93,9 @@ For each step, capture:
 **Flow Efficiency:** 2.7% (PT / LT)
 ```
 
-### Phase 3: Analyze Waste
+### Phase 3：分析 Waste
 
-#### Step 1: Calculate Flow Efficiency
+#### Step 1：计算 Flow Efficiency
 
 ```text
 Flow Efficiency = Process Time / Lead Time × 100%
@@ -103,14 +103,14 @@ Flow Efficiency = Process Time / Lead Time × 100%
 Example: 70 min / 2640 min = 2.7%
 ```
 
-**Interpretation:**
+**解读：**
 
-- < 5%: Significant waste (typical for unoptimized processes)
-- 5-15%: Moderate efficiency
-- 15-25%: Good efficiency
-- > 25%: Excellent (rare for knowledge work)
+- < 5%：浪费严重（未优化流程的典型值）
+- 5-15%：一般效率
+- 15-25%：不错
+- > 25%：非常好（知识工作中罕见）
 
-#### Step 2: Identify Waste by Type
+#### Step 2：按类型识别 Waste
 
 ```markdown
 ## Waste Analysis
@@ -132,9 +132,9 @@ Example: 70 min / 2640 min = 2.7%
 - Duplicate data entry across systems
 ```
 
-#### Step 3: Identify Bottlenecks
+#### Step 3：识别瓶颈
 
-The constraint (bottleneck) limits the entire system:
+约束（bottleneck）决定了整个系统的产能：
 
 ```markdown
 ## Bottleneck Analysis
@@ -149,17 +149,17 @@ The constraint (bottleneck) limits the entire system:
 - Variable cycle time
 ```
 
-### Phase 4: Future State Design
+### Phase 4：Future State 设计
 
-#### Step 1: Apply Lean Principles
+#### Step 1：套用 Lean 原则
 
-| Principle | Current Problem | Future State Solution |
+| 原则 | 当前问题 | Future State 方案 |
 |-----------|----------------|----------------------|
-| **Flow** | Batch processing | Continuous flow, single-piece |
-| **Pull** | Push based on forecast | Pull based on demand |
-| **Perfection** | Accept defects, fix later | Build quality in |
+| **Flow（流动）** | 批处理 | 连续流，单件流 |
+| **Pull（拉动）** | 基于预测的推送 | 基于需求的拉动 |
+| **Perfection（零缺陷）** | 先接受缺陷、后面再修 | 内建质量 |
 
-#### Step 2: Design Improvements
+#### Step 2：设计改进措施
 
 ```markdown
 ## Future State Design
@@ -181,7 +181,7 @@ The constraint (bottleneck) limits the entire system:
 - API integrations
 ```
 
-#### Step 3: Create Future State Map
+#### Step 3：绘制 Future State Map
 
 ```markdown
 ## Future State Value Stream
@@ -199,20 +199,20 @@ The constraint (bottleneck) limits the entire system:
 **Target Flow Efficiency:** 11.7% (4x improvement)
 ```
 
-### Phase 5: Implementation Roadmap
+### Phase 5：Implementation Roadmap（落地 Roadmap）
 
-#### Step 1: Prioritize Improvements
+#### Step 1：为改进排序
 
-| Improvement | Impact | Effort | Priority |
+| 改进 | 收益 | 投入 | 优先级 |
 |-------------|--------|--------|----------|
-| Real-time credit API | High (8h → 5m) | Medium | 1 |
-| Order entry validation | Medium (15% → 2% errors) | Low | 2 |
-| On-demand carrier | High (24h → 4h) | High | 3 |
-| Automated inventory | Medium | Medium | 4 |
+| Real-time credit API | 高 (8h → 5m) | 中 | 1 |
+| Order entry validation | 中 (错误率 15% → 2%) | 低 | 2 |
+| On-demand carrier | 高 (24h → 4h) | 高 | 3 |
+| Automated inventory | 中 | 中 | 4 |
 
-#### Step 2: Define Kaizen Events
+#### Step 2：定义 Kaizen 事件
 
-Focused improvement workshops:
+聚焦式的改进 workshop：
 
 ```markdown
 ## Kaizen Event: Credit Check Automation
@@ -227,9 +227,9 @@ Focused improvement workshops:
 - Training materials
 ```
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Value Stream Analysis Summary
@@ -260,7 +260,7 @@ Focused improvement workshops:
 3. [Lower priority improvement]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 value_stream:
@@ -339,9 +339,9 @@ value_stream:
       duration_weeks: 8
 ```
 
-### Mermaid Diagrams
+### Mermaid 图表
 
-**Current State Flow:**
+**Current State Flow：**
 
 ```mermaid
 flowchart LR
@@ -355,7 +355,7 @@ flowchart LR
     style B fill:#ff9999
 ```
 
-**Future State Flow:**
+**Future State Flow：**
 
 ```mermaid
 flowchart LR
@@ -370,41 +370,41 @@ flowchart LR
     style C fill:#99ff99
 ```
 
-## When to Use
+## 何时使用
 
-| Scenario | Use Value Stream Mapping? |
+| 场景 | 是否使用 VSM？ |
 |----------|--------------------------|
-| Process improvement | Yes - identify waste |
-| New system design | Yes - design for flow |
-| Cost reduction | Yes - find inefficiencies |
-| Lead time complaints | Yes - find bottlenecks |
-| Quality problems | Partial - with root cause analysis |
-| Greenfield project | Maybe - limited current state |
+| 流程改进 | 是 — 识别浪费 |
+| 新系统设计 | 是 — 围绕 flow 设计 |
+| 成本削减 | 是 — 找低效点 |
+| lead time 投诉 | 是 — 找瓶颈 |
+| 质量问题 | 部分适用 — 配合根因分析 |
+| 全新项目 | 也许 — 现状信息有限 |
 
-## Integration
+## 集成
 
-### Upstream (Discovery)
+### 上游（Discovery 阶段）
 
-- **process-modeling** - Understand current process
-- **capability-mapping** - Link to business capabilities
-- **stakeholder-analysis** - Identify process owners
+- **process-modeling** — 理解现状流程
+- **capability-mapping** — 关联到业务能力
+- **stakeholder-analysis** — 识别流程 owner
 
-### Downstream
+### 下游
 
-- **Requirements** - Improvement requirements
-- **Systems design** - Automation opportunities
-- **Project planning** - Kaizen event planning
+- **Requirements** — 改进需求
+- **Systems design** — 自动化机会
+- **Project planning** — Kaizen 事件规划
 
-## Related Skills
+## 相关 skill
 
-- `journey-mapping` - Customer experience perspective
-- `capability-mapping` - Capability view of value delivery
-- `root-cause-analysis` - Investigate bottleneck causes
-- `prioritization` - Prioritize improvement initiatives
-- `process-modeling` - Detailed BPMN process diagrams
-- `estimation` - Estimate improvement effort
-- `benchmarking` - Current vs target comparison
+- `journey-mapping` — 客户体验视角
+- `capability-mapping` — 从能力视角看价值交付
+- `root-cause-analysis` — 调查瓶颈根因
+- `prioritization` — 为改进 initiative 排优先级
+- `process-modeling` — 详细 BPMN 流程图
+- `estimation` — 估算改进投入
+- `benchmarking` — 现状 vs 目标 对标
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

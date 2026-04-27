@@ -1,218 +1,218 @@
 ---
-description: Plan an accessibility audit against WCAG 2.2 or other standards. Use for ensuring digital products meet accessibility compliance requirements.
+description: 针对 WCAG 2.2 或其他标准规划无障碍审计。用于确保数字产品满足无障碍合规要求。
 allowed-tools: Read, Glob, Grep, Write, Skill, Task
 argument-hint: <product> [--level A|AA|AAA] [--scope <pages-or-components>]
 ---
 
-# Plan Accessibility Audit
+# 规划无障碍审计
 
-Create a comprehensive accessibility audit plan for the specified product.
+为指定产品创建全面的无障碍审计计划。
 
-## Workflow
+## 工作流程
 
-### Step 1: Load Required Skills
+### 步骤 1：加载所需技能
 
-Load these skills:
+加载以下技能：
 
-- `accessibility-planning` - WCAG requirements and audit methodology
+- `accessibility-planning` - WCAG 要求和审计方法论
 
-### Step 2: Understand Audit Scope
+### 步骤 2：理解审计范围
 
-Gather context about: {{ product }}
+收集关于 {{ product }} 的上下文信息：
 
-Target level: {{ level | default: "AA" }}
-{% if scope %}Scope: {{ scope }}{% endif %}
+目标级别：{{ level | default: "AA" }}
+{% if scope %}范围：{{ scope }}{% endif %}
 
-Understand:
+了解：
 
-- Is this a new product or existing?
-- What technology stack is used?
-- Are there known accessibility issues?
-- What's the compliance driver (legal, policy, ethical)?
+- 这是新产品还是现有产品？
+- 使用什么技术栈？
+- 是否存在已知的无障碍问题？
+- 合规驱动因素是什么（法律、政策、道德）？
 
-### Step 3: Spawn Accessibility Specialist Agent
+### 步骤 3：生成无障碍专家 Agent
 
-Spawn the `accessibility-specialist` agent with the following prompt:
+使用以下提示词生成 `accessibility-specialist` agent：
 
 ```text
-Create a comprehensive accessibility audit plan for: {{ product }}
+为以下产品创建全面的无障碍审计计划：{{ product }}
 
-Target conformance: WCAG 2.2 Level {{ level | default: "AA" }}
+目标符合性：WCAG 2.2 Level {{ level | default: "AA" }}
 
 {% if scope %}
-Focus scope: {{ scope }}
+重点范围：{{ scope }}
 {% endif %}
 
-Provide:
+提供：
 
-1. Audit Scope and Standards
-   - Specific WCAG 2.2 success criteria to evaluate
-   - Any additional standards (Section 508, EN 301 549)
-   - Pages/components in scope
-   - Testing boundaries
+1. 审计范围和标准
+   - 要评估的具体 WCAG 2.2 成功标准
+   - 任何其他标准（Section 508、EN 301 549）
+   - 范围内的页面/组件
+   - 测试边界
 
-2. Testing Strategy
+2. 测试策略
 
-   ### Automated Testing
-   - Recommended tools (axe, WAVE, Lighthouse)
-   - What automated tests can catch
-   - Limitations of automated testing
+   ### 自动化测试
+   - 推荐工具（axe、WAVE、Lighthouse）
+   - 自动化测试可以捕获的内容
+   - 自动化测试的局限性
 
-   ### Manual Testing
-   - Keyboard navigation testing
-   - Screen reader testing matrix (which AT, browsers)
-   - Visual inspection points
-   - Cognitive accessibility checks
+   ### 手动测试
+   - 键盘导航测试
+   - 屏幕阅读器测试矩阵（哪些辅助技术、浏览器）
+   - 视觉检查点
+   - 认知无障碍检查
 
-   ### Assistive Technology Matrix
-   | AT | Browser | OS | Priority |
+   ### 辅助技术矩阵
+   | 辅助技术 | 浏览器 | 操作系统 | 优先级 |
    |----|---------|----|----|
    | [AT] | [Browser] | [OS] | [P1/P2/P3] |
 
-3. Page/Component Priority
-   - Critical paths to test first
-   - High-traffic pages
-   - Core functionality
+3. 页面/组件优先级
+   - 首先测试的关键路径
+   - 高流量页面
+   - 核心功能
 
-4. Issue Documentation Template
-   - How to log issues found
-   - Severity rating criteria
-   - WCAG mapping requirements
+4. 问题文档模板
+   - 如何记录发现的问题
+   - 严重程度评级标准
+   - WCAG 映射要求
 
-5. Timeline and Resources
-   - Estimated effort
-   - Skills needed
-   - Recommended phases
+5. 时间线和资源
+   - 预估工作量
+   - 所需技能
+   - 推荐阶段
 
-6. Deliverables
-   - Issue log format
-   - Executive summary template
-   - VPAT outline (if needed)
-   - Remediation roadmap template
+6. 交付物
+   - 问题日志格式
+   - 执行摘要模板
+   - VPAT 大纲（如需要）
+   - 修复路线图模板
 
-7. Remediation Planning
-   - Prioritization framework
-   - Quick wins vs. major efforts
-   - Regression prevention
+7. 修复规划
+   - 优先级框架
+   - 快速获胜与重大努力
+   - 回归预防
 
-Use the accessibility-planning skill for WCAG criteria reference.
-Output a complete audit plan document.
+使用 accessibility-planning 技能获取 WCAG 标准参考。
+输出完整的审计计划文档。
 ```
 
-### Step 4: Generate Audit Materials
+### 步骤 4：生成审计材料
 
-Provide ready-to-use materials:
+提供即用型材料：
 
-- WCAG 2.2 Level AA checklist
-- Issue logging template
-- Severity rating guide
-- Testing procedures
+- WCAG 2.2 Level AA 检查清单
+- 问题记录模板
+- 严重程度评级指南
+- 测试程序
 
-## Example Usage
+## 示例用法
 
 ```bash
-# Full accessibility audit
-/ux-research:audit-accessibility "enterprise dashboard application"
+# 完整无障碍审计
+/ux-research:audit-accessibility "企业仪表板应用程序"
 
-# Audit to AAA level
-/ux-research:audit-accessibility "public website" --level AAA
+# 审计至 AAA 级别
+/ux-research:audit-accessibility "公共网站" --level AAA
 
-# Focused audit
-/ux-research:audit-accessibility "e-commerce site" --scope "checkout flow"
+# 聚焦审计
+/ux-research:audit-accessibility "电子商务网站" --scope "结账流程"
 ```
 
-## Output Format
+## 输出格式
 
 ```markdown
-# Accessibility Audit Plan: [Product]
+# 无障碍审计计划：[产品]
 
-## Audit Overview
-- **Target Standard:** WCAG 2.2 Level [A/AA/AAA]
-- **Additional Standards:** [Section 508, EN 301 549, etc.]
-- **Scope:** [What's included]
-- **Timeline:** [Duration]
-
----
-
-## Success Criteria in Scope
-
-### Level A ([N] criteria)
-| # | Criterion | Testing Method |
-|---|-----------|----------------|
-| 1.1.1 | Non-text Content | Manual + Auto |
-| ... | ... | ... |
-
-### Level AA ([N] criteria)
-| # | Criterion | Testing Method |
-|---|-----------|----------------|
-| 1.4.3 | Contrast (Minimum) | Automated |
-| ... | ... | ... |
+## 审计概览
+- **目标标准：** WCAG 2.2 Level [A/AA/AAA]
+- **附加标准：** [Section 508、EN 301 549 等]
+- **范围：** [包含内容]
+- **时间线：** [持续时间]
 
 ---
 
-## Testing Approach
+## 范围内的成功标准
 
-### Automated Testing
-**Tools:**
-- [Tool 1] - [Purpose]
-- [Tool 2] - [Purpose]
+### Level A（[N] 个标准）
+| # | 标准 | 测试方法 |
+|---|-----------|----------------|
+| 1.1.1 | 非文本内容 | 手动 + 自动 |
+| ... | ... | ... |
 
-**Scope:** [What automated tests cover]
-**Limitations:** [What they miss]
+### Level AA（[N] 个标准）
+| # | 标准 | 测试方法 |
+|---|-----------|----------------|
+| 1.4.3 | 对比度（最低） | 自动化 |
+| ... | ... | ... |
 
-### Manual Testing
+---
 
-#### Keyboard Testing
-- [ ] All interactive elements focusable
-- [ ] Visible focus indicator
-- [ ] Logical focus order
-- [ ] No keyboard traps
-- [ ] Skip links functional
+## 测试方法
 
-#### Screen Reader Testing
-| AT | Browser | OS | Tester |
+### 自动化测试
+**工具：**
+- [工具 1] - [用途]
+- [工具 2] - [用途]
+
+**范围：** [自动化测试覆盖的内容]
+**局限性：** [它们遗漏的内容]
+
+### 手动测试
+
+#### 键盘测试
+- [ ] 所有交互元素可聚焦
+- [ ] 可见焦点指示器
+- [ ] 逻辑焦点顺序
+- [ ] 无键盘陷阱
+- [ ] 跳过链接功能正常
+
+#### 屏幕阅读器测试
+| 辅助技术 | 浏览器 | 操作系统 | 测试人员 |
 |----|---------|----|----|
-| NVDA | Chrome | Windows | TBD |
-| VoiceOver | Safari | macOS | TBD |
-| VoiceOver | Safari | iOS | TBD |
+| NVDA | Chrome | Windows | 待定 |
+| VoiceOver | Safari | macOS | 待定 |
+| VoiceOver | Safari | iOS | 待定 |
 
 ---
 
-## Pages/Components to Test
+## 待测试的页面/组件
 
-| Priority | Page/Component | URL | Status |
+| 优先级 | 页面/组件 | URL | 状态 |
 |----------|----------------|-----|--------|
-| P1 | [Page] | [URL] | Pending |
-| P1 | [Page] | [URL] | Pending |
-| P2 | [Page] | [URL] | Pending |
+| P1 | [页面] | [URL] | 待处理 |
+| P1 | [页面] | [URL] | 待处理 |
+| P2 | [页面] | [URL] | 待处理 |
 
 ---
 
-## Issue Severity Ratings
+## 问题严重程度评级
 
-| Severity | Definition | Action |
+| 严重程度 | 定义 | 操作 |
 |----------|------------|--------|
-| Critical | Blocks access completely | Must fix before launch |
-| Major | Significant barrier | Should fix before launch |
-| Minor | Causes inconvenience | Fix when possible |
-| Enhancement | Best practice | Consider for future |
+| 严重 | 完全阻止访问 | 发布前必须修复 |
+| 主要 | 显著障碍 | 发布前应修复 |
+| 次要 | 造成不便 | 可能时修复 |
+| 增强 | 最佳实践 | 未来考虑 |
 
 ---
 
-## Timeline
+## 时间线
 
-| Phase | Duration | Activities |
+| 阶段 | 持续时间 | 活动 |
 |-------|----------|------------|
-| Automated scan | [Time] | Run tools, log issues |
-| Manual testing | [Time] | Keyboard, visual |
-| AT testing | [Time] | Screen readers |
-| Report | [Time] | Compile findings |
+| 自动化扫描 | [时间] | 运行工具，记录问题 |
+| 手动测试 | [时间] | 键盘、视觉 |
+| 辅助技术测试 | [时间] | 屏幕阅读器 |
+| 报告 | [时间] | 汇总发现 |
 
 ---
 
-## Deliverables
-- [ ] Issue log (all findings)
-- [ ] Executive summary
-- [ ] Remediation roadmap
-- [ ] VPAT/ACR (if required)
+## 交付物
+- [ ] 问题日志（所有发现）
+- [ ] 执行摘要
+- [ ] 修复路线图
+- [ ] VPAT/ACR（如需要）
 ```

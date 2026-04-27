@@ -3,54 +3,54 @@ name: lead-research-assistant
 description: 通过分析您的业务、搜索目标公司并提供可行的联系策略，为您的产品或服务识别高质量潜在客户。非常适合销售、业务开发和营销专业人士。
 ---
 
-# Lead Research Assistant
+# Lead Research Assistant（潜在客户研究助手）
 
-This skill helps you identify and qualify potential leads for your business by analyzing your product/service, understanding your ideal customer profile, and providing actionable outreach strategies.
+本 skill 通过分析你的产品/服务、理解你的理想客户画像（ICP）并提供可行动的触达策略，帮你识别并甄别高质量 lead。
 
-## When to Use This Skill
+## 何时使用本 skill
 
-- Finding potential customers or clients for your product/service
-- Building a list of companies to reach out to for partnerships
-- Identifying target accounts for sales outreach
-- Researching companies that match your ideal customer profile
-- Preparing for business development activities
+- 为你的产品/服务寻找潜在客户
+- 构建合作伙伴触达公司清单
+- 识别销售触达的目标客户
+- 调研匹配你理想客户画像的公司
+- 为业务拓展活动做准备
 
-## What This Skill Does
+## 本 skill 能做什么
 
-1. **Understands Your Business**: Analyzes your product/service, value proposition, and target market
-2. **Identifies Target Companies**: Finds companies that match your ideal customer profile based on:
-   - Industry and sector
-   - Company size and location
-   - Technology stack and tools they use
-   - Growth stage and funding
-   - Pain points your product solves
-3. **Prioritizes Leads**: Ranks companies based on fit score and relevance
-4. **Provides Contact Strategies**: Suggests how to approach each lead with personalized messaging
-5. **Enriches Data**: Gathers relevant information about decision-makers and company context
+1. **理解你的业务**：分析产品/服务、value proposition、目标市场
+2. **识别目标公司**：基于以下维度找出匹配 ICP 的公司：
+   - 行业与领域
+   - 公司规模与所在地
+   - 所用的技术栈与工具
+   - 成长阶段与融资情况
+   - 你的产品所解决的痛点
+3. **对 lead 排序**：基于 fit score 与相关性对公司排名
+4. **提供触达策略**：为每个 lead 建议个性化的触达方式
+5. **信息补全**：收集决策者与公司背景的相关信息
 
-## How to Use
+## 用法
 
-### Basic Usage
+### 基本用法
 
-Simply describe your product/service and what you're looking for:
+直接描述你的产品/服务和你在找什么：
 
 ```
 I'm building [product description]. Find me 10 companies in [location/industry] 
 that would be good leads for this.
 ```
 
-### With Your Codebase
+### 结合你的 codebase
 
-For even better results, run this from your product's source code directory:
+为获得更好的结果，在你的产品源码目录下运行：
 
 ```
 Look at what I'm building in this repository and identify the top 10 companies 
 in [location/industry] that would benefit from this product.
 ```
 
-### Advanced Usage
+### 进阶用法
 
-For more targeted research:
+更精准的调研：
 
 ```
 My product: [description]
@@ -64,54 +64,54 @@ Ideal customer profile:
 Find me 20 qualified leads with contact strategies for each.
 ```
 
-## Instructions
+## 操作说明
 
-When a user requests lead research:
+当用户请求 lead 调研时：
 
-1. **Understand the Product/Service**
-   - If in a code directory, analyze the codebase to understand the product
-   - Ask clarifying questions about the value proposition
-   - Identify key features and benefits
-   - Understand what problems it solves
+1. **理解产品/服务**
+   - 如果在代码目录里，分析 codebase 理解产品
+   - 针对 value proposition 提澄清问题
+   - 识别关键特性与收益
+   - 理解它解决什么问题
 
-2. **Define Ideal Customer Profile**
-   - Determine target industries and sectors
-   - Identify company size ranges
-   - Consider geographic preferences
-   - Understand relevant pain points
-   - Note any technology requirements
+2. **定义理想客户画像（ICP）**
+   - 确定目标行业与领域
+   - 识别公司规模区间
+   - 考虑地域偏好
+   - 理解相关痛点
+   - 记录技术方面的要求
 
-3. **Research and Identify Leads**
-   - Search for companies matching the criteria
-   - Look for signals of need (job postings, tech stack, recent news)
-   - Consider growth indicators (funding, expansion, hiring)
-   - Identify companies with complementary products/services
-   - Check for budget indicators
+3. **调研与识别 lead**
+   - 搜索匹配准则的公司
+   - 寻找需求信号（招聘信息、技术栈、近期新闻）
+   - 关注成长指标（融资、扩张、招聘）
+   - 识别具有互补型产品/服务的公司
+   - 核对预算相关的信号
 
-4. **Prioritize and Score**
-   - Create a fit score (1-10) for each lead
-   - Consider factors like:
-     - Alignment with ICP
-     - Signals of immediate need
-     - Budget availability
-     - Competitive landscape
-     - Timing indicators
+4. **排序与评分**
+   - 为每个 lead 打 fit score（1-10）
+   - 考虑以下因素：
+     - 与 ICP 的契合度
+     - 即时需求信号
+     - 预算可得性
+     - 竞争格局
+     - 时机信号
 
-5. **Provide Actionable Output**
-   
-   For each lead, provide:
-   - **Company Name** and website
-   - **Why They're a Good Fit**: Specific reasons based on their business
-   - **Priority Score**: 1-10 with explanation
-   - **Decision Maker**: Role/title to target (e.g., "VP of Engineering")
-   - **Contact Strategy**: Personalized approach suggestions
-   - **Value Proposition**: How your product solves their specific problem
-   - **Conversation Starters**: Specific points to mention in outreach
-   - **LinkedIn URL**: If available, for easy connection
+5. **提供可行动的输出**
 
-6. **Format the Output**
+   对每个 lead 提供：
+   - **公司名** 与 website
+   - **为什么契合**：基于对方业务的具体理由
+   - **Priority Score**：1-10 附带说明
+   - **Decision Maker**：目标角色/职位（如 "VP of Engineering"）
+   - **Contact Strategy**：个性化触达建议
+   - **Value Proposition**：你的产品如何解决其具体问题
+   - **Conversation Starters**：触达中可提到的具体话题
+   - **LinkedIn URL**：若可得，便于加联系
 
-   Present results in a clear, scannable format:
+6. **格式化输出**
+
+   用清晰、易扫读的格式呈现结果：
 
    ```markdown
    # Lead Research Results
@@ -152,48 +152,48 @@ When a user requests lead research:
    [Repeat for each lead]
    ```
 
-7. **Offer Next Steps**
-   - Suggest saving results to a CSV for CRM import
-   - Offer to draft personalized outreach messages
-   - Recommend prioritization based on timing
-   - Suggest follow-up research for top leads
+7. **提供下一步**
+   - 建议把结果保存为 CSV 供 CRM 导入
+   - 主动起草个性化触达消息
+   - 基于时机给出优先级建议
+   - 针对 top lead 建议进一步调研
 
-## Examples
+## 示例
 
-### Example 1: From Lenny's Newsletter
+### 示例 1：来自 Lenny's Newsletter
 
-**User**: "I'm building a tool that masks sensitive data in AI coding assistant queries. Find potential leads."
+**User**："I'm building a tool that masks sensitive data in AI coding assistant queries. Find potential leads."
 
-**Output**: Creates a prioritized list of companies that:
-- Use AI coding assistants (Copilot, Cursor, etc.)
-- Handle sensitive data (fintech, healthcare, legal)
-- Have evidence in their GitHub repos of using coding agents
-- May have accidentally exposed sensitive data in code
-- Includes LinkedIn URLs of relevant decision-makers
+**Output**：生成一份排序后的公司清单，这些公司：
+- 使用 AI coding assistant（Copilot、Cursor 等）
+- 处理敏感数据（fintech、healthcare、legal）
+- GitHub repo 里有使用 coding agent 的证据
+- 可能在代码中意外暴露了敏感数据
+- 附带相关决策者的 LinkedIn URL
 
-### Example 2: Local Business
+### 示例 2：本地企业
 
-**User**: "I run a consulting practice for remote team productivity. Find me 10 companies in the Bay Area that recently went remote."
+**User**："I run a consulting practice for remote team productivity. Find me 10 companies in the Bay Area that recently went remote."
 
-**Output**: Identifies companies that:
-- Recently posted remote job listings
-- Announced remote-first policies
-- Are hiring distributed teams
-- Show signs of remote work challenges
-- Provides personalized outreach strategies for each
+**Output**：识别出这样一批公司：
+- 近期发布了远程工作岗位
+- 宣布了 remote-first 政策
+- 正在招募分布式团队
+- 显示出远程工作痛点信号
+- 并为每家提供个性化触达策略
 
-## Tips for Best Results
+## 获得最佳结果的建议
 
-- **Be specific** about your product and its unique value
-- **Run from your codebase** if applicable for automatic context
-- **Provide context** about your ideal customer profile
-- **Specify constraints** like industry, location, or company size
-- **Request follow-up** research on promising leads for deeper insights
+- **具体描述**你的产品及其独特价值
+- 若适用，**在 codebase 目录下运行**以自动获取上下文
+- **提供上下文**：你的 ICP 是什么
+- **设定约束**：行业、地域或公司规模
+- 对有希望的 lead **请求进一步调研**以得到更深洞察
 
-## Related Use Cases
+## 相关用例
 
-- Drafting personalized outreach emails after identifying leads
-- Building a CRM-ready CSV of qualified prospects
-- Researching specific companies in detail
-- Analyzing competitor customer bases
-- Identifying partnership opportunities
+- 识别完 lead 后起草个性化触达邮件
+- 构建可直接导入 CRM 的合格潜客 CSV
+- 详细调研特定公司
+- 分析竞品客户构成
+- 识别合作伙伴机会

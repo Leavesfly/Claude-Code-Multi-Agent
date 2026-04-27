@@ -6,57 +6,57 @@ allowed-tools: Read, Glob, Grep, Task
 
 # Prototype Strategy
 
-Plan and execute prototyping approaches from paper sketches to high-fidelity interactive prototypes.
+规划并执行从纸面草图到高保真交互原型的原型设计方法。
 
-## When to Use This Skill
+## 何时使用此 Skill
 
-Use this skill when:
+在以下情况使用此 skill：
 
-- **Prototype Strategy tasks** - Working on plan prototyping approach - fidelity levels, tool selection, prototype types, testing strategies, and design-to-development handoff
-- **Planning or design** - Need guidance on Prototype Strategy approaches
-- **Best practices** - Want to follow established patterns and standards
+- **Prototype Strategy 任务** - 致力于规划原型设计方法 - 保真度级别、工具选择、原型类型、测试策略以及设计到开发的交接
+- **规划或设计阶段** - 需要关于 Prototype Strategy 方法的指导
+- **最佳实践** - 希望遵循既定的模式和标准
 
-## MANDATORY: Skill Loading First
+## 强制要求：首先加载 Skill
 
-Before answering ANY prototyping question:
+在回答任何原型设计问题之前：
 
-2. Use established prototyping methodology sources
-3. Base all guidance on validated design practices
+2. 使用已建立的原型设计方法论来源
+3. 基于经过验证的设计实践提供所有指导
 
-## Fidelity Spectrum
+## 保真度谱系
 
-### Fidelity Levels
+### 保真度级别
 
-| Level | Characteristics | Best For |
+| 级别 | 特征 | 适用场景 |
 |-------|-----------------|----------|
-| **Low (Lo-Fi)** | Sketchy, grayscale, static | Early exploration, concept testing |
-| **Medium (Mid-Fi)** | Structured, placeholder content, limited interaction | Information architecture, flow validation |
-| **High (Hi-Fi)** | Polished, real content, full interaction | Usability testing, stakeholder sign-off |
+| **低（Lo-Fi）** | 草图风格、灰度、静态 | 早期探索、概念测试 |
+| **中（Mid-Fi）** | 结构化、占位符内容、有限交互 | 信息架构、流程验证 |
+| **高（Hi-Fi）** | 精致、真实内容、完整交互 | 可用性测试、利益相关者确认 |
 
-### Fidelity Dimensions
+### 保真度维度
 
-| Dimension | Low | Medium | High |
+| 维度 | 低 | 中 | 高 |
 |-----------|-----|--------|------|
-| **Visual** | Sketchy, boxes | Wireframes, grays | Pixel-perfect, branded |
-| **Content** | Lorem ipsum | Representative | Real content |
-| **Interaction** | Static/paper | Click-through | Micro-interactions |
-| **Breadth** | Key screens | Critical flows | Full experience |
+| **视觉** | 草图、方框 | 线框图、灰色调 | 像素级完美、品牌化 |
+| **内容** | Lorem ipsum | 代表性内容 | 真实内容 |
+| **交互** | 静态/纸质 | 点击跳转 | 微交互 |
+| **广度** | 关键页面 | 核心流程 | 完整体验 |
 
-## Prototype Types
+## 原型类型
 
-### By Purpose
+### 按用途分类
 
-| Type | Purpose | Fidelity | Tools |
+| 类型 | 用途 | 保真度 | 工具 |
 |------|---------|----------|-------|
-| **Concept Sketch** | Generate ideas | Very low | Paper, whiteboard |
-| **Paper Prototype** | Quick flow testing | Low | Paper, Post-its |
-| **Wireframe** | Layout validation | Low-Medium | Figma, Balsamiq |
-| **Clickable Mockup** | Flow testing | Medium | Figma, Sketch |
-| **Interactive Prototype** | Usability testing | High | Figma, Principle |
-| **Coded Prototype** | Technical feasibility | High | HTML/CSS, React |
-| **Wizard of Oz** | Simulate complex behavior | Varies | Mixed |
+| **概念草图** | 生成想法 | 非常低 | 纸张、白板 |
+| **纸质原型** | 快速流程测试 | 低 | 纸张、便利贴 |
+| **线框图** | 布局验证 | 低-中 | Figma、Balsamiq |
+| **可点击模型** | 流程测试 | 中 | Figma、Sketch |
+| **交互原型** | 可用性测试 | 高 | Figma、Principle |
+| **代码原型** | 技术可行性 | 高 | HTML/CSS、React |
+| **绿野仙踪** | 模拟复杂行为 | 可变 | 混合 |
 
-### Decision Matrix
+### 决策矩阵
 
 ```text
 What are you testing?
@@ -74,11 +74,11 @@ What are you testing?
     └── Wizard of Oz prototype (Varies)
 ```
 
-## Prototyping Approaches
+## 原型设计方法
 
-### Paper Prototyping
+### 纸质原型
 
-**When:** Early concept exploration, limited resources, rapid iteration
+**适用场景：** 早期概念探索、资源有限、快速迭代
 
 ```markdown
 ## Paper Prototype Kit
@@ -100,9 +100,9 @@ What are you testing?
 7. Ask follow-up questions
 ```
 
-### Digital Low-Fidelity
+### 数字低保真
 
-**When:** Remote testing, slightly more polish needed, version control
+**适用场景：** 远程测试、需要稍多精致度、版本控制
 
 ```csharp
 // Configuration for low-fidelity prototype
@@ -137,9 +137,9 @@ public class FlowSpec
 }
 ```
 
-### High-Fidelity Interactive
+### 高保真交互原型
 
-**When:** Usability testing, stakeholder demos, developer handoff
+**适用场景：** 可用性测试、利益相关者演示、开发者交接
 
 ```csharp
 public class HiFiPrototypeSpec
@@ -185,9 +185,9 @@ public class StateSpec
 }
 ```
 
-### Coded Prototype
+### 代码原型
 
-**When:** Complex interactions, data-driven UI, technical validation
+**适用场景：** 复杂交互、数据驱动 UI、技术验证
 
 ```csharp
 // Blazor prototype component
@@ -256,9 +256,9 @@ public class StateSpec
 }
 ```
 
-### Wizard of Oz Prototyping
+### 绿野仙踪原型设计
 
-**When:** AI features, voice interfaces, complex personalization
+**适用场景：** AI 功能、语音界面、复杂个性化
 
 ```csharp
 public class WizardOfOzSetup
@@ -291,23 +291,23 @@ public class WizardOfOzSetup
 }
 ```
 
-## Tool Selection
+## 工具选择
 
-### Tool Comparison
+### 工具对比
 
-| Tool | Fidelity | Collaboration | Dev Handoff | Best For |
+| 工具 | 保真度 | 协作 | 开发交接 | 适用场景 |
 |------|----------|---------------|-------------|----------|
-| **Figma** | All | Excellent | Excellent | Team design |
-| **Sketch** | Medium-High | Good (w/plugins) | Good | Mac teams |
-| **Adobe XD** | Medium-High | Good | Good | Adobe ecosystem |
-| **Framer** | High | Good | Limited | Complex interactions |
-| **InVision** | Medium | Excellent | Good | Stakeholder feedback |
-| **Balsamiq** | Low | Basic | N/A | Quick wireframes |
-| **Axure** | All | Good | Detailed | Complex specs |
-| **Principle** | High | Limited | Limited | Micro-interactions |
-| **ProtoPie** | High | Good | Limited | Multi-device |
+| **Figma** | 全部 | 优秀 | 优秀 | 团队设计 |
+| **Sketch** | 中-高 | 良好（需插件） | 良好 | Mac 团队 |
+| **Adobe XD** | 中-高 | 良好 | 良好 | Adobe 生态 |
+| **Framer** | 高 | 良好 | 有限 | 复杂交互 |
+| **InVision** | 中 | 优秀 | 良好 | 利益相关者反馈 |
+| **Balsamiq** | 低 | 基础 | 不适用 | 快速线框图 |
+| **Axure** | 全部 | 良好 | 详细 | 复杂规范 |
+| **Principle** | 高 | 有限 | 有限 | 微交互 |
+| **ProtoPie** | 高 | 良好 | 有限 | 多设备 |
 
-### Selection Criteria
+### 选择标准
 
 ```csharp
 public class ToolEvaluation
@@ -332,9 +332,9 @@ public class ToolEvaluation
 }
 ```
 
-## Fidelity Progression
+## 保真度递进
 
-### Typical Progression
+### 典型递进流程
 
 ```text
 Week 1-2: Discovery
@@ -363,30 +363,30 @@ Week 9+: Handoff
 └── Developer collaboration
 ```
 
-### When to Skip Fidelity Levels
+### 何时跳过保真度级别
 
-| Skip Lo-Fi When | Skip Mid-Fi When | Go Straight to Code When |
+| 跳过 Lo-Fi 的情况 | 跳过 Mid-Fi 的情况 | 直接进入代码的情况 |
 |-----------------|------------------|--------------------------|
-| Clear requirements | Design system exists | Technical uncertainty |
-| Existing patterns | Flows are known | Performance critical |
-| Time pressure | Team is aligned | Highly data-driven |
-| Small changes | Visual validation needed | Developer preference |
+| 需求明确 | 设计系统已存在 | 技术不确定性 |
+| 已有模式 | 流程已知 | 性能关键 |
+| 时间压力 | 团队已对齐 | 高度数据驱动 |
+| 小改动 | 需要视觉验证 | 开发者偏好 |
 
-## Testing with Prototypes
+## 使用原型进行测试
 
-### Matching Fidelity to Test Goals
+### 将保真度与测试目标匹配
 
-| Test Goal | Recommended Fidelity |
+| 测试目标 | 推荐保真度 |
 |-----------|---------------------|
-| Concept validation | Low |
-| Navigation/IA | Low-Medium |
-| Task completion | Medium |
-| Aesthetic reactions | High |
-| Micro-interactions | High |
-| Accessibility | Medium-High |
-| Emotional response | High |
+| 概念验证 | 低 |
+| 导航/信息架构 | 低-中 |
+| 任务完成 | 中 |
+| 美学反应 | 高 |
+| 微交互 | 高 |
+| 无障碍性 | 中-高 |
+| 情感反应 | 高 |
 
-### Prototype Testing Considerations
+### 原型测试注意事项
 
 ```csharp
 public class PrototypeTestPlan
@@ -427,18 +427,18 @@ public record PrototypeLimitation(
 );
 ```
 
-### Briefing Participants
+### 向参与者说明
 
-**Always clarify:**
+**始终澄清：**
 
-- What's working vs. not working
-- That you're testing the design, not them
-- Permission to think aloud
-- That rough appearance is intentional (if low-fi)
+- 哪些功能可用，哪些不可用
+- 我们正在测试设计，而不是测试他们
+- 允许大声思考
+- 粗糙的外观是有意为之（如果是低保真）
 
-## Design-to-Development Handoff
+## 设计到开发的交接
 
-### Handoff Checklist
+### 交接清单
 
 ```markdown
 ## Prototype Handoff Checklist
@@ -478,7 +478,7 @@ public record PrototypeLimitation(
 - [ ] Iteration process defined
 ```
 
-### Handoff Annotation Patterns
+### 交接标注模式
 
 ```csharp
 public class HandoffAnnotation
@@ -530,9 +530,9 @@ var annotations = new List<HandoffAnnotation>
 };
 ```
 
-## Prototype Documentation
+## 原型文档
 
-### Prototype Brief Template
+### 原型简报模板
 
 ```markdown
 # Prototype Brief: [Feature Name]
@@ -584,43 +584,43 @@ Who will test this? [Persona or criteria]
 - [Metric/observation that indicates success]
 ```
 
-## Checklist: Prototype Planning
+## 清单：原型规划
 
-### Strategy
+### 策略
 
-- [ ] Goals defined (what to learn)
-- [ ] Fidelity level selected
-- [ ] Tool chosen
-- [ ] Scope determined
-- [ ] Timeline set
+- [ ] 目标已定义（要学习什么）
+- [ ] 保真度级别已选择
+- [ ] 工具已选择
+- [ ] 范围已确定
+- [ ] 时间线已设定
 
-### Creation
+### 创建
 
-- [ ] Key screens identified
-- [ ] Critical flows mapped
-- [ ] States defined (error, empty, loading)
-- [ ] Interactions specified
-- [ ] Edge cases considered
+- [ ] 关键页面已识别
+- [ ] 核心流程已映射
+- [ ] 状态已定义（错误、空、加载）
+- [ ] 交互已指定
+- [ ] 边界情况已考虑
 
-### Testing Prep
+### 测试准备
 
-- [ ] Test tasks written
-- [ ] Limitations documented
-- [ ] Participant intro script ready
-- [ ] Recording setup tested
-- [ ] Success criteria defined
+- [ ] 测试任务已编写
+- [ ] 限制已记录
+- [ ] 参与者介绍脚本已就绪
+- [ ] 录制设置已测试
+- [ ] 成功标准已定义
 
-### Handoff
+### 交接
 
-- [ ] Specs annotated
-- [ ] Assets exported
-- [ ] Design tokens ready
-- [ ] Developer walkthrough scheduled
-- [ ] Feedback process defined
+- [ ] 规范已标注
+- [ ] 资产已导出
+- [ ] 设计令牌已就绪
+- [ ] 开发者 walkthrough 已安排
+- [ ] 反馈流程已定义
 
-## Related Skills
+## 相关 Skills
 
-- `usability-testing` - Testing the prototype
-- `design-system-planning` - Reusable components
-- `information-architecture` - Navigation prototyping
-- `accessibility-planning` - Accessible prototypes
+- `usability-testing` - 测试原型
+- `design-system-planning` - 可复用组件
+- `information-architecture` - 导航原型设计
+- `accessibility-planning` - 无障碍原型

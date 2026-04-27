@@ -4,50 +4,50 @@ argument-hint: <initiative-description> [--mode full|quick|guided] [--output reg
 allowed-tools: Task, Read, Write, Glob, Grep, Skill, AskUserQuestion
 ---
 
-# Stakeholder Analyze Command
+# Stakeholder Analyze 命令
 
-Identify, analyze, and plan engagement for stakeholders involved in an initiative, project, or change effort.
+识别、分析并规划某个 initiative、项目或变革中涉及的 stakeholder 的参与方式。
 
-## Arguments
+## 参数
 
-- `<initiative-description>`: Description of the initiative, project, or change to analyze stakeholders for
-- `--mode`: Analysis mode (default: `guided`)
-  - `full`: Multi-persona simulation with diverse perspectives (~10K tokens)
-  - `quick`: Rapid stakeholder identification (~3K tokens)
-  - `guided`: Interactive stakeholder discovery (variable)
-- `--output`: Output artifacts (default: `all`)
-  - `register`: Stakeholder register only
-  - `matrix`: Power/Interest matrix only
-  - `raci`: RACI matrix only
-  - `all`: All artifacts
+- `<initiative-description>`：要分析 stakeholder 的 initiative、项目或变革的描述
+- `--mode`：分析模式（默认：`guided`）
+  - `full`：多 persona 模拟、多视角综合分析（约 10K tokens）
+  - `quick`：快速 stakeholder 识别（约 3K tokens）
+  - `guided`：交互式 stakeholder 挖掘（耗时不固定）
+- `--output`：输出产物（默认：`all`）
+  - `register`：仅 stakeholder 登记表
+  - `matrix`：仅 Power/Interest 矩阵
+  - `raci`：仅 RACI 矩阵
+  - `all`：全部产物
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行流程
 
-### Step 1: Parse Arguments
+### 步骤 1：解析参数
 
-Extract initiative description, mode, and output format from arguments.
+从参数中提取 initiative 描述、mode 与输出格式。
 
-If no description provided, ask the user:
-"What initiative, project, or change effort would you like to analyze stakeholders for?"
+如果未提供描述，则询问用户：
+"你想针对哪个 initiative、项目或变革做 stakeholder 分析？"
 
-Default mode is `guided`. Default output is `all`.
+默认 mode 为 `guided`。默认输出为 `all`。
 
-### Step 2: Load Stakeholder Analysis Skill
+### 步骤 2：加载 Stakeholder Analysis skill
 
-Invoke the `stakeholder-analysis` skill to access:
+调用 `stakeholder-analysis` skill 以获得：
 
-- Stakeholder category frameworks
-- Power/Interest matrix methodology
-- RACI matrix rules
-- Communication planning templates
+- Stakeholder 分类框架
+- Power/Interest 矩阵方法论
+- RACI 矩阵规则
+- 沟通计划模板
 
-### Step 3: Execute Based on Mode
+### 步骤 3：按 mode 执行
 
-#### Full Mode (Multi-Persona Simulation)
+#### Full 模式（多 Persona 模拟）
 
-Spawn the `stakeholder-facilitator` agent for comprehensive analysis:
+派生 `stakeholder-facilitator` agent 做综合分析：
 
 ```text
 Analyze stakeholders for this initiative:
@@ -64,31 +64,31 @@ Requirements:
 7. Identify potential resistance and mitigation strategies
 ```
 
-The agent may spawn additional persona agents:
+该 agent 可以再派生出其他 persona agent：
 
-- `executive-sponsor-persona`: Strategic perspective, budget
-- `end-user-persona`: Daily usage, pain points
-- `operations-persona`: Support, maintenance concerns
-- `compliance-persona`: Regulatory, audit requirements
-- `devils-advocate`: Risks, overlooked stakeholders
+- `executive-sponsor-persona`：战略视角、预算
+- `end-user-persona`：日常使用、痛点
+- `operations-persona`：支持、运维方面的关切
+- `compliance-persona`：合规、审计需求
+- `devils-advocate`：风险、被忽视的 stakeholder
 
-#### Quick Mode (Rapid Assessment)
+#### Quick 模式（快速评估）
 
-Perform fast stakeholder identification:
+快速识别 stakeholder：
 
-1. Identify obvious stakeholders from initiative description
-2. Categorize by standard groups (RACI-style)
-3. Apply default engagement strategies
-4. Skip detailed influence analysis
-5. Generate minimal register and matrix
+1. 从 initiative 描述中识别显而易见的 stakeholder
+2. 按标准群组分类（RACI 风格）
+3. 采用默认的参与策略
+4. 跳过详细的影响力分析
+5. 生成最简登记表与矩阵
 
-#### Guided Mode (Interactive)
+#### Guided 模式（交互式）
 
-Work interactively through stakeholder discovery using structured questions.
+通过结构化问题交互式地挖掘 stakeholder。
 
-##### Step G1: Initial Context Gathering
+##### 子步骤 G1：初始上下文收集
 
-Use AskUserQuestion to gather critical context upfront:
+使用 AskUserQuestion 预先收集关键上下文：
 
 ```yaml
 # Question 1: Stakeholder Group Discovery (MCP: stakeholder facilitation patterns)
@@ -117,39 +117,39 @@ options:
     description: "Matrix + RACI + communication plan (~60 min)"
 ```
 
-##### Step G2: Category Sweep
+##### 子步骤 G2：分类扫描
 
-Based on the stakeholder groups selected, walk through each category:
+根据选定的 stakeholder 群组，逐一走查每个类别：
 
-- "Who sponsors/funds this initiative?"
-- "Who will use the solution?"
-- "Who operates/maintains systems involved?"
-- "Who must approve or can block?"
-- "Who else is affected by changes?"
+- "谁是这个 initiative 的 sponsor / 资金方？"
+- "谁会使用该方案？"
+- "谁来运维所涉及的系统？"
+- "谁必须审批，或谁能叫停？"
+- "还有谁会被这次变更影响？"
 
-##### Step G3: Assessment
+##### 子步骤 G3：评估
 
-For each identified stakeholder, assess:
+对每个识别出的 stakeholder 评估：
 
-- Power level (High/Medium/Low)
-- Interest level (High/Medium/Low)
-- Current attitude (Supporter/Neutral/Resistor)
+- Power 等级（高/中/低）
+- Interest 等级（高/中/低）
+- 当前态度（Supporter / Neutral / Resistor）
 
-##### Step G4: Matrix Placement
+##### 子步骤 G4：矩阵定位
 
-Confirm quadrant and engagement strategy for each stakeholder.
+确认每个 stakeholder 所处的象限与对应的参与策略。
 
-##### Step G5: Additional Artifacts
+##### 子步骤 G5：额外产物
 
-Based on depth selected in G1:
+根据 G1 中选择的深度：
 
-- Quick: Power/Interest matrix only
-- Standard: Add RACI matrix for key deliverables
-- Full: Add communication plan with frequency, channel, message
+- Quick：仅 Power/Interest 矩阵
+- Standard：增加关键交付物的 RACI 矩阵
+- Full：再加一份沟通计划，包含频率、channel、信息
 
-### Step 4: Generate Output Artifacts
+### 步骤 4：生成输出产物
 
-#### Stakeholder Register
+#### Stakeholder 登记表
 
 ```markdown
 ## Stakeholder Register: [Initiative Name]
@@ -164,7 +164,7 @@ Based on depth selected in G1:
 | S03 | IT Operations | Operator | Medium | High | Resistor | Medium |
 ```
 
-#### Power/Interest Matrix
+#### Power/Interest 矩阵
 
 ```mermaid
 quadrantChart
@@ -196,7 +196,7 @@ quadrantChart
 - [Stakeholder]: [Specific strategy]
 ```
 
-#### RACI Matrix
+#### RACI 矩阵
 
 ```markdown
 ### RACI Matrix
@@ -211,7 +211,7 @@ quadrantChart
 **Legend:** R=Responsible, A=Accountable, C=Consulted, I=Informed
 ```
 
-#### Communication Plan
+#### 沟通计划
 
 ```markdown
 ### Communication Plan
@@ -223,7 +223,7 @@ quadrantChart
 | IT Ops | Technical needs | Weekly | Stand-ups | Tech Lead |
 ```
 
-#### Resistance Analysis
+#### 抵制分析
 
 ```markdown
 ### Potential Resistance
@@ -234,15 +234,15 @@ quadrantChart
 | [Other] | [Concern] | [Risk] | [Strategy] |
 ```
 
-### Step 5: Save Results
+### 步骤 5：保存结果
 
-Save outputs to:
+将输出保存到：
 
 - `docs/analysis/stakeholder-analysis.md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 可指定自定义输出目录。
 
-### Step 6: Suggest Follow-Up Actions
+### 步骤 6：建议后续行动
 
 ```markdown
 ## Suggested Next Steps

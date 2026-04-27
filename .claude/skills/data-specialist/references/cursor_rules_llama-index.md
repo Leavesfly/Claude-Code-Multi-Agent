@@ -2,15 +2,15 @@
 description: Definitive guidelines for building production-ready LlamaIndex applications, emphasizing modularity, type safety, cloud services, and robust testing.
 ---
 
-# LlamaIndex Best Practices
+# LlamaIndex 最佳实践
 
-LlamaIndex is the definitive framework for building context-augmented LLM applications. Follow these rules to ensure your RAG pipelines and agents are modular, type-safe, performant, and production-ready in 2025.
+LlamaIndex 是构建上下文增强型 LLM 应用程序的权威框架。遵循这些规则以确保你的 RAG 管道和 agent 在 2025 年是模块化、类型安全、高性能且生产就绪的。
 
-## 1. Code Organization and Structure
+## 1. 代码组织和结构
 
-Organize your LlamaIndex components into distinct, testable functions or classes. Leverage the `Workflow` API for explicit data flow.
+将 LlamaIndex 组件组织成不同的、可测试的函数或类。利用 `Workflow` API 实现显式数据流。
 
-### ✅ GOOD: Modular Functions & Workflow API
+### ✅ 好:模块化函数和 Workflow API
 
 ```python
 # core_components.py
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     main_rag_workflow()
 ```
 
-### ❌ BAD: Monolithic Script
+### ❌ 差:单体脚本
 
 ```python
 # app.py (avoid this structure for anything beyond quickstarts)
@@ -85,11 +85,11 @@ ans = qe.query("What are the main themes?")
 print(ans)
 ```
 
-## 2. Common Patterns and Anti-patterns
+## 2. 常见模式和反模式
 
-### ✅ GOOD: Leverage LlamaCloud Services & LlamaHub Connectors
+### ✅ 好:利用 LlamaCloud 服务和 LlamaHub 连接器
 
-For production-grade RAG, prefer managed services like LlamaParse and LlamaCloud, and utilize LlamaHub for data connectors.
+对于生产级 RAG,优先使用托管服务如 LlamaParse 和 LlamaCloud,并利用 LlamaHub 获取数据连接器。
 
 ```python
 import os
@@ -117,7 +117,7 @@ response = query_engine.query("Summarize the key findings in the report.")
 print(response)
 ```
 
-### ❌ BAD: Custom Scraping & Basic Readers for Complex Data
+### ❌ 差:自定义爬取和用于复杂数据的基础读取器
 
 ```python
 # Avoid custom web scraping when LlamaHub offers a robust connector.
@@ -126,11 +126,11 @@ from llama_index.core.readers import SimpleDirectoryReader
 # docs = SimpleDirectoryReader("./complex_pdfs").load_data() # Leads to poor retrieval
 ```
 
-## 3. Performance Considerations
+## 3. 性能考虑
 
-Optimize ingestion, indexing, and retrieval for speed and cost.
+优化摄入、索引和检索以提高速度和降低成本。
 
-### ✅ GOOD: Asynchronous Operations & Efficient Chunking
+### ✅ 好:异步操作和高效分块
 
 ```python
 import asyncio
@@ -158,7 +158,7 @@ if __name__ == "__main__":
     asyncio.run(main_performance_example())
 ```
 
-### ❌ BAD: Synchronous, Unoptimized Processing
+### ❌ 差:同步、未优化的处理
 
 ```python
 # Synchronous processing of many documents is slow and blocks the event loop.
@@ -168,13 +168,13 @@ from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
 # index = VectorStoreIndex.from_documents(docs) # Can be memory intensive and slow
 ```
 
-## 4. Common Pitfalls and Gotchas
+## 4. 常见陷阱和注意事项
 
-### 4.1. Environment Variables for Secrets
+### 4.1. 用于密钥的环境变量
 
-Always use environment variables for API keys and sensitive credentials.
+始终使用环境变量存储 API 密钥和敏感凭证。
 
-### ✅ GOOD: Load from Environment
+### ✅ 好:从环境加载
 
 ```python
 import os
@@ -183,18 +183,18 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["LLAMAPARSE_API_KEY"] = os.getenv("LLAMAPARSE_API_KEY")
 ```
 
-### ❌ BAD: Hardcoding Secrets
+### ❌ 差:硬编码密钥
 
 ```python
 # NEVER hardcode API keys directly in code
 OPENAI_API_KEY = "sk-YOUR_HARDCODED_KEY_HERE"
 ```
 
-### 4.2. Chunking Strategy
+### 4.2. 分块策略
 
-Effective chunking is critical for retrieval quality.
+有效的分块对检索质量至关重要。
 
-### ✅ GOOD: Semantic Chunking with Metadata & Overlap
+### ✅ 好:带元数据和重叠的语义分块
 
 ```python
 from llama_index.core.node_parser import SentenceSplitter
@@ -209,7 +209,7 @@ Settings.text_splitter = SentenceSplitter(
 # For complex documents, LlamaParse handles intelligent, structure-aware chunking.
 ```
 
-### ❌ BAD: Default or Naive Chunking
+### ❌ 差:默认或天真的分块
 
 ```python
 # Relying solely on default chunking can lead to poor context and retrieval.
@@ -217,11 +217,11 @@ Settings.text_splitter = SentenceSplitter(
 # Settings.text_splitter = None # Don't explicitly disable if you need control
 ```
 
-## 5. Type Hints
+## 5. 类型提示
 
-Enforce type safety for maintainable and robust LlamaIndex applications.
+强制执行类型安全以实现可维护和健壮的 LlamaIndex 应用程序。
 
-### ✅ GOOD: Comprehensive Type Annotations
+### ✅ 好:全面的类型注解
 
 ```python
 from llama_index.core import Document, VectorStoreIndex
@@ -236,7 +236,7 @@ def process_and_query_documents(documents: List[Document], query_str: str) -> st
     return str(response)
 ```
 
-### ❌ BAD: Untyped Functions
+### ❌ 差:无类型函数
 
 ```python
 def process_and_query_untyped(documents, query_str): # Lacks clarity on expected types
@@ -246,11 +246,11 @@ def process_and_query_untyped(documents, query_str): # Lacks clarity on expected
     return str(response)
 ```
 
-## 6. Virtual Environments
+## 6. 虚拟环境
 
-Isolate project dependencies to prevent conflicts and ensure reproducible builds.
+隔离项目依赖项以防止冲突并确保可重现的构建。
 
-### ✅ GOOD: Use `venv` or `poetry`
+### ✅ 好:使用 `venv` 或 `poetry`
 
 ```bash
 # Using venv (standard Python approach)
@@ -264,7 +264,7 @@ poetry add llama-index llama-index-llms-openai llama-index-embeddings-openai
 poetry shell
 ```
 
-### ❌ BAD: Global `pip install`
+### ❌ 差:全局 `pip install`
 
 ```bash
 # Avoid installing directly into your system's Python environment.
@@ -272,11 +272,11 @@ poetry shell
 pip install llama-index # Can break other projects
 ```
 
-## 7. Packaging
+## 7. 打包
 
-Define project dependencies clearly for reproducibility and deployment.
+清晰定义项目依赖项以实现可重现性和部署。
 
-### ✅ GOOD: `pyproject.toml` (Poetry/Rye) or `requirements.txt`
+### ✅ 好:`pyproject.toml`(Poetry/Rye)或 `requirements.txt`
 
 ```toml
 # pyproject.toml (Poetry example - preferred for modern Python projects)
@@ -295,18 +295,18 @@ llama-index-embeddings-openai = "^0.1.0"
 # Add other necessary packages like llama-index-cloud, llama-index-readers-llamaparse
 ```
 
-### ❌ BAD: Undocumented Dependencies
+### ❌ 差:未记录的依赖项
 
 ```python
 # No explicit dependency list makes it hard for others to set up the project.
 # (Implicitly relying on a global environment or manual installs is a recipe for errors.)
 ```
 
-## 8. Testing Approaches
+## 8. 测试方法
 
-Implement unit and integration tests for reliability. Mock LLM calls for faster, cheaper unit tests.
+实施单元测试和集成测试以确保可靠性。模拟 LLM 调用以实现更快、更便宜的单元测试。
 
-### ✅ GOOD: Unit Tests with Mocking
+### ✅ 好:带模拟的单元测试
 
 ```python
 # tests/test_rag_components.py
@@ -346,7 +346,7 @@ def test_query_engine_response_mocked():
     mock_query_engine.query.assert_called_once_with("What is LlamaIndex?")
 ```
 
-### ❌ BAD: No Tests or Relying on End-to-End Only
+### ❌ 差:无测试或仅依赖端到端测试
 
 ```python
 # No test files, or only manual testing.

@@ -1,77 +1,77 @@
 ---
 name: git-config
-description: Comprehensive Git configuration guide covering global settings, aliases, performance tuning, credential management, maintenance, .gitattributes, clone shortcuts, and troubleshooting. Use when configuring Git beyond basic setup, optimizing Git performance, setting up aliases, managing credentials (GitHub CLI, Windows Credential Manager), configuring line ending strategy, setting up .gitattributes, enabling Git maintenance, or troubleshooting configuration issues. Cross-platform guidance for Windows, macOS, and Linux.
+description: 全面的 Git 配置指南，涵盖全局设置、别名、性能调优、凭据管理、维护、.gitattributes、克隆快捷方式和故障排除。当需要在基本设置之外配置 Git、优化 Git 性能、设置别名、管理凭据（GitHub CLI、Windows Credential Manager）、配置行尾策略、设置 .gitattributes、启用 Git 维护或排查配置问题时使用。提供适用于 Windows、macOS 和 Linux 的跨平台指导。
 allowed-tools: Read, Bash, Glob, Grep
 ---
 
-# Git Configuration
+# Git 配置
 
-Comprehensive guidance for configuring Git beyond basic installation. This skill covers global configuration, performance optimization, aliases, credential management, maintenance, and advanced configuration topics.
+在基本安装之外配置 Git 的全面指南。本 skill 涵盖全局配置、性能优化、别名、凭据管理、维护和高级配置主题。
 
-## Table of Contents
+## 目录
 
-- [Overview](#overview)
-- [When to Use](#when-to-use-this-skill)
-- [Quick Start](#quick-start)
-- [Configuration Files](#configuration-file-locations)
-- [Global Settings](#global-configuration-settings)
-- [Rerere](#managing-rerere-reuse-recorded-resolution)
-- [Line Endings](#line-ending-strategy-defense-in-depth)
-- [Aliases](#aliases)
-- [Clone Shortcuts](#clone-shortcuts)
-- [Repository-Level Config](#repository-level-configuration)
-- [Maintenance](#maintenance)
-- [Git Attributes](#git-attributes)
-- [Credentials](#git-credential-management)
-- [Troubleshooting](#troubleshooting)
-- [Test Scenarios](#test-scenarios)
+- [概述](#概述)
+- [何时使用](#何时使用此-skill)
+- [快速开始](#快速开始)
+- [配置文件](#配置文件位置)
+- [全局设置](#全局配置设置)
+- [Rerere](#管理-rerere-重用已记录的解决方案)
+- [行尾](#行尾策略纵深防御)
+- [别名](#别名)
+- [克隆快捷方式](#克隆快捷方式)
+- [仓库级配置](#仓库级配置)
+- [维护](#维护)
+- [Git 属性](#git-属性)
+- [凭据](#git-凭据管理)
+- [故障排除](#故障排除)
+- [测试场景](#测试场景)
 
-## Overview
+## 概述
 
-This skill helps you:
+本 skill 帮助你：
 
-- Configure Git globally for optimal performance and workflow
-- Set up powerful aliases to streamline common operations
-- Manage Git credentials securely (GitHub CLI, Windows Credential Manager)
-- Configure `.gitattributes` for line ending control
-- Enable Git maintenance for better repository performance
-- Understand repository-level vs global configuration
-- Troubleshoot common configuration issues
+- 全局配置 Git 以获得最佳性能和工作流
+- 设置强大的别名以简化常见操作
+- 安全管理 Git 凭据（GitHub CLI、Windows Credential Manager）
+- 配置 `.gitattributes` 以控制行尾
+- 启用 Git 维护以提高仓库性能
+- 理解仓库级与全局配置的区别
+- 排查常见配置问题
 
-**For basic Git installation and setup**, see the **setup** skill.
+**有关基本的 Git 安装和设置**，请参阅 **setup** skill。
 
-## Example Use Cases
+## 示例用例
 
-This skill activates for questions like:
+以下类型的问题会触发此 skill：
 
-- "How do I set up Git aliases for common operations?"
-- "Configure Git to use GitHub CLI for authentication"
-- "My Git is slow on large repos - how can I optimize performance?"
-- "Set up .gitattributes for cross-platform development"
-- "Enable Git background maintenance"
-- "Troubleshoot 'refusing to allow OAuth App to create workflow' error"
-- "Configure Git credential helpers on Windows"
-- "Set up clone shortcuts for frequently-used repositories"
-- "Configure rerere to remember merge conflict resolutions"
+- "如何为常见操作设置 Git 别名？"
+- "配置 Git 使用 GitHub CLI 进行身份验证"
+- "我的 Git 在大仓库中很慢 - 如何优化性能？"
+- "为跨平台开发设置 .gitattributes"
+- "启用 Git 后台维护"
+- "排查 'refusing to allow OAuth App to create workflow' 错误"
+- "在 Windows 上配置 Git 凭据助手"
+- "为常用仓库设置克隆快捷方式"
+- "配置 rerere 以记住合并冲突解决方案"
 
-## When to Use This Skill
+## 何时使用此 Skill
 
-Use this skill when:
+在以下情况下使用此 skill：
 
-- Configuring Git beyond basic user identity
-- Setting up aliases for common Git operations
-- Optimizing Git performance (fsmonitor, untrackedCache, parallel operations)
-- Managing Git credentials (HTTPS, SSH, token scopes)
-- Setting up GitHub CLI as credential helper
-- Configuring `.gitattributes` for cross-platform line ending control
-- Enabling Git background maintenance
-- Setting up clone shortcuts for frequently-used repositories
-- Troubleshooting credential issues or line ending errors
-- Understanding Git configuration hierarchy (system/global/local)
+- 在基本用户身份之外配置 Git
+- 为常见 Git 操作设置别名
+- 优化 Git 性能（fsmonitor、untrackedCache、并行操作）
+- 管理 Git 凭据（HTTPS、SSH、令牌范围）
+- 设置 GitHub CLI 作为凭据助手
+- 配置 `.gitattributes` 以实现跨平台行尾控制
+- 启用 Git 后台维护
+- 为常用仓库设置克隆快捷方式
+- 排查凭据问题或行尾错误
+- 理解 Git 配置层次结构（系统/全局/本地）
 
-## Quick Start
+## 快速开始
 
-**Most impactful configuration settings to apply immediately:**
+**立即应用的最具影响力的配置设置：**
 
 ```bash
 # Performance improvements
@@ -105,28 +105,28 @@ git config --global core.safecrlf warn
 
 ---
 
-## Quick Reference
+## 快速参考
 
-Common Git configuration settings organized by category for quick lookup (performance, pull/rebase, fetch, push, diff, merge, line endings, sorting, maintenance).
+按类别组织的常见 Git 配置设置，便于快速查找（性能、pull/rebase、fetch、push、diff、merge、行尾、排序、维护）。
 
-**📚 Complete Quick Reference Table:** [references/quick-reference.md](references/quick-reference.md)
+**📚 完整快速参考表：** [references/quick-reference.md](references/quick-reference.md)
 
-The quick reference table provides copy-paste commands for all common settings with category organization and purpose explanations.
+快速参考表提供了所有常见设置的复制粘贴命令，包含类别组织和用途说明。
 
 ---
 
-## Configuration File Locations
+## 配置文件位置
 
-For detailed information about Git configuration file locations, hierarchy, and viewing configuration, see [references/configuration-basics.md](references/configuration-basics.md).
+有关 Git 配置文件位置、层次结构和查看配置的详细信息，请参阅 [references/configuration-basics.md](references/configuration-basics.md)。
 
-**Quick summary:**
+**快速摘要：**
 
-- **System**: `/etc/gitconfig` (or Git install dir on Windows) - All users
-- **Global**: `~/.gitconfig` or `~/.config/git/config` - Current user
-- **Local**: `.git/config` - Single repository only
-- **Priority**: Local > Global > System
+- **系统**：`/etc/gitconfig`（或 Windows 上的 Git 安装目录）- 所有用户
+- **全局**：`~/.gitconfig` 或 `~/.config/git/config` - 当前用户
+- **本地**：`.git/config` - 仅单个仓库
+- **优先级**：本地 > 全局 > 系统
 
-**View configuration:**
+**查看配置：**
 
 ```bash
 # View all configuration with source files
@@ -138,11 +138,11 @@ git config user.name
 
 ---
 
-## Global Configuration Settings
+## 全局配置设置
 
-These settings are cross-platform and recommended for all users. They should be set at the **global** level unless you need repository-specific overrides.
+这些设置是跨平台的，推荐所有用户使用。除非需要仓库特定的覆盖，否则应在**全局**级别设置。
 
-**Most Essential Settings (Quick Start):**
+**最必要的设置（快速开始）：**
 
 ```bash
 # Pull & rebase (cleaner history)
@@ -171,48 +171,48 @@ git config --global branch.sort -committerdate
 git config --global tag.sort -taggerdate
 ```
 
-**📚 Complete Global Configuration Guide:** [references/global-configuration.md](references/global-configuration.md)
+**📚 完整全局配置指南：** [references/global-configuration.md](references/global-configuration.md)
 
-Topics covered: Pull & rebase strategy, fetch strategy, push strategy, checkout/switch strategy, commit settings, status settings, diff settings, merge settings, rerere (conflict resolution memory), color settings, sorting, log settings, performance settings, submodule strategy, miscellaneous settings, and advanced configuration options.
+涵盖主题：Pull 和 rebase 策略、fetch 策略、push 策略、checkout/switch 策略、commit 设置、status 设置、diff 设置、merge 设置、rerere（冲突解决方案记忆）、颜色设置、排序、log 设置、性能设置、submodule 策略、杂项设置和高级配置选项。
 
 ---
 
-## Managing rerere (Reuse Recorded Resolution)
+## 管理 rerere（重用已记录的解决方案）
 
-Git's rerere feature remembers how you resolved merge conflicts and can reapply those resolutions automatically.
+Git 的 rerere 功能会记住你如何解决合并冲突，并可以自动重新应用这些解决方案。
 
-**Enable rerere:**
+**启用 rerere：**
 
 ```bash
 git config --global rerere.enabled true
 git config --global rerere.autoUpdate true
 ```
 
-**For detailed information about how rerere works, safety considerations, and management commands**, see [references/configuration-basics.md](references/configuration-basics.md#managing-rerere-reuse-recorded-resolution)
+**有关 rerere 工作原理、安全注意事项和管理命令的详细信息**，请参阅 [references/configuration-basics.md](references/configuration-basics.md#managing-rerere-reuse-recorded-resolution)
 
-## Line Ending Strategy (Defense in Depth)
+## 行尾策略（纵深防御）
 
-**Cross-platform line ending management uses a layered approach:**
+**跨平台行尾管理采用分层方法：**
 
-1. **System level (autocrlf)**: Platform-specific default (Windows: `true`, macOS/Linux: `input`)
-2. **Global level (safecrlf)**: Warns about MIXED endings (actual problems) but allows legitimate conversions
-3. **Repository level (.gitattributes)**: Explicit control per file type
+1. **系统级（autocrlf）**：平台特定默认值（Windows：`true`，macOS/Linux：`input`）
+2. **全局级（safecrlf）**：警告 MIXED 行尾（实际问题）但允许合法转换
+3. **仓库级（.gitattributes）**：每种文件类型的显式控制
 
-**Defense in depth:** These settings are **complementary, not conflicting**:
+**纵深防御：** 这些设置是**互补的，而非冲突的**：
 
-- `autocrlf` handles the conversion automatically
-- `safecrlf=warn` warns about PROBLEMS (mixed line endings) but doesn't block .gitattributes conversions
-- `.gitattributes` provides per-repo fine-grained control
+- `autocrlf` 自动处理转换
+- `safecrlf=warn` 警告问题（混合行尾）但不会阻止 .gitattributes 转换
+- `.gitattributes` 提供每个仓库的细粒度控制
 
-**Important:** Don't use `safecrlf=true` when you have `.gitattributes` - it will block legitimate conversions and cause constant errors!
+**重要提示：** 当你有 `.gitattributes` 时不要使用 `safecrlf=true` - 它会阻止合法转换并导致持续错误！
 
-**Platform-specific autocrlf settings:**
+**平台特定的 autocrlf 设置：**
 
-- **Windows**: `git config --global core.autocrlf true` (converts LF→CRLF on checkout, CRLF→LF on commit)
-- **macOS/Linux**: `git config --global core.autocrlf input` (converts CRLF→LF on commit, no conversion on checkout)
-- **WSL**: `git config --global core.autocrlf input` (same as Linux)
+- **Windows**：`git config --global core.autocrlf true`（checkout 时将 LF→CRLF，commit 时将 CRLF→LF）
+- **macOS/Linux**：`git config --global core.autocrlf input`（commit 时将 CRLF→LF，checkout 时不转换）
+- **WSL**：`git config --global core.autocrlf input`（与 Linux 相同）
 
-**Global safecrlf setting (all platforms):**
+**全局 safecrlf 设置（所有平台）：**
 
 ```bash
 # Warn about mixed line endings (safeguard against problems)
@@ -220,15 +220,15 @@ git config --global rerere.autoUpdate true
 git config --global core.safecrlf warn
 ```
 
-**For detailed .gitattributes setup and comprehensive line ending guidance**, see the **line-endings** skill.
+**有关详细的 .gitattributes 设置和全面的行尾指导**，请参阅 **line-endings** skill。
 
 ---
 
-## Aliases
+## 别名
 
-Aliases provide shortcuts for common Git operations. Categories include: information & inspection, navigation, branch operations, staging/unstaging, committing, history editing, remote operations, and tag pushing workflows.
+别名为常见 Git 操作提供快捷方式。类别包括：信息和检查、导航、分支操作、暂存/取消暂存、提交、历史编辑、远程操作和标签推送工作流。
 
-**Most Common Aliases:**
+**最常见的别名：**
 
 ```bash
 # Status and branch info
@@ -246,17 +246,17 @@ git config --global alias.amend "commit --amend --no-edit"
 git config --global alias.pfwl "push --force-with-lease"
 ```
 
-**📚 Complete Alias Guide:** [references/aliases.md](references/aliases.md)
+**📚 完整别名指南：** [references/aliases.md](references/aliases.md)
 
-Topics covered: Information & inspection aliases, navigation utilities, branch operations, staging/unstaging shortcuts, committing helpers, history editing (DANGER!), remote operations, tag pushing workflows, clone shortcuts with `url.insteadOf`, organization/personal shorthand patterns, and customization templates.
+涵盖主题：信息和检查别名、导航实用程序、分支操作、暂存/取消暂存快捷方式、提交助手、历史编辑（危险！）、远程操作、标签推送工作流、带有 `url.insteadOf` 的克隆快捷方式、组织/个人简写模式和自定义模板。
 
 ---
 
-## Clone Shortcuts
+## 克隆快捷方式
 
-Git's `url.insteadOf` feature creates shorthand prefixes for clone URLs. Example: `git clone gh:username/repo` instead of `git clone git@github.com:username/repo.git`.
+Git 的 `url.insteadOf` 功能为克隆 URL 创建简写前缀。例如：`git clone gh:username/repo` 而不是 `git clone git@github.com:username/repo.git`。
 
-**Quick Example:**
+**快速示例：**
 
 ```bash
 # Universal GitHub shorthand
@@ -264,23 +264,23 @@ git config --global url."git@github.com:".insteadOf "gh:"
 # Usage: git clone gh:microsoft/vscode
 ```
 
-**📚 Complete Clone Shortcuts Guide:** [references/aliases.md#clone-shortcuts](references/aliases.md#clone-shortcuts)
+**📚 完整克隆快捷方式指南：** [references/aliases.md#clone-shortcuts](references/aliases.md#clone-shortcuts)
 
-Topics covered: Universal GitHub shorthand, organization/personal shortcuts, corporate Git servers, custom namespace templates, and usage examples.
+涵盖主题：通用 GitHub 简写、组织/个人快捷方式、企业 Git 服务器、自定义命名空间模板和使用示例。
 
 ---
 
-## Repository-Level Configuration
+## 仓库级配置
 
-**These settings are context-specific** - use them in individual repos when needed, NOT as global defaults.
+**这些设置是特定于上下文的** - 在需要时在单个仓库中使用它们，而不是作为全局默认值。
 
-**When to use repo-level config:**
+**何时使用仓库级配置：**
 
-- Repo-specific requirements (submodules, performance, size)
-- Overriding global settings for specific workflows
-- Team-specific conventions for that repository
+- 仓库特定要求（submodules、性能、大小）
+- 为特定工作流覆盖全局设置
+- 该仓库的团队特定约定
 
-**Examples:**
+**示例：**
 
 ```bash
 # Enable submodule recursion in a specific repo
@@ -295,11 +295,11 @@ git config core.autocrlf false
 
 ---
 
-## Maintenance
+## 维护
 
-Git can perform background maintenance to keep repositories fast (commit-graph updates, incremental repacking, loose object cleanup).
+Git 可以执行后台维护以保持仓库快速运行（commit-graph 更新、增量重新打包、松散对象清理）。
 
-**Quick Setup:**
+**快速设置：**
 
 ```bash
 # Enable background maintenance once for your account
@@ -312,7 +312,7 @@ git maintenance register
 git config --global gc.writeCommitGraph true
 ```
 
-**Common Commands:**
+**常用命令：**
 
 ```bash
 # Run maintenance now
@@ -325,19 +325,19 @@ git config --global --get-all maintenance.repo
 git maintenance unregister
 ```
 
-**📚 Complete Maintenance Guide:** [references/global-configuration.md#maintenance](references/global-configuration.md#maintenance)
+**📚 完整维护指南：** [references/global-configuration.md#maintenance](references/global-configuration.md#maintenance)
 
-Topics covered: Background maintenance tasks, scheduling (hourly/daily/weekly), task configuration, disabling full gc, maintenance.auto setting, per-task enablement, troubleshooting maintenance issues.
+涵盖主题：后台维护任务、调度（每小时/每天/每周）、任务配置、禁用完整 gc、maintenance.auto 设置、每项任务启用、排查维护问题。
 
 ---
 
-## Git Attributes
+## Git 属性
 
-`.gitattributes` provides explicit control over line endings per file type. This is the recommended approach for cross-platform teams.
+`.gitattributes` 提供对每种文件类型行尾的显式控制。这是跨平台团队的推荐方法。
 
-**Best practice:** Control endings in `.gitattributes` and use platform-appropriate `autocrlf` settings with `safecrlf=warn`.
+**最佳实践：** 在 `.gitattributes` 中控制行尾，并使用适合平台的 `autocrlf` 设置和 `safecrlf=warn`。
 
-**Quick Example:**
+**快速示例：**
 
 ```gitattributes
 # Auto-detect text files and normalize line endings
@@ -359,31 +359,31 @@ Topics covered: Background maintenance tasks, scheduling (hourly/daily/weekly), 
 *.pdf binary
 ```
 
-**Normalize existing repos with mixed endings:**
+**规范化具有混合行尾的现有仓库：**
 
 ```bash
 git add --renormalize .
 git commit -m "Normalize line endings"
 ```
 
-**📚 For comprehensive .gitattributes setup, Git LFS patterns, and line ending strategy**, see the **line-endings** skill.
+**📚 有关全面的 .gitattributes 设置、Git LFS 模式和行尾策略**，请参阅 **line-endings** skill。
 
 ---
 
-## Git Credential Management
+## Git 凭据管理
 
-Git uses credential helpers to store and retrieve authentication credentials for remote operations (clone, fetch, push). Understanding credential management is essential for secure, efficient Git workflows.
+Git 使用凭据助手来存储和检索远程操作（clone、fetch、push）的身份验证凭据。了解凭据管理对于安全、高效的 Git 工作流至关重要。
 
-**For comprehensive credential management guidance**, see [references/credential-management.md](references/credential-management.md).
+**有关全面的凭据管理指导**，请参阅 [references/credential-management.md](references/credential-management.md)。
 
-**Quick overview:**
+**快速概述：**
 
-- **Windows**: Default credential helper is Windows Credential Manager (`manager`)
-- **macOS**: Default is macOS Keychain (`osxkeychain`)
-- **Linux**: Default is memory cache (`cache`) or `libsecret` for persistent storage
-- **GitHub users**: Hybrid setup recommended (gh CLI for GitHub, OS credential manager for others)
+- **Windows**：默认凭据助手是 Windows Credential Manager（`manager`）
+- **macOS**：默认是 macOS Keychain（`osxkeychain`）
+- **Linux**：默认是内存缓存（`cache`）或 `libsecret` 用于持久存储
+- **GitHub 用户**：推荐混合设置（gh CLI 用于 GitHub，操作系统凭据管理器用于其他）
 
-**Quick setup for GitHub (hybrid approach):**
+**GitHub 的快速设置（混合方法）：**
 
 ```bash
 # 1. Authenticate with gh CLI
@@ -399,70 +399,70 @@ git config --list | grep credential
 # - credential.https://github.com.helper=!gh auth git-credential (GitHub-specific)
 ```
 
-**Common credential issues:**
+**常见凭据问题：**
 
-- "refusing to allow OAuth App to create or update workflow" → Need `workflow` scope
-- Git still uses old/wrong credentials → Clear OS credential cache
-- SSH vs HTTPS confusion → Check remote URL with `git remote -v`
+- "refusing to allow OAuth App to create or update workflow" → 需要 `workflow` 范围
+- Git 仍使用旧/错误的凭据 → 清除操作系统凭据缓存
+- SSH 与 HTTPS 混淆 → 使用 `git remote -v` 检查远程 URL
 
-For detailed troubleshooting, credential helper options, security best practices, and platform-specific guidance, see [references/credential-management.md](references/credential-management.md).
-
----
-
-## Troubleshooting
-
-For comprehensive troubleshooting guidance, see [references/troubleshooting.md](references/troubleshooting.md).
-
-**Quick links:**
-
-- [Line Ending Errors](references/troubleshooting.md#line-ending-errors) - "LF would be replaced by CRLF" warnings
-- [Credential Issues](references/troubleshooting.md#credential-issues) - OAuth errors, stale credentials, SSH vs HTTPS
-- [Performance Problems](references/troubleshooting.md#performance-problems) - Slow git status, fetch timeouts
-- [Common Real-World Scenarios](references/troubleshooting.md#common-real-world-scenarios) - Corporate proxies, WSL issues, rerere problems
+有关详细的故障排除、凭据助手选项、安全最佳实践和平台特定指导，请参阅 [references/credential-management.md](references/credential-management.md)。
 
 ---
 
-## Related Skills
+## 故障排除
 
-- **setup**: Basic Git installation and initial configuration
-- **line-endings**: Comprehensive line ending configuration, `.gitattributes`, Git LFS
-- **gpg-signing**: GPG commit signing setup and troubleshooting
-- **gui-tools**: Git GUI client installation and configuration
+有关全面的故障排除指导，请参阅 [references/troubleshooting.md](references/troubleshooting.md)。
 
----
+**快速链接：**
 
-## Test Scenarios
-
-For test scenarios validating skill activation and response quality, see [references/test-scenarios.md](references/test-scenarios.md).
-
-**Coverage:** 9 scenarios covering basic use (aliases, performance, maintenance), advanced use (credentials, line endings, repo config), troubleshooting (credential issues, rerere), and shortcuts (clone shortcuts, url.insteadOf).
+- [行尾错误](references/troubleshooting.md#line-ending-errors) - "LF would be replaced by CRLF" 警告
+- [凭据问题](references/troubleshooting.md#credential-issues) - OAuth 错误、过时凭据、SSH 与 HTTPS
+- [性能问题](references/troubleshooting.md#performance-problems) - 缓慢的 git status、fetch 超时
+- [常见现实场景](references/troubleshooting.md#common-real-world-scenarios) - 企业代理、WSL 问题、rerere 问题
 
 ---
 
-## Version History
+## 相关 Skills
 
-- v1.3.0 (2025-11-25): Audit compliance improvements
-  - Extracted Test Scenarios to references/test-scenarios.md
-  - Reduced SKILL.md from 539 to ~475 lines (under 500-line recommendation)
-  - Improved progressive disclosure compliance
-- v1.2.0 (2025-11-12): Quality improvements based on audit recommendations
-  - Extracted Configuration File Locations to references/configuration-basics.md
-  - Extracted Managing rerere to references/configuration-basics.md
-  - Extracted Troubleshooting to references/troubleshooting.md
-  - Added multi-model testing notes
-  - Added common real-world usage scenarios
-  - Reduced SKILL.md line count from 959 to ~700 lines (improved performance)
-  - Added tables of contents to all reference files for better navigation
-  - Created references/troubleshooting.md with comprehensive troubleshooting guidance
-- v1.1.0 (2025-11-12): Usability enhancements based on audit feedback
-  - Added Example Use Cases section with concrete activation examples
-  - Added Quick Reference Table for quick lookup of common settings
-  - Improved autonomous activation reliability
-- v1.0.0 (2025-11-09): Initial release with comprehensive Git configuration guidance
+- **setup**：基本的 Git 安装和初始配置
+- **line-endings**：全面的行尾配置、`.gitattributes`、Git LFS
+- **gpg-signing**：GPG commit 签名设置和故障排除
+- **gui-tools**：Git GUI 客户端安装和配置
 
 ---
 
-## Official Documentation
+## 测试场景
+
+有关验证 skill 激活和响应质量的测试场景，请参阅 [references/test-scenarios.md](references/test-scenarios.md)。
+
+**覆盖范围：** 9 个场景，涵盖基本用法（别名、性能、维护）、高级用法（凭据、行尾、仓库配置）、故障排除（凭据问题、rerere）和快捷方式（克隆快捷方式、url.insteadOf）。
+
+---
+
+## 版本历史
+
+- v1.3.0 (2025-11-25)：审计合规性改进
+  - 将测试场景提取到 references/test-scenarios.md
+  - 将 SKILL.md 从 539 行减少到约 475 行（低于 500 行建议）
+  - 改进了渐进式披露合规性
+- v1.2.0 (2025-11-12)：基于审计建议的质量改进
+  - 将配置文件位置提取到 references/configuration-basics.md
+  - 将管理 rerere 提取到 references/configuration-basics.md
+  - 将故障排除提取到 references/troubleshooting.md
+  - 添加了多模型测试说明
+  - 添加了常见的现实使用场景
+  - 将 SKILL.md 行数从 959 行减少到约 700 行（提高性能）
+  - 为所有参考文件添加了目录以改善导航
+  - 创建了包含全面故障排除指导的 references/troubleshooting.md
+- v1.1.0 (2025-11-12)：基于审计反馈的可用性增强
+  - 添加了示例用例部分，包含具体的激活示例
+  - 添加了快速参考表以快速查找常见设置
+  - 提高了自主激活可靠性
+- v1.0.0 (2025-11-09)：初始发布，包含全面的 Git 配置指导
+
+---
+
+## 官方文档
 
 - [Git Configuration Documentation](https://git-scm.com/docs/git-config)
 - [Git Attributes Documentation](https://git-scm.com/docs/gitattributes)
@@ -472,7 +472,7 @@ For test scenarios validating skill activation and response quality, see [refere
 
 ---
 
-## Last Updated
+## 最后更新
 
-**Date:** 2025-11-28
-**Model:** claude-opus-4-5-20251101
+**日期：** 2025-11-28
+**模型：** claude-opus-4-5-20251101

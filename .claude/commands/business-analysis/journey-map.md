@@ -1,315 +1,315 @@
 ---
-description: Create a user or customer journey map. Captures touchpoints, emotions, pain points, and opportunities. Modes - full (comprehensive with personas), quick (rapid mapping), guided (interactive).
-argument-hint: <journey-description> [--mode full|quick|guided] [--persona <persona-name>] [--dir <path>]
+description: 创建用户或客户旅程地图。捕获触点、情绪、痛点和机会。模式 - full（带画像的全面分析）、quick（快速映射）、guided（交互式）。
+argument-hint: <旅程描述> [--mode full|quick|guided] [--persona <画像名称>] [--dir <路径>]
 allowed-tools: Task, Read, Write, Glob, Grep, Skill, AskUserQuestion
 ---
 
-# Journey Map Command
+# 旅程地图命令
 
-Create a user or customer journey map to understand experiences, emotions, and identify improvement opportunities.
+创建用户或客户旅程地图，以理解体验、情绪并识别改进机会。
 
-## Arguments
+## 参数
 
-- `<journey-description>`: Description of the journey to map (e.g., "customer purchasing a subscription")
-- `--mode`: Mapping mode (default: `guided`)
-  - `full`: Comprehensive journey with detailed touchpoint analysis (~10K tokens)
-  - `quick`: Rapid journey mapping (~4K tokens)
-  - `guided`: Interactive journey discovery (variable)
-- `--persona`: Optional persona name to use (creates new if not provided)
+- `<旅程描述>`：要映射的旅程描述（例如，"客户购买订阅"）
+- `--mode`：映射模式（默认：`guided`）
+  - `full`：带详细触点分析的全面旅程（约10K tokens）
+  - `quick`：快速旅程映射（约4K tokens）
+  - `guided`：交互式旅程发现（可变）
+- `--persona`：可选的画像名称（如未提供则创建新画像）
 
-- `--dir`: Output directory (default: `docs/analysis/`)
+- `--dir`：输出目录（默认：`docs/analysis/`）
 
-## Execution
+## 执行
 
-### Step 1: Parse Arguments
+### 步骤1：解析参数
 
-Extract journey description, mode, and persona from arguments.
+从参数中提取旅程描述、模式和画像。
 
-If no description provided, ask the user:
-"What journey would you like to map? Please describe:
+如果未提供描述，询问用户：
+"您想映射哪个旅程？请描述：
 
-- Who is taking this journey? (the user/customer)
-- What are they trying to accomplish?
-- Where does the journey start and end?"
+- 谁在进行这个旅程？（用户/客户）
+- 他们试图完成什么？
+- 旅程从哪里开始，到哪里结束？"
 
-Default mode is `guided`.
+默认模式为 `guided`。
 
-### Step 2: Load Journey Mapping Skill
+### 步骤2：加载旅程映射 Skill
 
-Invoke the `journey-mapping` skill to access:
+调用 `journey-mapping` skill 以访问：
 
-- Journey structure templates
-- Persona development framework
-- Emotion mapping guidance
-- Moments of Truth definitions
+- 旅程结构模板
+- 画像开发框架
+- 情绪映射指导
+- 关键时刻定义
 
-### Step 3: Define or Select Persona
+### 步骤3：定义或选择画像
 
-If persona provided, use it. Otherwise:
+如果提供了画像，使用它。否则：
 
-**Quick/Full Mode**: Create a default persona from context
+**Quick/Full 模式**：从上下文中创建默认画像
 
-**Guided Mode**: Work with user to define persona:
+**Guided 模式**：与用户合作定义画像：
 
 ```markdown
-Let's define the persona for this journey:
+让我们为此旅程定义画像：
 
-1. **Name**: [Give them a representative name]
-2. **Role/Demographics**: [Who are they?]
-3. **Goals**: [What do they want to achieve?]
-4. **Frustrations**: [What typically frustrates them?]
-5. **Quote**: [What might they say?]
+1. **姓名**：[给他们一个代表性姓名]
+2. **角色/人口统计**：[他们是谁？]
+3. **目标**：[他们想要实现什么？]
+4. **挫折**：[通常什么让他们沮丧？]
+5. **语录**：[他们可能会说什么？]
 ```
 
-### Step 4: Execute Based on Mode
+### 步骤4：根据模式执行
 
-#### Full Mode (Comprehensive Analysis)
+#### Full 模式（全面分析）
 
-Spawn the `journey-facilitator` agent for thorough mapping:
+启动 `journey-facilitator` Agent 进行彻底映射：
 
 ```text
-Create a comprehensive journey map for:
+为以下内容创建全面的旅程地图：
 
-[Journey description]
+[旅程描述]
 
-Persona: [Persona details if provided]
+画像：[如提供则包含画像详情]
 
-Requirements:
-1. Define complete persona if not provided
-2. Identify 4-6 journey phases
-3. Map touchpoints, actions, thoughts, emotions for each phase
-4. Plot emotion curve with intensity (+2 to -2)
-5. Identify all pain points with severity rating
-6. Discover opportunities for improvement
-7. Analyze Moments of Truth (ZMOT, FMOT, SMOT, UMOT)
-8. Prioritize opportunities by impact and effort
+要求：
+1. 如未提供则定义完整画像
+2. 识别4-6个旅程阶段
+3. 为每个阶段映射触点、行动、想法、情绪
+4. 绘制情绪曲线，强度范围（+2到-2）
+5. 识别所有痛点并评级严重程度
+6. 发现改进机会
+7. 分析关键时刻（ZMOT、FMOT、SMOT、UMOT）
+8. 按影响和 effort 对机会进行优先级排序
 ```
 
-The agent will:
+Agent 将：
 
-- Create detailed phase-by-phase analysis
-- Generate emotion curve visualization
-- Produce prioritized opportunity backlog
-- Identify critical moments of truth
+- 创建详细的逐阶段分析
+- 生成情绪曲线可视化
+- 生成优先级的机会待办列表
+- 识别关键的关键时刻
 
-#### Quick Mode (Rapid Mapping)
+#### Quick 模式（快速映射）
 
-Perform fast journey mapping:
+执行快速旅程映射：
 
-1. Infer persona from context
-2. Identify 4-5 obvious journey phases
-3. Map key touchpoints per phase
-4. Note obvious pain points
-5. Estimate emotional highs and lows
-6. Identify top 3 opportunities
+1. 从上下文推断画像
+2. 识别4-5个明显的旅程阶段
+3. 映射每个阶段的关键触点
+4. 记录明显的痛点
+5. 估算情绪高低
+6. 识别前3个机会
 
-#### Guided Mode (Interactive)
+#### Guided 模式（交互式）
 
-Work interactively through journey mapping using structured questions.
+使用结构化问题交互式地进行旅程映射。
 
-##### Step G1: Research Approach and Empathy Depth
+##### 步骤 G1：研究方法和共情深度
 
-Use AskUserQuestion to determine approach upfront:
+使用 AskUserQuestion 预先确定方法：
 
 ```yaml
-# Question 1: Research Approach (MCP: Design Thinking empathize phase)
-question: "How should we approach understanding the user?"
-header: "Approach"
+# 问题1：研究方法（MCP：设计思维共情阶段）
+question: "我们应该如何理解用户？"
+header: "方法"
 options:
-  - label: "Interviews (Recommended)"
-    description: "Direct stakeholder conversations and quotes"
-  - label: "Observation"
-    description: "Watch users in their natural environment"
-  - label: "Data Analysis"
-    description: "Review existing usage data and feedback"
-  - label: "Journey Mapping"
-    description: "Map current user experience end-to-end"
+  - label: "访谈（推荐）"
+    description: "直接干系人对话和引用"
+  - label: "观察"
+    description: "在自然环境中观察用户"
+  - label: "数据分析"
+    description: "审查现有使用数据和反馈"
+  - label: "旅程映射"
+    description: "端到端映射当前用户体验"
 
-# Question 2: Empathy Depth (MCP: Design Thinking - Five Whys, Empathy Mapping)
-question: "What depth of empathy mapping do you need?"
-header: "Depth"
+# 问题2：共情深度（MCP：设计思维 - Five Whys、共情映射）
+question: "您需要多深的共情映射？"
+header: "深度"
 options:
-  - label: "Quick Scan (Recommended)"
-    description: "Key pain points and needs only (~15 min)"
-  - label: "Empathy Map"
-    description: "Full Say/Think/Do/Feel quadrants (~30 min)"
+  - label: "快速扫描（推荐）"
+    description: "仅关键痛点和需求（约15分钟）"
+  - label: "共情地图"
+    description: "完整的说/想/做/感四象限（约30分钟）"
   - label: "Five Whys"
-    description: "Root cause analysis of problems (~45 min)"
+    description: "问题的根因分析（约45分钟）"
 ```
 
-##### Step G2: Persona
+##### 步骤 G2：画像
 
-Define or confirm the persona for this journey.
+定义或确认此旅程的画像。
 
-##### Step G3: Journey Scope
+##### 步骤 G3：旅程范围
 
-Confirm trigger, goal, and end state.
+确认触发器、目标和结束状态。
 
-##### Step G4: Phase Identification
+##### 步骤 G4：阶段识别
 
-Break journey into major phases (typically 4-6).
+将旅程分解为主要阶段（通常4-6个）。
 
-##### Step G5: Phase Deep-Dive
+##### 步骤 G5：阶段深入
 
-For each phase, explore based on depth from G1:
+对于每个阶段，根据 G1 的深度进行探索：
 
-- Quick Scan: Key touchpoints and obvious pain points
-- Empathy Map: Full Say/Think/Do/Feel for each phase
-- Five Whys: Root cause analysis for major pain points
+- 快速扫描：关键触点和明显痛点
+- 共情地图：每个阶段的完整说/想/做/感
+- Five Whys：主要痛点的根因分析
 
-Standard questions per phase:
+每个阶段的标准问题：
 
-- "Where do they interact with us?" (Touchpoints)
-- "What are they doing?" (Actions)
-- "What are they thinking?" (Thoughts)
-- "How are they feeling?" (Emotions - rate +2 to -2)
-- "What frustrates them here?" (Pain Points)
+- "他们在哪里与我们互动？"（触点）
+- "他们在做什么？"（行动）
+- "他们在想什么？"（想法）
+- "他们感觉如何？"（情绪 - 评分 +2 到 -2）
+- "什么让他们在这里感到沮丧？"（痛点）
 
-##### Step G6: Moments of Truth
+##### 步骤 G6：关键时刻
 
-Identify critical interactions (ZMOT, FMOT, SMOT, UMOT).
+识别关键互动（ZMOT、FMOT、SMOT、UMOT）。
 
-##### Step G7: Opportunities
+##### 步骤 G7：机会
 
-Brainstorm improvements based on pain point severity.
+基于痛点严重程度头脑风暴改进方案。
 
-### Step 5: Generate Output Artifacts
+### 步骤5：生成输出产物
 
-#### Journey Map
+#### 旅程地图
 
 ```markdown
-## Journey Map: [Journey Name]
+## 旅程地图：[旅程名称]
 
-**Date:** [ISO Date]
-**Mode:** [full|quick|guided]
+**日期：** [ISO日期]
+**模式：** [full|quick|guided]
 
-### Persona: [Name]
+### 画像：[姓名]
 
-**Role:** [Description]
-**Goals:** [What they want to achieve]
-**Frustrations:** [Common pain points]
-**Quote:** "[Characteristic statement]"
-
----
-
-### Journey Overview
-
-**Goal:** [What user wants to achieve]
-**Trigger:** [What starts the journey]
-**End State:** [What marks success]
-**Time Frame:** [Typical duration]
+**角色：** [描述]
+**目标：** [他们想要实现什么]
+**挫折：** [常见痛点]
+**语录：** "[特征性陈述]"
 
 ---
 
-### Phase 1: [Phase Name]
+### 旅程概览
 
-**Touchpoints:** [List channels/interactions]
-
-**Actions:**
-- [What user does]
-
-**Thoughts:**
-- [What user is thinking]
-
-**Emotions:** [Emoji] [Description]
-- **Intensity:** [+2/+1/0/-1/-2]
-
-**Pain Points:**
-- [Pain point with severity: High/Medium/Low]
-
-**Opportunities:**
-- [Improvement idea]
+**目标：** [用户想要实现什么]
+**触发器：** [什么开始旅程]
+**结束状态：** [什么标志成功]
+**时间框架：** [典型持续时间]
 
 ---
 
-[Repeat for each phase]
+### 阶段1：[阶段名称]
+
+**触点：** [列出渠道/互动]
+
+**行动：**
+- [用户做什么]
+
+**想法：**
+- [用户在想什么]
+
+**情绪：** [表情符号] [描述]
+- **强度：** [+2/+1/0/-1/-2]
+
+**痛点：**
+- [痛点及严重程度：高/中/低]
+
+**机会：**
+- [改进想法]
+
+---
+
+[对每个阶段重复]
 ```
 
-#### Emotion Curve
+#### 情绪曲线
 
 ```mermaid
 xychart-beta
-    title "Emotional Journey"
-    x-axis ["Awareness", "Consideration", "Purchase", "Onboarding", "Usage", "Advocacy"]
-    y-axis "Emotion" -2 --> 2
+    title "情绪旅程"
+    x-axis ["认知", "考虑", "购买", "入职", "使用", "倡导"]
+    y-axis "情绪" -2 --> 2
     line [1, 0, -1, 1, 2, 2]
 ```
 
-#### Pain Point Inventory
+#### 痛点清单
 
 ```markdown
-### Pain Point Inventory
+### 痛点清单
 
-| ID | Pain Point | Phase | Severity | Evidence | Root Cause |
+| ID | 痛点 | 阶段 | 严重程度 | 证据 | 根因 |
 |----|------------|-------|----------|----------|------------|
-| PP1 | Confusing pricing page | Consideration | High | User testing | Too many options |
-| PP2 | Slow checkout | Purchase | High | Analytics | 3rd party integration |
-| PP3 | Unclear onboarding | Onboarding | Medium | Support tickets | Missing guidance |
+| PP1 | 混淆的定价页面 | 考虑 | 高 | 用户测试 | 选项太多 |
+| PP2 | 缓慢的结账流程 | 购买 | 高 | 分析数据 | 第三方集成 |
+| PP3 | 不清晰的入职流程 | 入职 | 中 | 支持工单 | 缺少指导 |
 ```
 
-#### Opportunity Backlog
+#### 机会待办列表
 
 ```markdown
-### Opportunity Backlog
+### 机会待办列表
 
-| ID | Opportunity | Phase | Impact | Effort | Priority |
+| ID | 机会 | 阶段 | 影响 | Effort | 优先级 |
 |----|-------------|-------|--------|--------|----------|
-| O1 | Simplify pricing tiers | Consideration | High | Medium | 1 |
-| O2 | Add progress indicator | Onboarding | High | Low | 2 |
-| O3 | Optimize checkout API | Purchase | High | High | 3 |
+| O1 | 简化定价层级 | 考虑 | 高 | 中 | 1 |
+| O2 | 添加进度指示器 | 入职 | 高 | 低 | 2 |
+| O3 | 优化结账 API | 购买 | 高 | 高 | 3 |
 ```
 
-#### Moments of Truth
+#### 关键时刻
 
 ```markdown
-### Moments of Truth
+### 关键时刻
 
-| Moment | Phase | Current State | Desired State | Gap |
+| 时刻 | 阶段 | 当前状态 | 期望状态 | 差距 |
 |--------|-------|---------------|---------------|-----|
-| **ZMOT** (Pre-research) | Awareness | Mixed reviews | Positive reputation | Medium |
-| **FMOT** (First encounter) | Consideration | Cluttered homepage | Clear value prop | High |
-| **SMOT** (Using product) | Usage | Learning curve | Intuitive experience | Medium |
-| **UMOT** (Sharing) | Advocacy | No prompt | Easy referral | Low |
+| **ZMOT**（预研究） | 认知 | 混合评价 | 正面声誉 | 中 |
+| **FMOT**（首次接触） | 考虑 | 杂乱的主页 | 清晰的价值主张 | 高 |
+| **SMOT**（使用产品） | 使用 | 学习曲线 | 直观体验 | 中 |
+| **UMOT**（分享） | 倡导 | 无提示 | 轻松推荐 | 低 |
 ```
 
-#### Mermaid Journey Diagram
+#### Mermaid 旅程图表
 
 ```mermaid
 journey
-    title Customer Journey: [Journey Name]
-    section Awareness
-      Search online: 3: Customer
-      Read reviews: 4: Customer
-    section Consideration
-      Visit website: 3: Customer
-      Compare options: 2: Customer
-    section Purchase
-      Add to cart: 4: Customer
-      Checkout: 2: Customer
-    section Onboarding
-      Create account: 3: Customer
-      First use: 4: Customer
-    section Usage
-      Daily tasks: 5: Customer
-      Get support: 3: Customer
+    title 客户旅程：[旅程名称]
+    section 认知
+      在线搜索: 3: 客户
+      阅读评价: 4: 客户
+    section 考虑
+      访问网站: 3: 客户
+      比较选项: 2: 客户
+    section 购买
+      加入购物车: 4: 客户
+      结账: 2: 客户
+    section 入职
+      创建账户: 3: 客户
+      首次使用: 4: 客户
+    section 使用
+      日常任务: 5: 客户
+      获取支持: 3: 客户
 ```
 
-### Step 6: Save Results
+### 步骤6：保存结果
 
-Save outputs to:
+保存输出到：
 
-- `docs/analysis/journey-map-[persona-name].md`
+- `docs/analysis/journey-map-[画像名称].md`
 
-Use `--dir` to specify a custom output directory.
+使用 `--dir` 指定自定义输出目录。
 
-### Step 7: Suggest Follow-Up Actions
+### 步骤7：建议后续行动
 
 ```markdown
-## Suggested Next Steps
+## 建议的下一步
 
-1. **Stakeholder Alignment**: Use `/ba:stakeholder-analyze` to identify journey owners
-2. **Process Analysis**: Use `/ba:value-stream` to analyze operations behind pain points
-3. **Capability Review**: Use `/ba:capability-map` to link touchpoints to capabilities
-4. **Service Design**: Create service blueprint layering frontstage/backstage
-5. **Prototype & Test**: Prototype solutions for high-priority opportunities
+1. **干系人对齐**：使用 `/ba:stakeholder-analyze` 识别旅程所有者
+2. **流程分析**：使用 `/ba:value-stream` 分析痛点背后的运营
+3. **能力审查**：使用 `/ba:capability-map` 将触点链接到能力
+4. **服务设计**：创建分层前台/后台的服务蓝图
+5. **原型和测试**：为高优先级机会原型化解决方案
 ```

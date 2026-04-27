@@ -1,20 +1,20 @@
-# .gitattributes Guide
+# .gitattributes 指南
 
-Comprehensive guide to .gitattributes configuration for line ending management.
+用于换行符管理的 .gitattributes 配置完整指南。
 
-## What is .gitattributes?
+## 什么是 .gitattributes？
 
-`.gitattributes` is a repository-level configuration file that explicitly declares how Git should handle specific files. It is checked into version control and applies to all developers, ensuring consistent behavior across the team.
+`.gitattributes` 是 repository 级别的配置文件，明确声明 Git 如何处理特定文件。它会被纳入版本控制并对所有开发者生效，保证团队内行为一致。
 
-## Common Patterns
+## 常见模式
 
-**Minimal:**
+**最小配置：**
 
 ```gitattributes
 * text=auto
 ```
 
-**Comprehensive:**
+**完整配置：**
 
 ```gitattributes
 # Default behavior
@@ -45,23 +45,23 @@ Comprehensive guide to .gitattributes configuration for line ending management.
 *.exe binary
 ```
 
-## Attribute Reference
+## 属性参考
 
-- `text=auto` - Auto-detect text files and normalize
-- `text eol=lf` - Use LF in working directory
-- `text eol=crlf` - Use CRLF in working directory
-- `binary` - Never convert line endings
+- `text=auto` —— 自动识别文本文件并规范化
+- `text eol=lf` —— 在工作目录中使用 LF
+- `text eol=crlf` —— 在工作目录中使用 CRLF
+- `binary` —— 永不转换换行符
 
-## When to Add .gitattributes
+## 何时添加 .gitattributes
 
-Always add to:
+始终添加给：
 
-- New repositories you create
-- Team repositories you control
-- Projects with cross-platform contributors
-- Projects with shell scripts or platform-specific files
+- 你新建的 repository
+- 你掌控的团队 repository
+- 有跨平台贡献者的项目
+- 包含 shell 脚本或特定平台文件的项目
 
-## Adding to Existing Repository
+## 为已有 repository 添加
 
 ```bash
 # Create .gitattributes

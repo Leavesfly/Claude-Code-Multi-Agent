@@ -1,273 +1,273 @@
 ---
-description: Create information architecture for a product including site structure, navigation, and taxonomy. Use for organizing content and improving findability.
+description: 为产品创建信息架构，包括站点结构、导航和分类体系。用于组织内容和提高可发现性。
 allowed-tools: Read, Glob, Grep, Write, Skill, Task
 argument-hint: <product> [--scope full|section|navigation]
 ---
 
-# Design Information Architecture
+# 设计信息架构
 
-Create comprehensive information architecture for the specified product.
+为指定产品创建全面的信息架构。
 
-## Workflow
+## 工作流程
 
-### Step 1: Load Required Skills
+### 步骤 1：加载所需技能
 
-Load these skills:
+加载以下技能：
 
-- `information-architecture` - IA methodology and patterns
+- `information-architecture` - IA 方法论和模式
 
-### Step 2: Understand IA Context
+### 步骤 2：理解 IA 上下文
 
-Gather context about: {{ product }}
+收集关于 {{ product }} 的上下文信息：
 
-Scope: {{ scope | default: "full site" }}
+范围：{{ scope | default: "完整站点" }}
 
-Understand:
+了解：
 
-- What content exists or will exist?
-- Who are the primary user groups?
-- What are the key user tasks?
-- Any existing IA or content inventory?
+- 存在或将存在哪些内容？
+- 主要用户群体是谁？
+- 关键用户任务是什么？
+- 是否有现有的 IA 或内容清单？
 
-### Step 3: Spawn IA Architect Agent
+### 步骤 3：生成 IA 架构师 Agent
 
-Spawn the `ia-architect` agent with the following prompt:
+使用以下提示词生成 `ia-architect` agent：
 
 ```text
-Design comprehensive information architecture for: {{ product }}
+为以下产品设计全面的信息架构：{{ product }}
 
-Scope: {{ scope | default: "full site" }}
+范围：{{ scope | default: "完整站点" }}
 
-Provide:
+提供：
 
-1. Content Analysis
-   - Content types identified
-   - Content relationships
-   - Volume and growth considerations
+1. 内容分析
+   - 识别的内容类型
+   - 内容关系
+   - 体量和增长考虑
 
-2. User Analysis
-   - Primary user segments
-   - Key user tasks and goals
-   - Finding behaviors (browsing vs. searching)
+2. 用户分析
+   - 主要用户细分
+   - 关键用户任务和目标
+   - 查找行为（浏览 vs. 搜索）
 
-3. Organization System
-   - Primary organization scheme
-   - Hierarchy structure
-   - Faceted dimensions (if applicable)
-   - Metadata requirements
+3. 组织系统
+   - 主要组织方案
+   - 层级结构
+   - 分面维度（如适用）
+   - 元数据要求
 
-4. Site Map
-   - Visual hierarchy diagram
-   - Page types and templates
-   - Depth analysis
-   - Cross-linking strategy
+4. 站点地图
+   - 视觉层级图
+   - 页面类型和模板
+   - 深度分析
+   - 交叉链接策略
 
-5. Navigation Design
-   - Global navigation structure
-   - Local/contextual navigation
-   - Utility navigation
-   - Breadcrumb strategy
-   - Mobile considerations
+5. 导航设计
+   - 全局导航结构
+   - 本地/上下文导航
+   - 实用导航
+   - 面包屑策略
+   - 移动端考虑
 
-6. Labeling System
-   - Navigation labels
-   - Category labels
-   - Key terminology decisions
-   - Label testing recommendations
+6. 标签系统
+   - 导航标签
+   - 类别标签
+   - 关键术语决策
+   - 标签测试建议
 
-7. Search Strategy
-   - Search scope
-   - Filters and facets
-   - Search results organization
+7. 搜索策略
+   - 搜索范围
+   - 过滤器和分面
+   - 搜索结果组织
 
-8. Taxonomy (if applicable)
-   - Category hierarchy
-   - Term definitions
-   - Synonyms and related terms
-   - Governance approach
+8. 分类体系（如适用）
+   - 类别层级
+   - 术语定义
+   - 同义词和相关术语
+   - 治理方法
 
-9. Validation Recommendations
-   - Card sorting approach
-   - Tree testing plan
-   - First-click testing
+9. 验证建议
+   - 卡片分类方法
+   - 树测试计划
+   - 首次点击测试
 
-10. Implementation Guidance
-    - URL structure
-    - SEO considerations
-    - CMS requirements
+10. 实施指导
+    - URL 结构
+    - SEO 考虑
+    - CMS 要求
 
-Use the information-architecture skill for methodology guidance.
-Output complete IA documentation.
+使用 information-architecture 技能获取方法论指导。
+输出完整的 IA 文档。
 ```
 
-### Step 4: Generate Validation Plans
+### 步骤 4：生成验证计划
 
-Provide plans to validate the IA:
+提供验证 IA 的计划：
 
-- Card sort study design
-- Tree test specifications
-- Navigation usability test
+- 卡片分类研究设计
+- 树测试规范
+- 导航可用性测试
 
-## Example Usage
+## 示例用法
 
 ```bash
-# Full site IA
-/ux-research:design-ia "enterprise documentation portal"
+# 完整站点 IA
+/ux-research:design-ia "企业文档门户"
 
-# Section-specific IA
-/ux-research:design-ia "e-commerce product catalog" --scope "category navigation"
+# 特定部分 IA
+/ux-research:design-ia "电子商务产品目录" --scope "类别导航"
 
-# Navigation redesign
-/ux-research:design-ia "corporate website" --scope "navigation only"
+# 导航重新设计
+/ux-research:design-ia "企业网站" --scope "仅导航"
 ```
 
-## Output Format
+## 输出格式
 
 ````markdown
-# Information Architecture: [Product]
+# 信息架构：[产品]
 
-## Executive Summary
-[Overview of IA approach and key decisions]
+## 执行摘要
+[IA 方法和关键决策概述]
 
 ---
 
-## Content Landscape
+## 内容景观
 
-### Content Types
-| Type | Volume | Growth | Priority |
+### 内容类型
+| 类型 | 体量 | 增长 | 优先级 |
 |------|--------|--------|----------|
-| [Type] | [Count] | [Rate] | [H/M/L] |
+| [类型] | [数量] | [速率] | [高/中/低] |
 
-### Content Relationships
-[Diagram or description of how content relates]
+### 内容关系
+[内容如何关联的图表或描述]
 
 ---
 
-## User Analysis
+## 用户分析
 
-### Primary Users
-| Segment | Goals | Behaviors |
+### 主要用户
+| 细分 | 目标 | 行为 |
 |---------|-------|-----------|
-| [Segment] | [Goals] | [Behaviors] |
+| [细分] | [目标] | [行为] |
 
-### Key User Tasks
-1. [Task] - Frequency: [H/M/L]
-2. [Task] - Frequency: [H/M/L]
+### 关键用户任务
+1. [任务] - 频率：[高/中/低]
+2. [任务] - 频率：[高/中/低]
 
 ---
 
-## Site Structure
+## 站点结构
 
-### Site Map
+### 站点地图
 
 ```text
-Home
-├── [Section 1]
-│   ├── [Page 1.1]
-│   └── [Page 1.2]
-├── [Section 2]
-│   ├── [Page 2.1]
-│   │   └── [Page 2.1.1]
-│   └── [Page 2.2]
-└── [Section 3]
+首页
+├── [部分 1]
+│   ├── [页面 1.1]
+│   └── [页面 1.2]
+├── [部分 2]
+│   ├── [页面 2.1]
+│   │   └── [页面 2.1.1]
+│   └── [页面 2.2]
+└── [部分 3]
 
 ```
 
-### Page Types
+### 页面类型
 
-| Type | Template | Count |
+| 类型 | 模板 | 数量 |
 |------|----------|-------|
-| [Type] | [Template] | [N] |
+| [类型] | [模板] | [N] |
 
 ---
 
-## Navigation Design
+## 导航设计
 
-### Global Navigation
+### 全局导航
 
-| Label | Destination | Notes |
+| 标签 | 目标位置 | 备注 |
 |-------|-------------|-------|
-| [Label] | [Page] | [Notes] |
+| [标签] | [页面] | [备注] |
 
-### Local Navigation
+### 本地导航
 
-[By section...]
+[按部分...]
 
-### Utility Navigation
+### 实用导航
 
-- [Item 1]
-- [Item 2]
+- [项目 1]
+- [项目 2]
 
-### Mobile Navigation
+### 移动端导航
 
-[Approach and considerations]
+[方法和考虑因素]
 
 ---
 
-## Labeling System
+## 标签系统
 
-### Navigation Labels
+### 导航标签
 
-| Current | Proposed | Rationale |
+| 当前 | 建议 | 理由 |
 |---------|----------|-----------|
-| [Label] | [Label] | [Why] |
+| [标签] | [标签] | [原因] |
 
-### Testing Needs
+### 测试需求
 
-[What labels need validation]
+[需要验证的标签]
 
 ---
 
-## Taxonomy
+## 分类体系
 
-### Category Hierarchy
+### 类别层级
 
 ```text
 
-[Top Level]
-├── [Category 1]
-│   ├── [Subcategory]
-│   └── [Subcategory]
-└── [Category 2]
+[顶层]
+├── [类别 1]
+│   ├── [子类别]
+│   └── [子类别]
+└── [类别 2]
 
 ```
 
-### Term Definitions
+### 术语定义
 
-| Term | Definition | Synonyms |
+| 术语 | 定义 | 同义词 |
 |------|------------|----------|
-| [Term] | [Definition] | [Synonyms] |
+| [术语] | [定义] | [同义词] |
 
 ---
 
-## Validation Plan
+## 验证计划
 
-### Card Sort
+### 卡片分类
 
-- **Type:** [Open/Closed/Hybrid]
-- **Cards:** [List or count]
-- **Participants:** [Number]
+- **类型：** [开放/封闭/混合]
+- **卡片：** [列表或数量]
+- **参与者：** [数量]
 
-### Tree Test
+### 树测试
 
-- **Tasks:** [Number]
-- **Participants:** [Number]
-- **Success Target:** [%]
+- **任务：** [数量]
+- **参与者：** [数量]
+- **成功目标：** [%]
 
 ---
 
-## Implementation Notes
+## 实施说明
 
-### URL Structure
+### URL 结构
 
-[Pattern and examples]
+[模式和示例]
 
-### SEO Considerations
+### SEO 考虑
 
-[Key points]
+[关键点]
 
-### CMS Requirements
+### CMS 要求
 
-[What the CMS needs to support]
+[CMS 需要支持的内容]
 
 ````

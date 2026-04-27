@@ -1,10 +1,10 @@
-# Capability Hierarchy Reference
+# 能力层级参考
 
-## Industry Frameworks
+## 行业框架
 
-Start with an industry-specific framework and customize. Common starting points:
+从行业特定的框架入手再做定制。常见起点如下：
 
-### Technology Company (SaaS)
+### 科技公司（SaaS）
 
 ```text
 L1 Capabilities:
@@ -44,7 +44,7 @@ L1 Capabilities:
     └── Privacy
 ```
 
-### Financial Services
+### 金融服务
 
 ```text
 L1 Capabilities:
@@ -81,7 +81,7 @@ L1 Capabilities:
     └── Legal
 ```
 
-### Healthcare
+### 医疗健康
 
 ```text
 L1 Capabilities:
@@ -115,7 +115,7 @@ L1 Capabilities:
     └── Facilities
 ```
 
-### Retail
+### 零售
 
 ```text
 L1 Capabilities:
@@ -150,137 +150,137 @@ L1 Capabilities:
     └── Real Estate
 ```
 
-## Decomposition Rules
+## 拆解规则
 
-### L1 → L2 Decomposition
+### L1 → L2 拆解
 
-#### Rule: 3-7 L2 capabilities per L1
+#### 规则：每个 L1 下拆出 3-7 个 L2 能力
 
-Ask:
+询问：
 
-- What distinct activities make up this capability?
-- What could be owned by different people?
-- What has different maturity levels?
-- What uses different systems?
+- 构成这项能力的是哪些不同活动？
+- 哪些活动可以由不同的人负责？
+- 哪些活动的成熟度不一样？
+- 哪些活动使用不同的系统？
 
-### L2 → L3 Decomposition
+### L2 → L3 拆解
 
-#### Rule: 3-10 L3 capabilities per L2, only where needed
+#### 规则：每个 L2 下拆出 3-10 个 L3 能力，仅在必要时才拆
 
-Only decompose to L3 when:
+仅在以下情况时才拆到 L3：
 
-- Detailed planning is needed
-- Maturity varies within L2
-- Different investment decisions apply
-- System mapping requires granularity
+- 需要做详细规划
+- L2 内部成熟度差异较大
+- 需要做不同的投资决策
+- 系统映射要求更细粒度
 
-### Stop Decomposition When
+### 何时停止拆解
 
-- You're describing "how" instead of "what"
-- Further breakdown doesn't enable decisions
-- The capability is simple and atomic
-- You've reached organizational task level
+- 你开始描述"怎么做"而不是"做什么"
+- 进一步拆解无助于决策
+- 这项能力已经足够简单且原子化
+- 你已经下探到了组织任务层级
 
-## Naming Conventions
+## 命名约定
 
-### Use Noun Phrases (What)
+### 使用名词短语（做什么）
 
-**Good:** "Customer Onboarding"
-**Bad:** "Onboard Customers" (verb phrase = process)
+**好：** "Customer Onboarding"
+**差：** "Onboard Customers"（动词短语 = 流程）
 
-### Be Specific
+### 保持具体
 
-**Good:** "Identity Verification"
-**Bad:** "Verification" (too generic)
+**好：** "Identity Verification"
+**差：** "Verification"（太笼统）
 
-### Avoid Technology
+### 避免技术命名
 
-**Good:** "Customer Communication"
-**Bad:** "Email System" (technology, not capability)
+**好：** "Customer Communication"
+**差：** "Email System"（这是技术，不是能力）
 
-### Avoid Organization
+### 避免用组织命名
 
-**Good:** "Financial Reporting"
-**Bad:** "Finance Department Work" (org, not capability)
+**好：** "Financial Reporting"
+**差：** "Finance Department Work"（这是组织，不是能力）
 
-## Common Mistakes
+## 常见错误
 
-| Mistake | Why It's Wrong | Fix |
+| 错误 | 为什么错 | 修正方式 |
 |---------|---------------|-----|
-| Too many L1s | Overwhelming, loses strategic view | Consolidate to 8-15 |
-| Process in capabilities | Capabilities are "what", not "how" | Rename to noun phrases |
-| Technology as capability | Systems change, capabilities don't | Abstract to business capability |
-| Org as capability | Departments ≠ capabilities | Map capabilities to owners instead |
-| Inconsistent granularity | Hard to compare/assess | Apply decomposition rules consistently |
+| L1 过多 | 信息过载，丢失战略视图 | 收敛到 8-15 个 |
+| 把流程当作能力 | 能力描述"做什么"而非"怎么做" | 改为名词短语 |
+| 把技术当作能力 | 系统会变，能力不变 | 抽象到业务能力层面 |
+| 把组织当作能力 | 部门 ≠ 能力 | 改为把能力映射到责任人 |
+| 粒度不一致 | 难以对比和评估 | 一致地套用拆解规则 |
 
-## Maturity Assessment Rubric
+## 成熟度评估量表
 
-### Level 1: Initial
+### Level 1：Initial
 
-- Ad hoc, reactive
-- Heroic efforts to deliver
-- No documentation
-- Person-dependent
+- 临时、被动响应
+- 靠英雄式的努力交付
+- 无文档
+- 依赖个人
 
-### Level 2: Developing
+### Level 2：Developing
 
-- Some structure emerging
-- Basic documentation exists
-- Inconsistent execution
-- Limited measurement
+- 开始出现一定结构
+- 存在基础文档
+- 执行不一致
+- 度量有限
 
-### Level 3: Defined
+### Level 3：Defined
 
-- Standardized processes
-- Documented procedures
-- Consistent execution
-- Basic metrics tracked
+- 标准化流程
+- 文档化的步骤
+- 执行一致
+- 跟踪基础指标
 
-### Level 4: Managed
+### Level 4：Managed
 
-- Quantitative management
-- Proactive improvement
-- Advanced metrics
-- Predictable outcomes
+- 定量化管理
+- 主动改进
+- 进阶指标
+- 结果可预测
 
-### Level 5: Optimizing
+### Level 5：Optimizing
 
-- Continuous improvement
-- Innovation culture
-- Industry-leading practices
-- Strategic differentiator
+- 持续改进
+- 创新文化
+- 业界领先实践
+- 战略差异化来源
 
-## Strategic Classification Guidance
+## 战略分类指导
 
-### Strategic Capabilities
+### 战略能力
 
-Characteristics:
+特征：
 
-- Differentiate from competitors
-- Create unique customer value
-- Hard for competitors to replicate
-- Core to business model
+- 与竞争对手形成差异
+- 创造独特的客户价值
+- 竞争对手难以复制
+- 是商业模式的核心
 
-**Action:** Invest, innovate, build in-house
+**行动：** 投资、创新、自建
 
-### Core Capabilities
+### 核心能力
 
-Characteristics:
+特征：
 
-- Essential to operations
-- Expected by customers
-- Industry standard
-- Must execute well
+- 运营必需
+- 客户期望具备
+- 行业标准
+- 必须执行到位
 
-**Action:** Optimize efficiency, ensure reliability
+**行动：** 优化效率、确保可靠性
 
-### Supporting Capabilities
+### 支撑能力
 
-Characteristics:
+特征：
 
-- Enable other capabilities
-- Not customer-facing
-- Commodity activities
-- Can be standardized
+- 支持其他能力
+- 非面向客户
+- 商品化活动
+- 可以标准化
 
-**Action:** Minimize cost, consider outsourcing
+**行动：** 压低成本、考虑外包

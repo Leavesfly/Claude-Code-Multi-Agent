@@ -1,41 +1,41 @@
 ---
 name: gui-tools
-description: Provides guidance for installing, configuring, and choosing Git graphical interface clients (GitKraken, Sourcetree, GitHub Desktop) across platforms. Compares features, licensing, and workflows. Troubleshoots graphical tool configuration and setup issues. Use when installing Git graphical clients, setting up Git visualization tools, configuring graphical commit tools, choosing between options, or troubleshooting configuration. Covers Windows, macOS, and Linux. All tools are optional and based on user preference.
+description: 为各平台 Git 图形界面客户端（GitKraken、Sourcetree、GitHub Desktop）的安装、配置与选型提供指导。对比特性、授权和 workflow。排查 GUI 工具配置与安装问题。当你在安装 Git 图形客户端、配置 Git 可视化工具、配置图形化 commit 工具、在多个选项之间选型或排查配置问题时使用。覆盖 Windows、macOS 与 Linux。所有工具都是可选的，取决于用户偏好。
 allowed-tools: Read, Bash, Glob, Grep
 ---
 
 # Git GUI Tools
 
-Optional graphical user interface tools for Git. These tools provide visual interfaces for Git operations, making it easier to stage changes, review diffs, manage branches, and visualize repository history.
+Git 的可选图形界面工具。它们为 Git 操作提供可视化界面，让暂存修改、review diff、管理 branch、可视化仓库历史更方便。
 
-## Overview
+## 概述
 
-This skill helps you:
+本 skill 帮你：
 
-- Choose the right Git GUI tool for your workflow
-- Install popular Git GUI clients on Windows, macOS, and Linux
-- Configure GUI tools properly
-- Understand licensing and subscription requirements
-- Troubleshoot common configuration issues
+- 为你的 workflow 选到合适的 Git GUI 工具
+- 在 Windows、macOS 与 Linux 上安装主流 Git GUI 客户端
+- 正确配置 GUI 工具
+- 理解授权与订阅要求
+- 排查常见的配置问题
 
-**Important**: All GUI tools are **optional**. They complement the command-line interface but are not required for Git usage. Many developers prefer command-line Git exclusively.
+**重要**：所有 GUI 工具都是**可选**的。它们是命令行界面的补充，并非 Git 使用所必需。许多开发者只用命令行 Git。
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用本 skill：
 
-- Installing Git GUI clients for the first time
-- Choosing between GitKraken, Sourcetree, GitHub Desktop, or other tools
-- Configuring GUI tools after installation
-- Troubleshooting GUI tool configuration (Sourcetree gitignore, etc.)
-- Understanding licensing requirements for commercial GUI tools
-- Looking for platform-specific GUI recommendations
+- 首次安装 Git GUI 客户端
+- 在 GitKraken、Sourcetree、GitHub Desktop 或其他工具之间选型
+- 安装后配置 GUI 工具
+- 排查 GUI 工具配置（Sourcetree 的 gitignore 等）
+- 理解商业 GUI 工具的授权要求
+- 寻找特定平台的 GUI 推荐
 
-## First Use: Detection and Setup
+## 首次使用：检测与安装
 
-Before installing new GUI tools, check what's already installed on your system.
+在安装新 GUI 工具前，先检查系统上是否已经装了哪些。
 
-**Check for existing GUI tools:**
+**检查已有的 GUI 工具：**
 
 ```bash
 # Check if GitKraken is installed
@@ -56,11 +56,11 @@ git gui --version         # Git GUI (built-in with Git)
 gitk --version            # gitk (built-in repository browser)
 ```
 
-**If no GUI tools are installed, proceed with Quick Start below.**
+**如果还没装任何 GUI 工具，继续看下方"快速开始"。**
 
-## Quick Start
+## 快速开始
 
-**Windows - Quick Install:**
+**Windows - 快速安装：**
 
 ```powershell
 # GitKraken (cross-platform, modern UI, requires license for private repos)
@@ -76,7 +76,7 @@ winget install --id GitHub.GitHubDesktop -e --source winget
 winget install --id Fork.Fork -e --source winget
 ```
 
-**macOS - Quick Install:**
+**macOS - 快速安装：**
 
 ```bash
 # GitKraken (via Homebrew Cask)
@@ -92,7 +92,7 @@ brew install --cask github
 brew install --cask fork
 ```
 
-**Linux - Quick Install:**
+**Linux - 快速安装：**
 
 ```bash
 # GitKraken (download .deb or .rpm from website)
@@ -107,37 +107,37 @@ brew install --cask fork
 
 ---
 
-## Tool Comparison Quick Reference
+## 工具对比速查
 
-| Tool | Platforms | License | Best For |
+| 工具 | 平台 | 授权 | 适合场景 |
 | --- | --- | --- | --- |
-| **GitKraken** | Windows, macOS, Linux | Free (public repos), Pro (private) | Teams, visual learners, complex workflows |
-| **Sourcetree** | Windows, macOS | Free | Atlassian users, feature-rich GUI |
-| **GitHub Desktop** | Windows, macOS, Linux (fork) | Free | GitHub users, simplicity |
-| **Fork** | Windows, macOS | Free (evaluation) | Modern alternative to Sourcetree |
-| **Git GUI/gitk** | All (comes with Git) | Free (GPL) | Lightweight, no installation |
-| **GitAhead** | Windows, macOS, Linux | Free (MIT) | Lightweight, open source |
+| **GitKraken** | Windows、macOS、Linux | 免费（public repo）、Pro（private） | 团队、偏好视觉的用户、复杂 workflow |
+| **Sourcetree** | Windows、macOS | 免费 | Atlassian 用户、功能丰富的 GUI |
+| **GitHub Desktop** | Windows、macOS、Linux（社区 fork） | 免费 | GitHub 用户、追求简洁 |
+| **Fork** | Windows、macOS | 免费试用 | Sourcetree 的现代替代 |
+| **Git GUI/gitk** | 所有平台（随 Git 自带） | 免费（GPL） | 轻量、免安装 |
+| **GitAhead** | Windows、macOS、Linux | 免费（MIT） | 轻量、开源 |
 
-**📖 For detailed comparison:** See [references/tool-comparison.md](references/tool-comparison.md) for comprehensive feature analysis, licensing details, and official documentation links.
-
----
-
-## Platform-Specific Installation
-
-For detailed installation instructions for each platform, see:
-
-- **Windows**: [references/windows-installation.md](references/windows-installation.md)
-- **macOS**: [references/macos-installation.md](references/macos-installation.md)
-- **Linux**: [references/linux-installation.md](references/linux-installation.md)
+**📖 详细对比：** 参见 [references/tool-comparison.md](references/tool-comparison.md)，包含完整特性分析、授权细节和官方文档链接。
 
 ---
 
-## Built-in Tools (All Platforms)
+## 各平台安装
 
-Git ships with two built-in GUI tools:
+各平台详细安装说明见：
 
-- **gitk** - Repository browser for visualizing history
-- **Git GUI** - Commit tool for staging changes
+- **Windows**：[references/windows-installation.md](references/windows-installation.md)
+- **macOS**：[references/macos-installation.md](references/macos-installation.md)
+- **Linux**：[references/linux-installation.md](references/linux-installation.md)
+
+---
+
+## 内置工具（所有平台）
+
+Git 自带两个 GUI 工具：
+
+- **gitk** —— 用于可视化历史的仓库浏览器
+- **Git GUI** —— 用于暂存修改的 commit 工具
 
 ```bash
 # Open gitk (history browser)
@@ -147,125 +147,125 @@ gitk --all
 git gui
 ```
 
-**📖 For detailed usage:** See [references/built-in-tools.md](references/built-in-tools.md) for commands, features, and use cases.
+**📖 详细用法：** 参见 [references/built-in-tools.md](references/built-in-tools.md)，包含命令、特性和使用场景。
 
 ---
 
-## Choosing the Right Tool
+## 选对的工具
 
-**Quick recommendations:**
+**快速推荐：**
 
-- **Beginners** → GitHub Desktop
-- **GitHub users** → GitHub Desktop or GitKraken
-- **Bitbucket users** → Sourcetree
-- **Advanced users** → Fork, Tower, or SmartGit
-- **Linux users** → GitAhead, SmartGit, or built-in tools
-- **Visual learners** → GitKraken
-- **Command-line purists** → None (or gitk for quick visualization)
+- **新手** → GitHub Desktop
+- **GitHub 用户** → GitHub Desktop 或 GitKraken
+- **Bitbucket 用户** → Sourcetree
+- **高级用户** → Fork、Tower 或 SmartGit
+- **Linux 用户** → GitAhead、SmartGit 或内置工具
+- **偏好视觉的用户** → GitKraken
+- **命令行纯粹主义者** → 不需要（或用 gitk 做快速可视化）
 
-**📖 For detailed guidance:** See [references/choosing-right-tool.md](references/choosing-right-tool.md) for comprehensive decision criteria.
-
----
-
-## Configuration After Installation
-
-After installing a GUI tool:
-
-1. **Configure Git identity** (if not already done)
-2. **Add SSH keys** (for SSH cloning)
-3. **Authenticate with Git hosting provider** (GitHub, GitLab, Bitbucket)
-4. **Configure diff/merge tool** (optional)
-
-**📖 For detailed steps:** See [references/configuration.md](references/configuration.md) for complete post-installation configuration.
+**📖 详细指导：** 参见 [references/choosing-right-tool.md](references/choosing-right-tool.md)，包含完整决策标准。
 
 ---
 
-## Troubleshooting
+## 安装后的配置
 
-**Common issues:**
+安装完 GUI 工具后：
 
-- **GUI tool not detecting repositories** - Add repository directory in settings
-- **Authentication failures** - Check credential helper, refresh auth tokens
-- **Merge conflicts not resolving** - Configure merge tool or use command-line
-- **Slow performance** - Enable Git performance features, consider Git LFS
+1. **配置 Git identity**（如未配置）
+2. **添加 SSH keys**（用于 SSH clone）
+3. **在 Git 托管方完成认证**（GitHub、GitLab、Bitbucket）
+4. **配置 diff/merge 工具**（可选）
 
-**📖 For detailed solutions:** See [references/troubleshooting.md](references/troubleshooting.md) for comprehensive troubleshooting guidance.
-
----
-
-## Related Skills
-
-- **setup**: Basic Git installation and configuration
-- **config**: Comprehensive Git configuration (credentials, performance, aliases)
-- **line-endings**: Line ending configuration and Git LFS
-- **gpg-signing**: GPG commit signing setup
+**📖 详细步骤：** 参见 [references/configuration.md](references/configuration.md)，包含完整的安装后配置。
 
 ---
 
-## Test Scenarios
+## 故障排查
 
-### Scenario 1: Tool installation
+**常见问题：**
 
-- Query: "Install GitKraken on Windows"
-- Expected: Provides winget command and licensing information
+- **GUI 工具识别不到仓库** —— 在设置里添加仓库目录
+- **认证失败** —— 检查 credential helper，刷新 auth token
+- **merge 冲突无法解决** —— 配置 merge 工具或改用命令行
+- **性能慢** —— 开启 Git 性能特性，考虑使用 Git LFS
 
-### Scenario 2: Tool selection guidance
-
-- Query: "Choose between Sourcetree and GitHub Desktop for Bitbucket"
-- Expected: Recommends Sourcetree with rationale from comparison table
-
-### Scenario 3: Troubleshooting
-
-- Query: "Troubleshoot Sourcetree global gitignore configuration"
-- Expected: Provides configuration fix steps from troubleshooting section
-
-### Scenario 4: Platform-specific setup
-
-- Query: "Set up Fork on macOS"
-- Expected: Provides installation command and licensing notes
-
-### Scenario 5: Comparison request
-
-- Query: "Compare all Linux GUI options"
-- Expected: Shows GitAhead, SmartGit, and community GitHub Desktop with pros/cons
+**📖 详细解决方案：** 参见 [references/troubleshooting.md](references/troubleshooting.md)，包含完整的故障排查指南。
 
 ---
 
-## Multi-Model Testing Notes
+## 相关 skill
 
-**Testing Status**:
+- **setup**：基础 Git 安装与配置
+- **config**：完整的 Git 配置（credentials、性能、alias）
+- **line-endings**：行尾配置与 Git LFS
+- **gpg-signing**：GPG commit 签名设置
 
-| Model | Status | Date Tested | Notes |
+---
+
+## 测试场景
+
+### 场景 1：工具安装
+
+- Query："Install GitKraken on Windows"
+- 期望：给出 winget 命令及授权信息
+
+### 场景 2：工具选型指导
+
+- Query："Choose between Sourcetree and GitHub Desktop for Bitbucket"
+- 期望：基于对比表推荐 Sourcetree 并给出理由
+
+### 场景 3：故障排查
+
+- Query："Troubleshoot Sourcetree global gitignore configuration"
+- 期望：给出故障排查章节中的配置修复步骤
+
+### 场景 4：特定平台安装
+
+- Query："Set up Fork on macOS"
+- 期望：给出安装命令与授权说明
+
+### 场景 5：对比请求
+
+- Query："Compare all Linux GUI options"
+- 期望：列出 GitAhead、SmartGit 和社区版 GitHub Desktop，并给出各自优缺点
+
+---
+
+## 多模型测试说明
+
+**测试状态**：
+
+| 模型 | 状态 | 测试日期 | 备注 |
 | --- | --- | --- | --- |
-| **Claude Sonnet** | ✅ VERIFIED | 2025-11-25 | Skill activates correctly, provides appropriate tool recommendations with platform-specific guidance |
-| **Claude Haiku** | 🔄 PENDING | — | Recommend testing: Activation reliability, concise recommendations |
-| **Claude Opus** | 🔄 PENDING | — | Recommend testing: Over-explanation risk, cross-platform complexity |
+| **Claude Sonnet** | ✅ VERIFIED | 2025-11-25 | skill 能正确激活，给出合适的工具推荐与各平台指导 |
+| **Claude Haiku** | 🔄 PENDING | — | 建议测试：激活可靠性、推荐的精简度 |
+| **Claude Opus** | 🔄 PENDING | — | 建议测试：过度解释的风险、跨平台复杂度 |
 
-**Last Updated**: 2025-11-28
-
----
-
-## References
-
-**Detailed Guides:**
-
-- [references/tool-comparison.md](references/tool-comparison.md) - Comprehensive tool comparison matrix
-- [references/built-in-tools.md](references/built-in-tools.md) - Git GUI and gitk usage
-- [references/choosing-right-tool.md](references/choosing-right-tool.md) - Decision guidance by use case
-- [references/configuration.md](references/configuration.md) - Post-installation configuration
-- [references/windows-installation.md](references/windows-installation.md) - Windows installation guide
-- [references/macos-installation.md](references/macos-installation.md) - macOS installation guide
-- [references/linux-installation.md](references/linux-installation.md) - Linux installation guide
-- [references/troubleshooting.md](references/troubleshooting.md) - Troubleshooting common issues
-
-## Version History
-
-- **v1.0.0** (2025-12-26): Initial release
+**最后更新**：2025-11-28
 
 ---
 
-> **💡 Tip for AI Agents:** When helping users choose or install Git GUI tools, consider using available MCP servers for current information:
+## 参考
+
+**详细指南：**
+
+- [references/tool-comparison.md](references/tool-comparison.md) —— 完整工具对比矩阵
+- [references/built-in-tools.md](references/built-in-tools.md) —— Git GUI 与 gitk 用法
+- [references/choosing-right-tool.md](references/choosing-right-tool.md) —— 按使用场景的决策指引
+- [references/configuration.md](references/configuration.md) —— 安装后配置
+- [references/windows-installation.md](references/windows-installation.md) —— Windows 安装指南
+- [references/macos-installation.md](references/macos-installation.md) —— macOS 安装指南
+- [references/linux-installation.md](references/linux-installation.md) —— Linux 安装指南
+- [references/troubleshooting.md](references/troubleshooting.md) —— 常见问题排查
+
+## 版本历史
+
+- **v1.0.0**（2025-12-26）：首次发布
+
+---
+
+> **💡 给 AI Agent 的提示：** 帮助用户选择或安装 Git GUI 工具时，可以用可用的 MCP server 获取实时信息：
 >
-> - **Pricing Updates**: Use `perplexity` MCP with query like "GitKraken 2025 pricing plans" or `firecrawl` to fetch pricing pages directly
-> - **License Changes**: Use `ref` MCP to check official vendor documentation for licensing updates
-> - **Platform Availability**: Use `web_search` to verify tool availability on specific platforms or regions
+> - **价格更新**：用 `perplexity` MCP 查询 "GitKraken 2025 pricing plans"，或用 `firecrawl` 直接抓取价格页
+> - **授权变更**：用 `ref` MCP 查阅官方文档的授权更新
+> - **平台可用性**：用 `web_search` 验证某个工具在特定平台或地区的可用性

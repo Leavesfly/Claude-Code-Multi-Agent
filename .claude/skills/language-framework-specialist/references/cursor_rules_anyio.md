@@ -2,15 +2,15 @@
 description: Definitive guidelines for writing robust, maintainable, and backend-agnostic asynchronous Python code using AnyIO. Prioritize structured concurrency and native AnyIO primitives.
 ---
 
-# AnyIO Best Practices
+# AnyIO 最佳实践
 
-AnyIO is the definitive choice for modern asynchronous Python development. It provides a unified, Trio-inspired API on top of `asyncio` or `Trio`, fixing critical design shortcomings of `asyncio` and enforcing structured concurrency. Adhere to these rules to build reliable, high-performance async applications.
+AnyIO 是现代 Python 异步开发的权威选择。它在 `asyncio` 或 `Trio` 之上提供了一套受 Trio 启发的统一 API，修复了 `asyncio` 关键的设计缺陷并强制结构化并发。遵循这些规则构建可靠、高性能的异步应用。
 
-## 1. Entry Point and Backend Selection
+## 1. 入口点与 backend 选择
 
-Always use `anyio.run()` as your application's entry point. Explicitly select your preferred backend and leverage backend-specific optimizations.
+始终使用 `anyio.run()` 作为应用入口。明确选择你偏好的 backend，并利用其特定优化。
 
-❌ **BAD**: Relying on default backend or `asyncio.run()`.
+❌ **差**：依赖默认 backend 或 `asyncio.run()`。
 ```python
 import asyncio
 from anyio import run, sleep
@@ -23,7 +23,7 @@ asyncio.run(main) # Bypasses AnyIO's entry point
 run(main) # Implicit backend, no optimizations
 ```
 
-✅ **GOOD**: Explicit backend selection and performance enhancements.
+✅ **好**：明确选择 backend 并启用性能优化。
 ```python
 from anyio import run, sleep
 import sniffio

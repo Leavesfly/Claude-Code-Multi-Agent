@@ -2,15 +2,15 @@
 description: Definitive guidelines for building robust, performant, and maintainable AI agents using smolagents, focusing on practical patterns and avoiding common pitfalls.
 ---
 
-# smolagents Best Practices
+# smolagents 最佳实践
 
-This guide outlines the definitive best practices for developing `smolagents` applications. Adhering to these principles ensures your agents are reliable, efficient, and easy to maintain.
+本指南给出开发 `smolagents` 应用的权威最佳实践。遵循这些原则能让你的 agent 可靠、高效、易于维护。
 
-## 1. Code Organization and Structure
+## 1. 代码组织与结构
 
-Organize your agent logic and tools into clear, distinct modules. This improves readability, reusability, and testability.
+把 agent 逻辑和 tool 组织到清晰独立的模块中。这能提升可读性、可复用性和可测试性。
 
-❌ BAD: Monolithic agent file
+❌ 差：单体 agent 文件
 ```python
 # agent.py
 from smolagents import CodeAgent, HfApiModel, tool
@@ -30,7 +30,7 @@ agent = CodeAgent(tools=[search_web, calculate_math], model=HfApiModel())
 agent.run("What is 2+2 and also search for 'latest AI news'")
 ```
 
-✅ GOOD: Modular structure
+✅ 好：模块化结构
 ```python
 # src/tools.py
 from smolagents import tool

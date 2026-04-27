@@ -1,200 +1,200 @@
 ---
-description: Design a usability test with tasks, scripts, and success metrics. Use for validating user experience before or after launch.
+description: 设计包含任务、脚本和成功指标的可用性测试。用于在发布前或发布后验证用户体验。
 allowed-tools: Read, Glob, Grep, Write, Skill, Task
 argument-hint: <feature> [--format moderated|unmoderated|guerrilla]
 ---
 
-# Create Usability Test
+# 创建可用性测试
 
-Design a complete usability test plan including tasks, moderator script, and metrics.
+设计完整的可用性测试计划，包括任务、主持人脚本和指标。
 
-## Workflow
+## 工作流程
 
-### Step 1: Load Required Skills
+### 步骤 1：加载所需技能
 
-Load these skills:
+加载以下技能：
 
-- `usability-testing` - Test design methodology
-- `user-research-planning` - Participant recruitment
+- `usability-testing` - 测试设计方法论
+- `user-research-planning` - 参与者招募
 
-### Step 2: Understand Test Context
+### 步骤 2：理解测试上下文
 
-Gather context about: {{ feature }}
+收集关于 {{ feature }} 的上下文信息：
 
-Test format: {{ format | default: "moderated" }}
+测试格式：{{ format | default: "moderated" }}
 
-Understand:
+了解：
 
-- What's the current state (prototype, live product)?
-- What specific questions need answering?
-- Who are the target users?
-- What resources are available?
+- 当前状态是什么（原型、上线产品）？
+- 需要回答哪些具体问题？
+- 目标用户是谁？
+- 有哪些可用资源？
 
-### Step 3: Spawn UX Researcher Agent
+### 步骤 3：生成 UX 研究员 Agent
 
-Spawn the `ux-researcher` agent with the following prompt:
+使用以下提示词生成 `ux-researcher` agent：
 
 ```text
-Design a comprehensive usability test for: {{ feature }}
+为以下功能设计全面的可用性测试：{{ feature }}
 
-Test format: {{ format | default: "moderated" }}
+测试格式：{{ format | default: "moderated" }}
 
-Create the following deliverables:
+创建以下交付物：
 
-1. Test Objectives
-   - Primary usability questions (3-5)
-   - Success criteria for the feature
-   - What decisions this test will inform
+1. 测试目标
+   - 主要可用性问题（3-5 个）
+   - 功能的成功标准
+   - 此测试将告知哪些决策
 
-2. Participant Profile
-   - Target user characteristics
-   - Inclusion/exclusion criteria
-   - Recommended sample size with justification
+2. 参与者画像
+   - 目标用户特征
+   - 纳入/排除标准
+   - 推荐的样本量及理由
 
-3. Task Scenarios (5-7 tasks)
-   For each task:
-   - Realistic scenario context
-   - Task instruction (goal, not steps)
-   - Success criteria (binary or graded)
-   - Time benchmark (if applicable)
-   - Post-task questions
+3. 任务场景（5-7 个任务）
+   对于每个任务：
+   - 真实的场景上下文
+   - 任务指令（目标，而非步骤）
+   - 成功标准（二元或分级）
+   - 时间基准（如适用）
+   - 任务后问题
 
-4. Moderator Script
-   - Introduction and consent
-   - Warm-up questions
-   - Task introduction template
-   - Think-aloud prompts
-   - Post-test questions
-   - Wrap-up and debrief
+4. 主持人脚本
+   - 介绍和同意书
+   - 热身问题
+   - 任务介绍模板
+   - 出声思考提示
+   - 测试后问题
+   - 总结和汇报
 
-5. Metrics Framework
-   - Task success rates
-   - Time on task benchmarks
-   - Error tracking
-   - Satisfaction measures (SUS, SEQ)
-   - Qualitative observation categories
+5. 指标框架
+   - 任务成功率
+   - 任务时间基准
+   - 错误跟踪
+   - 满意度度量（SUS、SEQ）
+   - 定性观察类别
 
-6. Materials Checklist
-   - What to prepare before testing
-   - Recording setup requirements
-   - Note-taking templates
+6. 材料清单
+   - 测试前需要准备的内容
+   - 录音设置要求
+   - 笔记模板
 
-7. Analysis Plan
-   - How findings will be analyzed
-   - Issue severity rating approach
-   - Reporting format
+7. 分析计划
+   - 如何分析发现
+   - 问题严重程度评级方法
+   - 报告格式
 
-Use the usability-testing skill for methodology guidance.
-Output a complete, ready-to-use test plan.
+使用 usability-testing 技能获取方法论指导。
+输出完整、可直接使用的测试计划。
 ```
 
-### Step 4: Generate Test Materials
+### 步骤 4：生成测试材料
 
-Provide complete, copy-paste ready materials:
+提供完整、可复制粘贴的材料：
 
-- Full moderator script
-- Task cards/scenarios
-- Note-taking template
-- Post-test questionnaire (SUS)
+- 完整主持人脚本
+- 任务卡片/场景
+- 笔记模板
+- 测试后问卷（SUS）
 
-## Example Usage
+## 示例用法
 
 ```bash
-# Create moderated usability test
-/ux-research:create-test "checkout flow optimization"
+# 创建主持式可用性测试
+/ux-research:create-test "结账流程优化"
 
-# Create unmoderated test
-/ux-research:create-test "onboarding experience" --format unmoderated
+# 创建非主持式测试
+/ux-research:create-test "入门体验" --format unmoderated
 
-# Create guerrilla test
-/ux-research:create-test "navigation redesign" --format guerrilla
+# 创建游击测试
+/ux-research:create-test "导航重新设计" --format guerrilla
 ```
 
-## Output Format
+## 输出格式
 
 ```markdown
-# Usability Test Plan: [Feature]
+# 可用性测试计划：[功能]
 
-## Test Overview
-- **Format:** [Moderated/Unmoderated/Guerrilla]
-- **Duration:** [Time per session]
-- **Participants:** [Number]
-- **Location:** [Remote/In-person]
+## 测试概览
+- **格式：** [主持式/非主持式/游击式]
+- **持续时间：** [每次会话时间]
+- **参与者：** [数量]
+- **地点：** [远程/现场]
 
-## Objectives
-1. [Primary question]
-2. [Primary question]
-3. [Primary question]
-
----
-
-## Participant Criteria
-
-### Must Have
-- [Criterion]
-- [Criterion]
-
-### Nice to Have
-- [Criterion]
-
-### Exclusions
-- [Criterion]
+## 目标
+1. [主要问题]
+2. [主要问题]
+3. [主要问题]
 
 ---
 
-## Tasks
+## 参与者标准
 
-### Task 1: [Name] (Warm-up)
-**Scenario:**
-[Context for the task]
+### 必须具备
+- [标准]
+- [标准]
 
-**Task:**
-[What to accomplish]
+### 最好具备
+- [标准]
 
-**Success Criteria:**
-- [ ] [Observable indicator]
-
-**Time Benchmark:** [X minutes]
-
-### Task 2: [Name]
-[Continue pattern...]
+### 排除条件
+- [标准]
 
 ---
 
-## Moderator Script
+## 任务
 
-### Introduction
-[Full script text]
+### 任务 1：[名称]（热身）
+**场景：**
+[任务的上下文]
 
-### Task Introduction Template
-[Template for introducing each task]
+**任务：**
+[要完成的目标]
 
-### Prompts
-- Think-aloud: [Prompts]
-- Stuck user: [Prompts]
+**成功标准：**
+- [ ] [可观察的指标]
 
-### Post-Test
-[Questions to ask]
+**时间基准：** [X 分钟]
 
-### Wrap-up
-[Closing script]
+### 任务 2：[名称]
+[继续模式...]
 
 ---
 
-## Metrics
+## 主持人脚本
 
-| Task | Success Rate Target | Time Target |
+### 介绍
+[完整脚本文本]
+
+### 任务介绍模板
+[介绍每个任务的模板]
+
+### 提示
+- 出声思考：[提示]
+- 用户卡住时：[提示]
+
+### 测试后
+[要问的问题]
+
+### 总结
+[结束脚本]
+
+---
+
+## 指标
+
+| 任务 | 成功率目标 | 时间目标 |
 |------|--------------------|--------------|
-| [Task] | [%] | [Time] |
+| [任务] | [%] | [时间] |
 
-## SUS Questionnaire
-[Include full SUS or SEQ]
+## SUS 问卷
+[包含完整 SUS 或 SEQ]
 
 ---
 
-## Analysis Approach
-[How to analyze findings]
+## 分析方法
+[如何分析发现]
 
-## Issue Severity Scale
-[Rating definitions]
+## 问题严重度量表
+[评级定义]
 ```

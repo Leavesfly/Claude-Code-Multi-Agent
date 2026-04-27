@@ -1,77 +1,77 @@
-# Choosing the Right Git GUI Tool
+# 选择合适的 Git GUI 工具
 
-Decision guidance for selecting the best Git GUI tool based on your use case, platform, and workflow preferences.
+根据你的使用场景、平台与 workflow 偏好，给出选择最合适 Git GUI 工具的决策指南。
 
-## For Beginners
+## 初学者
 
-**Recommendation**: GitHub Desktop
+**推荐**：GitHub Desktop
 
-- Simple, opinionated workflow
-- Minimal learning curve
-- Free
-- Works with any Git host (not just GitHub)
-
----
-
-## For GitHub Users
-
-**Recommendation**: GitHub Desktop or GitKraken
-
-- **GitHub Desktop**: Free, simple, GitHub-focused
-- **GitKraken**: More features, better for complex workflows, requires Pro for private repos
+- 简洁、有明确倾向的 workflow
+- 学习曲线极低
+- 免费
+- 适配任意 Git 托管方（不仅限于 GitHub）
 
 ---
 
-## For Atlassian/Bitbucket Users
+## GitHub 用户
 
-**Recommendation**: Sourcetree
+**推荐**：GitHub Desktop 或 GitKraken
 
-- Free
-- Tight Bitbucket integration
-- Powerful features
-- Supports Git LFS well
+- **GitHub Desktop**：免费、简单、面向 GitHub
+- **GitKraken**：功能更丰富，更适合复杂 workflow，私有 repository 需 Pro 版
 
 ---
 
-## For Advanced Users
+## Atlassian/Bitbucket 用户
 
-**Recommendation**: Fork, Tower, or SmartGit
+**推荐**：Sourcetree
 
-- **Fork**: Free, fast, clean UI
-- **Tower**: Premium features, excellent UX, paid
-- **SmartGit**: Powerful, cross-platform, paid for commercial use
-
----
-
-## For Linux Users
-
-**Recommendation**: GitAhead, SmartGit, or built-in tools
-
-- **GitAhead**: Free, open source, lightweight
-- **SmartGit**: Powerful, free for non-commercial
-- **gitk/Git GUI**: Built-in, no installation needed
+- 免费
+- 深度集成 Bitbucket
+- 功能强大
+- 对 Git LFS 支持良好
 
 ---
 
-## For Visual Learners
+## 高级用户
 
-**Recommendation**: GitKraken
+**推荐**：Fork、Tower 或 SmartGit
 
-- Best visual commit graph
-- Modern UI
-- Interactive rebase visualization
-- Merge conflict editor with visual diff
-
----
-
-## For Command-Line Purists
-
-**Recommendation**: None (or gitk for quick visualization)
-
-- Many developers prefer command-line Git exclusively
-- GUI tools are optional, not required
-- Use gitk occasionally for quick history browsing
+- **Fork**：免费、快速、界面清爽
+- **Tower**：功能专业、UX 出色、付费
+- **SmartGit**：功能强大、跨平台，商用付费
 
 ---
 
-**Last Updated:** 2025-11-28
+## Linux 用户
+
+**推荐**：GitAhead、SmartGit 或内置工具
+
+- **GitAhead**：免费、开源、轻量
+- **SmartGit**：功能强大，非商用免费
+- **gitk/Git GUI**：内置，无需安装
+
+---
+
+## 视觉学习者
+
+**推荐**：GitKraken
+
+- 最佳的可视化 commit 图
+- 现代化 UI
+- 交互式 rebase 可视化
+- 带可视化 diff 的 merge 冲突编辑器
+
+---
+
+## 纯命令行用户
+
+**推荐**：无（或偶尔用 gitk 做快速可视化）
+
+- 很多开发者只用命令行 Git
+- GUI 工具是可选项，非必需
+- 偶尔用 gitk 快速浏览 log
+
+---
+
+**最后更新：** 2025-11-28

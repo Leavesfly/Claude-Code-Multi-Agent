@@ -4,36 +4,36 @@ description: Decision modeling using decision tables, weighted scoring matrices,
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Decision Analysis
+# Decision Analysis（决策分析）
 
-Model and analyze complex decisions using structured techniques: decision tables, weighted scoring matrices, and decision trees. Creates clear, defensible decision frameworks with traceable rationale.
+使用结构化技术对复杂决策进行建模与分析：decision table、加权评分矩阵、决策树。产出清晰、可辩护、理由可追溯的决策框架。
 
-## What is Decision Analysis?
+## 什么是 Decision Analysis？
 
-**Decision Analysis** is a systematic approach to evaluating complex choices by breaking them down into components: objectives, alternatives, criteria, and trade-offs. It transforms subjective judgment into structured, transparent reasoning.
+**Decision Analysis（决策分析）** 是一种系统化方法，把复杂选择拆解为：目标、备选项、准则、取舍。它把主观判断转化为结构化、透明的推理。
 
-| Technique | Best For | Output |
+| 技术 | 适用场景 | 产出 |
 |-----------|----------|--------|
-| **Decision Table** | Rule-based logic, many conditions | Action based on condition combinations |
-| **Weighted Scoring Matrix** | Multi-criteria comparison | Ranked alternatives with scores |
-| **Decision Tree** | Sequential decisions, uncertainty | Optimal path with probabilities |
-| **Pugh Matrix** | Concept selection, design choices | Best concept vs baseline |
+| **Decision Table** | 规则型逻辑、条件多 | 基于条件组合的动作 |
+| **Weighted Scoring Matrix** | 多准则比较 | 有分值的备选项排名 |
+| **Decision Tree** | 序贯决策、有不确定性 | 带概率的最优路径 |
+| **Pugh Matrix** | 概念选型、设计决策 | 相对基线的最佳概念 |
 
-## Technique 1: Decision Tables
+## 技术 1：Decision Table（决策表）
 
-### What is a Decision Table?
+### 什么是 Decision Table？
 
-A **decision table** captures complex conditional logic in a compact grid format. It lists all combinations of conditions and their corresponding actions.
+**Decision table（决策表）** 以紧凑的网格格式捕获复杂的条件逻辑。它列出所有条件组合及其对应的动作。
 
-| Component | Description | Example |
+| 组成 | 描述 | 示例 |
 |-----------|-------------|---------|
-| **Conditions** | Input variables/states | Customer type, Order value |
-| **Actions** | Outcomes/responses | Apply discount, Require approval |
-| **Rules** | Condition combinations | IF Premium AND >$1000 THEN 20% off |
+| **Conditions** | 输入变量/状态 | Customer type、Order value |
+| **Actions** | 结果/响应 | Apply discount、Require approval |
+| **Rules** | 条件组合 | IF Premium AND >$1000 THEN 20% off |
 
-### Decision Table Workflow
+### Decision Table 工作流
 
-#### Step 1: Identify Conditions and Actions
+#### Step 1：识别 Condition 与 Action
 
 ```markdown
 ## Decision Context
@@ -55,7 +55,7 @@ A **decision table** captures complex conditional logic in a compact grid format
 | A2 | [Action 2] | [What happens] |
 ```
 
-#### Step 2: Build the Decision Table
+#### Step 2：构建 Decision Table
 
 ```markdown
 ## Decision Table: [Name]
@@ -71,16 +71,16 @@ A **decision table** captures complex conditional logic in a compact grid format
 **Legend:** X = Execute action, - = Skip, [blank] = Any value
 ```
 
-#### Step 3: Validate Completeness
+#### Step 3：校验完整性
 
-| Check | Question | Pass? |
+| 检查 | 问题 | 通过？ |
 |-------|----------|-------|
-| **Completeness** | All condition combinations covered? | ☐ |
-| **Consistency** | No contradictory rules? | ☐ |
-| **Uniqueness** | Each combination maps to one outcome? | ☐ |
-| **Simplification** | Can rules be consolidated? | ☐ |
+| **Completeness（完整性）** | 所有条件组合是否覆盖？ | ☐ |
+| **Consistency（一致性）** | 是否存在相互矛盾的规则？ | ☐ |
+| **Uniqueness（唯一性）** | 每个组合是否只映射到一个结果？ | ☐ |
+| **Simplification（可简化）** | 规则能否合并？ | ☐ |
 
-### Decision Table Template
+### Decision Table 模板
 
 ```markdown
 ## Decision Table: [Decision Name]
@@ -113,23 +113,23 @@ A **decision table** captures complex conditional logic in a compact grid format
 - [ ] Rules simplified
 ```
 
-## Technique 2: Weighted Scoring Matrix
+## 技术 2：Weighted Scoring Matrix（加权评分矩阵）
 
-### What is a Weighted Scoring Matrix?
+### 什么是 Weighted Scoring Matrix？
 
-A **weighted scoring matrix** (also called decision matrix or Pugh matrix) evaluates multiple alternatives against weighted criteria to produce a ranked list.
+**Weighted scoring matrix（加权评分矩阵）**（又称 decision matrix 或 Pugh matrix），针对加权准则评估多个备选项，产出排名列表。
 
-| Component | Description |
+| 组成 | 描述 |
 |-----------|-------------|
-| **Alternatives** | Options being compared |
-| **Criteria** | Factors for evaluation |
-| **Weights** | Importance of each criterion (sum to 100%) |
-| **Scores** | Rating of each alternative on each criterion |
-| **Weighted Score** | Score × Weight, summed across criteria |
+| **Alternatives** | 被比较的备选项 |
+| **Criteria** | 评估维度 |
+| **Weights** | 各准则的重要性（加总为 100%） |
+| **Scores** | 每个备选项在每个准则上的打分 |
+| **Weighted Score** | Score × Weight，按准则求和 |
 
-### Weighted Scoring Workflow
+### Weighted Scoring 工作流
 
-#### Step 1: Define the Decision
+#### Step 1：定义决策
 
 ```markdown
 ## Decision Context
@@ -140,7 +140,7 @@ A **weighted scoring matrix** (also called decision matrix or Pugh matrix) evalu
 **Timeline:** [When must we decide?]
 ```
 
-#### Step 2: Identify Alternatives
+#### Step 2：识别备选项
 
 ```markdown
 ## Alternatives
@@ -152,7 +152,7 @@ A **weighted scoring matrix** (also called decision matrix or Pugh matrix) evalu
 | C | [Option C] | [Brief description] | [How identified] |
 ```
 
-#### Step 3: Define and Weight Criteria
+#### Step 3：定义并赋权准则
 
 ```markdown
 ## Criteria
@@ -166,16 +166,16 @@ A **weighted scoring matrix** (also called decision matrix or Pugh matrix) evalu
 |   | **Total** | | **100%** | |
 ```
 
-**Weighting Methods:**
+**赋权方法：**
 
-| Method | Description | When to Use |
+| 方法 | 描述 | 何时使用 |
 |--------|-------------|-------------|
-| **Direct Assignment** | Stakeholders assign weights directly | Clear priorities, experienced team |
-| **Pairwise Comparison** | Compare criteria pairs (AHP) | Unclear priorities, need consensus |
-| **Ranking** | Rank criteria, convert to weights | Quick, approximate |
-| **Equal Weights** | All criteria weighted equally | No clear priority, initial analysis |
+| **Direct Assignment（直接赋权）** | stakeholder 直接给权重 | 优先级清晰、经验丰富的团队 |
+| **Pairwise Comparison（两两比较）** | 比较准则两两大小（AHP） | 优先级不清、需要共识 |
+| **Ranking（排序法）** | 对准则排序再转权重 | 快速、近似 |
+| **Equal Weights（等权）** | 所有准则等权 | 无明确优先级、初步分析 |
 
-#### Step 4: Score Alternatives
+#### Step 4：对备选项打分
 
 ```markdown
 ## Scoring Scale
@@ -189,7 +189,7 @@ A **weighted scoring matrix** (also called decision matrix or Pugh matrix) evalu
 | 1 | Unacceptable - Does not meet criterion |
 ```
 
-#### Step 5: Calculate Weighted Scores
+#### Step 5：计算加权分值
 
 ```markdown
 ## Decision Matrix
@@ -206,9 +206,9 @@ A **weighted scoring matrix** (also called decision matrix or Pugh matrix) evalu
 **Calculation:** Weighted Score = Σ(Score × Weight)
 ```
 
-#### Step 6: Sensitivity Analysis
+#### Step 6：敏感性分析
 
-Test how results change if weights shift:
+测试权重变化时结果如何变化：
 
 ```markdown
 ## Sensitivity Analysis
@@ -222,9 +222,9 @@ Test how results change if weights shift:
 **Robustness:** [Is the winner stable across scenarios?]
 ```
 
-### Pugh Matrix (Concept Selection)
+### Pugh Matrix（概念选型）
 
-A specialized scoring matrix comparing alternatives to a baseline:
+一种把备选项与基线比较的特殊评分矩阵：
 
 ```markdown
 ## Pugh Matrix: [Decision]
@@ -245,21 +245,21 @@ A specialized scoring matrix comparing alternatives to a baseline:
 **Legend:** ++ Much better, + Better, S Same, - Worse, -- Much worse
 ```
 
-## Technique 3: Decision Trees
+## 技术 3：Decision Tree（决策树）
 
-### What is a Decision Tree?
+### 什么是 Decision Tree？
 
-A **decision tree** maps sequential decisions and uncertain events to visualize possible paths and outcomes. It's ideal for decisions with multiple stages or probabilistic outcomes.
+**Decision tree（决策树）** 把序贯决策和不确定事件映射出来，可视化所有可能路径与结果。适合多阶段或带概率的决策。
 
-| Node Type | Symbol | Description |
+| 节点类型 | 符号 | 描述 |
 |-----------|--------|-------------|
-| **Decision Node** | □ | Choice point (you control) |
-| **Chance Node** | ○ | Uncertain event (probabilities) |
-| **End Node** | △ | Final outcome (value) |
+| **Decision Node（决策节点）** | □ | 你能控制的选择点 |
+| **Chance Node（机会节点）** | ○ | 不确定事件（带概率） |
+| **End Node（终点节点）** | △ | 最终结果（带值） |
 
-### Decision Tree Workflow
+### Decision Tree 工作流
 
-#### Step 1: Frame the Decision
+#### Step 1：界定决策
 
 ```markdown
 ## Decision Tree Context
@@ -270,7 +270,7 @@ A **decision tree** maps sequential decisions and uncertain events to visualize 
 **Key Uncertainties:** [Major unknown factors]
 ```
 
-#### Step 2: Identify Decision Points and Uncertainties
+#### Step 2：识别决策点与不确定性
 
 ```markdown
 ## Structure
@@ -288,7 +288,7 @@ A **decision tree** maps sequential decisions and uncertain events to visualize 
 | E2 | [Uncertainty 2] | Success, Failure | 70%, 30% |
 ```
 
-#### Step 3: Assign Values and Probabilities
+#### Step 3：赋值与赋概率
 
 ```markdown
 ## Outcomes
@@ -302,9 +302,9 @@ A **decision tree** maps sequential decisions and uncertain events to visualize 
 | P5 | D1:B → E2:Failure | 0.30 | -$50K | -$15K |
 ```
 
-#### Step 4: Calculate Expected Values (Rollback)
+#### Step 4：计算期望值（回溯 Rollback）
 
-Work backwards from end nodes:
+从终点节点反向推：
 
 ```markdown
 ## Rollback Analysis
@@ -323,7 +323,7 @@ Choose B: EV = $90K > $68K
 **Recommendation:** Choose Option B
 ```
 
-### Decision Tree Mermaid Diagram
+### Decision Tree Mermaid 图
 
 ```mermaid
 flowchart TD
@@ -347,9 +347,9 @@ flowchart TD
     style E2 fill:#66ccff
 ```
 
-## DMN-Lite: Decision Model Notation
+## DMN-Lite：Decision Model Notation
 
-For simple, repeatable decisions, use a lightweight DMN approach:
+对简单、可重复的决策，使用轻量级 DMN 方式：
 
 ```markdown
 ## Decision: [Name]
@@ -377,15 +377,15 @@ ELSE
   THEN Discount = 0%
 ```
 
-### Output
+### Output（输出）
 
 | Output | Type | Range |
 |--------|------|-------|
 | Discount | Percentage | 0% - 20% |
 
-## Output Formats
+## 输出格式
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Decision Analysis Summary
@@ -423,7 +423,7 @@ ELSE
 2. [Follow-up action]
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 decision_analysis:
@@ -515,7 +515,7 @@ decision_analysis:
       mitigation: "Negotiate annual contract"
 ```
 
-### Mermaid Decision Matrix Visualization
+### 决策矩阵的 Mermaid 可视化
 
 ```mermaid
 quadrantChart
@@ -532,40 +532,40 @@ quadrantChart
     "Tool D (Basic)": [0.2, 0.3]
 ```
 
-## When to Use
+## 何时使用
 
-| Scenario | Technique |
+| 场景 | 技术 |
 |----------|-----------|
-| Rule-based logic with many conditions | Decision Table |
-| Comparing multiple options on criteria | Weighted Scoring Matrix |
-| Sequential decisions with uncertainty | Decision Tree |
-| Concept selection vs baseline | Pugh Matrix |
-| Simple repeatable business rules | DMN-Lite |
-| Quick relative comparison | Pugh Matrix |
-| Need stakeholder buy-in | Weighted Scoring (transparent) |
+| 条件多的规则型逻辑 | Decision Table |
+| 基于准则比较多个选项 | Weighted Scoring Matrix |
+| 带不确定性的序贯决策 | Decision Tree |
+| 相对基线的概念选型 | Pugh Matrix |
+| 简单可重复的业务规则 | DMN-Lite |
+| 快速做相对比较 | Pugh Matrix |
+| 需要 stakeholder 共识 | Weighted Scoring（透明） |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **stakeholder-analysis** - Identify decision makers and criteria sources
-- **root-cause-analysis** - Understand problem before deciding solution
-- **swot-pestle-analysis** - Strategic context for decisions
+- **stakeholder-analysis** — 识别决策者与准则来源
+- **root-cause-analysis** — 在选方案前先理解问题
+- **swot-pestle-analysis** — 决策的战略上下文
 
-### Downstream
+### 下游
 
-- **Requirements** - Decision drives requirement priorities
-- **Risk registers** - Capture decision risks
-- **Implementation plans** - Execute chosen alternative
+- **Requirements** — 决策驱动需求优先级
+- **Risk registers** — 记录决策相关风险
+- **Implementation plans** — 执行所选方案
 
-## Related Skills
+## 相关 skill
 
-- `prioritization` - MoSCoW, Kano for feature prioritization
-- `risk-analysis` - Risk assessment for decision alternatives
-- `root-cause-analysis` - Problem analysis before solution selection
-- `business-model-canvas` - Strategic business decisions
-- `stakeholder-analysis` - Decision maker identification
+- `prioritization` — MoSCoW、Kano 等功能优先级方法
+- `risk-analysis` — 对备选项做风险评估
+- `root-cause-analysis` — 选型前的问题分析
+- `business-model-canvas` — 战略型商业决策
+- `stakeholder-analysis` — 决策者识别
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

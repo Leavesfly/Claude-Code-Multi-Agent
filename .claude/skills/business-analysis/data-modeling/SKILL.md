@@ -4,71 +4,71 @@ description: Data modeling with Entity-Relationship Diagrams (ERDs), data dictio
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Data Modeling
+# Data Modeling（数据建模）
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **Data Modeling tasks** - Working on data modeling with entity-relationship diagrams (erds), data dictionaries, and conceptual/logical/physical models. documents data structures, relationships, and attributes
-- **Planning or design** - Need guidance on Data Modeling approaches
-- **Best practices** - Want to follow established patterns and standards
+- **Data Modeling 任务** — 使用 Entity-Relationship Diagram（ERD）、数据字典和概念/逻辑/物理模型做数据建模；记录数据结构、关系与属性
+- **规划或设计** — 需要数据建模方法的指引
+- **最佳实践** — 想遵循成熟的模式与标准
 
-## Overview
+## 概览
 
-Create and document data structures using Entity-Relationship Diagrams (ERDs), data dictionaries, and structured data models. Supports conceptual, logical, and physical modeling levels for database design and data architecture.
+使用 Entity-Relationship Diagram（ERD）、数据字典和结构化数据模型来创建并记录数据结构。支持概念（conceptual）、逻辑（logical）和物理（physical）三个建模层次，用于数据库设计与数据架构。
 
-## What is Data Modeling?
+## 什么是 Data Modeling？
 
-**Data modeling** creates visual and structured representations of data elements and their relationships. It documents:
+**数据建模（data modeling）** 是把数据元素及其关系用可视化和结构化方式表达出来。它记录了：
 
-- **Entities**: Things about which data is stored
-- **Attributes**: Properties of entities
-- **Relationships**: How entities connect
-- **Constraints**: Rules governing data
+- **Entities（实体）**：需要存储数据的"事物"
+- **Attributes（属性）**：实体的属性
+- **Relationships（关系）**：实体之间的关联方式
+- **Constraints（约束）**：数据需要遵守的规则
 
-## Modeling Levels
+## 建模层次
 
-| Level | Purpose | Audience | Detail |
+| 层次 | 目的 | 受众 | 细节 |
 |-------|---------|----------|--------|
-| **Conceptual** | Business concepts | Business users | Entities, high-level relationships |
-| **Logical** | Data structure | Analysts, designers | Entities, attributes, all relationships |
-| **Physical** | Implementation | Developers, DBAs | Tables, columns, types, indexes |
+| **Conceptual（概念）** | 业务概念 | 业务用户 | 实体、高层关系 |
+| **Logical（逻辑）** | 数据结构 | 分析师、设计师 | 实体、属性、全部关系 |
+| **Physical（物理）** | 实现 | 开发、DBA | 表、列、类型、索引 |
 
-### Conceptual Model
+### Conceptual Model（概念模型）
 
-High-level view of business concepts:
+业务概念的高层视图：
 
-- Major entities only
-- Key relationships
-- No attributes (or minimal)
-- No technical details
+- 只画主要实体
+- 关键关系
+- 没有属性（或极少）
+- 不含技术细节
 
-### Logical Model
+### Logical Model（逻辑模型）
 
-Technology-independent data structure:
+与技术无关的数据结构：
 
-- All entities and attributes
-- Primary and foreign keys
-- All relationships with cardinality
-- Normalization applied
-- No physical implementation details
+- 所有实体和属性
+- primary key 与 foreign key
+- 所有关系及其 cardinality
+- 做过规范化
+- 不含物理实现细节
 
-### Physical Model
+### Physical Model（物理模型）
 
-Database-specific implementation:
+针对具体数据库的实现：
 
-- Table names (physical naming)
-- Column names and data types
-- Indexes and constraints
-- Views and stored procedures
-- Database-specific features
+- 表名（物理命名）
+- 列名与数据类型
+- 索引与约束
+- 视图与存储过程
+- 数据库特定的特性
 
-## ERD Notation
+## ERD 记号
 
-### Entity (Rectangle)
+### Entity（矩形）
 
-An entity represents a thing about which data is stored.
+一个 entity 代表一个需要存储数据的事物。
 
 ```text
 ┌─────────────────┐
@@ -81,81 +81,81 @@ An entity represents a thing about which data is stored.
 └─────────────────┘
 ```
 
-**Entity Types:**
+**Entity 类型：**
 
-| Type | Description | Example |
+| 类型 | 描述 | 示例 |
 |------|-------------|---------|
-| **Strong** | Independent existence | Customer, Product |
-| **Weak** | Depends on another entity | Order Line (depends on Order) |
-| **Associative** | Resolves M:N relationships | Enrollment (Student-Course) |
+| **Strong（强实体）** | 独立存在 | Customer、Product |
+| **Weak（弱实体）** | 依附于其他实体 | Order Line（依附于 Order） |
+| **Associative（关联实体）** | 解决 M:N 关系 | Enrollment（Student-Course） |
 
-### Attributes
+### Attributes（属性）
 
-| Type | Symbol | Description |
+| 类型 | 符号 | 描述 |
 |------|--------|-------------|
-| **Primary Key (PK)** | Underlined/PK | Unique identifier |
-| **Foreign Key (FK)** | FK | Reference to another entity |
-| **Required** | * or NOT NULL | Must have value |
-| **Optional** | ○ or NULL | May be empty |
-| **Derived** | / | Calculated from other attributes |
-| **Composite** | {attrs} | Made of sub-attributes |
-| **Multi-valued** | [attr] | Can have multiple values |
+| **Primary Key (PK)** | 下划线/PK | 唯一标识 |
+| **Foreign Key (FK)** | FK | 引用其他实体 |
+| **Required（必填）** | * 或 NOT NULL | 必须有值 |
+| **Optional（可选）** | ○ 或 NULL | 可以为空 |
+| **Derived（派生）** | / | 由其他属性计算得出 |
+| **Composite（复合）** | {attrs} | 由多个子属性组成 |
+| **Multi-valued（多值）** | [attr] | 可以有多个值 |
 
-### Relationships (Lines)
+### Relationships（连线）
 
-**Notation Styles:**
+**记号风格：**
 
-| Style | Used In |
+| 风格 | 用于 |
 |-------|---------|
-| Chen | Academic, conceptual |
-| Crow's Foot | Industry standard |
-| UML | Software design |
-| IDEF1X | Government, structured |
+| Chen | 学术、概念层 |
+| Crow's Foot | 工业界标准 |
+| UML | 软件设计 |
+| IDEF1X | 政府、结构化 |
 
-**Crow's Foot Notation:**
+**Crow's Foot 记号：**
 
-| Symbol | Meaning |
+| 符号 | 含义 |
 |--------|---------|
-| `──` | One (mandatory) |
-| `──○` | Zero or one (optional) |
-| `──<` | Many |
-| `──○<` | Zero or many |
+| `──` | 一个（必须） |
+| `──○` | 零或一（可选） |
+| `──<` | 多个 |
+| `──○<` | 零或多个 |
 
-### Cardinality
+### Cardinality（基数）
 
-| Notation | Meaning | Example |
+| 记号 | 含义 | 示例 |
 |----------|---------|---------|
-| 1:1 | One to one | Employee → Workstation |
-| 1:M | One to many | Customer → Orders |
-| M:N | Many to many | Students ↔ Courses |
+| 1:1 | 一对一 | Employee → Workstation |
+| 1:M | 一对多 | Customer → Orders |
+| M:N | 多对多 | Students ↔ Courses |
 
-**Reading Cardinality:**
+**怎么读 Cardinality：**
 
-"One [Entity A] has [min]..[max] [Entity B]"
+"一个 [Entity A] 对应 [min]..[max] 个 [Entity B]"
 
-Example: "One Customer has 0..many Orders"
+示例："一个 Customer 对应 0..多个 Order"
 
-## Workflow
+## 工作流
 
-### Phase 1: Identify Entities
+### Phase 1：识别 Entity
 
-#### Step 1: Extract Nouns from Requirements
+#### Step 1：从需求中抽取名词
 
-From business requirements, identify:
+从业务需求里识别：
 
-- Things the business tracks
-- Subjects of business rules
-- Sources and targets of data
+- 业务会追踪的"事物"
+- 业务规则的主语
+- 数据的来源与去向
 
-#### Step 2: Filter Candidates
+#### Step 2：筛选候选
 
-| Keep | Exclude |
+| 保留 | 剔除 |
 |------|---------|
-| Independent concepts | Attributes (properties of entities) |
-| Things with multiple instances | Synonyms (same concept, different name) |
-| Things requiring data storage | Actions (verbs, not nouns) |
+| 独立概念 | 属性（属于实体的属性） |
+| 有多个实例的事物 | 同义词（同一概念不同叫法） |
+| 需要存储数据的事物 | 动作（动词而非名词） |
 
-#### Step 3: Document Entities
+#### Step 3：记录 Entity
 
 ```markdown
 ## Entities
@@ -167,17 +167,17 @@ From business requirements, identify:
 | Product | Item available for sale | Widget, Gadget |
 ```
 
-### Phase 2: Define Attributes
+### Phase 2：定义 Attribute
 
-#### Step 1: List Attributes for Each Entity
+#### Step 1：为每个实体列出属性
 
-For each entity, identify:
+对每个实体，思考：
 
-- What do we need to know about this entity?
-- What uniquely identifies it?
-- What data does the business reference?
+- 关于这个实体我们需要知道什么？
+- 什么能唯一标识它？
+- 业务会引用哪些数据？
 
-#### Step 2: Classify Attributes
+#### Step 2：对属性分类
 
 | Attribute | Type | Required | Notes |
 |-----------|------|----------|-------|
@@ -186,24 +186,24 @@ For each entity, identify:
 | name | String | Yes | |
 | phone | String | No | Optional |
 
-#### Step 3: Identify Keys
+#### Step 3：识别 Key
 
-- **Primary Key (PK)**: Unique identifier
-- **Natural Key**: Business-meaningful identifier
-- **Surrogate Key**: System-generated identifier
-- **Composite Key**: Multiple attributes combined
+- **Primary Key (PK)**：唯一标识
+- **Natural Key**：具有业务含义的标识
+- **Surrogate Key**：系统生成的标识
+- **Composite Key**：由多个属性组合而成
 
-### Phase 3: Define Relationships
+### Phase 3：定义 Relationship
 
-#### Step 1: Identify Connections
+#### Step 1：识别关联
 
-For each pair of entities:
+对每对实体：
 
-- Is there a business connection?
-- What is the nature of the relationship?
-- What is the cardinality?
+- 业务上是否存在关联？
+- 关系的本质是什么？
+- cardinality 是多少？
 
-#### Step 2: Document Relationships
+#### Step 2：记录关系
 
 ```markdown
 ## Relationships
@@ -214,9 +214,9 @@ For each pair of entities:
 | contains | Order | Product | M:N | Order contains products |
 ```
 
-#### Step 3: Resolve Many-to-Many
+#### Step 3：拆解多对多
 
-M:N relationships require associative entities:
+M:N 关系需要借助 associative entity：
 
 ```text
 Student ──M:N── Course
@@ -226,29 +226,29 @@ Becomes:
 Student ──1:M── Enrollment ──M:1── Course
 ```
 
-### Phase 4: Normalize (Logical Model)
+### Phase 4：规范化（逻辑模型）
 
-**Normal Forms:**
+**范式（Normal Form）：**
 
-| Form | Rule | Violation Example |
+| 范式 | 规则 | 违反示例 |
 |------|------|-------------------|
-| **1NF** | Atomic values, no repeating groups | Phone1, Phone2, Phone3 |
-| **2NF** | No partial dependencies | Non-key depends on part of composite key |
-| **3NF** | No transitive dependencies | Non-key depends on non-key |
-| **BCNF** | Every determinant is a candidate key | Overlap in candidate keys |
+| **1NF** | 原子值，无重复组 | Phone1、Phone2、Phone3 |
+| **2NF** | 无部分依赖 | 非键字段依赖于复合键的一部分 |
+| **3NF** | 无传递依赖 | 非键字段依赖于另一个非键字段 |
+| **BCNF** | 每个决定因子都是候选键 | 候选键之间存在重叠 |
 
-**When to Denormalize:**
+**何时反范式化：**
 
-- Read performance critical
-- Reporting/analytics use cases
-- Data warehouse design
-- Justified with clear trade-off analysis
+- 读性能极其关键
+- 报表/分析类场景
+- 数据仓库设计
+- 有清晰的 trade-off 分析支撑
 
-### Phase 5: Create Physical Model
+### Phase 5：构建物理模型
 
-#### Step 1: Map to Physical Types
+#### Step 1：映射到物理类型
 
-| Logical Type | Physical (PostgreSQL) | Physical (SQL Server) |
+| 逻辑类型 | 物理类型（PostgreSQL） | 物理类型（SQL Server） |
 |--------------|----------------------|----------------------|
 | String(50) | VARCHAR(50) | NVARCHAR(50) |
 | Integer | INTEGER | INT |
@@ -257,22 +257,22 @@ Student ──1:M── Enrollment ──M:1── Course
 | Timestamp | TIMESTAMP | DATETIME2 |
 | Boolean | BOOLEAN | BIT |
 
-#### Step 2: Define Constraints
+#### Step 2：定义约束
 
-- Primary key constraints
-- Foreign key constraints
-- Unique constraints
-- Check constraints
-- Default values
+- primary key 约束
+- foreign key 约束
+- unique 约束
+- check 约束
+- 默认值
 
-#### Step 3: Plan Indexes
+#### Step 3：规划索引
 
-- Primary key (automatic)
-- Foreign keys (for joins)
-- Frequently queried columns
-- Covering indexes for performance
+- primary key（自动）
+- foreign key（用于 join）
+- 高频查询的列
+- 覆盖索引以提升性能
 
-## Output Formats
+## 输出格式
 
 ### Mermaid ERD
 
@@ -313,7 +313,7 @@ erDiagram
     }
 ```
 
-### Data Dictionary
+### 数据字典
 
 ```markdown
 ## Data Dictionary
@@ -338,7 +338,7 @@ erDiagram
 - Name length minimum 2 characters
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 data_model:
@@ -407,7 +407,7 @@ data_model:
       purpose: "Date range queries"
 ```
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Data Model: E-Commerce
@@ -448,9 +448,9 @@ data_model:
 - Product price stored in Order Line for historical accuracy
 ```
 
-## Common Patterns
+## 常见模式
 
-### Inheritance (Subtype/Supertype)
+### 继承（Subtype/Supertype）
 
 ```mermaid
 erDiagram
@@ -476,7 +476,7 @@ erDiagram
     }
 ```
 
-### Self-Referencing
+### 自引用
 
 ```mermaid
 erDiagram
@@ -489,7 +489,7 @@ erDiagram
     }
 ```
 
-### Audit Trail
+### 审计轨迹（Audit Trail）
 
 ```mermaid
 erDiagram
@@ -511,27 +511,27 @@ erDiagram
     }
 ```
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **Requirements** - Data requirements source
-- **domain-storytelling** - Domain concepts
-- **process-modeling** - Data in processes
+- **Requirements** — 数据需求的来源
+- **domain-storytelling** — 领域概念
+- **process-modeling** — 流程中的数据
 
-### Downstream
+### 下游
 
-- **Database design** - Physical implementation
-- **API design** - Data contracts
-- **Integration** - Data exchange
+- **Database design** — 物理实现
+- **API design** — 数据契约
+- **Integration** — 数据交换
 
-## Related Skills
+## 相关 skill
 
-- `process-modeling` - Process context for data
-- `journey-mapping` - Customer data touchpoints
-- `decision-analysis` - Data-driven decisions
-- `capability-mapping` - Data supporting capabilities
+- `process-modeling` — 数据的流程上下文
+- `journey-mapping` — 客户数据触点
+- `decision-analysis` — 基于数据的决策
+- `capability-mapping` — 支撑能力的数据
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布

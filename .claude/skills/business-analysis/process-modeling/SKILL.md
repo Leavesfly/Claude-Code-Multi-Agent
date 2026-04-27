@@ -4,100 +4,100 @@ description: Process modeling using BPMN notation and flowchart patterns. Create
 allowed-tools: Read, Glob, Grep, Task, Skill
 ---
 
-# Process Modeling
+# Process Modeling（流程建模）
 
-## When to Use This Skill
+## 何时使用本 skill
 
-Use this skill when:
+在以下场景使用：
 
-- **Process Modeling tasks** - Working on process modeling using bpmn notation and flowchart patterns. creates process diagrams with activities, gateways, events, swimlanes, and decision points for workflow documentation
-- **Planning or design** - Need guidance on Process Modeling approaches
-- **Best practices** - Want to follow established patterns and standards
+- **流程建模任务** — 使用 BPMN 记号与流程图模式建模流程，产出含活动、gateway、event、swimlane、决策点的流程图，用于 workflow 文档
+- **规划或设计** — 需要流程建模方法的指引
+- **最佳实践** — 想遵循成熟的模式与标准
 
-## Overview
+## 概览
 
-Create and document business processes using BPMN (Business Process Model and Notation) and flowchart notation. Visualize activities, decisions, events, and participant interactions for process understanding and improvement.
+使用 BPMN（Business Process Model and Notation）与流程图记号创建并记录业务流程。把活动、决策、事件与参与者交互可视化，以便于流程理解与改进。
 
-## What is Process Modeling?
+## 什么是 Process Modeling？
 
-**Process modeling** creates visual representations of how work flows through an organization. It documents:
+**流程建模（process modeling）** 是对组织中工作如何流动的可视化表达。它记录了：
 
-- **Activities**: What work is performed
-- **Sequence**: Order of activities
-- **Decisions**: Choice points and conditions
-- **Participants**: Who performs each step
-- **Events**: What triggers and ends the process
+- **活动**：执行了什么工作
+- **顺序**：活动的先后
+- **决策**：抉择点与条件
+- **参与者**：每一步由谁执行
+- **事件**：什么触发，什么结束
 
-## BPMN Core Elements
+## BPMN 核心元素
 
-### Activities (Rectangles)
+### 活动（矩形）
 
-| Type | Symbol | Description |
+| 类型 | 符号 | 描述 |
 |------|--------|-------------|
-| **Task** | Rectangle | Atomic work unit |
-| **Sub-Process** | Rectangle with + | Contains child process |
-| **Call Activity** | Rectangle with thick border | Invokes reusable process |
+| **Task** | 矩形 | 原子性的工作单元 |
+| **Sub-Process** | 带 + 号的矩形 | 包含子流程 |
+| **Call Activity** | 粗边框矩形 | 调用可复用流程 |
 
-**Task Types:**
+**Task 类型：**
 
-| Type | Description |
+| 类型 | 描述 |
 |------|-------------|
-| User Task | Human interaction required |
-| Service Task | Automated system action |
-| Script Task | Script/code execution |
-| Business Rule Task | Decision table evaluation |
-| Send Task | Message sent |
-| Receive Task | Message received |
-| Manual Task | Physical work without system |
+| User Task | 需要人工交互 |
+| Service Task | 系统自动执行 |
+| Script Task | 脚本/代码执行 |
+| Business Rule Task | 决策表求值 |
+| Send Task | 发送消息 |
+| Receive Task | 接收消息 |
+| Manual Task | 无系统参与的物理操作 |
 
-### Events (Circles)
+### 事件（圆形）
 
-| Position | Symbol | Description |
+| 位置 | 符号 | 描述 |
 |----------|--------|-------------|
-| **Start** | Thin circle | Process trigger |
-| **Intermediate** | Double circle | Mid-process event |
-| **End** | Thick circle | Process termination |
+| **Start** | 细圆 | 流程触发 |
+| **Intermediate** | 双层圆 | 流程中途事件 |
+| **End** | 粗圆 | 流程终止 |
 
-**Event Types:**
+**事件类型：**
 
-| Type | Trigger |
+| 类型 | 触发方式 |
 |------|---------|
-| None | Unspecified start/end |
-| Message | Message received/sent |
-| Timer | Time-based trigger |
-| Error | Error condition |
-| Signal | Broadcast signal |
-| Terminate | Process termination |
+| None | 未指定的 start/end |
+| Message | 收到/发出消息 |
+| Timer | 基于时间的触发 |
+| Error | 错误条件 |
+| Signal | 广播信号 |
+| Terminate | 终止流程 |
 
-### Gateways (Diamonds)
+### Gateway（菱形）
 
-| Type | Symbol | Description |
+| 类型 | 符号 | 描述 |
 |------|--------|-------------|
-| **Exclusive (XOR)** | Diamond with X | One path based on condition |
-| **Parallel (AND)** | Diamond with + | All paths execute |
-| **Inclusive (OR)** | Diamond with O | One or more paths |
-| **Event-Based** | Diamond with circle | Wait for events |
+| **Exclusive (XOR)** | 带 X 的菱形 | 根据条件选一条路径 |
+| **Parallel (AND)** | 带 + 的菱形 | 所有路径都执行 |
+| **Inclusive (OR)** | 带 O 的菱形 | 一条或多条路径 |
+| **Event-Based** | 带圆的菱形 | 等待事件触发 |
 
-### Connectors
+### 连接线
 
-| Type | Symbol | Description |
+| 类型 | 符号 | 描述 |
 |------|--------|-------------|
-| **Sequence Flow** | Solid arrow | Order of activities |
-| **Message Flow** | Dashed arrow | Messages between pools |
-| **Association** | Dotted line | Artifacts to elements |
+| **Sequence Flow** | 实线箭头 | 活动的先后顺序 |
+| **Message Flow** | 虚线箭头 | pool 之间的消息 |
+| **Association** | 点线 | 把附属物关联到元素 |
 
-### Swimlanes
+### Swimlane（泳道）
 
-| Type | Description |
+| 类型 | 描述 |
 |------|-------------|
-| **Pool** | Represents a participant (organization/system) |
-| **Lane** | Subdivisions within a pool (roles/departments) |
+| **Pool** | 代表一个参与者（组织/系统） |
+| **Lane** | pool 内的子划分（角色/部门） |
 
-## Workflow
+## 工作流
 
-### Phase 1: Define Scope
+### Phase 1：定义范围
 
-#### Step 1: Identify Process Boundaries
+#### 步骤 1：确定流程边界
 
 ```markdown
 ## Process Definition
@@ -116,56 +116,56 @@ Create and document business processes using BPMN (Business Process Model and No
 | [Org/System] | [Role 1], [Role 2] |
 ```
 
-#### Step 2: Choose Model Type
+#### 步骤 2：选择模型类型
 
-| Type | When to Use |
+| 类型 | 何时使用 |
 |------|-------------|
-| **As-Is** | Documenting current state |
-| **To-Be** | Designing future state |
-| **High-Level** | Overview, communication |
-| **Detailed** | Implementation, automation |
+| **As-Is（现状）** | 记录当前状态 |
+| **To-Be（未来）** | 设计未来状态 |
+| **High-Level（高层次）** | 概览、用于沟通 |
+| **Detailed（详细）** | 用于实现、自动化 |
 
-### Phase 2: Model the Process
+### Phase 2：建模流程
 
-#### Step 1: Identify Main Path (Happy Path)
+#### 步骤 1：梳理主路径（Happy Path）
 
-1. Start event (trigger)
-2. Main sequence of activities
-3. End event (completion)
+1. Start 事件（触发）
+2. 主干活动序列
+3. End 事件（完成）
 
-#### Step 2: Add Decision Points
+#### 步骤 2：加入决策点
 
-For each decision:
+对每个决策：
 
-- Type of gateway (XOR/AND/OR)
-- Conditions for each path
-- Reconvergence point
+- 选择 gateway 类型（XOR/AND/OR）
+- 每条路径的条件
+- 汇合点
 
-#### Step 3: Add Exception Paths
+#### 步骤 3：加入异常路径
 
-- Error handling
-- Timeout scenarios
-- Escalation paths
+- 错误处理
+- 超时场景
+- 升级路径
 
-#### Step 4: Add Participants
+#### 步骤 4：加入参与者
 
-- Assign activities to lanes
-- Model inter-participant communication
-- Add message flows between pools
+- 把活动指派到 lane
+- 建模参与者之间的沟通
+- 在 pool 之间加入 message flow
 
-### Phase 3: Validate and Document
+### Phase 3：校验与记录
 
-#### Step 1: Validate Completeness
+#### 步骤 1：校验完整性
 
-| Check | Question |
+| 检查项 | 问题 |
 |-------|----------|
-| All paths connected | Do all activities have incoming and outgoing flows? |
-| No dead ends | Do all paths reach an end event? |
-| Gateways balanced | Are split gateways matched with joins? |
-| Roles assigned | Is every activity in a lane? |
-| Triggers defined | Does every start event have a clear trigger? |
+| 所有路径都已连接 | 每个活动是否都有入向与出向？ |
+| 无死端 | 所有路径是否都能到达一个 end 事件？ |
+| gateway 成对 | 分裂的 gateway 是否与汇合的匹配？ |
+| 角色已指派 | 每个活动是否都在某个 lane 里？ |
+| 触发器已定义 | 每个 start 事件是否都有明确触发？ |
 
-#### Step 2: Add Documentation
+#### 步骤 2：补充文档
 
 ```markdown
 ## Process: [Name]
@@ -199,9 +199,9 @@ For each decision:
 | [Error] | [How handled] |
 ```
 
-## Output Formats
+## 输出格式
 
-### Mermaid Flowchart (BPMN-Style)
+### Mermaid 流程图（BPMN 风格）
 
 ```mermaid
 flowchart TD
@@ -223,7 +223,7 @@ flowchart TD
     Task3 --> End2
 ```
 
-### Swimlane Diagram
+### 泳道图
 
 ```mermaid
 flowchart TD
@@ -252,7 +252,7 @@ flowchart TD
     F --> G
 ```
 
-### Narrative Summary
+### 叙述式摘要
 
 ```markdown
 ## Process: Order Fulfillment
@@ -292,7 +292,7 @@ This process handles customer orders from receipt to delivery.
 3. Real-time tracking integration
 ```
 
-### Structured Data (YAML)
+### 结构化数据（YAML）
 
 ```yaml
 process_model:
@@ -379,20 +379,20 @@ process_model:
       target: 70
 ```
 
-## Common Process Patterns
+## 常见流程模式
 
-### Sequential Process
+### 顺序流程
 
-Activities in strict order, one after another.
+严格按顺序一个接一个的活动。
 
 ```mermaid
 flowchart LR
     A[Step 1] --> B[Step 2] --> C[Step 3] --> D[Step 4]
 ```
 
-### Parallel Split and Join
+### 并行分裂与汇合
 
-Activities that can occur simultaneously.
+可以同时发生的活动。
 
 ```mermaid
 flowchart TD
@@ -406,9 +406,9 @@ flowchart TD
     F --> G[End]
 ```
 
-### Exclusive Decision
+### 排他性决策
 
-Only one path taken based on condition.
+根据条件只走一条路径。
 
 ```mermaid
 flowchart TD
@@ -419,9 +419,9 @@ flowchart TD
     D --> E
 ```
 
-### Loop/Iteration
+### 循环/迭代
 
-Repeat activities until condition met.
+反复执行直到满足条件。
 
 ```mermaid
 flowchart TD
@@ -431,9 +431,9 @@ flowchart TD
     C -->|Yes| D[End]
 ```
 
-### Exception Handling
+### 异常处理
 
-Handle errors and exceptions.
+处理错误与异常。
 
 ```mermaid
 flowchart TD
@@ -445,40 +445,40 @@ flowchart TD
     E -->|No| F[Escalate]
 ```
 
-## Best Practices
+## 最佳实践
 
-| Practice | Description |
+| 实践 | 描述 |
 |----------|-------------|
-| Start simple | Begin with happy path, add complexity |
-| One start, one end | Per pool, ideally |
-| Name activities | Use verb-noun format (e.g., "Review Order") |
-| Label gateways | Show the decision question |
-| Label conditions | Describe each outgoing path |
-| Balance gateways | Split and join with matching types |
-| Avoid crossing lines | Rearrange for clarity |
-| Document exceptions | Show error handling paths |
+| 从简单开始 | 先画 happy path，再加复杂度 |
+| 一进一出 | 每个 pool 最好只有一个 start 和一个 end |
+| 活动命名 | 使用"动词+名词"格式（如 "Review Order"） |
+| 标注 gateway | 显式写出决策问题 |
+| 标注条件 | 给每条出向路径标注条件 |
+| gateway 成对 | split 和 join 使用匹配的类型 |
+| 避免线条交叉 | 为清晰度重新布局 |
+| 记录异常 | 画出错误处理路径 |
 
-## Integration
+## 集成
 
-### Upstream
+### 上游
 
-- **stakeholder-analysis** - Process participants
-- **domain-storytelling** - Current process discovery
-- **capability-mapping** - Capability context
+- **stakeholder-analysis** — 流程参与者
+- **domain-storytelling** — 现状流程发现
+- **capability-mapping** — 能力上下文
 
-### Downstream
+### 下游
 
-- **value-stream-mapping** - Value flow analysis
-- **Requirements** - Process requirements
-- **System design** - Automation opportunities
+- **value-stream-mapping** — 价值流分析
+- **Requirements** — 流程需求
+- **System design** — 自动化机会
 
-## Related Skills
+## 相关 skill
 
-- `value-stream-mapping` - Lean perspective on process flow
-- `data-modeling` - Data entities in processes
-- `journey-mapping` - Customer experience perspective
-- `capability-mapping` - Process-capability alignment
+- `value-stream-mapping` — 从 Lean 视角看流程
+- `data-modeling` — 流程中的数据实体
+- `journey-mapping` — 客户体验视角
+- `capability-mapping` — 流程与能力对齐
 
-## Version History
+## 版本历史
 
-- **v1.0.0** (2025-12-26): Initial release
+- **v1.0.0**（2025-12-26）：首次发布
